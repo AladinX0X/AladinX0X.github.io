@@ -1,0 +1,25 @@
+---
+// Kontakt-Aufruf am Seitenende: Titel, Satz, Knöpfe für WhatsApp, Anruf und E-Mail.
+import Abschnittskopf from './Abschnittskopf.astro';
+import Icon from './Icon.astro';
+import kontakt from '../data/kontakt.json';
+import { t, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; nummer?: number; hell?: boolean }
+const { lang, nummer, hell = true } = Astro.props;
+const tx = t(lang);
+---
+<section class={`abschnitt ${hell ? 'hell' : 'dunkel'} kontakt-aufruf`} aria-labelledby="kontakt-aufruf-titel">
+  <div class="huelle">
+    <Abschnittskopf titel={tx.start.kontaktTitel} nummer={nummer} id="kontakt-aufruf-titel" />
+    <p class="einleitung lesetext">{tx.start.kontaktText}</p>
+    <div class="knopf-reihe">
+      <a class="knopf knopf-voll" href={kontakt.whatsapp} rel="noopener"><Icon name="whatsapp" />{tx.kontakt.buttonWhatsapp}</a>
+      <a class="knopf knopf-linie" href={kontakt.telefonLink}><Icon name="telefon" />{tx.kontakt.buttonAnruf}</a>
+      <a class="knopf knopf-linie" href={`mailto:${kontakt.email}`}><Icon name="email" />{tx.kontakt.buttonEmail}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .knopf-reihe { margin-block-start: var(--abstand-6); }
+</style>

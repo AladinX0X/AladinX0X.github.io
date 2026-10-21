@@ -1,0 +1,113 @@
+---
+import Basis from '../../layouts/Basis.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import Abschnittskopf from '../../components/Abschnittskopf.astro';
+import Raute from '../../components/Raute.astro';
+import Bild from '../../components/Bild.astro';
+import PortfolioKnopf from '../../components/PortfolioKnopf.astro';
+import Kontaktaufruf from '../../components/Kontaktaufruf.astro';
+import site from '../../data/site.json';
+import { t, pfad, fuelle, sprachPfade, type Sprache } from '../../i18n/utils';
+
+export const getStaticPaths = sprachPfade;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const u = tx.ueber;
+---
+<Basis lang={lang} titel={tx.meta.seiten.ueber.titel} beschreibung={tx.meta.seiten.ueber.beschreibung} seite="studio">
+  <Seitenkopf titel={u.titel} unterzeile={u.unterzeile} bild="allgemein-schlafzimmer-klassisch-sepia" bildAlt={tx.alt['allgemein-schlafzimmer-klassisch-sepia']} bildFormat="600 / 664" />
+
+  <section class="abschnitt hell" aria-labelledby="verbunden-titel">
+    <div class="huelle">
+      <p class="einleitung lesetext intro einblenden">{u.intro}</p>
+      <Abschnittskopf titel={u.verbundenTitel} nummer={1} id="verbunden-titel" />
+      <div class="lesetext einblenden">
+        {u.verbundenText.map((absatz) => <p>{absatz}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="kette-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={u.ketteTitel} nummer={2} id="kette-titel" />
+      <ol class="kette">
+        {u.kette.map((glied, i) => (
+          <li class="einblenden">
+            <span class="knoten" aria-hidden="true"><Raute /></span>
+            <span class="glied-nr akzent">{String(i + 1).padStart(2, '0')}</span>
+            <span class="glied">{glied}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="einleitung lesetext kette-satz">{u.ketteSatz}</p>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="disziplinen-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={u.disziplinenTitel} nummer={3} id="disziplinen-titel" />
+      <ul class="disziplinen">
+        {u.disziplinen.map((d) => (
+          <li class="disziplin einblenden">
+            <h3>{d.name}</h3>
+            <ul class="begriffe">
+              {d.begriffe.map((b) => <li>{b}</li>)}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="gruendung-titel">
+    <div class="huelle zwei">
+      <div class="einblenden">
+        <Abschnittskopf titel={u.gruendungTitel} nummer={4} id="gruendung-titel" />
+        <p class="einleitung lesetext">{fuelle(u.gruendungText, { jahr: site.gegruendet })}</p>
+        <p class="lesetext">{u.ingenieureText}</p>
+        <p class="mehr"><a class="textlink" href={pfad(lang, 'approach')}>{tx.start.arbeitsweiseLink}</a></p>
+      </div>
+      <div class="portfolio einblenden">
+        <h2 class="portfolio-titel">{tx.portfolio.titel}</h2>
+        <p>{tx.portfolio.text}</p>
+        <PortfolioKnopf lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <Kontaktaufruf lang={lang} nummer={5} />
+</Basis>
+
+<style>
+  .intro { margin-block-end: var(--abstand-8); font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.6rem); line-height: 1.75; max-inline-size: 48rem; }
+  .kette {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+    gap: var(--abstand-6) 0;
+  }
+  .kette li { position: relative; display: grid; gap: var(--abstand-2); padding-block-start: var(--abstand-6); }
+  .kette li::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.55rem;
+    inset-inline: 1.25rem 0.5rem;
+    border-block-start: 2px dashed var(--farbe-terrakotta);
+    opacity: 0.7;
+  }
+  .kette li:last-child::before { display: none; }
+  .knoten { position: absolute; inset-block-start: 0; inset-inline-start: 0; line-height: 0; }
+  .knoten :global(.raute) { inline-size: 0.75rem; }
+  .glied-nr { font-size: var(--text-klein); font-weight: var(--gewicht-mittel); }
+  .glied { font-size: var(--h3); font-weight: var(--gewicht-titel); }
+  .kette-satz { margin-block-start: var(--abstand-7); }
+  .disziplinen { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+  .disziplin { padding-block-start: var(--abstand-5); border-block-start: 2px solid var(--farbe-terrakotta); display: grid; gap: var(--abstand-4); align-content: start; }
+  .disziplin h3 { font-size: var(--h3); }
+  .begriffe { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-2); }
+  .begriffe li { padding: var(--abstand-1) var(--abstand-4); border: 1px solid var(--linie-auf-hell); border-radius: var(--radius-knopf); font-size: var(--text-klein); }
+  .zwei { display: grid; gap: var(--abstand-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+  .mehr { margin-block-start: var(--abstand-6); }
+  .portfolio { padding: var(--abstand-6); border: 1px solid var(--linie-auf-dunkel); border-radius: var(--radius-bild); display: grid; gap: var(--abstand-4); justify-items: start; }
+  .portfolio-titel { font-size: var(--h3); color: var(--farbe-terrakotta-hell); }
+</style>

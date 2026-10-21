@@ -1,0 +1,4 @@
+{
+  "_hinweis": "Einstellungen der Präsentationsseite. projekte = 4 ausgewählte Projekt-Slugs aus ../src/data/projekte.json. Alle Zahlen werden aus den Projektdaten berechnet.",
+  "projekte": ["mosque-square", "villa-homs", "villa-interior-uae", "ayloul-brand-identity"]
+}

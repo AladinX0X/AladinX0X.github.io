@@ -1,0 +1,10 @@
+{
+  "_hinweis": "Zentrale Einstellungen. heroVollbild: false = geteilter Hero (Bild gerahmt in echter Größe), true = Vollbild-Hero. Erst auf true stellen, wenn ein Original-Rendering (mind. 1920 px breit) in quelle/originale/ liegt und npm run bilder gelaufen ist.",
+  "heroVollbild": false,
+  "heroBild": "mosque-square-galerie-3-nacht-wandbild",
+  "ausgewaehlteProjekte": ["mosque-square", "villa-homs", "villa-interior-uae"],
+  "gegruendet": 2026,
+  "portfolio": "/downloads/AYLOUL-Portfolio.pdf",
+  "sprachen": ["ar", "en"],
+  "standardSprache": "ar"
+}

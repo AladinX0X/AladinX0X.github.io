@@ -1,0 +1,37 @@
+---
+import Bild from './Bild.astro';
+import { type Projekt, projektText } from '../data/daten';
+import { t, pfad, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; projekt: Projekt; ebene?: 'h2' | 'h3'; laden?: 'lazy' | 'eager' }
+const { lang, projekt, ebene = 'h3', laden = 'lazy' } = Astro.props;
+const tx = t(lang);
+const pt = projektText(projekt, lang);
+const Tag = ebene;
+---
+<article class="karte einblenden" data-projekt data-bereich={projekt.bereich}>
+  <div class="bildrahmen karte-bild">
+    <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 30vw, (min-width: 40rem) 45vw, 92vw" laden={laden} />
+  </div>
+  <p class="bereich">{tx.projekte.filter[projekt.bereich]}{projekt.auszug && <span class="auszug">{tx.projekte.auszug}</span>}</p>
+  <Tag class="titel"><a href={pfad(lang, `projects/${projekt.slug}`)}>{pt.titel}</a></Tag>
+  <p class="kurz">{pt.kurz}</p>
+</article>
+<style>
+  .karte[hidden] { display: none; }
+  .karte { position: relative; display: grid; gap: var(--abstand-3); align-content: start; }
+  .karte-bild { aspect-ratio: 4 / 3; margin-block-end: var(--abstand-2); }
+  .karte-bild :global(img) { transition: scale 500ms var(--kurve); }
+  .karte:hover .karte-bild :global(img) { scale: 1.03; }
+  .bereich { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+  :global(.dunkel) .bereich { color: var(--farbe-terrakotta-hell); }
+  .titel { font-size: var(--h3); }
+  .titel a { text-decoration: none; }
+  .titel a::after { content: ''; position: absolute; inset: 0; }
+  .karte:hover .titel a { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  .karte:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 6px; border-radius: 6px; }
+  .karte a:focus-visible { outline: none; }
+  .kurz { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  @media (prefers-reduced-motion: reduce) { .karte:hover .karte-bild :global(img) { scale: none; } }
+  .auszug { margin-inline-start: 0.6em; padding-inline-start: 0.6em; border-inline-start: 1px solid currentColor; }
+</style>

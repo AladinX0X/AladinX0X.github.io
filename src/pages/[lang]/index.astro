@@ -1,0 +1,99 @@
+---
+import Basis from '../../layouts/Basis.astro';
+import Hero from '../../components/Hero.astro';
+import Abschnittskopf from '../../components/Abschnittskopf.astro';
+import Kennzahlen from '../../components/Kennzahlen.astro';
+import LeistungenListe from '../../components/LeistungenListe.astro';
+import Ablauf from '../../components/Ablauf.astro';
+import Projektkarte from '../../components/Projektkarte.astro';
+import PortfolioKnopf from '../../components/PortfolioKnopf.astro';
+import Bild from '../../components/Bild.astro';
+import Raute from '../../components/Raute.astro';
+import Kontaktaufruf from '../../components/Kontaktaufruf.astro';
+import site from '../../data/site.json';
+import { projektNach } from '../../data/daten';
+import { t, pfad, sprachPfade, type Sprache } from '../../i18n/utils';
+
+export const getStaticPaths = sprachPfade;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const auswahl = site.ausgewaehlteProjekte.map(projektNach).filter((p) => p !== undefined);
+---
+<Basis lang={lang} titel={tx.meta.seiten.start.titel} beschreibung={tx.meta.seiten.start.beschreibung} seite="start" ohneSuffix>
+  <Hero lang={lang} />
+
+  <section class="abschnitt hell" aria-labelledby="studio-titel">
+    <div class="huelle studio">
+      <div>
+        <Abschnittskopf titel={tx.start.studioTitel} nummer={1} id="studio-titel" />
+        <p class="einleitung lesetext einblenden">{tx.start.studioText}</p>
+        <p class="mehr einblenden"><a class="textlink" href={pfad(lang, 'about')}>{tx.start.studioLink}</a></p>
+      </div>
+      <div class="bildrahmen studio-bild einblenden">
+        <Bild id="allgemein-studio-innenraum-sepia" alt={tx.alt['allgemein-studio-innenraum-sepia']} sizes="(min-width: 62rem) 290px, 60vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="zahlen-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.start.zahlenTitel} nummer={2} id="zahlen-titel" />
+      <Kennzahlen lang={lang} />
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="leistungen-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.start.leistungenTitel} nummer={3} id="leistungen-titel" unterzeile={tx.start.leistungenIntro} />
+      <LeistungenListe lang={lang} />
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'services')}>{tx.start.leistungenLink}</a></p>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="arbeitsweise-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.start.arbeitsweiseTitel} nummer={4} id="arbeitsweise-titel" unterzeile={tx.start.arbeitsweiseIntro} />
+      <Ablauf lang={lang} variante="kurz" />
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'approach')}>{tx.start.arbeitsweiseLink}</a></p>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="projekte-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.start.projekteTitel} nummer={5} id="projekte-titel" />
+      <div class="projekt-raster">
+        {auswahl.map((p) => <Projektkarte lang={lang} projekt={p} />)}
+      </div>
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}</a></p>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="ingenieure-titel">
+    <div class="huelle zwei">
+      <div class="einblenden">
+        <h2 id="ingenieure-titel" class="gross-satz"><Raute />{tx.start.ingenieureTitel}</h2>
+        <p class="lesetext">{tx.start.ingenieureText}</p>
+      </div>
+      <div class="portfolio einblenden">
+        <h2 class="portfolio-titel">{tx.portfolio.titel}</h2>
+        <p>{tx.portfolio.text}</p>
+        <PortfolioKnopf lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <Kontaktaufruf lang={lang} nummer={6} />
+</Basis>
+
+<style>
+  .studio { display: grid; gap: var(--abstand-7); align-items: center; }
+  @media (min-width: 62rem) { .studio { grid-template-columns: 1fr auto; } }
+  .studio-bild { inline-size: min(100%, 290px); justify-self: center; aspect-ratio: 290 / 440; }
+  .mehr { margin-block-start: var(--abstand-6); }
+  .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+  .zwei { display: grid; gap: var(--abstand-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+  .gross-satz { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); margin-block-end: var(--abstand-5); }
+  .gross-satz :global(.raute) { inline-size: 0.6em; }
+  .portfolio { padding: var(--abstand-6); border: 1px solid var(--linie-auf-dunkel); border-radius: var(--radius-bild); display: grid; gap: var(--abstand-4); justify-items: start; }
+  .portfolio-titel { font-size: var(--h3); color: var(--farbe-terrakotta-hell); }
+</style>

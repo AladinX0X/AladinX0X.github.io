@@ -1,0 +1,25 @@
+ORIGINAL-BILDER (Renderings, Fotos, Plaene)
+============================================
+
+Hier die Original-Dateien ablegen. Sie ersetzen automatisch die Bilder,
+die bisher aus dem Portfolio-PDF ausgeschnitten wurden.
+
+So geht es:
+1. Die Datei genau so benennen wie das Bild in BILDER.md bzw. in
+   src/data/bilder.json, zum Beispiel:
+     mosque-square-galerie-3-nacht-wandbild.jpg
+     villa-homs-tag-front.png
+   Erlaubte Endungen: .jpg .jpeg .png .webp .tif .tiff
+   Nur Kleinbuchstaben, Ziffern und Bindestriche, keine Leerzeichen.
+2. Im Projektordner im Terminal ausfuehren:
+     npm run bilder
+   Das Skript verkleinert die Bilder fuer das Web (375/768/1440/1920 px,
+   WebP) und nimmt automatisch das Original statt des PDF-Auszugs.
+3. Danach: npm run build (oder Vorschau-starten.command doppelklicken).
+
+Hinweise:
+- Je groesser das Original, desto besser (ideal ab 2400 px Breite).
+  Bilder werden nie hochskaliert.
+- Ist das Moscheeplatz-Nachtbild als Original da, kann der Hero als
+  Vollbild gezeigt werden: in src/data/site.json "heroVollbild": true setzen.
+- Plaene am besten als PNG in hoher Aufloesung.

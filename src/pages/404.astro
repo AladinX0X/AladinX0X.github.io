@@ -1,0 +1,45 @@
+---
+// 404-Seite in beiden Sprachen: Arabisch oben (Standard), Englisch darunter (sobald en.json da ist).
+import Basis from '../layouts/Basis.astro';
+import Raute from '../components/Raute.astro';
+import { t, pfad, sprachen, standardSprache, richtung } from '../i18n/utils';
+
+const tx = t(standardSprache);
+const weitere = sprachen.filter((s) => s !== standardSprache);
+---
+<Basis lang={standardSprache} titel={tx.meta.seiten.fehler404.titel} beschreibung={tx.meta.seiten.fehler404.beschreibung} seite="" ohneAlternativen>
+  <section class="abschnitt dunkel fehler" aria-labelledby="fehler-titel">
+    <div class="huelle">
+      <p class="code" aria-hidden="true">404</p>
+      <h1 id="fehler-titel"><Raute />{tx.fehler404.titel}</h1>
+      <p class="einleitung">{tx.fehler404.text}</p>
+      <div class="knopf-reihe">
+        <a class="knopf knopf-voll" href={pfad(standardSprache)}>{tx.fehler404.start}</a>
+        <a class="knopf knopf-linie" href={pfad(standardSprache, 'projects')}>{tx.fehler404.projekte}</a>
+      </div>
+      {weitere.map((s) => {
+        const w = t(s);
+        return (
+          <div class="andere" lang={s} dir={richtung(s)}>
+            <p class="andere-titel">{w.fehler404.titel}</p>
+            <p>{w.fehler404.text}</p>
+            <div class="knopf-reihe">
+              <a class="knopf knopf-linie" href={pfad(s)}>{w.fehler404.start}</a>
+              <a class="knopf knopf-linie" href={pfad(s, 'projects')}>{w.fehler404.projekte}</a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+</Basis>
+
+<style>
+  .fehler { min-block-size: 70vh; display: grid; align-items: center; }
+  .code { font-size: clamp(5rem, 3rem + 10vw, 10rem); font-weight: var(--gewicht-stark); line-height: 1; color: var(--farbe-terrakotta); }
+  h1 { display: flex; gap: var(--abstand-4); align-items: baseline; margin-block: var(--abstand-5) var(--abstand-4); color: var(--farbe-elfenbein); }
+  h1 :global(.raute) { inline-size: 0.45em; }
+  .knopf-reihe { margin-block-start: var(--abstand-6); }
+  .andere { margin-block-start: var(--abstand-8); padding-block-start: var(--abstand-6); border-block-start: 1px solid var(--linie-auf-dunkel); }
+  .andere-titel { font-size: var(--h3); font-weight: var(--gewicht-titel); margin-block-end: var(--abstand-2); }
+</style>

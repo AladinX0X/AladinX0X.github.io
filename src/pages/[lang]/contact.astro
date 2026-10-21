@@ -1,0 +1,89 @@
+---
+import Basis from '../../layouts/Basis.astro';
+import Seitenkopf from '../../components/Seitenkopf.astro';
+import Abschnittskopf from '../../components/Abschnittskopf.astro';
+import Icon from '../../components/Icon.astro';
+import HomsKarte from '../../components/HomsKarte.astro';
+import Kontaktformular from '../../components/Kontaktformular.astro';
+import kontakt from '../../data/kontakt.json';
+import { t, sprachPfade, type Sprache } from '../../i18n/utils';
+
+export const getStaticPaths = sprachPfade;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const k = tx.kontakt;
+const daten = [
+  { icon: 'telefon', titel: k.telefon, wert: kontakt.telefonAnzeige, href: kontakt.telefonLink, ltr: true },
+  { icon: 'whatsapp', titel: 'WhatsApp', wert: kontakt.telefonAnzeige, href: kontakt.whatsapp, ltr: true },
+  { icon: 'email', titel: k.email, wert: kontakt.email, href: `mailto:${kontakt.email}`, ltr: true },
+  { icon: 'instagram', titel: k.instagram, wert: kontakt.instagramName, href: kontakt.instagram, ltr: true },
+  { icon: 'facebook', titel: k.facebook, wert: null, href: kontakt.facebook, ltr: false },
+];
+---
+<Basis lang={lang} titel={tx.meta.seiten.kontakt.titel} beschreibung={tx.meta.seiten.kontakt.beschreibung} seite="kontakt">
+  <Seitenkopf titel={k.titel} unterzeile={k.unterzeile}>
+    <div class="knopf-reihe gross-knoepfe">
+      <a class="knopf knopf-voll" href={kontakt.whatsapp} rel="noopener"><Icon name="whatsapp" />{k.buttonWhatsapp}</a>
+      <a class="knopf knopf-linie" href={kontakt.telefonLink}><Icon name="telefon" />{k.buttonAnruf}</a>
+      <a class="knopf knopf-linie" href={`mailto:${kontakt.email}`}><Icon name="email" />{k.buttonEmail}</a>
+    </div>
+  </Seitenkopf>
+
+  <section class="abschnitt hell" aria-labelledby="daten-titel">
+    <div class="huelle zwei">
+      <div>
+        <Abschnittskopf titel={k.datenTitel} nummer={1} id="daten-titel" />
+        <ul class="daten">
+          {daten.map((d) => (
+            <li>
+              <span class="icon-rund"><Icon name={d.icon} /></span>
+              <span class="daten-text">
+                <span class="daten-titel">{d.titel}</span>
+                <a href={d.href} rel={d.href.startsWith('http') ? 'noopener' : undefined}>
+                  {d.wert ? (d.ltr ? <bdi dir="ltr">{d.wert}</bdi> : d.wert) : d.titel}
+                </a>
+              </span>
+            </li>
+          ))}
+          <li>
+            <span class="icon-rund"><Icon name="ort" /></span>
+            <span class="daten-text">
+              <span class="daten-titel">{k.adresse}</span>
+              <address>{k.adresseZeilen.map((z) => <span>{z}</span>)}</address>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <Abschnittskopf titel={k.karteTitel} nummer={2} id="karte-ueberschrift" />
+        <HomsKarte lang={lang} />
+        <p class="karte-link"><a class="textlink" href={kontakt.googleMaps} rel="noopener">{k.karteLink}</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt hell formular-abschnitt" aria-labelledby="formular-titel">
+    <div class="huelle formular-huelle">
+      <Abschnittskopf titel={k.formularTitel} nummer={3} id="formular-titel" />
+      <Kontaktformular lang={lang} />
+    </div>
+  </section>
+</Basis>
+
+<style>
+  .gross-knoepfe { margin-block-start: var(--abstand-4); }
+  .gross-knoepfe .knopf { min-block-size: 3.5rem; font-size: var(--text); padding-inline: var(--abstand-7); }
+  .zwei { display: grid; gap: var(--abstand-8); grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); align-items: start; }
+  .daten { list-style: none; display: grid; gap: var(--abstand-5); }
+  .daten li { display: flex; gap: var(--abstand-4); align-items: center; }
+  .icon-rund { display: grid; place-items: center; inline-size: 3rem; block-size: 3rem; flex: none; border-radius: 50%; background: var(--farbe-terrakotta-dunkel); color: var(--farbe-weiss); }
+  .icon-rund :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
+  .daten-text { display: grid; }
+  .daten-titel { font-size: var(--text-klein); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-dunkel); }
+  .daten a { text-decoration: none; font-weight: var(--gewicht-mittel); }
+  .daten a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+  address { font-style: normal; display: grid; }
+  .karte-link { margin-block-start: var(--abstand-4); }
+  .formular-abschnitt { border-block-start: 1px solid var(--linie-auf-hell); }
+  .formular-huelle { max-inline-size: calc(46rem + 2 * var(--rand)); }
+</style>

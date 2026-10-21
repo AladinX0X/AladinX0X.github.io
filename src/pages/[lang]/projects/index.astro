@@ -1,0 +1,90 @@
+---
+import Basis from '../../../layouts/Basis.astro';
+import Seitenkopf from '../../../components/Seitenkopf.astro';
+import Projektkarte from '../../../components/Projektkarte.astro';
+import PortfolioKnopf from '../../../components/PortfolioKnopf.astro';
+import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
+import { projekte, bereiche } from '../../../data/daten';
+import { t, fuelle, sprachPfade, type Sprache } from '../../../i18n/utils';
+
+export const getStaticPaths = sprachPfade;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const p = tx.projekte;
+const vorhanden = bereiche.filter((b) => projekte.some((x) => x.bereich === b));
+const filter = [{ id: 'alle', name: p.filter.alle }, ...vorhanden.map((b) => ({ id: b, name: p.filter[b] }))];
+---
+<Basis lang={lang} titel={tx.meta.seiten.projekte.titel} beschreibung={tx.meta.seiten.projekte.beschreibung} seite="projekte">
+  <Seitenkopf titel={p.titel} unterzeile={p.unterzeile}>
+    <p class="intro">{p.intro}</p>
+  </Seitenkopf>
+
+  <section class="abschnitt hell" aria-labelledby="liste-titel">
+    <div class="huelle">
+      <h2 id="liste-titel" class="unsichtbar">{p.titel}</h2>
+      <div class="filterleiste" role="group" aria-label={p.filterLabel} data-filterleiste>
+        {filter.map((f, i) => (
+          <button type="button" class="filter" data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.name}</button>
+        ))}
+      </div>
+      <p class="anzahl" aria-live="polite" data-filter-anzahl data-vorlage={p.anzahl}>{fuelle(p.anzahl, { n: projekte.length })}</p>
+      <div class="projekt-raster" data-projekt-liste>
+        {projekte.map((x, i) => <Projektkarte lang={lang} projekt={x} ebene="h3" laden={i < 3 ? 'eager' : 'lazy'} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="portfolio-titel">
+    <div class="huelle portfolio">
+      <h2 id="portfolio-titel" class="portfolio-titel">{tx.portfolio.titel}</h2>
+      <p class="lesetext">{tx.portfolio.text}</p>
+      <PortfolioKnopf lang={lang} />
+    </div>
+  </section>
+
+  <Kontaktaufruf lang={lang} />
+</Basis>
+
+<script>
+  // Filter nach Bereich: Knöpfe mit aria-pressed, Ergebnis per aria-live angesagt.
+  const leiste = document.querySelector<HTMLElement>('[data-filterleiste]');
+  const karten = [...document.querySelectorAll<HTMLElement>('[data-projekt]')];
+  const anzahl = document.querySelector<HTMLElement>('[data-filter-anzahl]');
+  if (leiste && anzahl) {
+    const knoepfe = [...leiste.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const waehle = (id: string) => {
+      let n = 0;
+      for (const k of karten) {
+        const zeigen = id === 'alle' || k.dataset.bereich === id;
+        k.hidden = !zeigen;
+        if (zeigen) { n++; k.classList.add('sichtbar'); }
+      }
+      for (const b of knoepfe) b.setAttribute('aria-pressed', String(b.dataset.filter === id));
+      anzahl.textContent = (anzahl.dataset.vorlage ?? '{n}').replace('{n}', String(n));
+    };
+    for (const b of knoepfe) b.addEventListener('click', () => waehle(b.dataset.filter ?? 'alle'));
+  }
+</script>
+
+<style>
+  .intro { max-inline-size: var(--text-max); }
+  :global(html:not(.js)) .filterleiste { display: none; }
+  .filterleiste { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+  .filter {
+    min-block-size: 2.75rem;
+    padding: var(--abstand-2) var(--abstand-5);
+    border: 1px solid var(--linie-auf-hell);
+    border-radius: var(--radius-knopf);
+    background: transparent;
+    font-weight: var(--gewicht-mittel);
+    font-size: var(--text-klein);
+    cursor: pointer;
+    transition: background-color 200ms, color 200ms, border-color 200ms;
+  }
+  .filter:hover { border-color: var(--farbe-gruen); }
+  .filter[aria-pressed='true'] { background: var(--farbe-gruen); border-color: var(--farbe-gruen); color: var(--farbe-elfenbein); }
+  .anzahl { margin-block: var(--abstand-5) var(--abstand-7); font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+  .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+  .portfolio { display: grid; gap: var(--abstand-4); justify-items: start; }
+  .portfolio-titel { font-size: var(--h2); color: var(--farbe-terrakotta-hell); }
+</style>

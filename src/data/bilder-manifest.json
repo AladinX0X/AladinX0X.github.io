@@ -1,0 +1,639 @@
+{
+  "mosque-square-galerie-3-nacht-wandbild": {
+    "breite": 332,
+    "hoehe": 592,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 332,
+        "hoehe": 592,
+        "src": "/bilder/mosque-square-galerie-3-nacht-wandbild-332.webp"
+      }
+    ]
+  },
+  "mosque-square-luftbild": {
+    "breite": 730,
+    "hoehe": 770,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 396,
+        "src": "/bilder/mosque-square-luftbild-375.webp"
+      },
+      {
+        "breite": 730,
+        "hoehe": 770,
+        "src": "/bilder/mosque-square-luftbild-730.webp"
+      }
+    ]
+  },
+  "mosque-square-galerie-4-tag-wandbild": {
+    "breite": 514,
+    "hoehe": 279,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 204,
+        "src": "/bilder/mosque-square-galerie-4-tag-wandbild-375.webp"
+      },
+      {
+        "breite": 514,
+        "hoehe": 279,
+        "src": "/bilder/mosque-square-galerie-4-tag-wandbild-514.webp"
+      }
+    ]
+  },
+  "mosque-square-sepia-nacht": {
+    "breite": 720,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 431,
+        "src": "/bilder/mosque-square-sepia-nacht-375.webp"
+      },
+      {
+        "breite": 720,
+        "hoehe": 827,
+        "src": "/bilder/mosque-square-sepia-nacht-720.webp"
+      }
+    ]
+  },
+  "mosque-square-intro-nacht-gruen": {
+    "breite": 470,
+    "hoehe": 565,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 451,
+        "src": "/bilder/mosque-square-intro-nacht-gruen-375.webp"
+      },
+      {
+        "breite": 470,
+        "hoehe": 565,
+        "src": "/bilder/mosque-square-intro-nacht-gruen-470.webp"
+      }
+    ]
+  },
+  "villa-homs-tag-front": {
+    "breite": 570,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 544,
+        "src": "/bilder/villa-homs-tag-front-375.webp"
+      },
+      {
+        "breite": 570,
+        "hoehe": 827,
+        "src": "/bilder/villa-homs-tag-front-570.webp"
+      }
+    ]
+  },
+  "villa-homs-sepia-perspektive": {
+    "breite": 690,
+    "hoehe": 787,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 428,
+        "src": "/bilder/villa-homs-sepia-perspektive-375.webp"
+      },
+      {
+        "breite": 690,
+        "hoehe": 787,
+        "src": "/bilder/villa-homs-sepia-perspektive-690.webp"
+      }
+    ]
+  },
+  "villa-homs-galerie-1-tag-front": {
+    "breite": 383,
+    "hoehe": 481,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 471,
+        "src": "/bilder/villa-homs-galerie-1-tag-front-375.webp"
+      },
+      {
+        "breite": 383,
+        "hoehe": 481,
+        "src": "/bilder/villa-homs-galerie-1-tag-front-383.webp"
+      }
+    ]
+  },
+  "white-villa-tag-front": {
+    "breite": 1170,
+    "hoehe": 657,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 211,
+        "src": "/bilder/white-villa-tag-front-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 431,
+        "src": "/bilder/white-villa-tag-front-768.webp"
+      },
+      {
+        "breite": 1170,
+        "hoehe": 657,
+        "src": "/bilder/white-villa-tag-front-1170.webp"
+      }
+    ]
+  },
+  "white-villa-tag-boegen": {
+    "breite": 792,
+    "hoehe": 438,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 207,
+        "src": "/bilder/white-villa-tag-boegen-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 425,
+        "src": "/bilder/white-villa-tag-boegen-768.webp"
+      },
+      {
+        "breite": 792,
+        "hoehe": 438,
+        "src": "/bilder/white-villa-tag-boegen-792.webp"
+      }
+    ]
+  },
+  "villa-uae-sepia-perspektive": {
+    "breite": 740,
+    "hoehe": 780,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 395,
+        "src": "/bilder/villa-uae-sepia-perspektive-375.webp"
+      },
+      {
+        "breite": 740,
+        "hoehe": 780,
+        "src": "/bilder/villa-uae-sepia-perspektive-740.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-wohnzimmer-treppe": {
+    "breite": 1170,
+    "hoehe": 687,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 220,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 451,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-768.webp"
+      },
+      {
+        "breite": 1170,
+        "hoehe": 687,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-1170.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-essbereich": {
+    "breite": 740,
+    "hoehe": 710,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 360,
+        "src": "/bilder/villa-interior-uae-essbereich-375.webp"
+      },
+      {
+        "breite": 740,
+        "hoehe": 710,
+        "src": "/bilder/villa-interior-uae-essbereich-740.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-galerie-1-wohnzimmer": {
+    "breite": 528,
+    "hoehe": 290,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 206,
+        "src": "/bilder/villa-interior-uae-galerie-1-wohnzimmer-375.webp"
+      },
+      {
+        "breite": 528,
+        "hoehe": 290,
+        "src": "/bilder/villa-interior-uae-galerie-1-wohnzimmer-528.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-galerie-4-kueche-front": {
+    "breite": 529,
+    "hoehe": 290,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 206,
+        "src": "/bilder/villa-interior-uae-galerie-4-kueche-front-375.webp"
+      },
+      {
+        "breite": 529,
+        "hoehe": 290,
+        "src": "/bilder/villa-interior-uae-galerie-4-kueche-front-529.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-sepia-detail": {
+    "breite": 720,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 431,
+        "src": "/bilder/villa-interior-uae-sepia-detail-375.webp"
+      },
+      {
+        "breite": 720,
+        "hoehe": 827,
+        "src": "/bilder/villa-interior-uae-sepia-detail-720.webp"
+      }
+    ]
+  },
+  "villa-interior-uae-treppe-gruen": {
+    "breite": 530,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 585,
+        "src": "/bilder/villa-interior-uae-treppe-gruen-375.webp"
+      },
+      {
+        "breite": 530,
+        "hoehe": 827,
+        "src": "/bilder/villa-interior-uae-treppe-gruen-530.webp"
+      }
+    ]
+  },
+  "master-bedroom-gesamt": {
+    "breite": 1170,
+    "hoehe": 692,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 222,
+        "src": "/bilder/master-bedroom-gesamt-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 454,
+        "src": "/bilder/master-bedroom-gesamt-768.webp"
+      },
+      {
+        "breite": 1170,
+        "hoehe": 692,
+        "src": "/bilder/master-bedroom-gesamt-1170.webp"
+      }
+    ]
+  },
+  "master-bedroom-galerie-1-tv-wand": {
+    "breite": 511,
+    "hoehe": 282,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 207,
+        "src": "/bilder/master-bedroom-galerie-1-tv-wand-375.webp"
+      },
+      {
+        "breite": 511,
+        "hoehe": 282,
+        "src": "/bilder/master-bedroom-galerie-1-tv-wand-511.webp"
+      }
+    ]
+  },
+  "master-bedroom-galerie-4-raum": {
+    "breite": 512,
+    "hoehe": 283,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 207,
+        "src": "/bilder/master-bedroom-galerie-4-raum-375.webp"
+      },
+      {
+        "breite": 512,
+        "hoehe": 283,
+        "src": "/bilder/master-bedroom-galerie-4-raum-512.webp"
+      }
+    ]
+  },
+  "master-bedroom-sepia": {
+    "breite": 740,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 419,
+        "src": "/bilder/master-bedroom-sepia-375.webp"
+      },
+      {
+        "breite": 740,
+        "hoehe": 827,
+        "src": "/bilder/master-bedroom-sepia-740.webp"
+      }
+    ]
+  },
+  "shop-drawings-kueche": {
+    "breite": 965,
+    "hoehe": 590,
+    "herkunft": "pdf",
+    "art": "plan",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 229,
+        "src": "/bilder/shop-drawings-kueche-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 470,
+        "src": "/bilder/shop-drawings-kueche-768.webp"
+      },
+      {
+        "breite": 965,
+        "hoehe": 590,
+        "src": "/bilder/shop-drawings-kueche-965.webp"
+      }
+    ]
+  },
+  "shop-drawings-bad": {
+    "breite": 1060,
+    "hoehe": 630,
+    "herkunft": "pdf",
+    "art": "plan",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 223,
+        "src": "/bilder/shop-drawings-bad-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 456,
+        "src": "/bilder/shop-drawings-bad-768.webp"
+      },
+      {
+        "breite": 1060,
+        "hoehe": 630,
+        "src": "/bilder/shop-drawings-bad-1060.webp"
+      }
+    ]
+  },
+  "shop-drawings-boden": {
+    "breite": 730,
+    "hoehe": 300,
+    "herkunft": "pdf",
+    "art": "plan",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 154,
+        "src": "/bilder/shop-drawings-boden-375.webp"
+      },
+      {
+        "breite": 730,
+        "hoehe": 300,
+        "src": "/bilder/shop-drawings-boden-730.webp"
+      }
+    ]
+  },
+  "brand-identity-mockups": {
+    "breite": 420,
+    "hoehe": 468,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 418,
+        "src": "/bilder/brand-identity-mockups-375.webp"
+      },
+      {
+        "breite": 420,
+        "hoehe": 468,
+        "src": "/bilder/brand-identity-mockups-420.webp"
+      }
+    ]
+  },
+  "brand-identity-logo-varianten": {
+    "breite": 404,
+    "hoehe": 208,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 193,
+        "src": "/bilder/brand-identity-logo-varianten-375.webp"
+      },
+      {
+        "breite": 404,
+        "hoehe": 208,
+        "src": "/bilder/brand-identity-logo-varianten-404.webp"
+      }
+    ]
+  },
+  "brand-identity-konstruktion": {
+    "breite": 425,
+    "hoehe": 305,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 269,
+        "src": "/bilder/brand-identity-konstruktion-375.webp"
+      },
+      {
+        "breite": 425,
+        "hoehe": 305,
+        "src": "/bilder/brand-identity-konstruktion-425.webp"
+      }
+    ]
+  },
+  "brand-identity-visitenkarte": {
+    "breite": 344,
+    "hoehe": 470,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 344,
+        "hoehe": 470,
+        "src": "/bilder/brand-identity-visitenkarte-344.webp"
+      }
+    ]
+  },
+  "brand-identity-social-posts": {
+    "breite": 930,
+    "hoehe": 538,
+    "herkunft": "pdf",
+    "art": "foto",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 217,
+        "src": "/bilder/brand-identity-social-posts-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 444,
+        "src": "/bilder/brand-identity-social-posts-768.webp"
+      },
+      {
+        "breite": 930,
+        "hoehe": 538,
+        "src": "/bilder/brand-identity-social-posts-930.webp"
+      }
+    ]
+  },
+  "allgemein-studio-innenraum-sepia": {
+    "breite": 290,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 290,
+        "hoehe": 827,
+        "src": "/bilder/allgemein-studio-innenraum-sepia-290.webp"
+      }
+    ]
+  },
+  "allgemein-leistungen-essplatz-sepia": {
+    "breite": 490,
+    "hoehe": 827,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 633,
+        "src": "/bilder/allgemein-leistungen-essplatz-sepia-375.webp"
+      },
+      {
+        "breite": 490,
+        "hoehe": 827,
+        "src": "/bilder/allgemein-leistungen-essplatz-sepia-490.webp"
+      }
+    ]
+  },
+  "allgemein-fassade-exterior-gruen": {
+    "breite": 485,
+    "hoehe": 667,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 516,
+        "src": "/bilder/allgemein-fassade-exterior-gruen-375.webp"
+      },
+      {
+        "breite": 485,
+        "hoehe": 667,
+        "src": "/bilder/allgemein-fassade-exterior-gruen-485.webp"
+      }
+    ]
+  },
+  "allgemein-schlafzimmer-klassisch-sepia": {
+    "breite": 600,
+    "hoehe": 664,
+    "herkunft": "pdf",
+    "art": "stimmung",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 415,
+        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-375.webp"
+      },
+      {
+        "breite": 600,
+        "hoehe": 664,
+        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.webp"
+      }
+    ]
+  },
+  "textur-nebel-gruen": {
+    "breite": 980,
+    "hoehe": 258,
+    "herkunft": "pdf",
+    "art": "textur",
+    "varianten": [
+      {
+        "breite": 375,
+        "hoehe": 99,
+        "src": "/bilder/textur-nebel-gruen-375.webp"
+      },
+      {
+        "breite": 768,
+        "hoehe": 202,
+        "src": "/bilder/textur-nebel-gruen-768.webp"
+      },
+      {
+        "breite": 980,
+        "hoehe": 258,
+        "src": "/bilder/textur-nebel-gruen-980.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+---
+// Kontaktformular OHNE Versand. Prüfung im Browser, Fehlermeldungen in der Seitensprache direkt am Feld.
+// Versand später an EINER Stelle anschließen: src/scripts/formular.ts, Funktion versenden() (TODO).
+import { t, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache }
+const { lang } = Astro.props;
+const k = t(lang).kontakt;
+const felder = [
+  { id: 'name', typ: 'text', pflicht: true, auto: 'name' },
+  { id: 'email', typ: 'email', pflicht: true, auto: 'email' },
+  { id: 'telefon', typ: 'tel', pflicht: false, auto: 'tel' },
+  { id: 'betreff', typ: 'text', pflicht: true, auto: 'off' },
+] as const;
+---
+<form
+  class="formular"
+  novalidate
+  data-formular
+  data-fehler-pflicht={k.fehler.pflicht}
+  data-fehler-email={k.fehler.email}
+  data-fehler-telefon={k.fehler.telefon}
+  data-fehler-kurz={k.fehler.kurz}
+>
+  <p class="hinweis">{k.formularHinweis}</p>
+  <p class="zusammenfassung" data-formular-zusammenfassung role="alert" hidden>{k.fehler.zusammenfassung}</p>
+  {felder.map((f) => (
+    <div class="feld">
+      <label for={`feld-${f.id}`}>{k.felder[f.id]}{f.pflicht && <span class="pflicht" aria-hidden="true"> *</span>}</label>
+      <input
+        id={`feld-${f.id}`}
+        name={f.id}
+        type={f.typ}
+        autocomplete={f.auto}
+        required={f.pflicht}
+        dir={f.typ === 'email' || f.typ === 'tel' ? 'ltr' : 'auto'}
+        aria-describedby={`fehler-${f.id}`}
+      />
+      <p class="fehler" id={`fehler-${f.id}`}></p>
+    </div>
+  ))}
+  <div class="feld">
+    <label for="feld-nachricht">{k.felder.nachricht}<span class="pflicht" aria-hidden="true"> *</span></label>
+    <textarea id="feld-nachricht" name="nachricht" rows="6" required dir="auto" aria-describedby="fehler-nachricht"></textarea>
+    <p class="fehler" id="fehler-nachricht"></p>
+  </div>
+  <button class="knopf knopf-voll" type="submit">{k.absenden}</button>
+  <p class="erfolg" data-formular-erfolg role="status" hidden>{k.erfolg}</p>
+</form>
+
+<script>
+  import '../scripts/formular.ts';
+</script>
+
+<style>
+  .formular { display: grid; gap: var(--abstand-5); }
+  .hinweis { font-size: var(--text-klein); line-height: var(--zeile-klein); padding-inline-start: var(--abstand-4); border-inline-start: 3px solid var(--farbe-terrakotta); }
+  .feld { display: grid; gap: var(--abstand-2); }
+  label { font-weight: var(--gewicht-titel); font-size: var(--text-klein); }
+  .pflicht { color: var(--farbe-terrakotta-dunkel); }
+  input, textarea {
+    inline-size: 100%;
+    padding: var(--abstand-3) var(--abstand-4);
+    border: 1px solid rgb(5 47 36 / 0.55);
+    border-radius: 10px;
+    background: rgb(255 255 255 / 0.6);
+    line-height: 1.5;
+  }
+  input:focus-visible, textarea:focus-visible { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 1px; }
+  [aria-invalid='true'] { border-color: var(--farbe-terrakotta-dunkel); border-width: 2px; }
+  .fehler { color: var(--farbe-terrakotta-dunkel); font-size: var(--text-klein); font-weight: var(--gewicht-mittel); min-block-size: 0; }
+  .fehler:empty { display: none; }
+  .zusammenfassung { color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-titel); }
+  .erfolg { padding: var(--abstand-4); border-radius: 10px; background: var(--farbe-gruen); color: var(--farbe-elfenbein); }
+  button { justify-self: start; }
+</style>

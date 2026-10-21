@@ -1,0 +1,125 @@
+---
+// Arbeitsweise als verbundener Ablauf wie auf Portfolio Seite 7: gestrichelte Linien, Pfeile, Rauten.
+// "voll": Schlangenlinie in zwei Spalten (1→2 ↓ 4←3 ↓ 5→6), in RTL automatisch gespiegelt.
+// "kurz": eine Reihe mit Rauten auf einer gestrichelten Linie.
+import Raute from './Raute.astro';
+import Icon from './Icon.astro';
+import { t, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; variante?: 'voll' | 'kurz' }
+const { lang, variante = 'voll' } = Astro.props;
+const tx = t(lang);
+const schritte = tx.arbeitsweise.schritte;
+const nr = (i: number) => String(i + 1).padStart(2, '0');
+---
+{variante === 'voll' ? (
+  <ol class="ablauf">
+    {schritte.map((s, i) => (
+      <li class={`schritt s${i + 1} einblenden`}>
+        <div class="schritt-kopf">
+          <h3 class="schritt-name"><span class="nr">{nr(i)}</span><span class="strich" aria-hidden="true"></span>{s.name}</h3>
+          <span class="verbinder" aria-hidden="true"></span>
+          <span class="ende" aria-hidden="true">
+            {i === 0 || i === 4 ? <Icon name="chevron" klasse="vor" /> : i === 3 ? <Icon name="chevron" klasse="zurueck" /> : <Raute />}
+          </span>
+        </div>
+        <p>{s.text}</p>
+      </li>
+    ))}
+  </ol>
+) : (
+  <ol class="ablauf-kurz">
+    {schritte.map((s, i) => (
+      <li class="einblenden">
+        <span class="knoten" aria-hidden="true"><Raute /></span>
+        <span class="nr">{nr(i)}</span>
+        <span class="name">{s.name}</span>
+      </li>
+    ))}
+  </ol>
+)}
+
+<style>
+  /* Voll */
+  .ablauf {
+    list-style: none;
+    display: grid;
+    gap: var(--abstand-7) var(--abstand-7);
+    counter-reset: none;
+  }
+  .schritt { position: relative; display: grid; gap: var(--abstand-3); padding-inline-start: var(--abstand-6); }
+  .schritt-kopf { display: flex; align-items: center; gap: var(--abstand-3); }
+  .schritt-name { display: flex; align-items: baseline; gap: var(--abstand-2); font-size: var(--h3); color: inherit; flex: none; }
+  .nr { color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-stark); }
+  .strich { inline-size: 0.9em; block-size: 2px; background: currentColor; align-self: center; opacity: 0.6; }
+  .verbinder { flex: 1 1 auto; border-block-start: 2px dashed var(--farbe-terrakotta); opacity: 0.8; min-inline-size: 1.5rem; }
+  .ende { display: inline-flex; color: var(--farbe-terrakotta); }
+  .ende :global(.icon) { inline-size: 1.3rem; block-size: 1.3rem; stroke-width: 2.4; }
+  .ende :global(.raute) { inline-size: 0.75rem; }
+  :global([dir='rtl']) .ende :global(.vor) { transform: scaleX(-1); }
+  :global([dir='ltr']) .ende :global(.zurueck) { transform: scaleX(-1); }
+  /* Schritt 4: Pfeil zeigt zurück zum Zeilenanfang, also Linie vor dem Pfeil umdrehen */
+  .s4 .schritt-kopf { flex-wrap: nowrap; }
+  .schritt p { max-inline-size: 30rem; }
+  /* Mobil: senkrechte gestrichelte Linie an der Startseite */
+  .schritt::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0.35rem;
+    inset-block: 0.9rem calc(-1 * var(--abstand-7));
+    border-inline-start: 2px dashed var(--farbe-terrakotta);
+    opacity: 0.8;
+  }
+  .schritt:last-child::before { display: none; }
+  .schritt::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.55rem;
+    inline-size: 0.8rem; block-size: 0.8rem;
+    rotate: 45deg;
+    background: var(--farbe-terrakotta);
+  }
+  .verbinder, .ende { display: none; }
+
+  @media (min-width: 52rem) {
+    .ablauf { grid-template-columns: 1fr 1fr; column-gap: var(--abstand-8); }
+    .schritt { padding-inline-start: 0; }
+    .schritt::after { display: none; }
+    .verbinder, .ende { display: inline-flex; }
+    .verbinder { display: block; }
+    .s3 { grid-column: 2; grid-row: 2; }
+    .s4 { grid-column: 1; grid-row: 2; }
+    .s5 { grid-column: 1; grid-row: 3; }
+    .s6 { grid-column: 2; grid-row: 3; }
+    /* Senkrechte Verbindungen: 2 → 3 am Zeilenende, 4 → 5 am Zeilenanfang */
+    .schritt::before { display: none; }
+    .s2::before, .s4::before { display: block; inset-block: 1.6rem calc(-1 * var(--abstand-7) + 0.4rem); }
+    .s2::before { inset-inline-start: auto; inset-inline-end: 0.35rem; }
+    .s4::before { inset-inline-start: 0.05rem; }
+    .s4 .schritt-name, .s4 p { padding-inline-start: var(--abstand-4); }
+  }
+  :global(.dunkel) .nr { color: var(--farbe-terrakotta-hell); }
+
+  /* Kurz */
+  .ablauf-kurz {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    gap: var(--abstand-6) 0;
+  }
+  .ablauf-kurz li { position: relative; display: grid; gap: var(--abstand-2); padding-block-start: var(--abstand-6); }
+  .ablauf-kurz li::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.55rem;
+    inset-inline: 1.25rem 0.5rem;
+    border-block-start: 2px dashed var(--farbe-terrakotta);
+    opacity: 0.7;
+  }
+  .knoten { position: absolute; inset-block-start: 0; inset-inline-start: 0; line-height: 0; }
+  .knoten :global(.raute) { inline-size: 0.75rem; }
+  .ablauf-kurz .nr { font-size: var(--text-klein); color: var(--farbe-terrakotta-hell); }
+  :global(.hell) .ablauf-kurz .nr { color: var(--farbe-terrakotta-dunkel); }
+  .ablauf-kurz .name { font-size: var(--h3); font-weight: var(--gewicht-titel); }
+</style>

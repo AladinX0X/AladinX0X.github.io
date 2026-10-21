@@ -1,0 +1,24 @@
+---
+// Einzige Stelle, an der das Logo eingebunden wird. Dateien: src/assets/logo/.
+// Original-Logo später einfach unter demselben Namen in quelle/logo/ ablegen und npm run bilder ausführen.
+import zeichenHell from '../assets/logo/logo-zeichen-hell.png';
+import zeichenDunkel from '../assets/logo/logo-zeichen-dunkel.png';
+import schriftzugHell from '../assets/logo/logo-zeichen-schriftzug-hell.png';
+import schriftzugDunkel from '../assets/logo/logo-zeichen-schriftzug-dunkel.png';
+import komplettHell from '../assets/logo/logo-komplett-hell.png';
+import komplettDunkel from '../assets/logo/logo-komplett-dunkel.png';
+
+const dateien = {
+  'zeichen-hell': zeichenHell,
+  'zeichen-dunkel': zeichenDunkel,
+  'schriftzug-hell': schriftzugHell,
+  'schriftzug-dunkel': schriftzugDunkel,
+  'komplett-hell': komplettHell,
+  'komplett-dunkel': komplettDunkel,
+};
+interface Props { variante: keyof typeof dateien; breite: number; alt: string; klasse?: string; laden?: 'lazy' | 'eager' }
+const { variante, breite, alt, klasse = '', laden = 'eager' } = Astro.props;
+const bild = dateien[variante];
+const hoehe = Math.round((bild.height * breite) / bild.width);
+---
+<img class={`logo ${klasse}`} src={bild.src} width={breite} height={hoehe} alt={alt} loading={laden} decoding="async" />

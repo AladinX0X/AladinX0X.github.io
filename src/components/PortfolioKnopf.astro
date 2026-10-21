@@ -1,0 +1,25 @@
+---
+// Download-Knopf für das Portfolio-PDF. Größe wird beim Build aus der Datei gelesen.
+import { statSync } from 'node:fs';
+import Icon from './Icon.astro';
+import site from '../data/site.json';
+import { t, fuelle, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; variante?: 'voll' | 'linie' }
+const { lang, variante = 'voll' } = Astro.props;
+const tx = t(lang);
+const bytes = statSync(`public${site.portfolio}`).size;
+const mb = Math.max(1, Math.round(bytes / (1024 * 1024)));
+---
+<a class={`knopf knopf-${variante} portfolio-knopf`} href={site.portfolio} download>
+  <Icon name="download" />
+  <span class="texte">
+    <span>{tx.portfolio.button}</span>
+    <span class="format">{fuelle(tx.portfolio.format, { groesse: mb })}</span>
+  </span>
+</a>
+<style>
+  .portfolio-knopf { border-radius: 14px; padding-block: var(--abstand-3); }
+  .texte { display: grid; text-align: start; }
+  .format { font-weight: var(--gewicht-text); font-size: 0.9em; }
+</style>

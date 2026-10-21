@@ -1,0 +1,53 @@
+---
+// Kennzahlen aus den Projektdaten berechnet. Endwerte stehen im HTML, JavaScript zählt nur hoch.
+import Raute from './Raute.astro';
+import site from '../data/site.json';
+import { kennzahlen } from '../data/daten';
+import { t, fuelle, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache }
+const { lang } = Astro.props;
+const tx = t(lang);
+const k = kennzahlen();
+const laenderNamen = k.laenderListe.map((l) => tx.laender[l as keyof typeof tx.laender]).join(lang === 'ar' ? '، ' : ', ');
+const eintraege = [
+  { zahl: k.projekte, label: tx.start.zahlProjekte },
+  { zahl: k.leistungen, label: tx.start.zahlLeistungen },
+  { zahl: k.laender, label: tx.start.zahlLaender, zusatz: laenderNamen },
+];
+---
+<dl class="kennzahlen">
+  {eintraege.map((e) => (
+    <div class="kennzahl einblenden">
+      <dt><Raute />{e.label}{e.zusatz && <span class="zusatz">{e.zusatz}</span>}</dt>
+      <dd><span class="zahl" data-zahl={e.zahl}>{e.zahl}</span></dd>
+    </div>
+  ))}
+  <div class="kennzahl einblenden">
+    <dt><Raute />{tx.start.seitLabel}</dt>
+    <dd><span class="zahl zahl-text">{fuelle(tx.start.seitWert, { jahr: site.gegruendet })}</span></dd>
+  </div>
+</dl>
+<style>
+  .kennzahlen {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    border-block-start: 1px solid var(--linie-auf-dunkel);
+  }
+  .kennzahl {
+    display: grid;
+    grid-template-areas: 'zahl' 'label';
+    align-content: start;
+    gap: var(--abstand-3);
+    padding: var(--abstand-6) var(--abstand-5);
+    border-block-end: 1px solid var(--linie-auf-dunkel);
+  }
+  .kennzahl + .kennzahl { border-inline-start: 1px solid var(--linie-auf-dunkel); }
+  dt { grid-area: label; display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-2) var(--abstand-3); font-size: var(--text-klein); }
+  .zusatz { flex-basis: 100%; padding-inline-start: calc(0.7em + var(--abstand-3)); opacity: 0.85; }
+  dd { grid-area: zahl; margin: 0; }
+  .zahl { display: block; font-size: clamp(3rem, 2rem + 4vw, 5rem); font-weight: var(--gewicht-stark); line-height: 1; font-variant-numeric: tabular-nums; }
+  .zahl-text { font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); }
+  @media (max-width: 40rem) { .kennzahl + .kennzahl { border-inline-start: 0; } }
+</style>

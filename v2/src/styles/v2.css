@@ -1,0 +1,233 @@
+/* AYLOUL v2 – hell und modern. Gleiche Tokens wie die erste Fassung, nur logische CSS-Eigenschaften. */
+@import '../../../src/styles/tokens.css';
+
+:root {
+  --gruen: var(--farbe-gruen);
+  --terrakotta: var(--farbe-terrakotta);
+  --neutral: #6b7a72;           /* "ohne Angabe" im Ringdiagramm: 4.3:1 auf Elfenbein */
+  --elfenbein: var(--farbe-elfenbein);
+  --ton: #f9e4cc;               /* zweiter heller Folienton */
+  --linie: rgb(5 47 36 / 0.18);
+  --dauer-diagramm: 900ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-snap-type: y proximity; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font-family: var(--schrift);
+  font-size: var(--text);
+  line-height: var(--zeile);
+  color: var(--gruen);
+  background: var(--elfenbein);
+  font-synthesis: none;
+  overflow-x: clip;
+}
+img, svg { display: block; max-inline-size: 100%; block-size: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; line-height: var(--zeile-titel); text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol, dl, dd { margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 3px; border-radius: 4px; }
+.unsichtbar { position: absolute !important; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.huelle { inline-size: 100%; max-inline-size: calc(72rem + 2 * var(--rand)); margin-inline: auto; padding-inline: var(--rand); }
+
+/* Folien */
+.folie {
+  position: relative;
+  min-block-size: 100svh;
+  display: grid;
+  align-content: center;
+  padding-block: clamp(4rem, 3rem + 4vw, 6rem);
+  padding-inline-end: 3.5rem; /* Platz für die Fortschrittspunkte */
+  scroll-snap-align: start;
+}
+.folie-ton { background: var(--ton); }
+.folienkopf { display: grid; gap: var(--abstand-2); margin-block-end: var(--abstand-7); max-inline-size: 46rem; }
+.foliennr { font-size: var(--text-klein); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta-dunkel); letter-spacing: 0.04em; }
+.folienkopf h2 { font-size: clamp(2rem, 1.4rem + 2.6vw, 3.25rem); font-weight: var(--gewicht-stark); }
+.unterzeile { font-size: var(--text-gross); color: rgb(5 47 36 / 0.82); }
+
+/* Fortschrittspunkte am Zeilenende (in RTL links) */
+.fortschritt {
+  position: fixed;
+  z-index: 20;
+  inset-block-start: 50%;
+  inset-inline-end: clamp(0.5rem, 0.2rem + 1vw, 1.25rem);
+  translate: 0 -50%;
+  display: grid;
+  justify-items: center;
+  gap: var(--abstand-4);
+}
+.fortschritt ol { list-style: none; display: grid; gap: 0.25rem; }
+.fortschritt a {
+  display: grid; place-items: center;
+  inline-size: 1.75rem; block-size: 1.75rem;
+}
+.fortschritt a::before {
+  content: '';
+  inline-size: 0.6rem; block-size: 0.6rem;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  transition: background-color 200ms, transform 200ms;
+}
+.fortschritt a[aria-current='true']::before { background: var(--terrakotta); border-color: var(--terrakotta); transform: scale(1.3); }
+.fortschritt a:hover::before { background: var(--gruen); }
+.fortschritt.auf-dunkel { color: var(--elfenbein); }
+.fortschritt.auf-dunkel a::before { border-color: var(--elfenbein); }
+.fortschritt.auf-dunkel a:hover::before { background: var(--elfenbein); }
+.zaehler { font-size: 0.8125rem; font-weight: var(--gewicht-titel); writing-mode: vertical-rl; letter-spacing: 0.08em; }
+.zaehler bdi { writing-mode: horizontal-tb; }
+
+/* 1 Titel */
+.titel-raster { display: grid; gap: var(--abstand-7); align-items: center; }
+@media (min-width: 60rem) { .titel-raster { grid-template-columns: 1.3fr 1fr; } }
+.titel-text { display: grid; gap: var(--abstand-6); justify-items: start; }
+.titel-text h1 { font-size: clamp(2rem, 1.3rem + 2.8vw, 3.5rem); font-weight: var(--gewicht-stark); max-inline-size: 22ch; }
+.slogan { font-size: var(--text-gross); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+.titel-bild { margin: 0; justify-self: center; display: grid; gap: var(--abstand-3); }
+.rahmen { border-radius: var(--radius-bild); overflow: hidden; border: 1px solid var(--terrakotta); background: var(--gruen); }
+.rahmen img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.titel-bild .rahmen { inline-size: min(332px, 70vw); }
+.titel-bild figcaption { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); text-align: center; }
+.weiter {
+  position: absolute; inset-block-end: var(--abstand-5); inset-inline-start: 50%; translate: -50% 0;
+  display: grid; justify-items: center; gap: 0; font-size: var(--text-klein); text-decoration: none; font-weight: var(--gewicht-mittel);
+}
+[dir='rtl'] .weiter { translate: 50% 0; }
+.weiter .nach-unten { inline-size: 1.4rem; block-size: 1.4rem; rotate: 90deg; color: var(--farbe-terrakotta-dunkel); }
+
+/* 2 Kennzahlen */
+.zahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--abstand-5); }
+.zahl-kachel { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: var(--abstand-3); padding: var(--abstand-6); background: var(--elfenbein); border-radius: var(--radius-bild); border-block-start: 4px solid var(--terrakotta); }
+.zahl { font-size: clamp(3.5rem, 2.5rem + 4vw, 6rem); font-weight: var(--gewicht-stark); line-height: 1; display: flex; align-items: baseline; gap: var(--abstand-3); }
+.jahr .zahl { font-size: clamp(2.75rem, 2rem + 2.6vw, 4.25rem); }
+.vorsatz { font-size: 0.32em; font-weight: var(--gewicht-titel); }
+.zahl-kachel dt { font-size: var(--text-gross); font-weight: var(--gewicht-titel); display: grid; }
+.zusatz { font-size: var(--text-klein); font-weight: var(--gewicht-text); color: rgb(5 47 36 / 0.82); }
+
+/* Diagramme */
+.diagramm { margin: 0; }
+.balken-diagramm { max-inline-size: 46rem; }
+.balken-diagramm svg { inline-size: 100%; }
+.kategorien { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); margin-block-start: var(--abstand-3); text-align: center; font-weight: var(--gewicht-titel); font-size: var(--text-klein); line-height: 1.4; }
+.raster line { stroke: var(--linie); stroke-width: 1; }
+.raster .grundlinie { stroke: var(--gruen); stroke-width: 1.5; }
+.balken path { fill: var(--terrakotta); }
+.balken .trefferflaeche { fill: transparent; }
+.balken:hover path { fill: var(--farbe-terrakotta-dunkel); }
+.balken text { font-family: var(--schrift); fill: var(--gruen); }
+.balken .wert { font-size: 26px; font-weight: 750; }
+
+.ring-raster { display: grid; gap: var(--abstand-7); align-items: center; }
+@media (min-width: 48rem) { .ring-raster { grid-template-columns: minmax(0, 20rem) 1fr; } }
+.ring-diagramm svg { inline-size: min(100%, 20rem); margin-inline: auto; }
+.ring-grund { fill: none; stroke: rgb(5 47 36 / 0.08); stroke-width: 30; }
+.segment { fill: none; stroke-width: 30; }
+.ring-zahl { font-family: var(--schrift); font-size: 52px; font-weight: 750; fill: var(--gruen); }
+.ring-label { font-family: var(--schrift); font-size: 17px; font-weight: 600; fill: var(--gruen); }
+.legende { list-style: none; display: grid; gap: var(--abstand-4); }
+.legende li { display: grid; grid-template-columns: auto 1fr auto auto; gap: var(--abstand-4); align-items: center; padding-block: var(--abstand-3); border-block-end: 1px solid var(--linie); }
+.legende .feld { inline-size: 1.1rem; block-size: 1.1rem; border-radius: 4px; }
+.legende-name { font-size: var(--text-gross); font-weight: var(--gewicht-titel); }
+.legende-wert { font-size: var(--text-klein); }
+.legende-prozent { font-size: var(--h3); font-weight: var(--gewicht-stark); min-inline-size: 3.5ch; text-align: end; }
+.tabelle { margin-block-start: var(--abstand-6); font-size: var(--text-klein); }
+.tabelle summary { cursor: pointer; font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-dunkel); inline-size: fit-content; }
+.tabellen { display: flex; flex-wrap: wrap; gap: var(--abstand-6); margin-block-start: var(--abstand-4); }
+table { border-collapse: collapse; min-inline-size: 14rem; }
+caption { text-align: start; font-weight: var(--gewicht-titel); padding-block-end: var(--abstand-2); }
+th, td { text-align: start; padding: var(--abstand-1) var(--abstand-4); border-block-end: 1px solid var(--linie); }
+th[scope='col'] { font-weight: var(--gewicht-titel); }
+th[scope='row'] { font-weight: var(--gewicht-text); }
+
+/* 5 Zeitstrahl */
+.zeitstrahl { list-style: none; display: grid; gap: var(--abstand-6); position: relative; }
+.zeitstrahl li { position: relative; display: grid; gap: var(--abstand-2); align-content: start; padding-inline-start: var(--abstand-7); }
+.zeitstrahl li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0.55rem;
+  inset-block: 1.4rem calc(-1 * var(--abstand-6));
+  border-inline-start: 2px dashed var(--terrakotta);
+  transform-origin: top;
+}
+.zeitstrahl li:last-child::before { display: none; }
+.knoten { position: absolute; inset-inline-start: 0.2rem; inset-block-start: 0.25rem; line-height: 0; }
+.knoten .raute { inline-size: 0.8rem; }
+.schritt-nr { font-size: var(--text-klein); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta-dunkel); }
+.zeitstrahl h3 { font-size: var(--h3); }
+.zeitstrahl p { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+@media (min-width: 60rem) {
+  .zeitstrahl { grid-template-columns: repeat(6, 1fr); gap: var(--abstand-5); }
+  .zeitstrahl li { padding-inline-start: 0; padding-block-start: var(--abstand-7); }
+  .zeitstrahl li::before { inset-block: 0.55rem auto; inset-inline: 1.4rem calc(-1 * var(--abstand-5)); border-inline-start: 0; border-block-start: 2px dashed var(--terrakotta); }
+  .knoten { inset-inline-start: 0; inset-block-start: 0; }
+}
+
+/* 6 Projekte */
+.projekte { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+.projekt { display: grid; gap: var(--abstand-2); align-content: start; }
+.projekt-bild { aspect-ratio: 4 / 3; margin-block-end: var(--abstand-2); }
+.projekt .bereich { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+.projekt h3 { font-size: var(--h3); }
+.projekt .kurz { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+
+/* 7 Leistungen */
+.leistungen { list-style: none; display: grid; gap: var(--abstand-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+.leistungen li { display: grid; grid-template-columns: auto 1fr; gap: var(--abstand-2) var(--abstand-4); padding: var(--abstand-5); border: 1px solid var(--linie); border-radius: var(--radius-bild); background: rgb(255 255 255 / 0.35); }
+.icon-rund { grid-row: span 3; display: grid; place-items: center; inline-size: 3rem; block-size: 3rem; border-radius: 50%; background: var(--farbe-terrakotta-dunkel); color: var(--farbe-weiss); }
+.icon-rund .icon { inline-size: 1.5rem; block-size: 1.5rem; }
+.leistung-nr { font-size: var(--text-klein); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta-dunkel); }
+.leistungen h3 { font-size: var(--h3); }
+.leistungen p { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+
+/* 8 Kontakt: grüne Fläche */
+.folie-kontakt { background: var(--gruen); color: var(--elfenbein); }
+.folie-kontakt .foliennr { color: var(--farbe-terrakotta-hell); }
+.folie-kontakt :focus-visible { outline-color: var(--farbe-terrakotta-hell); }
+.kontakt-raster { display: grid; gap: var(--abstand-8); align-items: center; }
+@media (min-width: 60rem) { .kontakt-raster { grid-template-columns: 1.2fr 1fr; } }
+.kontakt-text { font-size: var(--text-gross); margin-block-end: var(--abstand-6); }
+.knoepfe { display: flex; flex-wrap: wrap; gap: var(--abstand-4); }
+.knopf {
+  display: inline-flex; align-items: center; gap: var(--abstand-3);
+  min-block-size: 3.5rem; padding: var(--abstand-3) var(--abstand-7);
+  border-radius: var(--radius-knopf); border: 1px solid currentColor;
+  font-weight: var(--gewicht-titel); text-decoration: none;
+  transition: background-color 200ms, color 200ms;
+}
+.knopf .icon { inline-size: 1.3rem; block-size: 1.3rem; }
+.knopf-voll { background: var(--farbe-terrakotta-dunkel); border-color: var(--farbe-terrakotta-dunkel); color: var(--farbe-weiss); }
+.knopf-voll:hover { background: var(--elfenbein); border-color: var(--elfenbein); color: var(--gruen); }
+.knopf-linie:hover { background: var(--elfenbein); color: var(--gruen); }
+.kontaktdaten { list-style: none; display: grid; gap: var(--abstand-4); }
+.kontaktdaten li { display: flex; gap: var(--abstand-4); align-items: center; }
+.kontaktdaten .icon { inline-size: 1.4rem; block-size: 1.4rem; color: var(--farbe-terrakotta-hell); flex: none; }
+.kontaktdaten a { text-decoration: none; }
+.kontaktdaten a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.fuss { position: absolute; inset-block-end: var(--abstand-5); inset-inline: 0; font-size: var(--text-klein); opacity: 0.85; }
+
+/* Aufbau-Animation: nur mit JavaScript und ohne reduzierte Bewegung; ohne JS ist alles fertig gezeichnet */
+@media (prefers-reduced-motion: no-preference) {
+  .animiert [data-diagramm] .balken path { transform-box: fill-box; transform-origin: bottom; transition: transform var(--dauer-diagramm) var(--kurve); transition-delay: calc(var(--i) * 120ms); }
+  .animiert [data-diagramm]:not(.fertig) .balken path { transform: scaleY(0); }
+  .animiert [data-diagramm] .balken .wert { transition: opacity 400ms; transition-delay: calc(var(--i) * 120ms + 500ms); }
+  .animiert [data-diagramm]:not(.fertig) .balken .wert { opacity: 0; }
+  .animiert [data-diagramm] .segment { transition: stroke-dasharray var(--dauer-diagramm) var(--kurve); transition-delay: calc(var(--i) * 250ms); }
+  .animiert [data-diagramm]:not(.fertig) .segment { stroke-dasharray: 0 var(--umfang); }
+  .animiert .zeitstrahl li { transition: opacity 500ms var(--kurve), translate 500ms var(--kurve); transition-delay: calc(var(--i) * 110ms); }
+  .animiert .zeitstrahl:not(.fertig) li { opacity: 0; translate: 0 12px; }
+}
+
+/* Schmale Bildschirme */
+@media (max-width: 40rem) {
+  .folie { padding-inline-end: 2.25rem; min-block-size: auto; }
+  .fortschritt a { inline-size: 1.4rem; block-size: 1.4rem; }
+  .weiter { display: none; }
+  .balken .wert { font-size: 44px; }
+  .leistungen li { grid-template-columns: 1fr; }
+  .icon-rund { grid-row: auto; }
+}

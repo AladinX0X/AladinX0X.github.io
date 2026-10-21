@@ -1,0 +1,31 @@
+---
+// Responsives Bild aus src/data/bilder-manifest.json (erzeugt von npm run bilder).
+// Es gibt nur Größen bis zur Originalbreite, nichts wird hochskaliert.
+import manifest from '../data/bilder-manifest.json';
+
+interface Props {
+  id: string;
+  alt: string;
+  sizes?: string;
+  laden?: 'lazy' | 'eager';
+  klasse?: string;
+  prioritaet?: boolean;
+}
+const { id, alt, sizes = '100vw', laden = 'lazy', klasse = '', prioritaet = false } = Astro.props;
+const eintrag = (manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string }[] }>)[id];
+if (!eintrag) throw new Error(`Bild "${id}" fehlt im Manifest. npm run bilder ausführen.`);
+const srcset = eintrag.varianten.map((v) => `${v.src} ${v.breite}w`).join(', ');
+const groesste = eintrag.varianten[eintrag.varianten.length - 1];
+---
+<img
+  class={klasse}
+  src={groesste.src}
+  srcset={srcset}
+  sizes={sizes}
+  width={eintrag.breite}
+  height={eintrag.hoehe}
+  alt={alt}
+  loading={laden}
+  decoding={laden === 'eager' ? 'sync' : 'async'}
+  fetchpriority={prioritaet ? 'high' : undefined}
+/>

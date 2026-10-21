@@ -1,0 +1,77 @@
+---
+// Großansicht für Galerien. Auslöser sind Elemente mit data-lightbox-index (Reihenfolge = ids).
+// Tastatur: Pfeile blättern (in RTL gespiegelt), Esc schließt, Tab bleibt im Dialog.
+import Icon from './Icon.astro';
+import manifest from '../data/bilder-manifest.json';
+import { t, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; ids: string[]; alts: Record<string, string>; auszug?: boolean }
+const { lang, ids, alts, auszug = false } = Astro.props;
+const tx = t(lang);
+const m = manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string }[] }>;
+const bilder = ids.map((id) => {
+  const e = m[id];
+  return {
+    src: e.varianten[e.varianten.length - 1].src,
+    srcset: e.varianten.map((v) => `${v.src} ${v.breite}w`).join(', '),
+    breite: e.breite,
+    hoehe: e.hoehe,
+    alt: alts[id],
+  };
+});
+const erstes = bilder[0];
+---
+<dialog class="lightbox" data-lightbox aria-label={tx.projekte.lightbox.dialog} data-zaehler={tx.projekte.lightbox.zaehler}>
+  <div class="lb-innen">
+    <div class="lb-leiste">
+      <p class="lb-zaehler" data-lb-zaehler aria-live="polite"></p>
+      <button type="button" class="lb-knopf" data-lb-schliessen aria-label={tx.projekte.lightbox.schliessen}><Icon name="schliessen" /></button>
+    </div>
+    <figure class="lb-figur">
+      <img data-lb-bild style={`--max: ${erstes.breite}px`} src={erstes.src} srcset={erstes.srcset} sizes="92vw" width={erstes.breite} height={erstes.hoehe} alt={erstes.alt} />
+      <figcaption data-lb-text>{auszug && <span class="lb-auszug">{tx.projekte.auszug}</span>}<span data-lb-alt>{erstes.alt}</span></figcaption>
+    </figure>
+    {bilder.length > 1 && (
+      <div class="lb-nav">
+        <button type="button" class="lb-knopf" data-lb-zurueck aria-label={tx.projekte.lightbox.zurueck}><Icon name="chevron" klasse="zurueck-icon" /></button>
+        <button type="button" class="lb-knopf" data-lb-weiter aria-label={tx.projekte.lightbox.weiter}><Icon name="chevron" klasse="weiter-icon" /></button>
+      </div>
+    )}
+  </div>
+  <script type="application/json" data-lb-daten set:html={JSON.stringify(bilder)} />
+</dialog>
+
+<script>
+  import '../scripts/lightbox.ts';
+</script>
+
+<style>
+  .lightbox {
+    inline-size: 100vw; block-size: 100dvh;
+    max-inline-size: none; max-block-size: none;
+    margin: 0; padding: 0; border: 0;
+    background: rgb(3 33 26 / 0.97);
+    color: var(--farbe-elfenbein);
+  }
+  .lightbox::backdrop { background: rgb(3 33 26 / 0.85); }
+  .lb-innen { display: grid; grid-template-rows: auto 1fr auto; block-size: 100%; padding: var(--abstand-4) var(--rand); gap: var(--abstand-3); }
+  .lb-leiste { display: flex; justify-content: space-between; align-items: center; }
+  .lb-zaehler { font-size: var(--text-klein); }
+  .lb-figur { margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--abstand-3); min-block-size: 0; justify-items: center; }
+  .lb-figur img { inline-size: auto; block-size: auto; max-inline-size: min(100%, var(--max, 100%)); max-block-size: 100%; min-block-size: 0; object-fit: contain; align-self: center; }
+  .lb-figur figcaption { text-align: center; font-size: var(--text-klein); max-inline-size: 48rem; margin-inline: auto; }
+  .lb-auszug { color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-titel); margin-inline-end: 0.6em; padding-inline-end: 0.6em; border-inline-end: 1px solid currentColor; }
+  .lb-nav { display: flex; justify-content: center; gap: var(--abstand-5); }
+  .lb-knopf {
+    display: grid; place-items: center;
+    inline-size: 3rem; block-size: 3rem;
+    border-radius: 50%;
+    border: 1px solid var(--linie-auf-dunkel);
+    background: transparent;
+    cursor: pointer;
+  }
+  .lb-knopf:hover { background: var(--farbe-elfenbein); color: var(--farbe-gruen); }
+  .lb-knopf :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
+  :global([dir='ltr']) .lb-knopf :global(.zurueck-icon) { transform: scaleX(-1); }
+  :global([dir='rtl']) .lb-knopf :global(.weiter-icon) { transform: scaleX(-1); }
+</style>

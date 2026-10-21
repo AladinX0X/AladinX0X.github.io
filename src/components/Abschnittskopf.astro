@@ -1,0 +1,33 @@
+---
+// Abschnitts-Überschrift wie die Kopfzeilen im Portfolio: Raute, Titel, auslaufende Linie, Nummer am Ende.
+import Raute from './Raute.astro';
+interface Props { titel: string; nummer?: number; ebene?: 'h1' | 'h2'; id?: string; unterzeile?: string }
+const { titel, nummer, ebene = 'h2', id, unterzeile } = Astro.props;
+const Tag = ebene;
+const nr = nummer ? String(nummer).padStart(2, '0') : null;
+---
+<div class="abschnittskopf">
+  <div class="zeile">
+    <Raute klasse="kopf-raute" />
+    <Tag id={id} class="titel gross">{titel}</Tag>
+    <span class="linie" aria-hidden="true"></span>
+    {nr && <span class="nummer" aria-hidden="true">{nr}</span>}
+  </div>
+  {unterzeile && <p class="unterzeile">{unterzeile}</p>}
+</div>
+<style>
+  .abschnittskopf { margin-block-end: var(--abstand-7); }
+  .zeile { display: flex; align-items: center; gap: var(--abstand-4); }
+  .kopf-raute { inline-size: clamp(0.85rem, 0.7rem + 0.5vw, 1.15rem); }
+  .titel { color: var(--farbe-terrakotta); flex: none; max-inline-size: 80%; }
+  .linie {
+    flex: 1 1 auto;
+    block-size: 1px;
+    min-inline-size: 2rem;
+    background: linear-gradient(var(--winkel-ende), currentColor, transparent 92%);
+    opacity: 0.45;
+  }
+  .nummer { font-size: var(--nummer); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta); line-height: 1; flex: none; }
+  .unterzeile { margin-block-start: var(--abstand-4); margin-inline-start: calc(clamp(0.85rem, 0.7rem + 0.5vw, 1.15rem) + var(--abstand-4)); font-size: var(--text-gross); max-inline-size: var(--text-max); }
+  @media (max-width: 40rem) { .titel { max-inline-size: 100%; flex: 0 1 auto; min-inline-size: 0; overflow-wrap: break-word; } .linie { min-inline-size: 0.75rem; } }
+</style>

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+screenshots/
+public/bilder/
+.DS_Store
+public/favicon.png
+public/apple-touch-icon.png

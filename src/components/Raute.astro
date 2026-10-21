@@ -1,0 +1,12 @@
+---
+// Die Raute (das "O" aus dem Logo), als einfache SVG-Form nachgebaut (Portfolio Seite 39).
+// Später durch die Form aus dem Original-Logo ersetzen.
+interface Props { klasse?: string; titel?: string }
+const { klasse = '', titel } = Astro.props;
+---
+<svg class={`raute ${klasse}`} viewBox="0 0 22 36" aria-hidden={titel ? undefined : 'true'} role={titel ? 'img' : undefined} aria-label={titel} focusable="false">
+  <path d="M11 0 17.2 10.15 13.8 15.5 11 12.7 7.8 17.8 3.6 23.9 0 18Z M11 36 4.8 25.85 8.2 20.5 11 23.3 14.2 18.2 18.4 12.1 22 18Z" />
+</svg>
+<style>
+  .raute { fill: var(--farbe-terrakotta); inline-size: 0.7em; block-size: auto; flex: none; }
+</style>

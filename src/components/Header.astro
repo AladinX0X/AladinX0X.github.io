@@ -1,0 +1,144 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { t, pfad, pfadIn, andereSprachen, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; seite: string }
+const { lang, seite } = Astro.props;
+const tx = t(lang);
+const punkte = [
+  { id: 'studio', href: pfad(lang, 'about'), text: tx.nav.studio },
+  { id: 'arbeitsweise', href: pfad(lang, 'approach'), text: tx.nav.arbeitsweise },
+  { id: 'leistungen', href: pfad(lang, 'services'), text: tx.nav.leistungen },
+  { id: 'projekte', href: pfad(lang, 'projects'), text: tx.nav.projekte },
+  { id: 'kontakt', href: pfad(lang, 'contact'), text: tx.nav.kontakt },
+];
+// Auf Seiten ohne Sprachpfad (404) führt der Umschalter zur Startseite der anderen Sprache
+const andere = andereSprachen(lang).map((s) => {
+  const ziel = pfadIn(Astro.url.pathname, s);
+  return { s, href: ziel === Astro.url.pathname ? pfad(s) : ziel, name: tx.nav.spracheAnderer };
+});
+---
+<header class="kopf" data-kopf>
+  <div class="huelle kopf-innen">
+    <a class="kopf-logo" href={pfad(lang)} aria-label={tx.nav.logoLabel}>
+      <Logo variante="schriftzug-hell" breite={98} alt="" />
+    </a>
+    <nav class="kopf-nav" aria-label={tx.nav.hauptnavigation}>
+      <ul>
+        {punkte.map((p) => (
+          <li><a href={p.href} aria-current={seite === p.id ? 'page' : undefined}>{p.text}</a></li>
+        ))}
+      </ul>
+    </nav>
+    {andere.map((a) => (
+      <a class="sprache sprache-desktop" href={a.href} hreflang={a.s} lang={a.s} aria-label={tx.nav.spracheLabel}>{a.name}</a>
+    ))}
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="mobilmenue" data-menue-knopf>
+      <span class="menue-auf"><Icon name="menue" /></span>
+      <span class="menue-zu"><Icon name="schliessen" /></span>
+      <span class="menue-text" data-text-auf={tx.nav.menue} data-text-zu={tx.nav.schliessen}>{tx.nav.menue}</span>
+    </button>
+  </div>
+  <div class="mobilmenue" id="mobilmenue" data-mobilmenue hidden>
+    <nav aria-label={tx.nav.hauptnavigation}>
+      <ul class="mobil-liste">
+        {punkte.map((p) => (
+          <li><a href={p.href} aria-current={seite === p.id ? 'page' : undefined}>{p.text}</a></li>
+        ))}
+      </ul>
+    </nav>
+    {andere.length > 0 && (
+      <div class="mobil-sprachen">
+        {andere.map((a) => <a class="sprache" href={a.href} hreflang={a.s} lang={a.s} aria-label={tx.nav.spracheLabel}>{a.name}</a>)}
+      </div>
+    )}
+  </div>
+</header>
+
+<style>
+  .kopf {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 50;
+    background: var(--farbe-gruen);
+    color: var(--farbe-elfenbein);
+    border-block-end: 1px solid var(--linie-auf-dunkel);
+  }
+  .kopf-innen {
+    display: flex;
+    align-items: center;
+    gap: var(--abstand-6);
+    block-size: var(--kopf-hoehe);
+  }
+  .kopf-logo { display: block; flex: none; padding-block: var(--abstand-2); }
+  .kopf-logo :global(img) { block-size: 2.75rem; inline-size: auto; }
+  .kopf-nav { margin-inline-start: auto; }
+  .kopf-nav ul { list-style: none; display: flex; gap: clamp(1rem, 0.2rem + 1.6vw, 2.25rem); white-space: nowrap; }
+  .kopf-nav a, .sprache {
+    display: inline-block;
+    padding-block: var(--abstand-2);
+    text-decoration: none;
+    font-size: var(--text-klein);
+    font-weight: var(--gewicht-mittel);
+    border-block-end: 2px solid transparent;
+  }
+  .kopf-nav a:hover { border-block-end-color: var(--linie-auf-dunkel); }
+  .kopf-nav a[aria-current='page'] { border-block-end-color: var(--farbe-terrakotta-hell); color: var(--farbe-terrakotta-hell); }
+  .sprache-desktop { padding-inline-start: var(--abstand-5); border-inline-start: 1px solid var(--linie-auf-dunkel); }
+  .sprache:hover { color: var(--farbe-terrakotta-hell); }
+
+  .menue-knopf {
+    display: none;
+    margin-inline-start: auto;
+    align-items: center;
+    gap: var(--abstand-2);
+    min-block-size: 2.75rem;
+    padding-inline: var(--abstand-4);
+    background: transparent;
+    border: 1px solid var(--linie-auf-dunkel);
+    border-radius: var(--radius-knopf);
+    cursor: pointer;
+    font-size: var(--text-klein);
+  }
+  .menue-knopf :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
+  .menue-zu { display: none; }
+  .menue-knopf[aria-expanded='true'] .menue-zu { display: inline-flex; }
+  .menue-knopf[aria-expanded='true'] .menue-auf { display: none; }
+
+  .mobilmenue {
+    position: fixed;
+    inset-block-start: var(--kopf-hoehe);
+    inset-inline: 0;
+    block-size: calc(100dvh - var(--kopf-hoehe));
+    overflow-y: auto;
+    background: var(--farbe-gruen);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--abstand-6) var(--rand);
+  }
+  .mobilmenue[hidden] { display: none; }
+  .mobil-liste { list-style: none; display: grid; }
+  .mobil-liste a {
+    display: block;
+    padding-block: var(--abstand-4);
+    font-size: 1.375rem;
+    font-weight: var(--gewicht-titel);
+    text-decoration: none;
+  }
+  .mobil-liste a[aria-current='page'] { color: var(--farbe-terrakotta-hell); }
+  .mobil-sprachen {
+    display: flex;
+    gap: var(--abstand-5);
+    margin-block-start: var(--abstand-5);
+    padding-block-start: var(--abstand-5);
+    border-block-start: 1px solid var(--linie-auf-dunkel);
+  }
+
+  @media (max-width: 62rem) {
+    .kopf-nav, .sprache-desktop { display: none; }
+    .menue-knopf { display: inline-flex; }
+  }
+  :global(html.menue-offen) { overflow: hidden; }
+</style>

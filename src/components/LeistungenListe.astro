@@ -1,0 +1,60 @@
+---
+// Die 6 Leistungen als Raster mit Icons. Ganze Fläche ist ein Link zur Detailseite.
+import Icon from './Icon.astro';
+import { leistungen } from '../data/daten';
+import { t, pfad, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; ebene?: 'h2' | 'h3' }
+const { lang, ebene = 'h3' } = Astro.props;
+const tx = t(lang);
+const Tag = ebene;
+---
+<ul class="leistungen">
+  {leistungen.map((l) => {
+    const e = tx.leistungen.eintraege[l.slug as keyof typeof tx.leistungen.eintraege];
+    return (
+      <li class="leistung einblenden">
+        <span class="icon-rund"><Icon name={l.icon} /></span>
+        <Tag class="name"><a href={pfad(lang, `services/${l.slug}`)}>{e.name}</a></Tag>
+        <p>{e.kurz}</p>
+        <Icon name="pfeil" klasse="pfeil spiegeln" />
+      </li>
+    );
+  })}
+</ul>
+<style>
+  .leistungen {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    gap: 0 var(--abstand-6);
+  }
+  .leistung {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--abstand-3) var(--abstand-4);
+    align-content: start;
+    padding-block: var(--abstand-6);
+    border-block-start: 1px solid var(--linie-auf-hell);
+  }
+  .icon-rund {
+    grid-row: span 2;
+    display: grid; place-items: center;
+    inline-size: 3rem; block-size: 3rem;
+    border-radius: 50%;
+    background: var(--farbe-terrakotta-dunkel);
+    color: var(--farbe-weiss);
+  }
+  .icon-rund :global(.icon) { inline-size: 1.5rem; block-size: 1.5rem; }
+  .name { font-size: var(--h3); }
+  .name a { text-decoration: none; }
+  .name a::after { content: ''; position: absolute; inset: 0; }
+  .leistung p { grid-column: 2; font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  .leistung :global(.pfeil) { grid-column: 2; inline-size: 1.4rem; block-size: 1.4rem; color: var(--farbe-terrakotta-dunkel); transition: translate 200ms; }
+  .leistung:hover .name a { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  .leistung:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 4px; border-radius: 4px; }
+  .leistung a:focus-visible { outline: none; }
+  :global(.dunkel) .leistung { border-block-start-color: var(--linie-auf-dunkel); }
+  :global(.dunkel) .leistung :global(.pfeil) { color: var(--farbe-terrakotta-hell); }
+</style>

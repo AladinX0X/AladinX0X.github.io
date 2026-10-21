@@ -1,0 +1,354 @@
+---
+// AYLOUL – zweite Designrichtung: eine arabische Seite als Präsentation mit 8 Folien.
+// Daten, Texte, Logo, Icons und Bilder kommen aus der ersten Fassung (../src); alle Zahlen werden berechnet.
+import '@fontsource-variable/fustat';
+import '../styles/v2.css';
+import Logo from '../../../src/components/Logo.astro';
+import Raute from '../../../src/components/Raute.astro';
+import Icon from '../../../src/components/Icon.astro';
+import Bild from '../../../src/components/Bild.astro';
+import projekteDatei from '../../../src/data/projekte.json';
+import leistungenDatei from '../../../src/data/leistungen.json';
+import kontakt from '../../../src/data/kontakt.json';
+import site from '../../../src/data/site.json';
+import haupt from '../../../src/i18n/ar.json';
+import tx from '../i18n/ar.json';
+import v2 from '../data/v2.json';
+
+type Projekt = (typeof projekteDatei.projekte)[number];
+const projekte = projekteDatei.projekte as Projekt[];
+const leistungen = leistungenDatei.leistungen;
+const fuelle = (text: string, werte: Record<string, string | number>) =>
+  text.replace(/\{(\w+)\}/g, (_, k) => (k in werte ? String(werte[k]) : `{${k}}`));
+const nr = (i: number) => String(i).padStart(2, '0');
+
+// ---------- Kennzahlen (berechnet) ----------
+const laender = [...new Set(projekte.map((p) => p.land).filter((l): l is string => Boolean(l)))];
+const zahlen = [
+  { wert: String(projekte.length), label: haupt.start.zahlProjekte, zaehlen: projekte.length },
+  { wert: String(leistungen.length), label: haupt.start.zahlLeistungen, zaehlen: leistungen.length },
+  { wert: String(laender.length), label: haupt.start.zahlLaender, zaehlen: laender.length, zusatz: laender.map((l) => haupt.laender[l as keyof typeof haupt.laender]).join('، ') },
+  { wert: String(site.gegruendet), label: haupt.start.seitLabel, zaehlen: null, vorsatz: 'منذ' },
+];
+
+// ---------- Balken: Projekte nach Bereich ----------
+const bereichIds = ['exterior', 'interior', 'shop-drawings', 'graphic'] as const;
+const bereiche = bereichIds.map((id) => ({ id, name: haupt.projekte.filter[id], anzahl: projekte.filter((p) => p.bereich === id).length }));
+const maxBereich = Math.max(...bereiche.map((b) => b.anzahl));
+const B = { breite: 640, hoehe: 310, unten: 300, oben: 50, balken: 64 };
+const slot = B.breite / bereiche.length;
+const yWert = (v: number) => B.unten - (v / maxBereich) * (B.unten - B.oben);
+// RTL: erste Kategorie rechts
+const balken = bereiche.map((b, i) => {
+  const mitte = B.breite - slot * (i + 0.5);
+  const y = yWert(b.anzahl);
+  const x = mitte - B.balken / 2;
+  const r = 4;
+  const pfad = b.anzahl > 0
+    ? `M${x} ${B.unten}V${y + r}Q${x} ${y} ${x + r} ${y}H${x + B.balken - r}Q${x + B.balken} ${y} ${x + B.balken} ${y + r}V${B.unten}Z`
+    : '';
+  return { ...b, mitte, y, pfad };
+});
+const ticks = Array.from({ length: maxBereich + 1 }, (_, i) => i);
+
+// ---------- Ring: Projekte nach Land ----------
+const landGruppen = [
+  ...laender.map((l) => ({ id: l, name: haupt.laender[l as keyof typeof haupt.laender], anzahl: projekte.filter((p) => p.land === l).length })),
+  { id: 'ohne', name: tx.ohneAngabe, anzahl: projekte.filter((p) => !p.land).length },
+].filter((g) => g.anzahl > 0);
+const farbenRing: Record<string, string> = { sy: 'var(--gruen)', ae: 'var(--terrakotta)', ohne: 'var(--neutral)' };
+const R = 88;
+const umfang = 2 * Math.PI * R;
+const luecke = 4;
+let start = 0;
+const segmente = landGruppen.map((g) => {
+  const anteil = g.anzahl / projekte.length;
+  const laenge = anteil * umfang;
+  const seg = { ...g, prozent: Math.round(anteil * 100), dash: Math.max(0, laenge - luecke), offset: -start, farbe: farbenRing[g.id] ?? 'var(--neutral)' };
+  start += laenge;
+  return seg;
+});
+
+// ---------- Ablauf, Projekte, Leistungen ----------
+const schritte = haupt.arbeitsweise.schritte;
+const auswahl = v2.projekte.map((slug) => projekte.find((p) => p.slug === slug)).filter((p): p is Projekt => Boolean(p));
+const leistungTexte = haupt.leistungen.eintraege as Record<string, { name: string; kurz: string }>;
+
+const folien = [
+  { id: 'titel', titel: tx.folien.titel },
+  { id: 'zahlen', titel: tx.folien.zahlen },
+  { id: 'bereiche', titel: tx.folien.bereiche },
+  { id: 'laender', titel: tx.folien.laender },
+  { id: 'ablauf', titel: tx.folien.ablauf },
+  { id: 'projekte', titel: tx.folien.projekte },
+  { id: 'leistungen', titel: tx.folien.leistungen },
+  { id: 'kontakt', titel: tx.folien.kontakt },
+];
+const gesamt = nr(folien.length);
+---
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tx.meta.titel}</title>
+    <meta name="description" content={tx.meta.beschreibung} />
+    <meta name="theme-color" content="#ffefdc" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <nav class="fortschritt" aria-label={tx.navigation}>
+      <ol>
+        {folien.map((f, i) => (
+          <li><a href={`#folie-${f.id}`} data-punkt={f.id} aria-label={fuelle(tx.zurFolie, { n: nr(i + 1), titel: f.titel })} aria-current={i === 0 ? 'true' : undefined}></a></li>
+        ))}
+      </ol>
+      <p class="zaehler"><span class="unsichtbar" data-zaehler-text data-vorlage={fuelle(tx.zaehlerLabel, { n: folien.length })}>{fuelle(tx.zaehlerLabel, { i: 1, n: folien.length })}</span><bdi dir="ltr" aria-hidden="true"><span data-zaehler>01</span> / {gesamt}</bdi></p>
+    </nav>
+
+    <main>
+      <!-- 1 Titel -->
+      <section class="folie folie-titel" id="folie-titel" data-folie="titel" aria-labelledby="t-titel">
+        <div class="huelle titel-raster">
+          <div class="titel-text">
+            <Logo variante="komplett-dunkel" breite={260} alt={haupt.marke.name} />
+            <h1 id="t-titel">{haupt.marke.claim}</h1>
+            <p class="slogan">{haupt.marke.slogan}</p>
+          </div>
+          <figure class="titel-bild">
+            <div class="rahmen"><Bild id={site.heroBild} alt={haupt.alt.hero} laden="eager" prioritaet sizes="(min-width: 60rem) 332px, 70vw" /></div>
+            <figcaption>{projekte.find((p) => p.galerie.includes(site.heroBild))?.ar.titel}</figcaption>
+          </figure>
+        </div>
+        <a class="weiter" href="#folie-zahlen"><span>{tx.weiter}</span><Icon name="chevron" klasse="nach-unten" /></a>
+      </section>
+
+      <!-- 2 Kennzahlen -->
+      <section class="folie folie-ton" id="folie-zahlen" data-folie="zahlen" aria-labelledby="t-zahlen">
+        <div class="huelle">
+          <header class="folienkopf"><span class="foliennr">02</span><h2 id="t-zahlen">{tx.folien.zahlen}</h2></header>
+          <dl class="zahlen">
+            {zahlen.map((z) => (
+              <div class={`zahl-kachel ${z.zaehlen === null ? 'jahr' : ''}`}>
+                <dt>{z.label}{z.zusatz && <span class="zusatz">{z.zusatz}</span>}</dt>
+                <dd class="zahl">
+                  {z.vorsatz && <span class="vorsatz">{z.vorsatz}</span>}
+                  <span data-zaehlen={z.zaehlen ?? undefined}>{z.wert}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <!-- 3 Balken -->
+      <section class="folie" id="folie-bereiche" data-folie="bereiche" aria-labelledby="t-bereiche">
+        <div class="huelle diagramm-raster">
+          <header class="folienkopf"><span class="foliennr">03</span><h2 id="t-bereiche">{tx.folien.bereiche}</h2><p class="unterzeile">{tx.bereicheText}</p></header>
+          <figure class="diagramm balken-diagramm" data-diagramm>
+            <svg viewBox={`0 0 ${B.breite} ${B.hoehe}`} role="img" aria-labelledby="balken-titel balken-text">
+              <title id="balken-titel">{tx.folien.bereiche}</title>
+              <desc id="balken-text">{bereiche.map((b) => `${b.name}: ${b.anzahl}`).join('، ')}</desc>
+              <g class="raster">
+                {ticks.map((t) => (
+                  <g>
+                    <line x1="0" x2={B.breite} y1={yWert(t)} y2={yWert(t)} class={t === 0 ? 'grundlinie' : ''} />
+                  </g>
+                ))}
+              </g>
+              {balken.map((b, i) => (
+                <g class="balken" style={`--i: ${i}`}>
+                  <title>{`${b.name}: ${b.anzahl}`}</title>
+                  <rect class="trefferflaeche" x={b.mitte - slot / 2 + 8} y={B.oben - 40} width={slot - 16} height={B.unten - B.oben + 40} />
+                  {b.pfad && <path d={b.pfad} />}
+                  <text class="wert" x={b.mitte} y={b.y - 12} text-anchor="middle">{b.anzahl}</text>
+                </g>
+              ))}
+            </svg>
+            <ol class="kategorien" aria-hidden="true">
+              {bereiche.map((b) => <li>{b.name}</li>)}
+            </ol>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 4 Ring -->
+      <section class="folie folie-ton" id="folie-laender" data-folie="laender" aria-labelledby="t-laender">
+        <div class="huelle diagramm-raster">
+          <header class="folienkopf"><span class="foliennr">04</span><h2 id="t-laender">{tx.folien.laender}</h2><p class="unterzeile">{tx.laenderText}</p></header>
+          <div class="ring-raster">
+            <figure class="diagramm ring-diagramm" data-diagramm>
+              <svg viewBox="0 0 240 240" role="img" aria-labelledby="ring-titel ring-text">
+                <title id="ring-titel">{tx.folien.laender}</title>
+                <desc id="ring-text">{segmente.map((s) => `${s.name}: ${s.anzahl} (${s.prozent}%)`).join('، ')}</desc>
+                <circle class="ring-grund" cx="120" cy="120" r={R} />
+                <g transform="rotate(-90 120 120)">
+                  {segmente.map((s, i) => (
+                    <circle class="segment" cx="120" cy="120" r={R} style={`--dash: ${s.dash.toFixed(2)}; --umfang: ${umfang.toFixed(2)}; --i: ${i}; stroke: ${s.farbe}`} stroke-dasharray={`${s.dash.toFixed(2)} ${umfang.toFixed(2)}`} stroke-dashoffset={s.offset.toFixed(2)}>
+                      <title>{`${s.name}: ${s.anzahl} (${s.prozent}%)`}</title>
+                    </circle>
+                  ))}
+                </g>
+                <text class="ring-zahl" x="120" y="122" text-anchor="middle">{projekte.length}</text>
+                <text class="ring-label" x="120" y="150" text-anchor="middle">{tx.einheitProjekte}</text>
+              </svg>
+            </figure>
+            <ul class="legende">
+              {segmente.map((s) => (
+                <li>
+                  <span class="feld" style={`background: ${s.farbe}`}></span>
+                  <span class="legende-name">{s.name}</span>
+                  <span class="legende-wert">{fuelle(tx.anteil, { n: s.anzahl, gesamt: projekte.length })}</span>
+                  <span class="legende-prozent"><bdi dir="ltr">{fuelle(tx.prozent, { p: s.prozent })}</bdi></span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <details class="tabelle">
+            <summary>{tx.tabelle}</summary>
+            <div class="tabellen">
+              <table>
+                <caption>{tx.folien.bereiche}</caption>
+                <thead><tr><th scope="col">{tx.spalteBereich}</th><th scope="col">{tx.spalteAnzahl}</th></tr></thead>
+                <tbody>{bereiche.map((b) => <tr><th scope="row">{b.name}</th><td>{b.anzahl}</td></tr>)}</tbody>
+              </table>
+              <table>
+                <caption>{tx.folien.laender}</caption>
+                <thead><tr><th scope="col">{tx.spalteLand}</th><th scope="col">{tx.spalteAnzahl}</th></tr></thead>
+                <tbody>{segmente.map((s) => <tr><th scope="row">{s.name}</th><td>{s.anzahl}</td></tr>)}</tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 5 Zeitstrahl -->
+      <section class="folie" id="folie-ablauf" data-folie="ablauf" aria-labelledby="t-ablauf">
+        <div class="huelle">
+          <header class="folienkopf"><span class="foliennr">05</span><h2 id="t-ablauf">{tx.folien.ablauf}</h2><p class="unterzeile">{haupt.arbeitsweise.unterzeile}</p></header>
+          <ol class="zeitstrahl" data-diagramm>
+            {schritte.map((s, i) => (
+              <li style={`--i: ${i}`}>
+                <span class="knoten" aria-hidden="true"><Raute /></span>
+                <span class="schritt-nr">{nr(i + 1)}</span>
+                <h3>{s.name}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <!-- 6 Projekte -->
+      <section class="folie folie-ton" id="folie-projekte" data-folie="projekte" aria-labelledby="t-projekte">
+        <div class="huelle">
+          <header class="folienkopf"><span class="foliennr">06</span><h2 id="t-projekte">{tx.folien.projekte}</h2></header>
+          <ul class="projekte">
+            {auswahl.map((p) => (
+              <li class="projekt">
+                <div class="rahmen projekt-bild"><Bild id={p.titelbild} alt={p.ar.alt[p.titelbild as keyof typeof p.ar.alt]} sizes="(min-width: 60rem) 25vw, (min-width: 40rem) 45vw, 90vw" /></div>
+                <p class="bereich">{haupt.projekte.filter[p.bereich as keyof typeof haupt.projekte.filter]}</p>
+                <h3>{p.ar.titel}</h3>
+                <p class="kurz">{p.ar.kurz}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- 7 Leistungen -->
+      <section class="folie" id="folie-leistungen" data-folie="leistungen" aria-labelledby="t-leistungen">
+        <div class="huelle">
+          <header class="folienkopf"><span class="foliennr">07</span><h2 id="t-leistungen">{tx.folien.leistungen}</h2><p class="unterzeile">{haupt.leistungen.unterzeile}</p></header>
+          <ul class="leistungen">
+            {leistungen.map((l, i) => (
+              <li>
+                <span class="icon-rund"><Icon name={l.icon} /></span>
+                <span class="leistung-nr">{nr(i + 1)}</span>
+                <h3>{leistungTexte[l.slug].name}</h3>
+                <p>{leistungTexte[l.slug].kurz}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8 Kontakt -->
+      <section class="folie folie-kontakt" id="folie-kontakt" data-folie="kontakt" aria-labelledby="t-kontakt">
+        <div class="huelle kontakt-raster">
+          <div>
+            <header class="folienkopf"><span class="foliennr">08</span><h2 id="t-kontakt">{haupt.start.kontaktTitel}</h2></header>
+            <p class="kontakt-text">{tx.kontaktText}</p>
+            <div class="knoepfe">
+              <a class="knopf knopf-voll" href={kontakt.whatsapp} rel="noopener"><Icon name="whatsapp" />{haupt.kontakt.buttonWhatsapp}</a>
+              <a class="knopf knopf-linie" href={kontakt.telefonLink}><Icon name="telefon" />{haupt.kontakt.buttonAnruf}</a>
+              <a class="knopf knopf-linie" href={`mailto:${kontakt.email}`}><Icon name="email" />{haupt.kontakt.buttonEmail}</a>
+            </div>
+          </div>
+          <ul class="kontaktdaten">
+            <li><Icon name="telefon" /><a href={kontakt.telefonLink}><bdi dir="ltr">{kontakt.telefonAnzeige}</bdi></a></li>
+            <li><Icon name="email" /><a href={`mailto:${kontakt.email}`}><bdi dir="ltr">{kontakt.email}</bdi></a></li>
+            <li><Icon name="instagram" /><a href={kontakt.instagram} rel="noopener"><bdi dir="ltr">{kontakt.instagramName}</bdi></a></li>
+            <li><Icon name="ort" /><span>{haupt.kontakt.adresseZeilen.join('، ')}</span></li>
+          </ul>
+        </div>
+        <p class="fuss huelle">{fuelle(haupt.footer.rechte, { jahr: site.gegruendet })}</p>
+      </section>
+    </main>
+
+    <script>
+      const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const folien = [...document.querySelectorAll<HTMLElement>('[data-folie]')];
+      const punkte = [...document.querySelectorAll<HTMLAnchorElement>('[data-punkt]')];
+      const zaehler = document.querySelector<HTMLElement>('[data-zaehler]');
+      const zaehlerText = document.querySelector<HTMLElement>('[data-zaehler-text]');
+      const vorlage = zaehlerText?.dataset.vorlage ?? '';
+
+      // Aktive Folie: Fortschrittspunkte und Zähler "03 / 08"
+      const setzeAktiv = (id: string) => {
+        const i = folien.findIndex((f) => f.dataset.folie === id);
+        if (i < 0) return;
+        punkte.forEach((p) => (p.dataset.punkt === id ? p.setAttribute('aria-current', 'true') : p.removeAttribute('aria-current')));
+        if (zaehler) zaehler.textContent = String(i + 1).padStart(2, '0');
+        // Auf der grünen Kontaktfolie hell darstellen
+        document.querySelector('.fortschritt')?.classList.toggle('auf-dunkel', folien[i].classList.contains('folie-kontakt'));
+        if (zaehlerText) zaehlerText.textContent = vorlage.replace('{i}', String(i + 1));
+      };
+      const sichtbar = new IntersectionObserver((eintraege) => {
+        for (const e of eintraege) if (e.isIntersecting) setzeAktiv((e.target as HTMLElement).dataset.folie ?? '');
+      }, { rootMargin: '-45% 0px -45% 0px' });
+      folien.forEach((f) => sichtbar.observe(f));
+
+      // Diagramme bauen sich beim Scrollen auf (bei reduzierter Bewegung sofort fertig)
+      const diagramme = document.querySelectorAll<HTMLElement>('[data-diagramm]');
+      if (ruhig || !('IntersectionObserver' in window)) {
+        diagramme.forEach((d) => d.classList.add('fertig'));
+      } else {
+        document.documentElement.classList.add('animiert');
+        const io = new IntersectionObserver((eintraege) => {
+          for (const e of eintraege) if (e.isIntersecting) { e.target.classList.add('fertig'); io.unobserve(e.target); }
+        }, { threshold: 0.35 });
+        diagramme.forEach((d) => io.observe(d));
+
+        // Kennzahlen hochzählen
+        const zahlenIo = new IntersectionObserver((eintraege) => {
+          for (const e of eintraege) {
+            if (!e.isIntersecting) continue;
+            zahlenIo.unobserve(e.target);
+            const el = e.target as HTMLElement;
+            const ziel = Number(el.dataset.zaehlen);
+            const t0 = performance.now();
+            const schritt = (t: number) => {
+              const p = Math.min(1, (t - t0) / 900);
+              el.textContent = String(Math.round(ziel * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(schritt);
+            };
+            requestAnimationFrame(schritt);
+          }
+        }, { threshold: 0.6 });
+        document.querySelectorAll<HTMLElement>('[data-zaehlen]').forEach((el) => zahlenIo.observe(el));
+      }
+    </script>
+  </body>
+</html>

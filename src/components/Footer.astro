@@ -1,0 +1,92 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import Raute from './Raute.astro';
+import PortfolioKnopf from './PortfolioKnopf.astro';
+import kontakt from '../data/kontakt.json';
+import site from '../data/site.json';
+import { t, pfad, fuelle, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache }
+const { lang } = Astro.props;
+const tx = t(lang);
+const seiten = [
+  { href: pfad(lang), text: tx.nav.start },
+  { href: pfad(lang, 'about'), text: tx.nav.studio },
+  { href: pfad(lang, 'approach'), text: tx.nav.arbeitsweise },
+  { href: pfad(lang, 'services'), text: tx.nav.leistungen },
+  { href: pfad(lang, 'projects'), text: tx.nav.projekte },
+  { href: pfad(lang, 'contact'), text: tx.nav.kontakt },
+];
+const social = [
+  { name: 'whatsapp', href: kontakt.whatsapp, label: 'WhatsApp' },
+  { name: 'instagram', href: kontakt.instagram, label: tx.kontakt.instagram },
+  { name: 'facebook', href: kontakt.facebook, label: tx.kontakt.facebook },
+  { name: 'telefon', href: kontakt.telefonLink, label: tx.kontakt.telefon },
+  { name: 'email', href: `mailto:${kontakt.email}`, label: tx.kontakt.email },
+];
+---
+<footer class="fuss dunkel">
+  <div class="huelle fuss-raster">
+    <div class="fuss-marke">
+      <Logo variante="komplett-hell" breite={200} alt={tx.marke.name} laden="lazy" />
+      <p class="slogan">{tx.marke.slogan}</p>
+    </div>
+    <div>
+      <h2 class="fuss-titel"><Raute />{tx.footer.kontaktTitel}</h2>
+      <ul class="fuss-liste">
+        <li><a href={kontakt.telefonLink}><bdi dir="ltr">{kontakt.telefonAnzeige}</bdi></a></li>
+        <li><a href={`mailto:${kontakt.email}`}><bdi dir="ltr">{kontakt.email}</bdi></a></li>
+        {tx.kontakt.adresseZeilen.map((z) => <li>{z}</li>)}
+      </ul>
+    </div>
+    <nav aria-label={tx.footer.seitenTitel}>
+      <h2 class="fuss-titel"><Raute />{tx.footer.seitenTitel}</h2>
+      <ul class="fuss-liste">
+        {seiten.map((s) => <li><a href={s.href}>{s.text}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="fuss-titel"><Raute />{tx.footer.socialTitel}</h2>
+      <ul class="social">
+        {social.map((s) => (
+          <li><a href={s.href} aria-label={s.label} rel={s.href.startsWith('http') ? 'noopener' : undefined}><Icon name={s.name} /></a></li>
+        ))}
+      </ul>
+      <div class="fuss-download"><PortfolioKnopf lang={lang} variante="linie" /></div>
+    </div>
+  </div>
+  <div class="huelle fuss-unten">
+    <p>{fuelle(tx.footer.rechte, { jahr: site.gegruendet })}</p>
+  </div>
+</footer>
+<style>
+  .fuss { padding-block: var(--abstand-8) var(--abstand-6); }
+  .fuss-raster {
+    display: grid;
+    gap: var(--abstand-7) var(--abstand-6);
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  }
+  .slogan { margin-block-start: var(--abstand-4); color: var(--farbe-terrakotta-hell); font-size: var(--text-klein); }
+  .fuss-titel { display: flex; align-items: center; gap: var(--abstand-3); font-size: var(--text); margin-block-end: var(--abstand-4); }
+  .fuss-liste { list-style: none; display: grid; gap: var(--abstand-2); font-size: var(--text-klein); }
+  .fuss-liste a { text-decoration: none; }
+  .fuss-liste a:hover { color: var(--farbe-terrakotta-hell); text-decoration: underline; }
+  .social { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+  .social a {
+    display: grid; place-items: center;
+    inline-size: 2.75rem; block-size: 2.75rem;
+    border-radius: 50%;
+    background: var(--farbe-terrakotta-dunkel);
+    color: var(--farbe-weiss);
+  }
+  .social a:hover { background: var(--farbe-elfenbein); color: var(--farbe-gruen); }
+  .social :global(.icon) { inline-size: 1.3rem; block-size: 1.3rem; }
+  .fuss-download { margin-block-start: var(--abstand-5); }
+  .fuss-unten {
+    margin-block-start: var(--abstand-7);
+    padding-block-start: var(--abstand-5);
+    border-block-start: 1px solid var(--linie-auf-dunkel);
+    font-size: var(--text-klein);
+  }
+</style>

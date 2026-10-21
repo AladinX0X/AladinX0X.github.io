@@ -1,0 +1,41 @@
+---
+import Basis from '../../../layouts/Basis.astro';
+import Seitenkopf from '../../../components/Seitenkopf.astro';
+import LeistungenListe from '../../../components/LeistungenListe.astro';
+import Raute from '../../../components/Raute.astro';
+import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
+import { t, pfad, sprachPfade, type Sprache } from '../../../i18n/utils';
+
+export const getStaticPaths = sprachPfade;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const l = tx.leistungen;
+---
+<Basis lang={lang} titel={tx.meta.seiten.leistungen.titel} beschreibung={tx.meta.seiten.leistungen.beschreibung} seite="leistungen">
+  <Seitenkopf titel={l.titel} unterzeile={l.unterzeile} />
+
+  <section class="abschnitt hell" aria-labelledby="liste-titel">
+    <div class="huelle">
+      <h2 id="liste-titel" class="unsichtbar">{l.titel}</h2>
+      <p class="einleitung lesetext intro">{l.intro}</p>
+      <LeistungenListe lang={lang} ebene="h3" />
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="ingenieure-titel">
+    <div class="huelle">
+      <h2 id="ingenieure-titel" class="gross-satz"><Raute />{tx.start.ingenieureTitel}</h2>
+      <p class="einleitung lesetext">{tx.start.ingenieureText}</p>
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}</a></p>
+    </div>
+  </section>
+
+  <Kontaktaufruf lang={lang} />
+</Basis>
+
+<style>
+  .intro { margin-block-end: var(--abstand-7); }
+  .gross-satz { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); margin-block-end: var(--abstand-5); }
+  .gross-satz :global(.raute) { inline-size: 0.6em; }
+  .mehr { margin-block-start: var(--abstand-6); }
+</style>

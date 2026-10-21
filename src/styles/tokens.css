@@ -1,0 +1,77 @@
+/* Design-Tokens AYLOUL – einzige Stelle für Farben, Schrift, Abstände.
+   Kontraste (WCAG, nachgerechnet in Phase 0):
+   Elfenbein auf Grün 12.95:1 · Terrakotta auf Grün 3.17:1 und auf Elfenbein 4.08:1 (nur große Schrift, Linien, Icons)
+   Terrakotta hell auf Grün 5.60:1 · Terrakotta dunkel auf Elfenbein 5.86:1 · Weiß auf Terrakotta 4.60:1 */
+:root {
+  /* Markenfarben (Portfolio Seite 38) */
+  --farbe-gruen: #052f24;
+  --farbe-gruen-tief: #03211a;
+  --farbe-gruen-hell: #0b3d30;
+  --farbe-elfenbein: #ffefdc;
+  --farbe-terrakotta: #c15428;
+  --farbe-terrakotta-hell: #e8875c;
+  --farbe-terrakotta-dunkel: #9e3f1a;
+  --farbe-weiss: #ffffff;
+
+  /* Linien */
+  --linie-auf-dunkel: rgb(255 239 220 / 0.32);
+  --linie-auf-hell: rgb(5 47 36 / 0.28);
+
+  /* Schrift: eine Familie für beide Sprachen */
+  --schrift: 'Fustat Variable', 'Fustat', system-ui, sans-serif;
+  --gewicht-text: 400;
+  --gewicht-mittel: 500;
+  --gewicht-titel: 650;
+  --gewicht-stark: 750;
+
+  /* Schriftgrößen Arabisch (Standard) */
+  --text: 1.125rem;          /* 18px */
+  --text-klein: 1.0625rem;   /* 17px, Untergrenze für Arabisch */
+  --text-gross: 1.25rem;     /* 20px */
+  --zeile: 1.8;
+  --zeile-klein: 1.7;
+  --h1: clamp(2.125rem, 1.4rem + 3.2vw, 3.5rem);
+  --h2: clamp(1.75rem, 1.3rem + 1.9vw, 2.5rem);
+  --h3: 1.375rem;
+  --zeile-titel: 1.4;
+  --sperrung-titel: 0;
+  --nummer: 2rem;
+
+  /* Abstände */
+  --abstand-1: 0.25rem;
+  --abstand-2: 0.5rem;
+  --abstand-3: 0.75rem;
+  --abstand-4: 1rem;
+  --abstand-5: 1.5rem;
+  --abstand-6: 2rem;
+  --abstand-7: 3rem;
+  --abstand-8: 4rem;
+  --abschnitt-abstand: clamp(4rem, 2.5rem + 6vw, 8rem);
+  --rand: clamp(1rem, 0.5rem + 3vw, 3rem);
+  --inhalt-max: 76rem;
+  --text-max: 40rem;
+  --kopf-hoehe: 4.5rem;
+
+  /* Formen */
+  --radius-bild: 14px;
+  --radius-knopf: 999px;
+  --kontur: 1px solid var(--farbe-terrakotta);
+
+  /* Bewegung */
+  --dauer: 560ms;
+  --kurve: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Englisch: etwas kleinere Grundschrift, engere Titelzeilen, Großbuchstaben nur hier */
+:root:lang(en) {
+  --text: 1.0625rem;         /* 17px */
+  --text-klein: 0.9375rem;   /* 15px */
+  --text-gross: 1.1875rem;   /* 19px */
+  --zeile: 1.65;
+  --zeile-klein: 1.6;
+  --h1: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --h2: clamp(1.75rem, 1.25rem + 2.1vw, 2.75rem);
+  --h3: 1.25rem;
+  --zeile-titel: 1.12;
+  --sperrung-titel: 0.01em;
+}

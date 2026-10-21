@@ -1,0 +1,108 @@
+---
+import Basis from '../../../layouts/Basis.astro';
+import Seitenkopf from '../../../components/Seitenkopf.astro';
+import Abschnittskopf from '../../../components/Abschnittskopf.astro';
+import Projektkarte from '../../../components/Projektkarte.astro';
+import Raute from '../../../components/Raute.astro';
+import Icon from '../../../components/Icon.astro';
+import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
+import manifest from '../../../data/bilder-manifest.json';
+import { leistungen, projektNach, type Leistung } from '../../../data/daten';
+import { t, pfad, sprachen, type Sprache } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return sprachen.flatMap((lang) => leistungen.map((l) => ({ params: { lang, slug: l.slug }, props: { leistung: l } })));
+}
+interface Props { leistung: Leistung }
+const { leistung } = Astro.props;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const e = tx.leistungen.eintraege[leistung.slug as keyof typeof tx.leistungen.eintraege];
+const verknuepft = leistung.projekte.map(projektNach).filter((p) => p !== undefined);
+const andere = leistungen.filter((x) => x.slug !== leistung.slug);
+const bild = (manifest as Record<string, { breite: number; hoehe: number }>)[leistung.bild];
+const alleAlt = tx.alt as Record<string, string>;
+// Werkplanung: Aspekte sind eine Abfolge (Design Intent → Development → Documentation → Detail)
+const alsAbfolge = leistung.slug === 'shop-drawings';
+---
+<Basis lang={lang} titel={e.name} beschreibung={e.kurz} seite="leistungen">
+  <Seitenkopf
+    titel={e.name}
+    unterzeile={e.kurz}
+    kicker={tx.leistungen.alle}
+    kickerHref={pfad(lang, 'services')}
+    bild={leistung.bild}
+    bildAlt={alleAlt[leistung.bild]}
+    bildFormat={`${bild.breite} / ${bild.hoehe}`}
+  />
+
+  <section class="abschnitt hell" aria-labelledby="aspekte-titel">
+    <div class="huelle">
+      <div class="lesetext text einblenden">
+        {e.text.map((absatz, i) => <p class={i === 0 ? 'einleitung' : ''}>{absatz}</p>)}
+      </div>
+      <Abschnittskopf titel={alsAbfolge ? tx.leistungen.schritteTitel : tx.leistungen.aspekteTitel} nummer={1} id="aspekte-titel" />
+      <ol class={`aspekte ${alsAbfolge ? 'abfolge' : ''}`}>
+        {e.aspekte.map((a, i) => (
+          <li class="aspekt einblenden">
+            <span class="aspekt-kopf">
+              <span class="aspekt-nr">{String(i + 1).padStart(2, '0')}</span>
+              {alsAbfolge && i < e.aspekte.length - 1 ? <span class="verbinder" aria-hidden="true"></span> : <Raute />}
+            </span>
+            <h3>{a.name}</h3>
+            <p>{a.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="abschnitt dunkel" aria-labelledby="projekte-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.leistungen.projekteTitel} nummer={2} id="projekte-titel" />
+      {verknuepft.length > 0 ? (
+        <div class="projekt-raster">
+          {verknuepft.map((p) => <Projektkarte lang={lang} projekt={p} />)}
+        </div>
+      ) : (
+        <p class="einleitung lesetext">{tx.leistungen.keineProjekte}</p>
+      )}
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="weitere-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.leistungen.weitere} id="weitere-titel" />
+      <ul class="weitere">
+        {andere.map((x) => (
+          <li>
+            <a href={pfad(lang, `services/${x.slug}`)}>
+              <span class="icon-rund"><Icon name={x.icon} /></span>
+              <span>{tx.leistungen.eintraege[x.slug as keyof typeof tx.leistungen.eintraege].name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Kontaktaufruf lang={lang} hell={false} />
+</Basis>
+
+<style>
+  .text { margin-block-end: var(--abstand-8); }
+  .aspekte { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+  .aspekt { display: grid; gap: var(--abstand-3); align-content: start; }
+  .aspekt-kopf { display: flex; align-items: center; gap: var(--abstand-3); }
+  .aspekt-nr { font-size: var(--nummer); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta); line-height: 1; }
+  .aspekt-kopf :global(.raute) { inline-size: 0.7rem; }
+  .verbinder { flex: 1; border-block-start: 2px dashed var(--farbe-terrakotta); opacity: 0.8; }
+  .aspekt h3 { font-size: var(--h3); }
+  .aspekt p { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+  .weitere { list-style: none; display: grid; gap: var(--abstand-3) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+  .weitere a { display: flex; align-items: center; gap: var(--abstand-4); padding-block: var(--abstand-3); text-decoration: none; font-weight: var(--gewicht-mittel); border-block-end: 1px solid var(--linie-auf-hell); }
+  .weitere a:hover span:last-child { text-decoration: underline; text-underline-offset: 0.25em; }
+  .icon-rund { display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; flex: none; border-radius: 50%; background: var(--farbe-terrakotta-dunkel); color: var(--farbe-weiss); }
+  .icon-rund :global(.icon) { inline-size: 1.25rem; block-size: 1.25rem; }
+</style>

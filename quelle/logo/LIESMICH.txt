@@ -1,0 +1,23 @@
+ORIGINAL-LOGO
+=============
+
+Hier das Original-Logo ablegen. Es ersetzt dann die Logo-Bilder, die aus
+dem Portfolio-PDF gewonnen wurden.
+
+Dateinamen (jeweils .svg bevorzugt, sonst .png mit transparentem Hintergrund):
+  logo-zeichen-hell            Zeichen allein, fuer dunklen Hintergrund
+  logo-zeichen-dunkel          Zeichen allein, fuer hellen Hintergrund
+  logo-zeichen-schriftzug-hell Zeichen mit Schriftzug, fuer dunklen Hintergrund
+  logo-zeichen-schriftzug-dunkel  dasselbe fuer hellen Hintergrund
+  logo-komplett-hell           Zeichen, Schriftzug und Unterzeile, hell
+  logo-komplett-dunkel         dasselbe, dunkel
+
+Danach im Terminal im Projektordner:
+  npm run bilder
+  npm run build
+
+Das Logo wird auf der Website nur an einer Stelle eingebunden
+(src/components/Logo.astro). Bei SVG-Dateien dort die Endung der
+Importe von .png auf .svg aendern.
+Die Raute (src/components/Raute.astro) ist nachgebaut und kann
+spaeter aus dem Original-Logo ersetzt werden.

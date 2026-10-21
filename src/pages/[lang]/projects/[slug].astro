@@ -1,0 +1,214 @@
+---
+import Basis from '../../../layouts/Basis.astro';
+import Abschnittskopf from '../../../components/Abschnittskopf.astro';
+import Bild from '../../../components/Bild.astro';
+import Raute from '../../../components/Raute.astro';
+import Icon from '../../../components/Icon.astro';
+import Lightbox from '../../../components/Lightbox.astro';
+import PortfolioKnopf from '../../../components/PortfolioKnopf.astro';
+import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
+import manifest from '../../../data/bilder-manifest.json';
+import { projekte, leistungen, projektText, type Projekt } from '../../../data/daten';
+import { t, pfad, fuelle, sprachen, type Sprache } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return sprachen.flatMap((lang) => projekte.map((p, i) => ({
+    params: { lang, slug: p.slug },
+    props: { projekt: p, vorher: projekte[(i - 1 + projekte.length) % projekte.length], nachher: projekte[(i + 1) % projekte.length] },
+  })));
+}
+interface Props { projekt: Projekt; vorher: Projekt; nachher: Projekt }
+const { projekt, vorher, nachher } = Astro.props;
+const lang = Astro.params.lang as Sprache;
+const tx = t(lang);
+const p = tx.projekte;
+const pt = projektText(projekt, lang);
+const m = manifest as Record<string, { breite: number; hoehe: number }>;
+
+// Eckdaten: nur vorhandene Angaben
+const eckdaten = [
+  { k: p.eckdaten.typ, v: pt.typ },
+  { k: p.eckdaten.umfang, v: pt.umfang },
+  { k: p.eckdaten.ort, v: pt.ort },
+  { k: p.eckdaten.stil, v: pt.stil },
+  { k: p.eckdaten.flaeche, v: projekt.flaeche ? fuelle(p.flaecheEinheit, { n: projekt.flaeche }) : null },
+  { k: p.eckdaten.jahr, v: projekt.jahr ? String(projekt.jahr) : null },
+].filter((e) => e.v);
+
+const titel = m[projekt.titelbild];
+const galerie = projekt.galerie.filter((id) => id !== projekt.titelbild);
+const lbIds = [projekt.titelbild, ...galerie];
+const leistung = leistungen.find((l) => l.projekte.includes(projekt.slug) && l.slug !== '3d-visualization');
+const leistungName = leistung ? tx.leistungen.eintraege[leistung.slug as keyof typeof tx.leistungen.eintraege].name : null;
+---
+<Basis lang={lang} titel={pt.titel} beschreibung={`${pt.kurz} ${pt.beschreibung[0]}`.slice(0, 300)} seite="projekte">
+  <section class="abschnitt dunkel projektkopf" aria-labelledby="seiten-titel">
+    <div class="huelle kopf-raster">
+      <div class="kopf-text">
+        <p class="kicker akzent">
+          <a href={pfad(lang, 'projects')}>{p.titel}</a>
+          <span class="trenner" aria-hidden="true"></span>
+          {p.filter[projekt.bereich]}
+          {projekt.auszug && <span class="auszug-marke">{p.auszug}</span>}
+        </p>
+        <h1 id="seiten-titel"><Raute klasse="titel-raute" /><span>{pt.titel}</span></h1>
+        <p class="unterzeile">{pt.kurz}</p>
+        {eckdaten.length > 0 && (
+          <div class="eckdaten-block">
+            <h2 class="eckdaten-titel">{p.eckdatenTitel}</h2>
+            <dl class="eckdaten">
+              {eckdaten.map((e) => <div><dt>{e.k}</dt><dd>{e.v}</dd></div>)}
+            </dl>
+          </div>
+        )}
+      </div>
+      <button type="button" class="bildrahmen kopf-bild bild-knopf" data-lightbox-index="0" aria-label={`${p.lightbox.vergroessern}: ${pt.alt[projekt.titelbild]}`} style={`aspect-ratio: ${titel.breite} / ${titel.hoehe}`}>
+        <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 48vw, 92vw" laden="eager" prioritaet />
+      </button>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="beschreibung-titel">
+    <div class="huelle inhalt-raster">
+      <div class="beschreibung">
+        <Abschnittskopf titel={p.beschreibung} nummer={1} id="beschreibung-titel" />
+        <div class="lesetext einblenden">
+          {pt.beschreibung.map((absatz, i) => <p class={i === 0 ? 'einleitung' : ''}>{absatz}</p>)}
+        </div>
+        {projekt.auszug && <p class="hinweis lesetext">{p.auszugHinweis}</p>}
+        {leistung && leistungName && (
+          <p class="mehr"><a class="textlink" href={pfad(lang, `services/${leistung.slug}`)}>{leistungName}</a></p>
+        )}
+      </div>
+      {(pt.materialien.length > 0 || projekt.farben.length > 0) && (
+        <aside class="paletten einblenden" aria-label={`${p.materialien} / ${p.farben}`}>
+          {pt.materialien.length > 0 && (
+            <div>
+              <h2 class="klein-titel">{p.materialien}</h2>
+              <ul class="rautenliste">
+                {pt.materialien.map((mat) => <li><Raute />{mat}</li>)}
+              </ul>
+            </div>
+          )}
+          {projekt.farben.length > 0 && (
+            <div>
+              <h2 class="klein-titel">{p.farben}</h2>
+              <ul class="farben">
+                {projekt.farben.map((f) => (
+                  <li><span class="feld" style={`background-color: ${f}`}></span><bdi dir="ltr">{f.toUpperCase()}</bdi></li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      )}
+    </div>
+  </section>
+
+  {galerie.length > 0 && (
+    <section class="abschnitt dunkel" aria-labelledby="galerie-titel">
+      <div class="huelle">
+        <Abschnittskopf titel={p.galerie} nummer={2} id="galerie-titel" />
+        <ul class={`galerie anzahl-${galerie.length}`}>
+          {galerie.map((id, i) => (
+            <li class={i === 0 ? 'gross' : 'klein'} style={`--r: ${(m[id].breite / m[id].hoehe).toFixed(3)}; --max: ${m[id].breite}px`}>
+              <button type="button" class="bildrahmen bild-knopf" data-lightbox-index={i + 1} aria-label={`${p.lightbox.vergroessern}: ${pt.alt[id]}`} style={`aspect-ratio: ${m[id].breite} / ${m[id].hoehe}`}>
+                <Bild id={id} alt={pt.alt[id]} sizes={i === 0 ? '(min-width: 62rem) 60vw, 92vw' : '(min-width: 62rem) 30vw, 92vw'} />
+                {projekt.auszug && <span class="auszug-etikett">{p.auszug}</span>}
+              </button>
+            </li>
+          ))}
+        </ul>
+        {projekt.auszug && (
+          <div class="auszug-download">
+            <p class="lesetext">{p.auszugHinweis}</p>
+            <PortfolioKnopf lang={lang} variante="linie" />
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <nav class="abschnitt hell blaettern" aria-label={p.alle}>
+    <div class="huelle blaettern-raster">
+      <a class="nachbar" href={pfad(lang, `projects/${vorher.slug}`)} rel="prev">
+        <span class="richtung"><Icon name="pfeil" klasse="zurueck-pfeil" />{p.vorheriges}</span>
+        <span class="nachbar-titel">{projektText(vorher, lang).titel}</span>
+      </a>
+      <a class="alle textlink" href={pfad(lang, 'projects')}>{p.alle}</a>
+      <a class="nachbar nach" href={pfad(lang, `projects/${nachher.slug}`)} rel="next">
+        <span class="richtung">{p.naechstes}<Icon name="pfeil" klasse="vor-pfeil" /></span>
+        <span class="nachbar-titel">{projektText(nachher, lang).titel}</span>
+      </a>
+    </div>
+  </nav>
+
+  <Kontaktaufruf lang={lang} hell={false} />
+  <Lightbox lang={lang} ids={lbIds} alts={pt.alt} auszug={projekt.auszug} />
+</Basis>
+
+<style>
+  .projektkopf { padding-block: clamp(3rem, 2rem + 4vw, 6rem); }
+  .kopf-raster { display: grid; gap: var(--abstand-7); align-items: center; }
+  @media (min-width: 62rem) { .kopf-raster { grid-template-columns: 1fr 1.15fr; } }
+  .kopf-text { display: grid; gap: var(--abstand-4); justify-items: start; }
+  .kicker { display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-3); font-size: var(--text-klein); font-weight: var(--gewicht-mittel); }
+  .kicker a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em; }
+  .trenner { inline-size: 1.5rem; block-size: 1px; background: currentColor; }
+  .auszug-marke { padding: 0 var(--abstand-3); border: 1px solid currentColor; border-radius: var(--radius-knopf); }
+  h1 { display: flex; gap: var(--abstand-4); align-items: baseline; color: var(--farbe-terrakotta-hell); }
+  h1 :global(.titel-raute) { inline-size: 0.42em; }
+  .unterzeile { font-size: var(--text-gross); max-inline-size: var(--text-max); }
+  .eckdaten-block { inline-size: 100%; margin-block-start: var(--abstand-4); }
+  .eckdaten-titel { font-size: var(--text-klein); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-hell); margin-block-end: var(--abstand-3); }
+  .eckdaten { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); gap: 0 var(--abstand-6); margin: 0; }
+  .eckdaten div { padding-block: var(--abstand-3); border-block-start: 1px solid var(--linie-auf-dunkel); }
+  .eckdaten dt { font-size: var(--text-klein); opacity: 0.85; }
+  .eckdaten dd { margin: 0; font-weight: var(--gewicht-titel); }
+  .bild-knopf { display: block; position: relative; padding: 0; inline-size: 100%; cursor: zoom-in; }
+  .bild-knopf :global(img) { transition: scale 500ms var(--kurve); }
+  .bild-knopf:hover :global(img) { scale: 1.02; }
+  .kopf-bild { max-block-size: 80vh; }
+
+  .inhalt-raster { display: grid; gap: var(--abstand-8); grid-template-columns: minmax(0, 1fr); }
+  @media (min-width: 62rem) { .inhalt-raster { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; } }
+  .hinweis { margin-block-start: var(--abstand-5); padding-inline-start: var(--abstand-4); border-inline-start: 3px solid var(--farbe-terrakotta); font-size: var(--text-klein); }
+  .mehr { margin-block-start: var(--abstand-6); }
+  .paletten { display: grid; gap: var(--abstand-7); padding: var(--abstand-6); border: 1px solid var(--linie-auf-hell); border-radius: var(--radius-bild); }
+  .klein-titel { font-size: var(--h3); margin-block-end: var(--abstand-4); color: var(--farbe-terrakotta-dunkel); }
+  .farben { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--abstand-3); }
+  .farben li { display: grid; gap: var(--abstand-2); font-size: var(--text-klein); justify-items: start; }
+  .feld { display: block; inline-size: 100%; aspect-ratio: 2 / 1; border-radius: 8px; border: 1px solid var(--linie-auf-hell); }
+
+  /* Galerie: Reihen mit gleicher Höhe (Breite nach Seitenverhältnis), das erste Bild größer.
+     Kein Bild wird breiter als sein Original angezeigt. */
+  .galerie { --h: clamp(14rem, 6rem + 24vw, 32rem); list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-4); justify-content: center; align-items: flex-start; }
+  .galerie li { flex: 0 1 auto; inline-size: min(calc(var(--r) * var(--h)), var(--max), 100%); }
+  .galerie .gross { flex-basis: 100%; inline-size: 100%; }
+  .galerie .gross .bild-knopf { inline-size: min(calc(var(--r) * clamp(16rem, 6rem + 30vw, 36rem)), var(--max), 100%); margin-inline: auto; }
+  @media (max-width: 40rem) { .galerie li { inline-size: min(var(--max), 100%); } }
+  .auszug-etikett {
+    position: absolute;
+    inset-block-start: var(--abstand-3);
+    inset-inline-start: var(--abstand-3);
+    padding: var(--abstand-1) var(--abstand-3);
+    background: var(--farbe-gruen);
+    color: var(--farbe-elfenbein);
+    border-radius: var(--radius-knopf);
+    font-size: var(--text-klein);
+    font-weight: var(--gewicht-titel);
+  }
+  .auszug-download { margin-block-start: var(--abstand-7); display: grid; gap: var(--abstand-4); justify-items: start; }
+
+  .blaettern-raster { display: grid; gap: var(--abstand-5); grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 48rem) { .blaettern-raster { grid-template-columns: 1fr auto 1fr; } }
+  .nachbar { display: grid; gap: var(--abstand-1); text-decoration: none; padding: var(--abstand-4) 0; }
+  .nach { text-align: end; justify-items: end; }
+  .richtung { display: inline-flex; align-items: center; gap: var(--abstand-2); font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+  .richtung :global(.icon) { inline-size: 1.2rem; block-size: 1.2rem; }
+  :global([dir='ltr']) .richtung :global(.zurueck-pfeil) { transform: scaleX(-1); }
+  :global([dir='rtl']) .richtung :global(.vor-pfeil) { transform: scaleX(-1); }
+  .nachbar-titel { font-size: var(--h3); font-weight: var(--gewicht-titel); }
+  .nachbar:hover .nachbar-titel { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  .alle { justify-self: center; }
+</style>
