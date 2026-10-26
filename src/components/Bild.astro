@@ -1,8 +1,13 @@
 ---
 // Responsives Bild aus src/data/bilder-manifest.json (erzeugt von npm run bilder).
+// <picture> mit AVIF und WebP, echte width/height, weichgezeichneter Platzhalter (LQIP) als Hintergrund.
+// Mit JavaScript blendet das Bild nach dem Laden weich ein (nur lazy geladene Bilder, nicht bei reduzierter Bewegung),
+// damit das größte Bild der ersten Ansicht (LCP) nie auf JavaScript wartet.
 // Es gibt nur Größen bis zur Originalbreite, nichts wird hochskaliert.
 import manifest from '../data/bilder-manifest.json';
 
+interface Variante { breite: number; hoehe: number; src: string; avif: string }
+interface Eintrag { breite: number; hoehe: number; lqip: string; varianten: Variante[] }
 interface Props {
   id: string;
   alt: string;
@@ -12,20 +17,25 @@ interface Props {
   prioritaet?: boolean;
 }
 const { id, alt, sizes = '100vw', laden = 'lazy', klasse = '', prioritaet = false } = Astro.props;
-const eintrag = (manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string }[] }>)[id];
+const eintrag = (manifest as Record<string, Eintrag>)[id];
 if (!eintrag) throw new Error(`Bild "${id}" fehlt im Manifest. npm run bilder ausführen.`);
-const srcset = eintrag.varianten.map((v) => `${v.src} ${v.breite}w`).join(', ');
-const groesste = eintrag.varianten[eintrag.varianten.length - 1];
+const srcsetWebp = eintrag.varianten.map((v) => `${v.src} ${v.breite}w`).join(', ');
+const srcsetAvif = eintrag.varianten.map((v) => `${v.avif} ${v.breite}w`).join(', ');
+// Standard-src: die Variante bis 1440 px (nicht die größte), damit alte Browser nicht 2560 px laden
+const standard = [...eintrag.varianten].reverse().find((v) => v.breite <= 1440) ?? eintrag.varianten[0];
 ---
-<img
-  class={klasse}
-  src={groesste.src}
-  srcset={srcset}
-  sizes={sizes}
-  width={eintrag.breite}
-  height={eintrag.hoehe}
-  alt={alt}
-  loading={laden}
-  decoding={laden === 'eager' ? 'sync' : 'async'}
-  fetchpriority={prioritaet ? 'high' : undefined}
-/>
+<picture class:list={['bild', { 'bild-weich': laden === 'lazy' && !prioritaet }]} style={`background-image: url(${eintrag.lqip})`}>
+  <source type="image/avif" srcset={srcsetAvif} sizes={sizes} />
+  <img
+    class={klasse}
+    src={standard.src}
+    srcset={srcsetWebp}
+    sizes={sizes}
+    width={eintrag.breite}
+    height={eintrag.hoehe}
+    alt={alt}
+    loading={laden}
+    decoding={laden === 'eager' ? 'sync' : 'async'}
+    fetchpriority={prioritaet ? 'high' : undefined}
+  />
+</picture>

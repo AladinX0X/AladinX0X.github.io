@@ -1,394 +1,2019 @@
 {
-  "mosque-square-galerie-3-nacht-wandbild": {
-    "breite": 332,
-    "hoehe": 592,
-    "herkunft": "pdf",
+  "mosque-square-nacht-wandbild": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/mosque-square/10.jpg",
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA4APu1kqk4ppaQiMAgBMB2JZQC/OC0H3wvB4AD+7Q2/Raj1i2vxdyF/Y01I/YIBJ14zt+PkhlygAAA=",
     "varianten": [
       {
-        "breite": 332,
-        "hoehe": 592,
-        "src": "/bilder/mosque-square-galerie-3-nacht-wandbild-332.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-nacht-wandbild-640.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-640.avif",
+        "kb": 22,
+        "kbAvif": 13
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-nacht-wandbild-800.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-800.avif",
+        "kb": 32,
+        "kbAvif": 19
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-nacht-wandbild-960.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-960.avif",
+        "kb": 43,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-nacht-wandbild-1440.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-1440.avif",
+        "kb": 83,
+        "kbAvif": 48
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-nacht-wandbild-1920.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-1920.avif",
+        "kb": 130,
+        "kbAvif": 75
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-nacht-wandbild-2560.webp",
+        "avif": "/bilder/mosque-square-nacht-wandbild-2560.avif",
+        "kb": 207,
+        "kbAvif": 120
       }
     ]
   },
-  "mosque-square-luftbild": {
-    "breite": 730,
-    "hoehe": 770,
-    "herkunft": "pdf",
+  "mosque-square-tag-wandbild": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/mosque-square/9.jpg",
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoYAA4APu1kqk2ppaQiMAgBMB2JZQAAQKRevUfy/XVCAAD+OwTHNxtfvbcKGtDAxlNSVesxldojnHUkRdpnsbXVTGXpMlynK/Z+E8nAbAAAAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 396,
-        "src": "/bilder/mosque-square-luftbild-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-tag-wandbild-640.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-640.avif",
+        "kb": 36,
+        "kbAvif": 18
       },
       {
-        "breite": 730,
-        "hoehe": 770,
-        "src": "/bilder/mosque-square-luftbild-730.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-tag-wandbild-800.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-800.avif",
+        "kb": 53,
+        "kbAvif": 26
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-tag-wandbild-960.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-960.avif",
+        "kb": 72,
+        "kbAvif": 35
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-tag-wandbild-1440.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-1440.avif",
+        "kb": 145,
+        "kbAvif": 69
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-tag-wandbild-1920.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-1920.avif",
+        "kb": 233,
+        "kbAvif": 110
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-tag-wandbild-2560.webp",
+        "avif": "/bilder/mosque-square-tag-wandbild-2560.avif",
+        "kb": 375,
+        "kbAvif": 179
       }
     ]
   },
-  "mosque-square-galerie-4-tag-wandbild": {
-    "breite": 514,
-    "hoehe": 279,
-    "herkunft": "pdf",
+  "mosque-square-luftbild-tag": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/mosque-square/3 (2).jpg",
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoYAA4APu1orU6ppiSiMAgBMB2JaQAARe3uZ+7gGvpGbwAAzFQWNRDkZ/oTPL0jTeHsclczRo4h54xaOswjgAAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 204,
-        "src": "/bilder/mosque-square-galerie-4-tag-wandbild-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-luftbild-tag-640.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-640.avif",
+        "kb": 39,
+        "kbAvif": 18
       },
       {
-        "breite": 514,
-        "hoehe": 279,
-        "src": "/bilder/mosque-square-galerie-4-tag-wandbild-514.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-luftbild-tag-800.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-800.avif",
+        "kb": 61,
+        "kbAvif": 27
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-luftbild-tag-960.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-960.avif",
+        "kb": 85,
+        "kbAvif": 39
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-luftbild-tag-1440.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-1440.avif",
+        "kb": 180,
+        "kbAvif": 83
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-luftbild-tag-1920.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-1920.avif",
+        "kb": 302,
+        "kbAvif": 143
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-luftbild-tag-2560.webp",
+        "avif": "/bilder/mosque-square-luftbild-tag-2560.avif",
+        "kb": 507,
+        "kbAvif": 245
       }
     ]
   },
-  "mosque-square-sepia-nacht": {
-    "breite": 720,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "mosque-square-luftbild-nacht": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/mosque-square/4 (2).jpg",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAwCdASoYAA4APu1kqk4ppaQiMAgBMB2JZwAAetDH+AAA/u1nXi1wUK903BcASC17Ssc1F8NkHmRwAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 431,
-        "src": "/bilder/mosque-square-sepia-nacht-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-luftbild-nacht-640.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-640.avif",
+        "kb": 22,
+        "kbAvif": 13
       },
       {
-        "breite": 720,
-        "hoehe": 827,
-        "src": "/bilder/mosque-square-sepia-nacht-720.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-luftbild-nacht-800.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-800.avif",
+        "kb": 34,
+        "kbAvif": 19
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-luftbild-nacht-960.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-960.avif",
+        "kb": 46,
+        "kbAvif": 26
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-luftbild-nacht-1440.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-1440.avif",
+        "kb": 95,
+        "kbAvif": 54
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-luftbild-nacht-1920.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-1920.avif",
+        "kb": 159,
+        "kbAvif": 90
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-luftbild-nacht-2560.webp",
+        "avif": "/bilder/mosque-square-luftbild-nacht-2560.avif",
+        "kb": 267,
+        "kbAvif": 152
       }
     ]
   },
-  "mosque-square-intro-nacht-gruen": {
-    "breite": 470,
-    "hoehe": 565,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "mosque-square-tag-eingang": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/mosque-square/1 (2).jpg",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoYAA4APu1qrU8ppiQiMAgBMB2JZwAAXFVY5f3O+gdhgADN1aNGr0OTYKNmqGl475ngj733IhJUJiwmph+AAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 451,
-        "src": "/bilder/mosque-square-intro-nacht-gruen-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-tag-eingang-640.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-640.avif",
+        "kb": 32,
+        "kbAvif": 16
       },
       {
-        "breite": 470,
-        "hoehe": 565,
-        "src": "/bilder/mosque-square-intro-nacht-gruen-470.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-tag-eingang-800.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-800.avif",
+        "kb": 49,
+        "kbAvif": 24
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-tag-eingang-960.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-960.avif",
+        "kb": 69,
+        "kbAvif": 33
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-tag-eingang-1440.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-1440.avif",
+        "kb": 148,
+        "kbAvif": 69
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-tag-eingang-1920.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-1920.avif",
+        "kb": 248,
+        "kbAvif": 115
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-tag-eingang-2560.webp",
+        "avif": "/bilder/mosque-square-tag-eingang-2560.avif",
+        "kb": 430,
+        "kbAvif": 200
+      }
+    ]
+  },
+  "mosque-square-nacht-eingang": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/mosque-square/2 (3).jpg",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAwCdASoYAA4APu1iqk2ppaQiMAgBMB2JZwB//QH0lvpJQmisMgAA/tyiIrusKGutxSeiG5nZi3ifVq6mzs7+ta0AAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-nacht-eingang-640.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-640.avif",
+        "kb": 17,
+        "kbAvif": 11
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-nacht-eingang-800.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-800.avif",
+        "kb": 26,
+        "kbAvif": 15
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-nacht-eingang-960.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-960.avif",
+        "kb": 34,
+        "kbAvif": 21
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-nacht-eingang-1440.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-1440.avif",
+        "kb": 72,
+        "kbAvif": 41
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-nacht-eingang-1920.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-1920.avif",
+        "kb": 118,
+        "kbAvif": 68
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-nacht-eingang-2560.webp",
+        "avif": "/bilder/mosque-square-nacht-eingang-2560.avif",
+        "kb": 205,
+        "kbAvif": 114
+      }
+    ]
+  },
+  "mosque-square-tag-platz": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/mosque-square/5 (3).jpg",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAwCdASoYAA4APu1orU6ppiSiMAgBMB2JaQAAJpNAmpzuyAD+YQxK7Nn8uxMmlCPWRlbaHgNdgA8ZE28rXR9ghpuNmuT7AAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-tag-platz-640.webp",
+        "avif": "/bilder/mosque-square-tag-platz-640.avif",
+        "kb": 42,
+        "kbAvif": 20
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-tag-platz-800.webp",
+        "avif": "/bilder/mosque-square-tag-platz-800.avif",
+        "kb": 64,
+        "kbAvif": 31
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-tag-platz-960.webp",
+        "avif": "/bilder/mosque-square-tag-platz-960.avif",
+        "kb": 90,
+        "kbAvif": 43
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-tag-platz-1440.webp",
+        "avif": "/bilder/mosque-square-tag-platz-1440.avif",
+        "kb": 188,
+        "kbAvif": 89
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-tag-platz-1920.webp",
+        "avif": "/bilder/mosque-square-tag-platz-1920.avif",
+        "kb": 307,
+        "kbAvif": 146
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-tag-platz-2560.webp",
+        "avif": "/bilder/mosque-square-tag-platz-2560.avif",
+        "kb": 508,
+        "kbAvif": 241
+      }
+    ]
+  },
+  "mosque-square-nacht-platz": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/mosque-square/6 (2).jpg",
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZwDCgCHwzi1OCvFOtPNXAAD+dKRnFTS60DsbmK1+v71sdXqwldp3FGQbZAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/mosque-square-nacht-platz-640.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-640.avif",
+        "kb": 27,
+        "kbAvif": 15
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/mosque-square-nacht-platz-800.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-800.avif",
+        "kb": 42,
+        "kbAvif": 23
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/mosque-square-nacht-platz-960.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-960.avif",
+        "kb": 58,
+        "kbAvif": 31
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/mosque-square-nacht-platz-1440.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-1440.avif",
+        "kb": 119,
+        "kbAvif": 63
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/mosque-square-nacht-platz-1920.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-1920.avif",
+        "kb": 188,
+        "kbAvif": 103
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/mosque-square-nacht-platz-2560.webp",
+        "avif": "/bilder/mosque-square-nacht-platz-2560.avif",
+        "kb": 307,
+        "kbAvif": 166
+      }
+    ]
+  },
+  "villa-homs-nacht-front": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-homs/A-1.png",
+    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwBACdASoYAB4APu1cqU2ppKQiN/VYATAdiWMApxQQesrU8k/3tVUQqrbTddeAAP7sOsmuvo1UwX41lLQCjrDZnmoXZSc/owmNjlAta7Qy6Vd8LTtr4EDRQ/3UYhfvUgfSDWyhxydl8AAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-nacht-front-640.webp",
+        "avif": "/bilder/villa-homs-nacht-front-640.avif",
+        "kb": 47,
+        "kbAvif": 28
+      },
+      {
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-nacht-front-800.webp",
+        "avif": "/bilder/villa-homs-nacht-front-800.avif",
+        "kb": 68,
+        "kbAvif": 41
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-nacht-front-960.webp",
+        "avif": "/bilder/villa-homs-nacht-front-960.avif",
+        "kb": 91,
+        "kbAvif": 55
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-nacht-front-1440.webp",
+        "avif": "/bilder/villa-homs-nacht-front-1440.avif",
+        "kb": 172,
+        "kbAvif": 104
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-nacht-front-1600.webp",
+        "avif": "/bilder/villa-homs-nacht-front-1600.avif",
+        "kb": 207,
+        "kbAvif": 125
       }
     ]
   },
   "villa-homs-tag-front": {
-    "breite": 570,
-    "hoehe": 827,
-    "herkunft": "pdf",
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-homs/A.png",
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBQCdASoYAB4APu1sr1EppaQiqAqpMB2JYwC06BDN6Gv0u+7JR5kdFTz5hW4PleiAAPufaUehT0n+LVczuI6fMk9FD7CL+oKI+09VFrF5oHRU14PicH/XBpWnxYa9EgxBWBbTMoIFzwuysSuXYuk89R+LaAZ0xObEyK0ePOjDmsjYoi78gAAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 544,
-        "src": "/bilder/villa-homs-tag-front-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-tag-front-640.webp",
+        "avif": "/bilder/villa-homs-tag-front-640.avif",
+        "kb": 84,
+        "kbAvif": 44
       },
       {
-        "breite": 570,
-        "hoehe": 827,
-        "src": "/bilder/villa-homs-tag-front-570.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-tag-front-800.webp",
+        "avif": "/bilder/villa-homs-tag-front-800.avif",
+        "kb": 124,
+        "kbAvif": 64
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-tag-front-960.webp",
+        "avif": "/bilder/villa-homs-tag-front-960.avif",
+        "kb": 169,
+        "kbAvif": 87
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-tag-front-1440.webp",
+        "avif": "/bilder/villa-homs-tag-front-1440.avif",
+        "kb": 239,
+        "kbAvif": 168
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-tag-front-1600.webp",
+        "avif": "/bilder/villa-homs-tag-front-1600.avif",
+        "kb": 406,
+        "kbAvif": 209
       }
     ]
   },
-  "villa-homs-sepia-perspektive": {
-    "breite": 690,
-    "hoehe": 787,
-    "herkunft": "pdf",
-    "art": "stimmung",
-    "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 428,
-        "src": "/bilder/villa-homs-sepia-perspektive-375.webp"
-      },
-      {
-        "breite": 690,
-        "hoehe": 787,
-        "src": "/bilder/villa-homs-sepia-perspektive-690.webp"
-      }
-    ]
-  },
-  "villa-homs-galerie-1-tag-front": {
-    "breite": 383,
-    "hoehe": 481,
-    "herkunft": "pdf",
+  "villa-homs-nacht-fassade": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-homs/B-1.png",
+    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwBACdASoYAB4APuFcpk2opSOiMAwBEBwJYwCnFCHfT8GTq11dS292jYFq4SaAAP7K/AdwsoXFbHrIchhN8Ptf4smRAvfdtg/tVJ35sAPWFt59zn0/xmMDsKZyNCa0GGQQ7wlaPnBJm8ntQSEAAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 471,
-        "src": "/bilder/villa-homs-galerie-1-tag-front-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-nacht-fassade-640.webp",
+        "avif": "/bilder/villa-homs-nacht-fassade-640.avif",
+        "kb": 37,
+        "kbAvif": 21
       },
       {
-        "breite": 383,
-        "hoehe": 481,
-        "src": "/bilder/villa-homs-galerie-1-tag-front-383.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-nacht-fassade-800.webp",
+        "avif": "/bilder/villa-homs-nacht-fassade-800.avif",
+        "kb": 54,
+        "kbAvif": 31
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-nacht-fassade-960.webp",
+        "avif": "/bilder/villa-homs-nacht-fassade-960.avif",
+        "kb": 71,
+        "kbAvif": 41
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-nacht-fassade-1440.webp",
+        "avif": "/bilder/villa-homs-nacht-fassade-1440.avif",
+        "kb": 136,
+        "kbAvif": 78
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-nacht-fassade-1600.webp",
+        "avif": "/bilder/villa-homs-nacht-fassade-1600.avif",
+        "kb": 165,
+        "kbAvif": 94
       }
     ]
   },
-  "white-villa-tag-front": {
-    "breite": 1170,
-    "hoehe": 657,
-    "herkunft": "pdf",
+  "villa-homs-nacht-perspektive": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-homs/C-1.png",
+    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQBACdASoYAB4APuVgpU2pJaOiMAwBIByJYwC08EAAQD8frIQMNhavOvh4zEbmAAD8wZsSxGbgP6GjWiWN7QawV/vB9PDW/jOr3QFdq24j22Gqk7dUUJxS99aIIja9vm/h1DyXx7y01SDL2l5AAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 211,
-        "src": "/bilder/white-villa-tag-front-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-nacht-perspektive-640.webp",
+        "avif": "/bilder/villa-homs-nacht-perspektive-640.avif",
+        "kb": 40,
+        "kbAvif": 22
       },
       {
-        "breite": 768,
-        "hoehe": 431,
-        "src": "/bilder/white-villa-tag-front-768.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-nacht-perspektive-800.webp",
+        "avif": "/bilder/villa-homs-nacht-perspektive-800.avif",
+        "kb": 57,
+        "kbAvif": 31
       },
       {
-        "breite": 1170,
-        "hoehe": 657,
-        "src": "/bilder/white-villa-tag-front-1170.webp"
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-nacht-perspektive-960.webp",
+        "avif": "/bilder/villa-homs-nacht-perspektive-960.avif",
+        "kb": 77,
+        "kbAvif": 41
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-nacht-perspektive-1440.webp",
+        "avif": "/bilder/villa-homs-nacht-perspektive-1440.avif",
+        "kb": 142,
+        "kbAvif": 77
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-nacht-perspektive-1600.webp",
+        "avif": "/bilder/villa-homs-nacht-perspektive-1600.avif",
+        "kb": 170,
+        "kbAvif": 94
       }
     ]
   },
-  "white-villa-tag-boegen": {
-    "breite": 792,
-    "hoehe": 438,
-    "herkunft": "pdf",
+  "villa-homs-tag-eingang": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-homs/D.png",
+    "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBQCdASoYAB4APu1orU6ppiSiMAgBMB2JZQDG9BU8N8TrfGPopi0vVdlaXf9fn6AAAP0hstRBzgMDsLXH4Kry5P2AMePzMvV3NILeXYota2ieAhpqc6JYFYn+aK+3+h0zlF7MniABuO4fD4b6tXPjGAQB402RLOTbiv7P0fpwQrGK+fXFJx3AAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 207,
-        "src": "/bilder/white-villa-tag-boegen-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-tag-eingang-640.webp",
+        "avif": "/bilder/villa-homs-tag-eingang-640.avif",
+        "kb": 50,
+        "kbAvif": 25
       },
       {
-        "breite": 768,
-        "hoehe": 425,
-        "src": "/bilder/white-villa-tag-boegen-768.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-tag-eingang-800.webp",
+        "avif": "/bilder/villa-homs-tag-eingang-800.avif",
+        "kb": 73,
+        "kbAvif": 36
       },
       {
-        "breite": 792,
-        "hoehe": 438,
-        "src": "/bilder/white-villa-tag-boegen-792.webp"
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-tag-eingang-960.webp",
+        "avif": "/bilder/villa-homs-tag-eingang-960.avif",
+        "kb": 98,
+        "kbAvif": 49
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-tag-eingang-1440.webp",
+        "avif": "/bilder/villa-homs-tag-eingang-1440.avif",
+        "kb": 191,
+        "kbAvif": 95
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-tag-eingang-1600.webp",
+        "avif": "/bilder/villa-homs-tag-eingang-1600.avif",
+        "kb": 230,
+        "kbAvif": 118
       }
     ]
   },
-  "villa-uae-sepia-perspektive": {
-    "breite": 740,
-    "hoehe": 780,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "villa-homs-nacht-eingang": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-homs/D-1.png",
+    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBQCdASoYAB4APu1oqk8ppiOiMBgIATAdiWMApxQNzg/AVjmTn1c19/zDLjwlfOwAAP7bGkHHuiRuC0qDdKKQgAl+c3cj5qJSMn99yKpZuzWNAF4BHGuCkJLX9XIY9Mfnr6ycb+GC/WjhUn8SqHo1xGe7bs7xHdVAAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 395,
-        "src": "/bilder/villa-uae-sepia-perspektive-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-nacht-eingang-640.webp",
+        "avif": "/bilder/villa-homs-nacht-eingang-640.avif",
+        "kb": 37,
+        "kbAvif": 21
       },
       {
-        "breite": 740,
-        "hoehe": 780,
-        "src": "/bilder/villa-uae-sepia-perspektive-740.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-nacht-eingang-800.webp",
+        "avif": "/bilder/villa-homs-nacht-eingang-800.avif",
+        "kb": 54,
+        "kbAvif": 30
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-nacht-eingang-960.webp",
+        "avif": "/bilder/villa-homs-nacht-eingang-960.avif",
+        "kb": 71,
+        "kbAvif": 40
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-nacht-eingang-1440.webp",
+        "avif": "/bilder/villa-homs-nacht-eingang-1440.avif",
+        "kb": 136,
+        "kbAvif": 78
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-nacht-eingang-1600.webp",
+        "avif": "/bilder/villa-homs-nacht-eingang-1600.avif",
+        "kb": 163,
+        "kbAvif": 93
+      }
+    ]
+  },
+  "villa-homs-tag-balkon": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-homs/E.png",
+    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQBQCdASoYAB4APu1orVAppaQiqAqpMB2JYwCkgA8s4Z8e4eCJREauIj38DIAHAVBTmgAA/sbP0vYPvU9Fk9PAuTzw/af5xmdPweViJluDffdnaPxBSlXf2wfXGeh6jw+RVeqahzFs8sPJU+YcOrn+W79Yn+1kd42AAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-tag-balkon-640.webp",
+        "avif": "/bilder/villa-homs-tag-balkon-640.avif",
+        "kb": 44,
+        "kbAvif": 24
+      },
+      {
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-tag-balkon-800.webp",
+        "avif": "/bilder/villa-homs-tag-balkon-800.avif",
+        "kb": 63,
+        "kbAvif": 32
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-tag-balkon-960.webp",
+        "avif": "/bilder/villa-homs-tag-balkon-960.avif",
+        "kb": 84,
+        "kbAvif": 43
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-tag-balkon-1440.webp",
+        "avif": "/bilder/villa-homs-tag-balkon-1440.avif",
+        "kb": 155,
+        "kbAvif": 81
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-tag-balkon-1600.webp",
+        "avif": "/bilder/villa-homs-tag-balkon-1600.avif",
+        "kb": 188,
+        "kbAvif": 96
+      }
+    ]
+  },
+  "villa-homs-abend-balkon": {
+    "breite": 1600,
+    "hoehe": 2000,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-homs/E-1.png",
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBQCdASoYAB4APu1iqE8ppSOiMBgMATAdiUATplAANUCn9szwYFSyP51WdbFnnpYOAAD+cOpmn6Kaho+95aMZ4oVfQkS7nGmAeHZYGs1hAqWxFinTa5F1nYpOz1r5EQFBs3cE9IaAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-homs-abend-balkon-640.webp",
+        "avif": "/bilder/villa-homs-abend-balkon-640.avif",
+        "kb": 27,
+        "kbAvif": 17
+      },
+      {
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-homs-abend-balkon-800.webp",
+        "avif": "/bilder/villa-homs-abend-balkon-800.avif",
+        "kb": 39,
+        "kbAvif": 24
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-homs-abend-balkon-960.webp",
+        "avif": "/bilder/villa-homs-abend-balkon-960.avif",
+        "kb": 52,
+        "kbAvif": 32
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-homs-abend-balkon-1440.webp",
+        "avif": "/bilder/villa-homs-abend-balkon-1440.avif",
+        "kb": 100,
+        "kbAvif": 61
+      },
+      {
+        "breite": 1600,
+        "hoehe": 2000,
+        "src": "/bilder/villa-homs-abend-balkon-1600.webp",
+        "avif": "/bilder/villa-homs-abend-balkon-1600.avif",
+        "kb": 120,
+        "kbAvif": 73
+      }
+    ]
+  },
+  "villa-uae-nacht-perspektive": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012534.jpg",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoYAA4APu1yrU+pp6QiMAgBMB2JZQAAUp9zScFbmNk0BAD+6effHRNalzwtCCvgwFC4Mu4vJqpHu78j9s72Z1u2czB74LCAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-nacht-perspektive-640.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-640.avif",
+        "kb": 30,
+        "kbAvif": 16
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-nacht-perspektive-800.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-800.avif",
+        "kb": 45,
+        "kbAvif": 24
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-nacht-perspektive-960.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-960.avif",
+        "kb": 62,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-nacht-perspektive-1440.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-1440.avif",
+        "kb": 121,
+        "kbAvif": 66
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-nacht-perspektive-1920.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-1920.avif",
+        "kb": 190,
+        "kbAvif": 104
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-nacht-perspektive-2560.webp",
+        "avif": "/bilder/villa-uae-nacht-perspektive-2560.avif",
+        "kb": 293,
+        "kbAvif": 165
+      }
+    ]
+  },
+  "villa-uae-tag-perspektive": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012512.jpg",
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwBACdASoYAA4APu1iqk2ppaQiMAgBMB2JYwCsMoACsOJsGswl/c7OT3AA4lnvv2CwrLUyHeja7jMyTEsLTfagsOCZ7T1beXGUdla03VcL0LVkSoAAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-tag-perspektive-640.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-640.avif",
+        "kb": 39,
+        "kbAvif": 20
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-tag-perspektive-800.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-800.avif",
+        "kb": 61,
+        "kbAvif": 31
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-tag-perspektive-960.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-960.avif",
+        "kb": 84,
+        "kbAvif": 43
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-tag-perspektive-1440.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-1440.avif",
+        "kb": 172,
+        "kbAvif": 89
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-tag-perspektive-1920.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-1920.avif",
+        "kb": 275,
+        "kbAvif": 142
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-tag-perspektive-2560.webp",
+        "avif": "/bilder/villa-uae-tag-perspektive-2560.avif",
+        "kb": 454,
+        "kbAvif": 239
+      }
+    ]
+  },
+  "villa-uae-tag-front": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012519.jpg",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYAA4APu1kqk2ppaQiMAgBMB2JQBOgA9W1MF+RP+We80AA+nsOJYjuL1LiDcsBABeDKv+nCxOOJGTVTjOkKXPJc3jNKrdLAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-tag-front-640.webp",
+        "avif": "/bilder/villa-uae-tag-front-640.avif",
+        "kb": 46,
+        "kbAvif": 23
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-tag-front-800.webp",
+        "avif": "/bilder/villa-uae-tag-front-800.avif",
+        "kb": 70,
+        "kbAvif": 35
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-tag-front-960.webp",
+        "avif": "/bilder/villa-uae-tag-front-960.avif",
+        "kb": 95,
+        "kbAvif": 48
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-tag-front-1440.webp",
+        "avif": "/bilder/villa-uae-tag-front-1440.avif",
+        "kb": 186,
+        "kbAvif": 96
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-tag-front-1920.webp",
+        "avif": "/bilder/villa-uae-tag-front-1920.avif",
+        "kb": 294,
+        "kbAvif": 151
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-tag-front-2560.webp",
+        "avif": "/bilder/villa-uae-tag-front-2560.avif",
+        "kb": 459,
+        "kbAvif": 236
+      }
+    ]
+  },
+  "villa-uae-nacht-front": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012541.jpg",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYAA4APu1orU2ppqSiMAgBMB2JYwCdAB6PO2+t94fsA4AA/ujsaLnjxuO16Rgumcv0N655DG/fEqD2EWdN3V1Zw8+kBgGgAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-nacht-front-640.webp",
+        "avif": "/bilder/villa-uae-nacht-front-640.avif",
+        "kb": 29,
+        "kbAvif": 16
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-nacht-front-800.webp",
+        "avif": "/bilder/villa-uae-nacht-front-800.avif",
+        "kb": 45,
+        "kbAvif": 25
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-nacht-front-960.webp",
+        "avif": "/bilder/villa-uae-nacht-front-960.avif",
+        "kb": 61,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-nacht-front-1440.webp",
+        "avif": "/bilder/villa-uae-nacht-front-1440.avif",
+        "kb": 119,
+        "kbAvif": 66
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-nacht-front-1920.webp",
+        "avif": "/bilder/villa-uae-nacht-front-1920.avif",
+        "kb": 187,
+        "kbAvif": 104
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-nacht-front-2560.webp",
+        "avif": "/bilder/villa-uae-nacht-front-2560.avif",
+        "kb": 292,
+        "kbAvif": 166
+      }
+    ]
+  },
+  "villa-uae-boegen-tag": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012526.jpg",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoYAA4APu1oqk6ppiQiMAgBMB2JYwCdAB5fdGvA3Su+AAD9ilwqr6Imf1MWTABQtmNEQ4kMCyUv4Vu+tI94EiStzE0UvPHA4AA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-boegen-tag-640.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-640.avif",
+        "kb": 45,
+        "kbAvif": 23
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-boegen-tag-800.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-800.avif",
+        "kb": 68,
+        "kbAvif": 36
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-boegen-tag-960.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-960.avif",
+        "kb": 94,
+        "kbAvif": 49
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-boegen-tag-1440.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-1440.avif",
+        "kb": 182,
+        "kbAvif": 96
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-boegen-tag-1920.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-1920.avif",
+        "kb": 280,
+        "kbAvif": 147
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-boegen-tag-2560.webp",
+        "avif": "/bilder/villa-uae-boegen-tag-2560.avif",
+        "kb": 440,
+        "kbAvif": 229
+      }
+    ]
+  },
+  "villa-uae-boegen-nacht": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-uae/SAVE_20260926_012504.jpg",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoYAA4APu1krU6ppaSiMAgBMB2JZQCsABuLJ45LMhoRUAD+5Zj+tyxvPugMWdSfc1yPuBa/1m7YzuAIrIlqpCAIAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-uae-boegen-nacht-640.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-640.avif",
+        "kb": 30,
+        "kbAvif": 16
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-uae-boegen-nacht-800.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-800.avif",
+        "kb": 45,
+        "kbAvif": 25
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-uae-boegen-nacht-960.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-960.avif",
+        "kb": 61,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-uae-boegen-nacht-1440.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-1440.avif",
+        "kb": 117,
+        "kbAvif": 66
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-uae-boegen-nacht-1920.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-1920.avif",
+        "kb": 179,
+        "kbAvif": 102
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-uae-boegen-nacht-2560.webp",
+        "avif": "/bilder/villa-uae-boegen-nacht-2560.avif",
+        "kb": 271,
+        "kbAvif": 159
       }
     ]
   },
   "villa-interior-uae-wohnzimmer-treppe": {
-    "breite": 1170,
-    "hoehe": 687,
-    "herkunft": "pdf",
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-interior-uae/1.png",
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoYAA4APu1kqU2ppaQiMAgBMB2JZQCdABq8ajBoitlWOMWAAP5XXI3ThYXYXhdXTtlLK/PZDswvOVjRpjRPgvn5rl9gbL0GFO6oE5WoYJxkf9C8GWAAAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 220,
-        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-640.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-640.avif",
+        "kb": 28,
+        "kbAvif": 16
       },
       {
-        "breite": 768,
-        "hoehe": 451,
-        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-768.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-800.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-800.avif",
+        "kb": 42,
+        "kbAvif": 23
       },
       {
-        "breite": 1170,
-        "hoehe": 687,
-        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-1170.webp"
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-960.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-960.avif",
+        "kb": 56,
+        "kbAvif": 32
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-1440.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-1440.avif",
+        "kb": 113,
+        "kbAvif": 61
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-1920.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-1920.avif",
+        "kb": 186,
+        "kbAvif": 100
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-treppe-2560.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-treppe-2560.avif",
+        "kb": 334,
+        "kbAvif": 168
+      }
+    ]
+  },
+  "villa-interior-uae-wohnzimmer-tv": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/1-.png",
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwBACdASoYAA4APu1kq04ppaQiMAgBMB2JZQCo+agBMX46pGDDWvotDQwA7/VMI/loAx0ltge/bYS7cuGwm1fXH2FrbEDm5XN9jOXc8uYZR5vAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-640.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-640.avif",
+        "kb": 36,
+        "kbAvif": 19
+      },
+      {
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-800.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-800.avif",
+        "kb": 55,
+        "kbAvif": 28
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-960.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-960.avif",
+        "kb": 77,
+        "kbAvif": 39
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-1440.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-1440.avif",
+        "kb": 163,
+        "kbAvif": 81
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-1920.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-1920.avif",
+        "kb": 275,
+        "kbAvif": 136
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-tv-2560.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-tv-2560.avif",
+        "kb": 484,
+        "kbAvif": 229
+      }
+    ]
+  },
+  "villa-interior-uae-wohnzimmer-oben": {
+    "breite": 2560,
+    "hoehe": 2560,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/living3.jpg",
+    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQBQCdASoYABgAPu1uq1GppiOiqAqpMB2JZQC2yAywklaJQ9pG64g5z2b0wb6MpzCZ2jAA99lNmkQtq8Gcr8J9ZHy9VmKegHaznxYUlnbNlccBkkqINH0DPMHT41jYoHJB6F4CY9fwKMjxB3S6QAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 640,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-640.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-640.avif",
+        "kb": 60,
+        "kbAvif": 30
+      },
+      {
+        "breite": 800,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-800.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-800.avif",
+        "kb": 97,
+        "kbAvif": 47
+      },
+      {
+        "breite": 960,
+        "hoehe": 960,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-960.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-960.avif",
+        "kb": 139,
+        "kbAvif": 66
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-1440.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-1440.avif",
+        "kb": 249,
+        "kbAvif": 139
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1920,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-1920.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-1920.avif",
+        "kb": 530,
+        "kbAvif": 238
+      },
+      {
+        "breite": 2560,
+        "hoehe": 2560,
+        "src": "/bilder/villa-interior-uae-wohnzimmer-oben-2560.webp",
+        "avif": "/bilder/villa-interior-uae-wohnzimmer-oben-2560.avif",
+        "kb": 953,
+        "kbAvif": 409
       }
     ]
   },
   "villa-interior-uae-essbereich": {
-    "breite": 740,
-    "hoehe": 710,
-    "herkunft": "pdf",
+    "breite": 2560,
+    "hoehe": 2560,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-interior-uae/2.png",
+    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQBACdASoYABgAPu1oqk+ppiOiKA1RMB2JZwC/OBEZP5C8frqOTn1eQHxX9JDW2AD+515pKo21lLYMUjZIlyw14u93qt5LhqZfTlfzeHLTnwfDO3qTRycCcBFwgRD9YSyLuiZTarsIYLHXMl0YAA==",
     "varianten": [
       {
-        "breite": 375,
+        "breite": 640,
+        "hoehe": 640,
+        "src": "/bilder/villa-interior-uae-essbereich-640.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-640.avif",
+        "kb": 38,
+        "kbAvif": 22
+      },
+      {
+        "breite": 800,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-essbereich-800.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-800.avif",
+        "kb": 58,
+        "kbAvif": 31
+      },
+      {
+        "breite": 960,
+        "hoehe": 960,
+        "src": "/bilder/villa-interior-uae-essbereich-960.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-960.avif",
+        "kb": 81,
+        "kbAvif": 43
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-essbereich-1440.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-1440.avif",
+        "kb": 171,
+        "kbAvif": 90
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1920,
+        "src": "/bilder/villa-interior-uae-essbereich-1920.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-1920.avif",
+        "kb": 296,
+        "kbAvif": 155
+      },
+      {
+        "breite": 2560,
+        "hoehe": 2560,
+        "src": "/bilder/villa-interior-uae-essbereich-2560.webp",
+        "avif": "/bilder/villa-interior-uae-essbereich-2560.avif",
+        "kb": 547,
+        "kbAvif": 281
+      }
+    ]
+  },
+  "villa-interior-uae-kueche-front": {
+    "breite": 2560,
+    "hoehe": 1440,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/3.png",
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQBACdASoYAA4APu1kq04ppaQiMAgBMB2JYwCdMoAC/MhLDTFLKR6c3jAAAP6Slns+5siDlHMGBvX50KEX5I5Jl6fEUV7sLbltEFkJ34/r3+MHAtBtAAAA",
+    "varianten": [
+      {
+        "breite": 640,
         "hoehe": 360,
-        "src": "/bilder/villa-interior-uae-essbereich-375.webp"
+        "src": "/bilder/villa-interior-uae-kueche-front-640.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-640.avif",
+        "kb": 12,
+        "kbAvif": 8
       },
       {
-        "breite": 740,
-        "hoehe": 710,
-        "src": "/bilder/villa-interior-uae-essbereich-740.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/villa-interior-uae-kueche-front-800.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-800.avif",
+        "kb": 17,
+        "kbAvif": 11
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/villa-interior-uae-kueche-front-960.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-960.avif",
+        "kb": 23,
+        "kbAvif": 14
+      },
+      {
+        "breite": 1440,
+        "hoehe": 810,
+        "src": "/bilder/villa-interior-uae-kueche-front-1440.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-1440.avif",
+        "kb": 45,
+        "kbAvif": 27
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1080,
+        "src": "/bilder/villa-interior-uae-kueche-front-1920.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-1920.avif",
+        "kb": 76,
+        "kbAvif": 42
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-kueche-front-2560.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-front-2560.avif",
+        "kb": 143,
+        "kbAvif": 69
       }
     ]
   },
-  "villa-interior-uae-galerie-1-wohnzimmer": {
-    "breite": 528,
-    "hoehe": 290,
-    "herkunft": "pdf",
+  "villa-interior-uae-kueche-insel": {
+    "breite": 2560,
+    "hoehe": 2560,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-interior-uae/8.jpg",
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwBACdASoYABgAPu1wslKppiSiqAgBMB2JZQC/OA3S8PoMktAdcbun/Dm8kEZ07mAA9wSVOj10fZDIdY6y0GVHiYWZTYrRz6TtPwJQZ5GCKDeWrZVLb+s6cqwXoH0PWqLJ2FtOitwvJWxXtk38p1pUwVAAAA==",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 206,
-        "src": "/bilder/villa-interior-uae-galerie-1-wohnzimmer-375.webp"
+        "breite": 640,
+        "hoehe": 640,
+        "src": "/bilder/villa-interior-uae-kueche-insel-640.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-640.avif",
+        "kb": 23,
+        "kbAvif": 14
       },
       {
-        "breite": 528,
-        "hoehe": 290,
-        "src": "/bilder/villa-interior-uae-galerie-1-wohnzimmer-528.webp"
+        "breite": 800,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-kueche-insel-800.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-800.avif",
+        "kb": 33,
+        "kbAvif": 19
+      },
+      {
+        "breite": 960,
+        "hoehe": 960,
+        "src": "/bilder/villa-interior-uae-kueche-insel-960.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-960.avif",
+        "kb": 44,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1440,
+        "src": "/bilder/villa-interior-uae-kueche-insel-1440.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-1440.avif",
+        "kb": 83,
+        "kbAvif": 48
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1920,
+        "src": "/bilder/villa-interior-uae-kueche-insel-1920.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-1920.avif",
+        "kb": 130,
+        "kbAvif": 74
+      },
+      {
+        "breite": 2560,
+        "hoehe": 2560,
+        "src": "/bilder/villa-interior-uae-kueche-insel-2560.webp",
+        "avif": "/bilder/villa-interior-uae-kueche-insel-2560.avif",
+        "kb": 212,
+        "kbAvif": 121
       }
     ]
   },
-  "villa-interior-uae-galerie-4-kueche-front": {
-    "breite": 529,
-    "hoehe": 290,
-    "herkunft": "pdf",
+  "villa-interior-uae-treppe-garten": {
+    "breite": 2560,
+    "hoehe": 3200,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/villa-interior-uae/4.png",
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwBQCdASoYAB4APu1qqk6ppiOiMAgBMB2JZQC90CP620QJfs68sA7IRvI+t81qJ7to0hiAAOIfdZHAyEk9PQzedF9O6OOhOsQApX3js3gdSwhQQtMS8lA23Fky5mxptxCHSZTROSiTYCw1po/4x1h87GXNRztYivdfXw+4TIH5uWikgAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 206,
-        "src": "/bilder/villa-interior-uae-galerie-4-kueche-front-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-treppe-garten-640.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-640.avif",
+        "kb": 52,
+        "kbAvif": 31
       },
       {
-        "breite": 529,
-        "hoehe": 290,
-        "src": "/bilder/villa-interior-uae-galerie-4-kueche-front-529.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-interior-uae-treppe-garten-800.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-800.avif",
+        "kb": 77,
+        "kbAvif": 47
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-interior-uae-treppe-garten-960.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-960.avif",
+        "kb": 105,
+        "kbAvif": 64
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-interior-uae-treppe-garten-1440.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-1440.avif",
+        "kb": 201,
+        "kbAvif": 126
+      },
+      {
+        "breite": 1920,
+        "hoehe": 2400,
+        "src": "/bilder/villa-interior-uae-treppe-garten-1920.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-1920.avif",
+        "kb": 304,
+        "kbAvif": 198
+      },
+      {
+        "breite": 2560,
+        "hoehe": 3200,
+        "src": "/bilder/villa-interior-uae-treppe-garten-2560.webp",
+        "avif": "/bilder/villa-interior-uae-treppe-garten-2560.avif",
+        "kb": 465,
+        "kbAvif": 304
       }
     ]
   },
-  "villa-interior-uae-sepia-detail": {
-    "breite": 720,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "villa-interior-uae-eingang": {
+    "breite": 2560,
+    "hoehe": 3200,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/5.png",
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoYAB4APu1oqU8ppiOiKA1RMB2JZQAAHOjzP3i6Pb7UGRHdf4vpHtHmcAD8UrA+0ggzeYFTOCv5uK+5QGJutFHGrO1DfMWxUaUjyaad33tpBpPI1SRhMdIMQeJYxa6y4RObPnS0ymY4WpyvhI4/kct3NCmOctLAAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 431,
-        "src": "/bilder/villa-interior-uae-sepia-detail-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-eingang-640.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-640.avif",
+        "kb": 31,
+        "kbAvif": 19
       },
       {
-        "breite": 720,
-        "hoehe": 827,
-        "src": "/bilder/villa-interior-uae-sepia-detail-720.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-interior-uae-eingang-800.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-800.avif",
+        "kb": 46,
+        "kbAvif": 28
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-interior-uae-eingang-960.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-960.avif",
+        "kb": 62,
+        "kbAvif": 38
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-interior-uae-eingang-1440.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-1440.avif",
+        "kb": 122,
+        "kbAvif": 72
+      },
+      {
+        "breite": 1920,
+        "hoehe": 2400,
+        "src": "/bilder/villa-interior-uae-eingang-1920.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-1920.avif",
+        "kb": 194,
+        "kbAvif": 116
+      },
+      {
+        "breite": 2560,
+        "hoehe": 3200,
+        "src": "/bilder/villa-interior-uae-eingang-2560.webp",
+        "avif": "/bilder/villa-interior-uae-eingang-2560.avif",
+        "kb": 321,
+        "kbAvif": 189
       }
     ]
   },
-  "villa-interior-uae-treppe-gruen": {
-    "breite": 530,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "villa-interior-uae-gaeste-bad": {
+    "breite": 2000,
+    "hoehe": 2500,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/1.jpg",
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABQBQCdASoYAB4APu1yr1IppyQiqAgBMB2JQBTigXMn5Wj4LCb1+8OKU+6xVAqGsNlqMwgA/oU+SA9h/8RWsY0OQNxH/HyWjW2EqSJn9WrJF9rimWP3c15XXuNboQz5SgMQjMfwNJsArssGGPaqTDR3E+nr4tOFf+kr51QmIQCvAAAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 585,
-        "src": "/bilder/villa-interior-uae-treppe-gruen-375.webp"
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-640.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-640.avif",
+        "kb": 49,
+        "kbAvif": 28
       },
       {
-        "breite": 530,
-        "hoehe": 827,
-        "src": "/bilder/villa-interior-uae-treppe-gruen-530.webp"
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-800.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-800.avif",
+        "kb": 69,
+        "kbAvif": 41
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-960.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-960.avif",
+        "kb": 94,
+        "kbAvif": 54
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-1440.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-1440.avif",
+        "kb": 182,
+        "kbAvif": 107
+      },
+      {
+        "breite": 1920,
+        "hoehe": 2400,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-1920.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-1920.avif",
+        "kb": 290,
+        "kbAvif": 171
+      },
+      {
+        "breite": 2000,
+        "hoehe": 2500,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-2000.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-2000.avif",
+        "kb": 321,
+        "kbAvif": 188
+      }
+    ]
+  },
+  "villa-interior-uae-gaeste-bad-wc": {
+    "breite": 2000,
+    "hoehe": 2500,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/2.jpg",
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADwBACdASoYAB4APu1qrlCppaQiqAqpMB2JZQC06AvHHHPi8J2MVuwugJrs0KKC/wAA9vl33y4SMgnfP+1Pz9WZ/7z67XJ+aCr9nyjVg9R4/+lqK6FwJ1gQNuxJS/MIbwOZNJdoMIqNSbf7+DuDv44JkOUtOmWX292jzs8Jj9g9mYAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-640.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-640.avif",
+        "kb": 53,
+        "kbAvif": 30
+      },
+      {
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-800.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-800.avif",
+        "kb": 80,
+        "kbAvif": 44
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-960.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-960.avif",
+        "kb": 109,
+        "kbAvif": 61
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-1440.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-1440.avif",
+        "kb": 211,
+        "kbAvif": 122
+      },
+      {
+        "breite": 1920,
+        "hoehe": 2400,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-1920.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-1920.avif",
+        "kb": 329,
+        "kbAvif": 194
+      },
+      {
+        "breite": 2000,
+        "hoehe": 2500,
+        "src": "/bilder/villa-interior-uae-gaeste-bad-wc-2000.webp",
+        "avif": "/bilder/villa-interior-uae-gaeste-bad-wc-2000.avif",
+        "kb": 362,
+        "kbAvif": 210
+      }
+    ]
+  },
+  "villa-interior-uae-detail": {
+    "breite": 2560,
+    "hoehe": 3200,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/villa-interior-uae/0.png",
+    "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAABQBQCdASoYAB4APu1krU+ppSQiMBgIATAdiUATpfXgTizBf/SmpaMzYiv7bfP7BsaxMuAA/SH3Duxl20vVEEIzMm8FW5+sWxC8ZyGPL33GQnN6hqyj1SvbDbDL2zWisZr5HPNyr1z7Bp1+NvDt1bnB7JL50xGQTgAQoPRnu5LPpUgT3RAR+bc8KULqA1lIAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 800,
+        "src": "/bilder/villa-interior-uae-detail-640.webp",
+        "avif": "/bilder/villa-interior-uae-detail-640.avif",
+        "kb": 40,
+        "kbAvif": 22
+      },
+      {
+        "breite": 800,
+        "hoehe": 1000,
+        "src": "/bilder/villa-interior-uae-detail-800.webp",
+        "avif": "/bilder/villa-interior-uae-detail-800.avif",
+        "kb": 52,
+        "kbAvif": 30
+      },
+      {
+        "breite": 960,
+        "hoehe": 1200,
+        "src": "/bilder/villa-interior-uae-detail-960.webp",
+        "avif": "/bilder/villa-interior-uae-detail-960.avif",
+        "kb": 66,
+        "kbAvif": 38
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1800,
+        "src": "/bilder/villa-interior-uae-detail-1440.webp",
+        "avif": "/bilder/villa-interior-uae-detail-1440.avif",
+        "kb": 109,
+        "kbAvif": 64
+      },
+      {
+        "breite": 1920,
+        "hoehe": 2400,
+        "src": "/bilder/villa-interior-uae-detail-1920.webp",
+        "avif": "/bilder/villa-interior-uae-detail-1920.avif",
+        "kb": 162,
+        "kbAvif": 94
+      },
+      {
+        "breite": 2560,
+        "hoehe": 3200,
+        "src": "/bilder/villa-interior-uae-detail-2560.webp",
+        "avif": "/bilder/villa-interior-uae-detail-2560.avif",
+        "kb": 257,
+        "kbAvif": 145
       }
     ]
   },
   "master-bedroom-gesamt": {
-    "breite": 1170,
-    "hoehe": 692,
-    "herkunft": "pdf",
+    "breite": 1280,
+    "hoehe": 720,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/master-bedroom-uae/4.jpg",
+    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoYAA4APu1iqk2ppaQiMAgBMB2JZQCdMoADUz5eHDJVUehYAPxua3rQqhpeVHNlATcYfnUucHl0S3ZK2We4N0Jf7LxoAmnRrncLvIrRqs+Lj7/0aQEz3fmAAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 222,
-        "src": "/bilder/master-bedroom-gesamt-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/master-bedroom-gesamt-640.webp",
+        "avif": "/bilder/master-bedroom-gesamt-640.avif",
+        "kb": 13,
+        "kbAvif": 8
       },
       {
-        "breite": 768,
-        "hoehe": 454,
-        "src": "/bilder/master-bedroom-gesamt-768.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/master-bedroom-gesamt-800.webp",
+        "avif": "/bilder/master-bedroom-gesamt-800.avif",
+        "kb": 18,
+        "kbAvif": 11
       },
       {
-        "breite": 1170,
-        "hoehe": 692,
-        "src": "/bilder/master-bedroom-gesamt-1170.webp"
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/master-bedroom-gesamt-960.webp",
+        "avif": "/bilder/master-bedroom-gesamt-960.avif",
+        "kb": 23,
+        "kbAvif": 14
+      },
+      {
+        "breite": 1280,
+        "hoehe": 720,
+        "src": "/bilder/master-bedroom-gesamt-1280.webp",
+        "avif": "/bilder/master-bedroom-gesamt-1280.avif",
+        "kb": 37,
+        "kbAvif": 22
       }
     ]
   },
-  "master-bedroom-galerie-1-tv-wand": {
-    "breite": 511,
-    "hoehe": 282,
-    "herkunft": "pdf",
+  "master-bedroom-bett": {
+    "breite": 1280,
+    "hoehe": 720,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/master-bedroom-uae/SAVE_20260920_214157.jpg",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoYAA4APu1iqU2ppaQiMAgBMB2JZQC7ABQEecLmtoOoAMAA02vYgRfD2tXaO3rJ6c+6NgoJZRK3un+SYnCAhaiGX0iamCAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 207,
-        "src": "/bilder/master-bedroom-galerie-1-tv-wand-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/master-bedroom-bett-640.webp",
+        "avif": "/bilder/master-bedroom-bett-640.avif",
+        "kb": 10,
+        "kbAvif": 7
       },
       {
-        "breite": 511,
-        "hoehe": 282,
-        "src": "/bilder/master-bedroom-galerie-1-tv-wand-511.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/master-bedroom-bett-800.webp",
+        "avif": "/bilder/master-bedroom-bett-800.avif",
+        "kb": 14,
+        "kbAvif": 9
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/master-bedroom-bett-960.webp",
+        "avif": "/bilder/master-bedroom-bett-960.avif",
+        "kb": 18,
+        "kbAvif": 13
+      },
+      {
+        "breite": 1280,
+        "hoehe": 720,
+        "src": "/bilder/master-bedroom-bett-1280.webp",
+        "avif": "/bilder/master-bedroom-bett-1280.avif",
+        "kb": 28,
+        "kbAvif": 18
       }
     ]
   },
-  "master-bedroom-galerie-4-raum": {
-    "breite": 512,
-    "hoehe": 283,
-    "herkunft": "pdf",
+  "master-bedroom-tv-wand": {
+    "breite": 1280,
+    "hoehe": 720,
+    "herkunft": "original",
     "art": "foto",
+    "quelle": "originale/master-bedroom-uae/SAVE_20260920_214202.jpg",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoYAA4APu1kqk4ppaQiMAgBMB2JZQAAQtWPpSVHPnAA/qzptq9XeoKUZhpr2iv0Boul3vdFBnO2xZ8sp31ZL6cZw1nBwAAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 207,
-        "src": "/bilder/master-bedroom-galerie-4-raum-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/master-bedroom-tv-wand-640.webp",
+        "avif": "/bilder/master-bedroom-tv-wand-640.avif",
+        "kb": 12,
+        "kbAvif": 8
       },
       {
-        "breite": 512,
-        "hoehe": 283,
-        "src": "/bilder/master-bedroom-galerie-4-raum-512.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/master-bedroom-tv-wand-800.webp",
+        "avif": "/bilder/master-bedroom-tv-wand-800.avif",
+        "kb": 17,
+        "kbAvif": 11
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/master-bedroom-tv-wand-960.webp",
+        "avif": "/bilder/master-bedroom-tv-wand-960.avif",
+        "kb": 23,
+        "kbAvif": 15
+      },
+      {
+        "breite": 1280,
+        "hoehe": 720,
+        "src": "/bilder/master-bedroom-tv-wand-1280.webp",
+        "avif": "/bilder/master-bedroom-tv-wand-1280.avif",
+        "kb": 38,
+        "kbAvif": 23
       }
     ]
   },
-  "master-bedroom-sepia": {
-    "breite": 740,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
+  "master-bedroom-raum": {
+    "breite": 1280,
+    "hoehe": 720,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/master-bedroom-uae/SAVE_20260920_214209.jpg",
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoYAA4APu1kqk2ppaQiMAgBMB2JYwCdMoADTeLCDslHWhoYgAD4ffThmBiJpDAKaMMj95HzUyXqv7wPJoXakEMuQx1UPNm+IAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 419,
-        "src": "/bilder/master-bedroom-sepia-375.webp"
+        "breite": 640,
+        "hoehe": 360,
+        "src": "/bilder/master-bedroom-raum-640.webp",
+        "avif": "/bilder/master-bedroom-raum-640.avif",
+        "kb": 11,
+        "kbAvif": 7
       },
       {
-        "breite": 740,
-        "hoehe": 827,
-        "src": "/bilder/master-bedroom-sepia-740.webp"
+        "breite": 800,
+        "hoehe": 450,
+        "src": "/bilder/master-bedroom-raum-800.webp",
+        "avif": "/bilder/master-bedroom-raum-800.avif",
+        "kb": 15,
+        "kbAvif": 10
+      },
+      {
+        "breite": 960,
+        "hoehe": 540,
+        "src": "/bilder/master-bedroom-raum-960.webp",
+        "avif": "/bilder/master-bedroom-raum-960.avif",
+        "kb": 19,
+        "kbAvif": 13
+      },
+      {
+        "breite": 1280,
+        "hoehe": 720,
+        "src": "/bilder/master-bedroom-raum-1280.webp",
+        "avif": "/bilder/master-bedroom-raum-1280.avif",
+        "kb": 30,
+        "kbAvif": 19
       }
     ]
   },
@@ -397,21 +2022,40 @@
     "hoehe": 590,
     "herkunft": "pdf",
     "art": "plan",
+    "quelle": "extrahiert/shop-drawings-kueche.png",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JZwCw7DKT/+n3AwAA/u5tpSNSWQBsZncQhOhYRXmLAKpoAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 229,
-        "src": "/bilder/shop-drawings-kueche-375.webp"
+        "breite": 640,
+        "hoehe": 391,
+        "src": "/bilder/shop-drawings-kueche-640.webp",
+        "avif": "/bilder/shop-drawings-kueche-640.avif",
+        "kb": 61,
+        "kbAvif": 28
       },
       {
-        "breite": 768,
-        "hoehe": 470,
-        "src": "/bilder/shop-drawings-kueche-768.webp"
+        "breite": 800,
+        "hoehe": 489,
+        "src": "/bilder/shop-drawings-kueche-800.webp",
+        "avif": "/bilder/shop-drawings-kueche-800.avif",
+        "kb": 97,
+        "kbAvif": 44
+      },
+      {
+        "breite": 960,
+        "hoehe": 587,
+        "src": "/bilder/shop-drawings-kueche-960.webp",
+        "avif": "/bilder/shop-drawings-kueche-960.avif",
+        "kb": 138,
+        "kbAvif": 61
       },
       {
         "breite": 965,
         "hoehe": 590,
-        "src": "/bilder/shop-drawings-kueche-965.webp"
+        "src": "/bilder/shop-drawings-kueche-965.webp",
+        "avif": "/bilder/shop-drawings-kueche-965.avif",
+        "kb": 145,
+        "kbAvif": 64
       }
     ]
   },
@@ -420,21 +2064,40 @@
     "hoehe": 630,
     "herkunft": "pdf",
     "art": "plan",
+    "quelle": "extrahiert/shop-drawings-bad.png",
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA4APu1kqk2ppaQiMAgBMB2JZ2DrU0AV4jSsjAD+7mmeJKACHCjwNDY5SU9nzzz1dbN16mxwM/YAAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 223,
-        "src": "/bilder/shop-drawings-bad-375.webp"
+        "breite": 640,
+        "hoehe": 380,
+        "src": "/bilder/shop-drawings-bad-640.webp",
+        "avif": "/bilder/shop-drawings-bad-640.avif",
+        "kb": 54,
+        "kbAvif": 24
       },
       {
-        "breite": 768,
-        "hoehe": 456,
-        "src": "/bilder/shop-drawings-bad-768.webp"
+        "breite": 800,
+        "hoehe": 475,
+        "src": "/bilder/shop-drawings-bad-800.webp",
+        "avif": "/bilder/shop-drawings-bad-800.avif",
+        "kb": 88,
+        "kbAvif": 37
+      },
+      {
+        "breite": 960,
+        "hoehe": 571,
+        "src": "/bilder/shop-drawings-bad-960.webp",
+        "avif": "/bilder/shop-drawings-bad-960.avif",
+        "kb": 124,
+        "kbAvif": 54
       },
       {
         "breite": 1060,
         "hoehe": 630,
-        "src": "/bilder/shop-drawings-bad-1060.webp"
+        "src": "/bilder/shop-drawings-bad-1060.webp",
+        "avif": "/bilder/shop-drawings-bad-1060.avif",
+        "kb": 158,
+        "kbAvif": 70
       }
     ]
   },
@@ -443,16 +2106,24 @@
     "hoehe": 300,
     "herkunft": "pdf",
     "art": "plan",
+    "quelle": "extrahiert/shop-drawings-boden.png",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAwCdASoYAAoAPu1mqk2ppaQiMAgBMB2JZwC/OB6NhgX/WVEAAP7n1TM75BilbEWjR46rXIiMOWrCAAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 154,
-        "src": "/bilder/shop-drawings-boden-375.webp"
+        "breite": 640,
+        "hoehe": 263,
+        "src": "/bilder/shop-drawings-boden-640.webp",
+        "avif": "/bilder/shop-drawings-boden-640.avif",
+        "kb": 56,
+        "kbAvif": 22
       },
       {
         "breite": 730,
         "hoehe": 300,
-        "src": "/bilder/shop-drawings-boden-730.webp"
+        "src": "/bilder/shop-drawings-boden-730.webp",
+        "avif": "/bilder/shop-drawings-boden-730.avif",
+        "kb": 74,
+        "kbAvif": 31
       }
     ]
   },
@@ -461,16 +2132,16 @@
     "hoehe": 468,
     "herkunft": "pdf",
     "art": "foto",
+    "quelle": "extrahiert/brand-identity-mockups.png",
+    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQBQCdASoYABsAPu1gqk2ppSQiN/VYATAdiWcAxkAQ1UGDKEqV5OIi2rR7hZXWxPHqSttpGAD+wyLc+kx+Q6ekBIAPsidhr1bMunrRla0vutubPWkMDFDef3ld497CqVOEV8bXKbUFgx67TVVjgAAA",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 418,
-        "src": "/bilder/brand-identity-mockups-375.webp"
-      },
       {
         "breite": 420,
         "hoehe": 468,
-        "src": "/bilder/brand-identity-mockups-420.webp"
+        "src": "/bilder/brand-identity-mockups-420.webp",
+        "avif": "/bilder/brand-identity-mockups-420.avif",
+        "kb": 25,
+        "kbAvif": 11
       }
     ]
   },
@@ -479,16 +2150,16 @@
     "hoehe": 208,
     "herkunft": "pdf",
     "art": "foto",
+    "quelle": "extrahiert/brand-identity-logo-varianten.png",
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoYAAwAPu1orU2ppqSiMAgBMB2JYwC1GoADVW8+jADyTT78sAD+5XACs8nPoy4j5ir5VgckrpVq9vZwotrT37mqV/Lr17XH3AfZTKbPJAU1MbKuwgkAAA==",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 193,
-        "src": "/bilder/brand-identity-logo-varianten-375.webp"
-      },
       {
         "breite": 404,
         "hoehe": 208,
-        "src": "/bilder/brand-identity-logo-varianten-404.webp"
+        "src": "/bilder/brand-identity-logo-varianten-404.webp",
+        "avif": "/bilder/brand-identity-logo-varianten-404.avif",
+        "kb": 6,
+        "kbAvif": 4
       }
     ]
   },
@@ -497,16 +2168,16 @@
     "hoehe": 305,
     "herkunft": "pdf",
     "art": "foto",
+    "quelle": "extrahiert/brand-identity-konstruktion.png",
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoYABEAPulkqk2pJaQiMBgMASAdCWMAuwANwZMIQpDJ4LH8gyT/eSKiuAD+xyGCbMYnUrf0E52lijHsSny+zZWkqM4DBi3+FvtPsYQlQ7fuBWH0enZBXmdFSU4aVLJ3eg2CCJgUh8vW8ccF0X0OwRLPt4THL4M2bG1KG92o9AAAAA==",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 269,
-        "src": "/bilder/brand-identity-konstruktion-375.webp"
-      },
       {
         "breite": 425,
         "hoehe": 305,
-        "src": "/bilder/brand-identity-konstruktion-425.webp"
+        "src": "/bilder/brand-identity-konstruktion-425.webp",
+        "avif": "/bilder/brand-identity-konstruktion-425.avif",
+        "kb": 19,
+        "kbAvif": 9
       }
     ]
   },
@@ -515,11 +2186,16 @@
     "hoehe": 470,
     "herkunft": "pdf",
     "art": "foto",
+    "quelle": "extrahiert/brand-identity-visitenkarte.png",
+    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYACEAPulgqE2pJaQiNVgIASAdCWdotgAjOfe0HEQSoQdF5o9QMkAA/u8y8GMwjUeWr45/uT8uK47eXy2s0/yJz2OI8KRCoLQcsiKPVbQkNudxzcpg3MCAAAA=",
     "varianten": [
       {
         "breite": 344,
         "hoehe": 470,
-        "src": "/bilder/brand-identity-visitenkarte-344.webp"
+        "src": "/bilder/brand-identity-visitenkarte-344.webp",
+        "avif": "/bilder/brand-identity-visitenkarte-344.avif",
+        "kb": 11,
+        "kbAvif": 8
       }
     ]
   },
@@ -528,34 +2204,32 @@
     "hoehe": 538,
     "herkunft": "pdf",
     "art": "foto",
+    "quelle": "extrahiert/brand-identity-social-posts.png",
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAABwAgCdASoYAA4AA4BaJYwC7ADdhzWUWN+zmxoAAP71zu28xnmRNRaWI8+Q409p2i2RznGjvXgwbUto52Kr4sk++vKiAAAA",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 217,
-        "src": "/bilder/brand-identity-social-posts-375.webp"
+        "breite": 640,
+        "hoehe": 370,
+        "src": "/bilder/brand-identity-social-posts-640.webp",
+        "avif": "/bilder/brand-identity-social-posts-640.avif",
+        "kb": 22,
+        "kbAvif": 14
       },
       {
-        "breite": 768,
-        "hoehe": 444,
-        "src": "/bilder/brand-identity-social-posts-768.webp"
+        "breite": 800,
+        "hoehe": 463,
+        "src": "/bilder/brand-identity-social-posts-800.webp",
+        "avif": "/bilder/brand-identity-social-posts-800.avif",
+        "kb": 30,
+        "kbAvif": 19
       },
       {
         "breite": 930,
         "hoehe": 538,
-        "src": "/bilder/brand-identity-social-posts-930.webp"
-      }
-    ]
-  },
-  "allgemein-studio-innenraum-sepia": {
-    "breite": 290,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
-    "varianten": [
-      {
-        "breite": 290,
-        "hoehe": 827,
-        "src": "/bilder/allgemein-studio-innenraum-sepia-290.webp"
+        "src": "/bilder/brand-identity-social-posts-930.webp",
+        "avif": "/bilder/brand-identity-social-posts-930.avif",
+        "kb": 38,
+        "kbAvif": 24
       }
     ]
   },
@@ -564,16 +2238,16 @@
     "hoehe": 827,
     "herkunft": "pdf",
     "art": "stimmung",
+    "quelle": "extrahiert/allgemein-leistungen-essplatz-sepia.png",
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBQCdASoYACkAPt1eo02opaMiNVv8ARAbiWlg61seDnaVbAD2QfaSmTOzHz9g/wKBEMjAAAD+1VNxTY5Mne+3I37+9lZ2zI9/iVUm4wc1NhzPWRSMC50nUWEuQwQ4DPTrEXavl5L2MTH8TmmehFTaxmAAAA==",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 633,
-        "src": "/bilder/allgemein-leistungen-essplatz-sepia-375.webp"
-      },
       {
         "breite": 490,
         "hoehe": 827,
-        "src": "/bilder/allgemein-leistungen-essplatz-sepia-490.webp"
+        "src": "/bilder/allgemein-leistungen-essplatz-sepia-490.webp",
+        "avif": "/bilder/allgemein-leistungen-essplatz-sepia-490.avif",
+        "kb": 23,
+        "kbAvif": 15
       }
     ]
   },
@@ -582,16 +2256,16 @@
     "hoehe": 667,
     "herkunft": "pdf",
     "art": "stimmung",
+    "quelle": "extrahiert/allgemein-fassade-exterior-gruen.png",
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBQCdASoYACEAPt1epU2opaOpNUgBIBuJZwDR+C0vwMMwc3mJMsFOkbyE1xBf+lAMXAAA/ru5wsICpz/kCw+DGSKbm5lgqM6df/2d66gEXHPZQvuwjSAFCcwlkOfLFXsACOT8Uf7Eidns78a6GZiyV081xJEExflmCYxfqIky/q/iOuQKfAAA",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 516,
-        "src": "/bilder/allgemein-fassade-exterior-gruen-375.webp"
-      },
       {
         "breite": 485,
         "hoehe": 667,
-        "src": "/bilder/allgemein-fassade-exterior-gruen-485.webp"
+        "src": "/bilder/allgemein-fassade-exterior-gruen-485.webp",
+        "avif": "/bilder/allgemein-fassade-exterior-gruen-485.avif",
+        "kb": 26,
+        "kbAvif": 14
       }
     ]
   },
@@ -600,39 +2274,74 @@
     "hoehe": 664,
     "herkunft": "pdf",
     "art": "stimmung",
+    "quelle": "extrahiert/allgemein-schlafzimmer-klassisch-sepia.png",
+    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYABsAPu1gqk2ppSQiMAgBMB2JaQDO7BgsfOg4/LWre/STr/SkyYAA/q+LxNMLWIA+faRcybw22shyji+deeju+zwmUGCHaUAQznqBZv5kBM6fXDkBXpMgAAA=",
     "varianten": [
-      {
-        "breite": 375,
-        "hoehe": 415,
-        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-375.webp"
-      },
       {
         "breite": 600,
         "hoehe": 664,
-        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.webp"
+        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.webp",
+        "avif": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.avif",
+        "kb": 21,
+        "kbAvif": 13
       }
     ]
   },
-  "textur-nebel-gruen": {
-    "breite": 980,
-    "hoehe": 258,
-    "herkunft": "pdf",
-    "art": "textur",
+  "kontakt-karte": {
+    "breite": 2560,
+    "hoehe": 1569,
+    "herkunft": "original",
+    "art": "karte",
+    "quelle": "karte/karte-original.png",
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoYAA8APu1iqk4ppaQiMAgBMB2JZwAAW++H9jSgrKAA/uxqwZ0zb5Bc9oW6abzPTSR3PtAkIAA=",
     "varianten": [
       {
-        "breite": 375,
-        "hoehe": 99,
-        "src": "/bilder/textur-nebel-gruen-375.webp"
+        "breite": 640,
+        "hoehe": 392,
+        "src": "/bilder/kontakt-karte-640.webp",
+        "avif": "/bilder/kontakt-karte-640.avif",
+        "kb": 21,
+        "kbAvif": 15
       },
       {
-        "breite": 768,
-        "hoehe": 202,
-        "src": "/bilder/textur-nebel-gruen-768.webp"
+        "breite": 800,
+        "hoehe": 490,
+        "src": "/bilder/kontakt-karte-800.webp",
+        "avif": "/bilder/kontakt-karte-800.avif",
+        "kb": 29,
+        "kbAvif": 20
       },
       {
-        "breite": 980,
-        "hoehe": 258,
-        "src": "/bilder/textur-nebel-gruen-980.webp"
+        "breite": 960,
+        "hoehe": 589,
+        "src": "/bilder/kontakt-karte-960.webp",
+        "avif": "/bilder/kontakt-karte-960.avif",
+        "kb": 37,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 883,
+        "src": "/bilder/kontakt-karte-1440.webp",
+        "avif": "/bilder/kontakt-karte-1440.avif",
+        "kb": 61,
+        "kbAvif": 42
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1177,
+        "src": "/bilder/kontakt-karte-1920.webp",
+        "avif": "/bilder/kontakt-karte-1920.avif",
+        "kb": 89,
+        "kbAvif": 64
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1569,
+        "src": "/bilder/kontakt-karte-2560.webp",
+        "avif": "/bilder/kontakt-karte-2560.avif",
+        "kb": 135,
+        "kbAvif": 98
       }
     ]
   }

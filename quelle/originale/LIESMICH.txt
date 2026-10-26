@@ -1,25 +1,25 @@
 ORIGINAL-BILDER (Renderings, Fotos, Plaene)
 ============================================
 
-Hier die Original-Dateien ablegen. Sie ersetzen automatisch die Bilder,
-die bisher aus dem Portfolio-PDF ausgeschnitten wurden.
+Die Original-Dateien liegen hier in einem Ordner pro Projekt:
+  quelle/originale/<projekt-slug>/   z. B. quelle/originale/villa-homs/A-1.png
+Dieser Ordner ist NICHT im Git (zu gross), nur diese Datei.
 
-So geht es:
-1. Die Datei genau so benennen wie das Bild in BILDER.md bzw. in
-   src/data/bilder.json, zum Beispiel:
-     mosque-square-galerie-3-nacht-wandbild.jpg
-     villa-homs-tag-front.png
-   Erlaubte Endungen: .jpg .jpeg .png .webp .tif .tiff
-   Nur Kleinbuchstaben, Ziffern und Bindestriche, keine Leerzeichen.
-2. Im Projektordner im Terminal ausfuehren:
-     npm run bilder
-   Das Skript verkleinert die Bilder fuer das Web (375/768/1440/1920 px,
-   WebP) und nimmt automatisch das Original statt des PDF-Auszugs.
-3. Danach: npm run build (oder Vorschau-starten.command doppelklicken).
+So kommt ein neues Bild auf die Website:
+1. Datei in den Ordner des Projekts kopieren
+   (JPG, PNG, TIFF, WebP; HEIC vorher umwandeln:
+    sips -s format jpeg bild.heic --out bild.jpg).
+2. In src/data/bilder.json eintragen, z. B.
+     "villa-homs-garten": { "art": "foto", "quelle": "originale/villa-homs/garten.jpg" }
+   Der Name links (Bild-ID) nur mit Kleinbuchstaben, Ziffern, Bindestrichen.
+3. Die Bild-ID in src/data/projekte.json bei "galerie" (oder "titelbild")
+   einsetzen und alt-Texte in beiden Sprachen (ar.alt / en.alt) ergaenzen.
+4. Im Projektordner im Terminal:  npm run bilder
+   (AVIF + WebP in 640/800/960/1440/1920/2560 px, nie hochskaliert,
+    Platzhalter, alle EXIF/GPS-Daten werden entfernt)
+5. Danach: npm run build (oder Vorschau-starten.command doppelklicken).
 
 Hinweise:
 - Je groesser das Original, desto besser (ideal ab 2400 px Breite).
-  Bilder werden nie hochskaliert.
-- Ist das Moscheeplatz-Nachtbild als Original da, kann der Hero als
-  Vollbild gezeigt werden: in src/data/site.json "heroVollbild": true setzen.
+- Hero (Startseite): src/data/site.json "heroBild", Vollbild mit "heroVollbild": true.
 - Plaene am besten als PNG in hoher Aufloesung.

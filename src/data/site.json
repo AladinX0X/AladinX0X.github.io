@@ -1,10 +1,35 @@
 {
-  "_hinweis": "Zentrale Einstellungen. heroVollbild: false = geteilter Hero (Bild gerahmt in echter Größe), true = Vollbild-Hero. Erst auf true stellen, wenn ein Original-Rendering (mind. 1920 px breit) in quelle/originale/ liegt und npm run bilder gelaufen ist.",
-  "heroVollbild": false,
-  "heroBild": "mosque-square-galerie-3-nacht-wandbild",
-  "ausgewaehlteProjekte": ["mosque-square", "villa-homs", "villa-interior-uae"],
+  "_hinweis": "Zentrale Einstellungen. heroVollbild: true = Vollbild-Hero (Original-Rendering mind. 2400 px), false = geteilter Hero. heroBild: Bild-ID aus bilder.json. hauptProjekt: Projekt der gepinnten Szene auf der Startseite (nicht zugleich in ausgewaehlteProjekte). disziplinen: Startseite, Abschnitt تخصصاتنا / Our disciplines (Leistungsseite, Icon, Bild); Texte in i18n start.dreiD bzw. ueber.disziplinen und leistungen.eintraege.",
+  "heroVollbild": true,
+  "heroBild": "mosque-square-nacht-wandbild",
+  "ausgewaehlteProjekte": [
+    "mosque-square",
+    "villa-homs",
+    "villa-interior-uae"
+  ],
   "gegruendet": 2026,
   "portfolio": "/downloads/AYLOUL-Portfolio.pdf",
-  "sprachen": ["ar", "en"],
-  "standardSprache": "ar"
+  "sprachen": [
+    "ar",
+    "en"
+  ],
+  "standardSprache": "ar",
+  "hauptProjekt": "villa-uae",
+  "disziplinen": [
+    {
+      "leistung": "exterior-architecture",
+      "icon": "fassade",
+      "bild": "villa-homs-nacht-front"
+    },
+    {
+      "leistung": "3d-visualization",
+      "icon": "wuerfel",
+      "bild": "villa-interior-uae-wohnzimmer-treppe"
+    },
+    {
+      "leistung": "architectural-graphic-design",
+      "icon": "raute",
+      "bild": "brand-identity-konstruktion"
+    }
+  ]
 }

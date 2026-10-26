@@ -5,3 +5,7 @@ screenshots/
 .DS_Store
 quelle/extrahiert/
 BERICHT.md
+quelle/originale/*
+!quelle/originale/LIESMICH.txt
+quelle/karte/
+quelle/logo-original/

@@ -8,9 +8,23 @@
       "flaeche": 400,
       "jahr": 2026,
       "pdfSeiten": "12-14",
-      "titelbild": "villa-homs-tag-front",
-      "galerie": ["villa-homs-tag-front", "villa-homs-sepia-perspektive", "villa-homs-galerie-1-tag-front"],
-      "farben": ["#e2d7c3", "#4d4e49", "#8197ac", "#93916b"],
+      "titelbild": "villa-homs-nacht-front",
+      "galerie": [
+        "villa-homs-nacht-front",
+        "villa-homs-tag-front",
+        "villa-homs-nacht-fassade",
+        "villa-homs-nacht-perspektive",
+        "villa-homs-tag-eingang",
+        "villa-homs-nacht-eingang",
+        "villa-homs-tag-balkon",
+        "villa-homs-abend-balkon"
+      ],
+      "farben": [
+        "#e2d7c3",
+        "#4d4e49",
+        "#8197ac",
+        "#93916b"
+      ],
       "ar": {
         "titel": "فيلا سكنية في حمص",
         "kurz": "فيلا من طابقين تضم شقتين مستقلتين، بواجهة من الحجر الحلبي.",
@@ -22,11 +36,22 @@
           "فيلا سكنية من طابقين تضم شقتين مستقلتين، شقة في كل طابق. يعتمد التصميم لغة كلاسيكية معاصرة تجمع بين تناسب متوازن وتفاصيل كلاسيكية مدروسة، لتمنح المبنى حضوراً معمارياً متماسكاً.",
           "تتشكل الواجهة من تكسية بالحجر الحلبي وأعمدة هادئة وزخارف خفيفة، تكملها فتحات زجاجية واسعة تُدخل ضوء النهار الطبيعي. وقد دُمجت العناصر الوظيفية، من الشرفة العلوية والمدخل الرئيسي إلى موقف السيارات، في واجهة متوازنة ومدروسة التكوين."
         ],
-        "materialien": ["حجر حلبي", "ألمنيوم أسود مطفأ", "زجاج مزدوج", "معدن أسود", "حجر صناعي أسود"],
+        "materialien": [
+          "حجر حلبي",
+          "ألمنيوم أسود مطفأ",
+          "زجاج مزدوج",
+          "معدن أسود",
+          "حجر صناعي أسود"
+        ],
         "alt": {
+          "villa-homs-nacht-front": "الفيلا في حمص ليلاً بواجهتها الحجرية المضاءة ونافذتها العالية بين الأشجار",
           "villa-homs-tag-front": "منظر نهاري للفيلا في حمص بواجهتها من الحجر الحلبي ونافذتها العالية والحديقة",
-          "villa-homs-sepia-perspektive": "منظور للفيلا في حمص يظهر موقف السيارات والشرفة العلوية بألوان بنية دافئة",
-          "villa-homs-galerie-1-tag-front": "الواجهة الأمامية للفيلا في حمص مع المدخل الرئيسي وموقف السيارات المدمج"
+          "villa-homs-nacht-fassade": "الواجهة الأمامية ليلاً مع إضاءة مخفية على الأعمدة وموقف السيارات المدمج",
+          "villa-homs-nacht-perspektive": "منظور جانبي للفيلا ليلاً يظهر الشرفة العلوية والمدخل المضاء",
+          "villa-homs-tag-eingang": "المدخل الرئيسي نهاراً، باب معدني داكن بين عمودين حجريين",
+          "villa-homs-nacht-eingang": "المدخل الرئيسي ليلاً مع إضاءة خطية في سقف موقف السيارات",
+          "villa-homs-tag-balkon": "الشرفة العلوية نهاراً بدرابزين معدني أسود وكرسي استرخاء",
+          "villa-homs-abend-balkon": "الشرفة العلوية عند الغروب في ضوء دافئ"
         }
       },
       "en": {
@@ -40,11 +65,22 @@
           "A two-storey residential villa comprising two independent apartments, one on each floor. The design adopts a contemporary classical language, combining balanced proportions with refined classical detailing to create a cohesive architectural presence.",
           "The façade is articulated through Aleppo stone cladding, restrained columns and subtle ornamental details, complemented by generous glazed openings that bring in natural daylight. Functional elements, including the upper balcony, the main entrance and the integrated parking, are incorporated into a balanced and carefully composed elevation."
         ],
-        "materialien": ["Aleppo stone", "Matte black aluminium", "Double-glazed glass", "Black metal", "Black engineered stone"],
+        "materialien": [
+          "Aleppo stone",
+          "Matte black aluminium",
+          "Double-glazed glass",
+          "Black metal",
+          "Black engineered stone"
+        ],
         "alt": {
+          "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit and the tall window framed by trees",
           "villa-homs-tag-front": "Day view of the villa in Homs with its Aleppo stone façade, tall window and garden",
-          "villa-homs-sepia-perspektive": "Perspective of the villa in Homs showing the carport and upper balcony, in warm sepia tones",
-          "villa-homs-galerie-1-tag-front": "Front elevation of the villa in Homs with the main entrance and integrated parking"
+          "villa-homs-nacht-fassade": "The front façade at night, with concealed lighting on the columns and the integrated carport",
+          "villa-homs-nacht-perspektive": "Side perspective of the villa at night, showing the upper balcony and the lit entrance",
+          "villa-homs-tag-eingang": "The main entrance by day, a dark metal door between two stone columns",
+          "villa-homs-nacht-eingang": "The main entrance at night, with linear lighting in the carport ceiling",
+          "villa-homs-tag-balkon": "The upper balcony by day, with a black metal railing and a lounge chair",
+          "villa-homs-abend-balkon": "The upper balcony at dusk in warm light"
         }
       }
     },
@@ -55,8 +91,15 @@
       "flaeche": 350,
       "jahr": 2026,
       "pdfSeiten": "15-17",
-      "titelbild": "white-villa-tag-front",
-      "galerie": ["white-villa-tag-front", "white-villa-tag-boegen", "villa-uae-sepia-perspektive"],
+      "titelbild": "villa-uae-nacht-perspektive",
+      "galerie": [
+        "villa-uae-nacht-perspektive",
+        "villa-uae-tag-perspektive",
+        "villa-uae-tag-front",
+        "villa-uae-nacht-front",
+        "villa-uae-boegen-tag",
+        "villa-uae-boegen-nacht"
+      ],
       "farben": [],
       "ar": {
         "titel": "فيلا سكنية في الإمارات",
@@ -69,11 +112,17 @@
           "فيلا كلاسيكية يحددها تناظر واضح ونسب مهيبة، تجمع بين تفاصيل تقليدية دقيقة وتعبير معاصر.",
           "ويعزز الرخام والحديد المشغول طابعها الفاخر، فتوازن بين الهوية المحلية ولغة كلاسيكية لا يحدّها زمن."
         ],
-        "materialien": ["رخام", "حديد مشغول"],
+        "materialien": [
+          "رخام",
+          "حديد مشغول"
+        ],
         "alt": {
-          "white-villa-tag-front": "منظر نهاري للفيلا في الإمارات: رواق أعمدة وشرفات من الحديد المشغول وفناء أمامي مزروع",
-          "white-villa-tag-boegen": "واجهة الفيلا في الإمارات بأقواسها ومدخلها المقوّس في الوسط",
-          "villa-uae-sepia-perspektive": "منظور للفيلا في الإمارات يظهر العنصر الزجاجي المرتفع والأعمدة الممتدة على طابقين، بألوان بنية دافئة"
+          "villa-uae-nacht-perspektive": "منظور للفيلا في الإمارات ليلاً بعنصرها الزجاجي العالي وأعمدتها المضاءة",
+          "villa-uae-tag-perspektive": "منظور نهاري للفيلا بواجهة بيضاء وعنصر زجاجي عالٍ وشرفات من الحديد المشغول",
+          "villa-uae-tag-front": "الواجهة الأمامية نهاراً بتناظر واضح وأعمدة بارتفاع طابقين",
+          "villa-uae-nacht-front": "الواجهة الأمامية ليلاً مع إضاءة دافئة على الأعمدة",
+          "villa-uae-boegen-tag": "واجهة بأقواس ونوافذ نصف دائرية وشرفة من الحديد المشغول، نهاراً",
+          "villa-uae-boegen-nacht": "واجهة الأقواس ليلاً مع المدخل المقوّس المضاء"
         }
       },
       "en": {
@@ -87,11 +136,17 @@
           "A classical villa defined by strong symmetry and monumental proportions, combining refined traditional detailing with a contemporary expression.",
           "Marble and cast wrought iron enhance its luxurious character, balancing regional identity with a timeless classical language."
         ],
-        "materialien": ["Marble", "Cast wrought iron"],
+        "materialien": [
+          "Marble",
+          "Cast wrought iron"
+        ],
         "alt": {
-          "white-villa-tag-front": "Day view of the villa in the UAE: colonnade, wrought-iron balconies and a planted forecourt",
-          "white-villa-tag-boegen": "Arched elevation of the villa in the UAE with a central arched entrance",
-          "villa-uae-sepia-perspektive": "Perspective of the villa in the UAE with its tall glazed element and two-storey columns, in warm sepia tones"
+          "villa-uae-nacht-perspektive": "Perspective of the villa in the UAE at night, with its tall glazed element and lit columns",
+          "villa-uae-tag-perspektive": "Day perspective of the villa: a white façade, a tall glazed element and wrought-iron balconies",
+          "villa-uae-tag-front": "The front façade by day, strictly symmetrical, with two-storey columns",
+          "villa-uae-nacht-front": "The front façade at night, with warm light on the columns",
+          "villa-uae-boegen-tag": "A façade with arches, half-round windows and a wrought-iron balcony, by day",
+          "villa-uae-boegen-nacht": "The arched façade at night, with the lit arched entrance"
         }
       }
     },
@@ -102,9 +157,23 @@
       "flaeche": null,
       "jahr": 2026,
       "pdfSeiten": "18-20",
-      "titelbild": "mosque-square-luftbild",
-      "galerie": ["mosque-square-luftbild", "mosque-square-galerie-4-tag-wandbild", "mosque-square-galerie-3-nacht-wandbild", "mosque-square-sepia-nacht"],
-      "farben": ["#afabaa", "#2c2220", "#cfc6c1", "#525252"],
+      "titelbild": "mosque-square-nacht-wandbild",
+      "galerie": [
+        "mosque-square-nacht-wandbild",
+        "mosque-square-luftbild-tag",
+        "mosque-square-luftbild-nacht",
+        "mosque-square-tag-eingang",
+        "mosque-square-nacht-eingang",
+        "mosque-square-tag-wandbild",
+        "mosque-square-tag-platz",
+        "mosque-square-nacht-platz"
+      ],
+      "farben": [
+        "#afabaa",
+        "#2c2220",
+        "#cfc6c1",
+        "#525252"
+      ],
       "ar": {
         "titel": "ساحة الجامع في معرة النعمان",
         "kurz": "ساحة عامة مستوحاة من الجامع الكبير، فيها قبة على ستة أعمدة وجدارية لأبي العلاء المعري.",
@@ -117,12 +186,22 @@
           "تشكّل ستة أعمدة تحمل قبة مركزية النقطة المحورية للساحة، مستلهمةً الطابع المكاني للجامع، لتصنع معلماً معاصراً قائماً بذاته. أما المدخل الرئيسي، بأعمدته الحجرية الأربعة وإفريزه العلوي، فيرسم المحور الأساسي باتجاه القبة.",
           "وتُدخل جدارية تذكارية لأبي العلاء المعري الإرث الفكري للمدينة إلى المكان، فتكمل التكوين المعماري وتعزز الصلة بين التاريخ والهوية والفضاء العام المعاصر."
         ],
-        "materialien": ["حجر طبيعي", "لياسة معمارية", "خرسانة مسلحة", "معدن داكن", "مسطح الجدارية"],
+        "materialien": [
+          "حجر طبيعي",
+          "لياسة معمارية",
+          "خرسانة مسلحة",
+          "معدن داكن",
+          "مسطح الجدارية"
+        ],
         "alt": {
-          "mosque-square-luftbild": "منظر جوي للساحة: رواق المدخل بأعمدته الحجرية الأربعة وأشجار النخيل وجناح القبة",
-          "mosque-square-galerie-4-tag-wandbild": "الساحة نهاراً مع جدارية أبي العلاء المعري وأشجار النخيل وأعمدة الإنارة الشمسية",
-          "mosque-square-galerie-3-nacht-wandbild": "الساحة ليلاً مع جدارية أبي العلاء المعري المضاءة",
-          "mosque-square-sepia-nacht": "جناح القبة وأشجار النخيل في الساحة ليلاً، بألوان بنية دافئة"
+          "mosque-square-nacht-wandbild": "ساحة الجامع في معرة النعمان ليلاً مع جدارية أبي العلاء المعري المضاءة بين النخيل",
+          "mosque-square-luftbild-tag": "منظر علوي للساحة نهاراً يظهر بوابة المدخل والجناح ذا القبة",
+          "mosque-square-luftbild-nacht": "منظر علوي للساحة ليلاً مع إضاءة بوابة المدخل",
+          "mosque-square-tag-eingang": "بوابة المدخل بأعمدتها الحجرية نهاراً",
+          "mosque-square-nacht-eingang": "بوابة المدخل ليلاً في ضوء دافئ",
+          "mosque-square-tag-wandbild": "الساحة نهاراً مع جدارية أبي العلاء المعري والنخيل وأعمدة الإنارة الشمسية",
+          "mosque-square-tag-platz": "الساحة نهاراً مع الجناح ذي القبة والنخيل والمقاعد",
+          "mosque-square-nacht-platz": "الساحة ليلاً مع الجناح ذي القبة وأعمدة الإنارة"
         }
       },
       "en": {
@@ -137,12 +216,22 @@
           "Six columns supporting a central dome form the main focal point of the square, drawing on the spatial character of the mosque while creating a distinct contemporary landmark. The main entrance, defined by four stone columns and an upper cornice, establishes the principal axis towards the dome.",
           "A commemorative mural of Abu al-'Ala al-Ma'arri introduces the city's intellectual heritage into the space, complementing the architectural composition and reinforcing the connection between history, identity and contemporary public space."
         ],
-        "materialien": ["Natural stone", "Architectural plaster", "Reinforced concrete", "Dark metal", "Mural surface"],
+        "materialien": [
+          "Natural stone",
+          "Architectural plaster",
+          "Reinforced concrete",
+          "Dark metal",
+          "Mural surface"
+        ],
         "alt": {
-          "mosque-square-luftbild": "Aerial view of the square: entrance portico with four stone columns, palm trees and the domed pavilion",
-          "mosque-square-galerie-4-tag-wandbild": "The square by day with the al-Ma'arri mural, palm trees and solar street lights",
-          "mosque-square-galerie-3-nacht-wandbild": "The square at night with the illuminated mural of Abu al-'Ala al-Ma'arri",
-          "mosque-square-sepia-nacht": "Domed pavilion and palm trees in the square at night, in warm sepia tones"
+          "mosque-square-nacht-wandbild": "The square in Maarrat al-Nu'man at night, with the lit mural of Abu al-'Ala al-Ma'arri between palms",
+          "mosque-square-luftbild-tag": "Aerial view of the square by day, showing the entrance portal and the domed pavilion",
+          "mosque-square-luftbild-nacht": "Aerial view of the square at night, with the entrance portal lit",
+          "mosque-square-tag-eingang": "The entrance portal with its stone columns by day",
+          "mosque-square-nacht-eingang": "The entrance portal at night in warm light",
+          "mosque-square-tag-wandbild": "The square by day with the al-Ma'arri mural, palms and solar street lights",
+          "mosque-square-tag-platz": "The square by day with the domed pavilion, palms and benches",
+          "mosque-square-nacht-platz": "The square at night with the domed pavilion and street lights"
         }
       }
     },
@@ -154,7 +243,19 @@
       "jahr": 2026,
       "pdfSeiten": "22-27",
       "titelbild": "villa-interior-uae-wohnzimmer-treppe",
-      "galerie": ["villa-interior-uae-wohnzimmer-treppe", "villa-interior-uae-essbereich", "villa-interior-uae-galerie-1-wohnzimmer", "villa-interior-uae-galerie-4-kueche-front", "villa-interior-uae-sepia-detail"],
+      "galerie": [
+        "villa-interior-uae-wohnzimmer-treppe",
+        "villa-interior-uae-wohnzimmer-tv",
+        "villa-interior-uae-wohnzimmer-oben",
+        "villa-interior-uae-essbereich",
+        "villa-interior-uae-kueche-front",
+        "villa-interior-uae-kueche-insel",
+        "villa-interior-uae-treppe-garten",
+        "villa-interior-uae-eingang",
+        "villa-interior-uae-gaeste-bad",
+        "villa-interior-uae-gaeste-bad-wc",
+        "villa-interior-uae-detail"
+      ],
       "farben": [],
       "ar": {
         "titel": "التصميم الداخلي لفيلا في الإمارات",
@@ -168,13 +269,25 @@
           "يبدأ التصميم من المدخل والممر، ويقود بشكل طبيعي إلى منطقة الدرج وصالة المعيشة اللتين تشكلان محور الفراغ الداخلي، ثم يكمل ركن الطعام والمطبخ تسلسل المعيشة الأساسي.",
           "ويؤسس الحجر الطبيعي الدافئ وخشب الجوز الداكن والدرجات الترابية لغة مواد واحدة في كل الفراغات، بينما يضيف الدرج النحتي والأسطح الخشبية والإضاءة المدمجة والأثاث المختار عمقاً وشخصية، مع الحفاظ على فراغ داخلي متوازن ومتماسك."
         ],
-        "materialien": ["حجر طبيعي", "خشب جوز داكن", "حجر داكن معرّق", "معدن دافئ", "أقمشة وتنجيد"],
+        "materialien": [
+          "حجر طبيعي",
+          "خشب جوز داكن",
+          "حجر داكن معرّق",
+          "معدن دافئ",
+          "أقمشة وتنجيد"
+        ],
         "alt": {
-          "villa-interior-uae-wohnzimmer-treppe": "صالة معيشة بارتفاع مزدوج مع درج رخامي نحتي وثريا ذهبية معلقة",
-          "villa-interior-uae-essbereich": "ركن الطعام مع تكسية من خشب الجوز ورفوف مضاءة وثريا نحتية",
-          "villa-interior-uae-galerie-1-wohnzimmer": "صالة المعيشة مع جدار تلفاز رخامي ومدفأة وتنجيد بألوان ترابية",
-          "villa-interior-uae-galerie-4-kueche-front": "المطبخ مع جزيرة من خشب الجوز وكراسي بار وأجهزة مدمجة",
-          "villa-interior-uae-sepia-detail": "تفصيل لمزهريات زجاجية وشموع وكوب خزفي، بألوان بنية دافئة"
+          "villa-interior-uae-wohnzimmer-treppe": "غرفة المعيشة مع الدرج الرخامي الداكن وثريا معلقة",
+          "villa-interior-uae-wohnzimmer-tv": "غرفة المعيشة مع جدار التلفاز الرخامي وتكسية من خشب الجوز",
+          "villa-interior-uae-wohnzimmer-oben": "غرفة المعيشة من الأعلى مع الأرائك والطاولة الدائرية",
+          "villa-interior-uae-essbereich": "ركن الطعام مع رفوف مضاءة وثريا معلقة",
+          "villa-interior-uae-kueche-front": "المطبخ بخزائن خشبية داكنة وجزيرة رخامية",
+          "villa-interior-uae-kueche-insel": "المطبخ من زاوية أخرى مع الجزيرة والمقاعد العالية",
+          "villa-interior-uae-treppe-garten": "الدرج من الرخام الداكن فوق حديقة داخلية صغيرة",
+          "villa-interior-uae-eingang": "المدخل بجدار خشبي ومنحوتة في كوة مضاءة",
+          "villa-interior-uae-gaeste-bad": "حمام الضيوف بجدران من الرخام الرمادي ولوحة على الجدار",
+          "villa-interior-uae-gaeste-bad-wc": "حمام الضيوف مع المغسلة والإضاءة المخفية",
+          "villa-interior-uae-detail": "تفصيل: مزهريات زجاجية وفنجان قهوة على طاولة"
         }
       },
       "en": {
@@ -189,13 +302,25 @@
           "The design begins with the entrance and corridor, leading naturally into the staircase area and living room, which form the main spatial focus of the interior. The dining area and kitchen complete the primary living sequence.",
           "Warm natural stone, dark walnut wood and rich earthy tones establish a consistent material language throughout the spaces. The sculptural staircase, timber surfaces, integrated lighting and carefully selected furniture add depth and character while maintaining a balanced and cohesive interior."
         ],
-        "materialien": ["Natural stone", "Dark walnut wood", "Dark veined stone", "Warm metal", "Textiles and upholstery"],
+        "materialien": [
+          "Natural stone",
+          "Dark walnut wood",
+          "Dark veined stone",
+          "Warm metal",
+          "Textiles and upholstery"
+        ],
         "alt": {
-          "villa-interior-uae-wohnzimmer-treppe": "Double-height living room with a sculptural marble staircase and a suspended golden light installation",
-          "villa-interior-uae-essbereich": "Dining area with walnut panelling, illuminated shelves and a sculptural pendant light",
-          "villa-interior-uae-galerie-1-wohnzimmer": "Living room with a marble TV wall, fireplace and earthy upholstery",
-          "villa-interior-uae-galerie-4-kueche-front": "Kitchen with a walnut island, bar stools and integrated appliances",
-          "villa-interior-uae-sepia-detail": "Detail of glass vases, candles and a ceramic cup, in warm sepia tones"
+          "villa-interior-uae-wohnzimmer-treppe": "The living room with the dark marble staircase and a suspended light sculpture",
+          "villa-interior-uae-wohnzimmer-tv": "The living room with the marble TV wall and walnut panelling",
+          "villa-interior-uae-wohnzimmer-oben": "The living room from above, with sofas and a round table",
+          "villa-interior-uae-essbereich": "The dining area with lit shelving and a pendant light",
+          "villa-interior-uae-kueche-front": "The kitchen with dark wood cabinets and a marble island",
+          "villa-interior-uae-kueche-insel": "The kitchen from another angle, with the island and bar stools",
+          "villa-interior-uae-treppe-garten": "The dark marble staircase above a small indoor garden",
+          "villa-interior-uae-eingang": "The entrance with a wooden wall and a sculpture in a lit niche",
+          "villa-interior-uae-gaeste-bad": "The guest bathroom with grey marble walls and a painting",
+          "villa-interior-uae-gaeste-bad-wc": "The guest bathroom with the washbasin and concealed lighting",
+          "villa-interior-uae-detail": "Detail: glass vases and a coffee cup on a table"
         }
       }
     },
@@ -207,7 +332,12 @@
       "jahr": 2026,
       "pdfSeiten": "28-30",
       "titelbild": "master-bedroom-gesamt",
-      "galerie": ["master-bedroom-gesamt", "master-bedroom-galerie-1-tv-wand", "master-bedroom-galerie-4-raum", "master-bedroom-sepia"],
+      "galerie": [
+        "master-bedroom-gesamt",
+        "master-bedroom-bett",
+        "master-bedroom-tv-wand",
+        "master-bedroom-raum"
+      ],
       "farben": [],
       "ar": {
         "titel": "غرفة نوم رئيسية عصرية في الإمارات",
@@ -220,12 +350,18 @@
           "غرفة نوم رئيسية عصرية تجمع بين الدرجات الترابية الدافئة والمواد الراقية لتخلق جواً مريحاً وأنيقاً.",
           "يشكّل ظهر السرير المنحني مع رفوف الكتب المدمجة العنصر المعماري الرئيسي، وتكمله خزانة ملابس بفاصل من الزجاج والمعدن وإضاءة مخفية دافئة."
         ],
-        "materialien": ["خشب دافئ", "زجاج لامع", "رخام بيج فاتح", "معدن مطفأ", "ألواح جبسية"],
+        "materialien": [
+          "خشب دافئ",
+          "زجاج لامع",
+          "رخام بيج فاتح",
+          "معدن مطفأ",
+          "ألواح جبسية"
+        ],
         "alt": {
-          "master-bedroom-gesamt": "غرفة النوم الرئيسية مع ظهر سرير منحنٍ وأريكة مخملية وستائر بكامل الارتفاع",
-          "master-bedroom-galerie-1-tv-wand": "جدار التلفاز بتكسية خشبية وفاصل خزانة الملابس من الزجاج والمعدن",
-          "master-bedroom-galerie-4-raum": "منظر عام لغرفة النوم مع ظهر السرير ورفوف الكتب ومنطقة الجلوس",
-          "master-bedroom-sepia": "السرير بظهره المنحني ولوحة تجريدية، بألوان بنية دافئة"
+          "master-bedroom-gesamt": "غرفة النوم الرئيسية مع السرير والأريكة والستائر الطويلة",
+          "master-bedroom-bett": "السرير بظهر منحنٍ ورفوف مدمجة وأريكة منحنية",
+          "master-bedroom-tv-wand": "جدار التلفاز مع الفاصل الزجاجي والمعدني لغرفة الملابس",
+          "master-bedroom-raum": "منظر عام لغرفة النوم مع ظهر السرير والرفوف المضاءة"
         }
       },
       "en": {
@@ -239,12 +375,18 @@
           "A modern master bedroom combining warm earthy tones with refined materials to create a cosy and elegant atmosphere.",
           "A curved headboard with an integrated bookshelf forms the main architectural feature, complemented by a glass and metal wardrobe partition and warm concealed lighting."
         ],
-        "materialien": ["Warm wood", "Glossy glass", "Light beige marble", "Matte metal", "Gypsum board"],
+        "materialien": [
+          "Warm wood",
+          "Glossy glass",
+          "Light beige marble",
+          "Matte metal",
+          "Gypsum board"
+        ],
         "alt": {
-          "master-bedroom-gesamt": "Master bedroom with a curved headboard, velvet sofa and full-height curtains",
-          "master-bedroom-galerie-1-tv-wand": "TV wall with wood panelling and the glass and metal wardrobe partition",
-          "master-bedroom-galerie-4-raum": "Overview of the bedroom with the bookshelf headboard and seating",
-          "master-bedroom-sepia": "Bed with curved headboard and abstract artwork, in warm sepia tones"
+          "master-bedroom-gesamt": "The master bedroom with the bed, sofa and full-height curtains",
+          "master-bedroom-bett": "The bed with its curved headboard, built-in shelves and a curved sofa",
+          "master-bedroom-tv-wand": "The TV wall with the glass-and-metal wardrobe partition",
+          "master-bedroom-raum": "Overall view of the bedroom with the headboard and lit shelving"
         }
       }
     },
@@ -257,7 +399,11 @@
       "pdfSeiten": "32-37",
       "auszug": true,
       "titelbild": "shop-drawings-kueche",
-      "galerie": ["shop-drawings-kueche", "shop-drawings-bad", "shop-drawings-boden"],
+      "galerie": [
+        "shop-drawings-kueche",
+        "shop-drawings-bad",
+        "shop-drawings-boden"
+      ],
       "farben": [],
       "ar": {
         "titel": "المخططات التنفيذية لشقة سكنية",
@@ -270,7 +416,15 @@
           "مجموعة كاملة من المخططات التنفيذية لشقة سكنية: مخطط الطابق، ومخطط توزيع الأثاث مع مفتاح الرموز، ومخطط الأرضيات، ومخطط الإنارة، ومخطط مآخذ الكهرباء، إضافة إلى واجهات تفصيلية للمطبخ والحمّام مع ملاحظات المواد.",
           "توثيق تقني يحوّل الأفكار المعمارية إلى رسومات دقيقة ومنسّقة وجاهزة للتنفيذ."
         ],
-        "materialien": ["بلاط رخام رمادي", "باركيه من خشب السنديان", "رخام أبيض", "ألواح خشب مضغوط سوداء بسماكة 18 مم", "سطح كوارتز رمادي", "ترافرتين رمادي", "بلاط بورسلان بيج فاتح مانع للانزلاق"],
+        "materialien": [
+          "بلاط رخام رمادي",
+          "باركيه من خشب السنديان",
+          "رخام أبيض",
+          "ألواح خشب مضغوط سوداء بسماكة 18 مم",
+          "سطح كوارتز رمادي",
+          "ترافرتين رمادي",
+          "بلاط بورسلان بيج فاتح مانع للانزلاق"
+        ],
         "alt": {
           "shop-drawings-kueche": "مقتطف: تفصيل المطبخ في المخطط وواجهتان للمطبخ مع ملاحظات المواد",
           "shop-drawings-bad": "مقتطف: تفصيل الحمّام في المخطط وثلاث واجهات للحمّام مع ملاحظات المواد",
@@ -288,7 +442,15 @@
           "A complete set of shop drawings for a residential apartment: floor plan, furniture layout with legend, flooring plan, lighting plan and small power layout, together with detailed kitchen and bathroom elevations with material notes.",
           "Technical documentation developed to translate architectural ideas into precise, coordinated and construction-ready drawings."
         ],
-        "materialien": ["Grey marble tiles", "Hamilton oak parquet", "White marble", "18 mm black MDF panels", "Grey quartz countertop", "Grey travertine", "Light beige non-slip porcelain tiles"],
+        "materialien": [
+          "Grey marble tiles",
+          "Hamilton oak parquet",
+          "White marble",
+          "18 mm black MDF panels",
+          "Grey quartz countertop",
+          "Grey travertine",
+          "Light beige non-slip porcelain tiles"
+        ],
         "alt": {
           "shop-drawings-kueche": "Excerpt: kitchen detail in the plan and two kitchen elevations with material notes",
           "shop-drawings-bad": "Excerpt: bathroom detail in the plan and three bathroom elevations with material notes",
@@ -304,8 +466,18 @@
       "jahr": null,
       "pdfSeiten": "39-43",
       "titelbild": "brand-identity-mockups",
-      "galerie": ["brand-identity-mockups", "brand-identity-logo-varianten", "brand-identity-konstruktion", "brand-identity-visitenkarte", "brand-identity-social-posts"],
-      "farben": ["#052f24", "#c15428", "#ffefdc"],
+      "galerie": [
+        "brand-identity-mockups",
+        "brand-identity-logo-varianten",
+        "brand-identity-konstruktion",
+        "brand-identity-visitenkarte",
+        "brand-identity-social-posts"
+      ],
+      "farben": [
+        "#052f24",
+        "#c15428",
+        "#ffefdc"
+      ],
       "ar": {
         "titel": "الهوية البصرية لأيلول",
         "kurz": "شعار مبني على شبكة، ولوحة ألوان، وخط، وعنصر المعيّن وتطبيقاته.",
