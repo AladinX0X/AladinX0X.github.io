@@ -28,7 +28,7 @@ const { titel, unterzeile, kicker, kickerHref, bild, bildAlt = '', bildFormat = 
       <slot />
     </div>
     {bild && (
-      <div class="bildrahmen kopf-bild" style={`aspect-ratio: ${bildFormat}`}>
+      <div class="bildrahmen kopf-bild" data-parallax style={`aspect-ratio: ${bildFormat}`}>
         <Bild id={bild} alt={bildAlt} sizes="(min-width: 62rem) 40vw, 92vw" laden="eager" prioritaet />
       </div>
     )}
@@ -50,5 +50,5 @@ const { titel, unterzeile, kicker, kickerHref, bild, bildAlt = '', bildFormat = 
     background: linear-gradient(var(--winkel-ende), var(--farbe-terrakotta), transparent);
   }
   .unterzeile { font-size: var(--text-gross); max-inline-size: var(--text-max); }
-  .kopf-bild { inline-size: 100%; }
+  .kopf-bild { inline-size: 100%; max-block-size: 75svh; justify-self: center; }
 </style>

@@ -3,8 +3,8 @@ import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import { t, pfad, pfadIn, andereSprachen, type Sprache } from '../i18n/utils';
 
-interface Props { lang: Sprache; seite: string }
-const { lang, seite } = Astro.props;
+interface Props { lang: Sprache; seite: string; ueberHero?: boolean }
+const { lang, seite, ueberHero = false } = Astro.props;
 const tx = t(lang);
 const punkte = [
   { id: 'studio', href: pfad(lang, 'about'), text: tx.nav.studio },
@@ -19,7 +19,7 @@ const andere = andereSprachen(lang).map((s) => {
   return { s, href: ziel === Astro.url.pathname ? pfad(s) : ziel, name: tx.nav.spracheAnderer };
 });
 ---
-<header class="kopf" data-kopf>
+<header class:list={['kopf', { 'ueber-hero': ueberHero }]} data-kopf>
   <div class="huelle kopf-innen">
     <a class="kopf-logo" href={pfad(lang)} aria-label={tx.nav.logoLabel}>
       <Logo variante="schriftzug-hell" breite={98} alt="" />
@@ -57,22 +57,43 @@ const andere = andereSprachen(lang).map((s) => {
 </header>
 
 <style>
+  /* Kopf: über dem Hero transparent (nur mit JavaScript), sonst Waldgrün mit Weichzeichner.
+     kompakt = Fläche und Logo etwas kleiner, versteckt = beim Scrollen nach unten ausgeblendet.
+     Nur transform und opacity werden animiert. */
   .kopf {
     position: sticky;
     inset-block-start: 0;
     z-index: 50;
-    background: var(--farbe-gruen);
+    isolation: isolate;
     color: var(--farbe-elfenbein);
-    border-block-end: 1px solid var(--linie-auf-dunkel);
+    transition: transform var(--dauer-mittel) var(--kurve-ein);
   }
+  .kopf::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(5 47 36 / 0.95);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    backdrop-filter: blur(14px) saturate(1.2);
+    border-block-end: 1px solid var(--linie-auf-dunkel);
+    transform-origin: top;
+    transition: opacity var(--dauer-mittel) var(--kurve-ein), transform var(--dauer-mittel) var(--kurve-ein);
+  }
+  :global(.js) .kopf.ueber-hero::before { opacity: 0; }
+  .kopf.kompakt::before { transform: scaleY(0.84); }
+  .kopf.kompakt .kopf-innen { transform: translateY(-0.36rem); }
+  .kopf.kompakt .kopf-logo :global(img) { transform: scale(0.86); }
+  .kopf.versteckt { transform: translateY(-100%); }
   .kopf-innen {
     display: flex;
     align-items: center;
     gap: var(--abstand-6);
     block-size: var(--kopf-hoehe);
+    transition: transform var(--dauer-mittel) var(--kurve-ein);
   }
   .kopf-logo { display: block; flex: none; padding-block: var(--abstand-2); }
-  .kopf-logo :global(img) { block-size: 2.75rem; inline-size: auto; }
+  .kopf-logo :global(img) { block-size: 2.75rem; inline-size: auto; transform-origin: center; transition: transform var(--dauer-mittel) var(--kurve-ein); }
   .kopf-nav { margin-inline-start: auto; }
   .kopf-nav ul { list-style: none; display: flex; gap: clamp(1rem, 0.2rem + 1.6vw, 2.25rem); white-space: nowrap; }
   .kopf-nav a, .sprache {
@@ -141,4 +162,6 @@ const andere = andereSprachen(lang).map((s) => {
     .menue-knopf { display: inline-flex; }
   }
   :global(html.menue-offen) { overflow: hidden; }
+  :global(html.menue-offen) .kopf::before { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .kopf, .kopf::before, .kopf-innen, .kopf-logo :global(img) { transition: none; } }
 </style>

@@ -1,0 +1,8 @@
+---
+// Teilt einen Text in ganze Wörter (<span class="wort">) für Wort- und Zeilenanimationen.
+// --w = Index des Wortes (für gestaffelte Einblendung). Niemals in Buchstaben zerlegen: im Arabischen würden die Verbindungen der Buchstaben brechen.
+interface Props { text: string }
+const { text } = Astro.props;
+const woerter = text.split(/\s+/).filter(Boolean);
+---
+{woerter.map((w, i) => <><span class="wort" style={`--w: ${i}`}>{w}</span>{i < woerter.length - 1 && ' '}</>)}

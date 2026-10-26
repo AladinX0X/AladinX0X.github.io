@@ -1,37 +1,62 @@
 ---
+// Projektkarte. Bildrahmen mit transition:name, damit das Bild beim Seitenwechsel in den Kopf der Projektseite übergeht.
+// Hover/Fokus: Bild zoomt im Rahmen (1.04), eine Terrakotta-Linie zeichnet den Rahmen nach. Auf Touch rein dekorativ.
 import Bild from './Bild.astro';
 import { type Projekt, projektText } from '../data/daten';
 import { t, pfad, type Sprache } from '../i18n/utils';
 
-interface Props { lang: Sprache; projekt: Projekt; ebene?: 'h2' | 'h3'; laden?: 'lazy' | 'eager' }
-const { lang, projekt, ebene = 'h3', laden = 'lazy' } = Astro.props;
+interface Props { lang: Sprache; projekt: Projekt; ebene?: 'h2' | 'h3'; laden?: 'lazy' | 'eager'; prioritaet?: boolean }
+const { lang, projekt, ebene = 'h3', laden = 'lazy', prioritaet = false } = Astro.props;
 const tx = t(lang);
 const pt = projektText(projekt, lang);
 const Tag = ebene;
 ---
-<article class="karte einblenden" data-projekt data-bereich={projekt.bereich}>
-  <div class="bildrahmen karte-bild">
-    <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 30vw, (min-width: 40rem) 45vw, 92vw" laden={laden} />
+<article class:list={['karte', { einblenden: laden === 'lazy' }]} data-projekt data-bereich={projekt.bereich}>
+  <div class="bildrahmen karte-bild" transition:name={`projekt-bild-${projekt.slug}`}>
+    <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 30vw, (min-width: 40rem) 45vw, 92vw" laden={laden} prioritaet={prioritaet} />
+    <span class="linie" aria-hidden="true"></span>
   </div>
   <p class="bereich">{tx.projekte.filter[projekt.bereich]}{projekt.auszug && <span class="auszug">{tx.projekte.auszug}</span>}</p>
-  <Tag class="titel"><a href={pfad(lang, `projects/${projekt.slug}`)}>{pt.titel}</a></Tag>
+  <Tag class="titel"><a href={pfad(lang, `projects/${projekt.slug}`)}>{pt.titel}<span class="pfeil" aria-hidden="true">←</span></a></Tag>
   <p class="kurz">{pt.kurz}</p>
 </article>
 <style>
   .karte[hidden] { display: none; }
   .karte { position: relative; display: grid; gap: var(--abstand-3); align-content: start; }
-  .karte-bild { aspect-ratio: 4 / 3; margin-block-end: var(--abstand-2); }
-  .karte-bild :global(img) { transition: scale 500ms var(--kurve); }
-  .karte:hover .karte-bild :global(img) { scale: 1.03; }
+  .karte-bild { position: relative; aspect-ratio: 4 / 3; margin-block-end: var(--abstand-2); }
+  .karte-bild :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein), opacity var(--dauer-mittel) var(--kurve-ein); }
+  /* Rahmenlinie zeichnet sich von oben nach unten nach */
+  .linie {
+    position: absolute; inset: 0;
+    border: 2px solid var(--farbe-terrakotta);
+    border-radius: inherit;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path var(--dauer-mittel) var(--kurve-ein);
+    pointer-events: none;
+  }
   .bereich { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
   :global(.dunkel) .bereich { color: var(--farbe-terrakotta-hell); }
   .titel { font-size: var(--h3); }
-  .titel a { text-decoration: none; }
+  .titel a { text-decoration: none; display: inline-flex; gap: 0.4em; align-items: baseline; }
   .titel a::after { content: ''; position: absolute; inset: 0; }
-  .karte:hover .titel a { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  /* Pfeil zeigt in Leserichtung: in LTR nach rechts (gespiegelt), in RTL nach links */
+  .pfeil { display: inline-block; font-weight: var(--gewicht-text); opacity: 0; transition: opacity var(--dauer-kurz), translate var(--dauer-mittel) var(--kurve-ein); }
+  :global([dir='ltr']) .pfeil { transform: scaleX(-1); }
   .karte:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 6px; border-radius: 6px; }
+  :global(.dunkel) .karte:has(a:focus-visible) { outline-color: var(--farbe-terrakotta-hell); }
   .karte a:focus-visible { outline: none; }
+  .karte:focus-within .linie { clip-path: inset(0); }
+  .karte:focus-within .pfeil { opacity: 1; }
+  @media (hover: hover) {
+    .karte:hover .karte-bild :global(img) { transform: scale(1.04); }
+    .karte:hover .linie { clip-path: inset(0); }
+    .karte:hover .pfeil { opacity: 1; translate: calc(var(--richtung) * 0.25em) 0; }
+    .karte:hover .titel a { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  }
   .kurz { font-size: var(--text-klein); line-height: var(--zeile-klein); }
-  @media (prefers-reduced-motion: reduce) { .karte:hover .karte-bild :global(img) { scale: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .karte:hover .karte-bild :global(img) { transform: none; }
+    .linie, .pfeil { transition: none; }
+  }
   .auszug { margin-inline-start: 0.6em; padding-inline-start: 0.6em; border-inline-start: 1px solid currentColor; }
 </style>

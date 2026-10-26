@@ -1,0 +1,84 @@
+---
+// Gepinnte Szene "Hauptprojekt" der Startseite (Projekt aus site.json hauptProjekt).
+// Ohne JavaScript, bei reduzierter Bewegung und mobil: einfache Abfolge Text – Bild – Text.
+// Groß mit Maus (Klasse .bewegt, gesetzt von bewegung.ts): gerahmte Karte wird beim Scrollen zum Vollbild,
+// der erste Text blendet aus, der zweite über einem Verlauf ein.
+import Bild from './Bild.astro';
+import Icon from './Icon.astro';
+import Raute from './Raute.astro';
+import { projektNach, projektText } from '../data/daten';
+import { t, pfad, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; slug: string; nummer: number }
+const { lang, slug, nummer } = Astro.props;
+const tx = t(lang);
+const projekt = projektNach(slug);
+if (!projekt) throw new Error(`hauptProjekt "${slug}" fehlt in projekte.json`);
+const pt = projektText(projekt, lang);
+const nr = String(nummer).padStart(2, '0');
+---
+<section class="szene szene-projekt dunkel" data-szene="projekt" aria-labelledby="hauptprojekt-titel">
+  <div class="sp-buehne">
+    <div class="sp-text sp-text1" data-sp-text1>
+      <p class="kicker akzent"><Raute /><span>{tx.start.hauptprojektKicker}</span><span class="nr" aria-hidden="true">{nr}</span></p>
+      <h2 id="hauptprojekt-titel" class="sp-titel">{pt.titel}</h2>
+      {pt.ort && <p class="sp-ort">{pt.ort}</p>}
+    </div>
+    <div class="sp-bild bildrahmen" data-sp-bild data-ueber-bild>
+      <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="100vw" />
+    </div>
+    <div class="sp-schleier" data-sp-schleier aria-hidden="true"></div>
+    <div class="sp-text sp-text2" data-sp-text2>
+      <p class="sp-kurz">{pt.kurz}</p>
+      <a class="knopf knopf-voll" href={pfad(lang, `projects/${projekt.slug}`)}>{tx.start.hauptprojektLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .szene-projekt { position: relative; isolation: isolate; padding-block: var(--abschnitt-abstand); }
+  .szene-projekt::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--farbe-gruen-tief); }
+  .sp-buehne {
+    display: grid;
+    gap: var(--abstand-6);
+    inline-size: 100%;
+    max-inline-size: calc(var(--inhalt-max) + 2 * var(--rand));
+    margin-inline: auto;
+    padding-inline: var(--rand);
+  }
+  .sp-text { display: grid; gap: var(--abstand-4); justify-items: start; max-inline-size: 40rem; }
+  .kicker { display: flex; align-items: center; gap: var(--abstand-3); font-size: var(--text-klein); font-weight: var(--gewicht-mittel); }
+  .kicker :global(.raute) { inline-size: 0.7em; }
+  .kicker .nr { color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-stark); }
+  .sp-titel { font-size: clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem); font-weight: var(--gewicht-stark); line-height: var(--zeile-titel); }
+  .sp-ort { font-size: var(--text-gross); opacity: 0.9; }
+  .sp-bild { aspect-ratio: 16 / 9; }
+  .sp-schleier { display: none; }
+  .sp-kurz { font-size: var(--text-gross); }
+
+  /* Bewegte Fassung (nur groß, mit Maus, ohne reduzierte Bewegung; Klasse von bewegung.ts) */
+  .bewegt { padding-block: 0; }
+  .bewegt .sp-buehne { position: relative; display: block; block-size: 100svh; max-inline-size: none; padding: 0; }
+  .bewegt .sp-bild { position: absolute; inset: 0; aspect-ratio: auto; border: 0; border-radius: 0; will-change: clip-path; }
+  .bewegt .sp-text1 {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: var(--rand);
+    inline-size: min(40%, 34rem);
+    align-content: center;
+  }
+  .bewegt .sp-schleier {
+    display: block;
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top, rgb(3 33 26 / 0.92) 0%, rgb(3 33 26 / 0.55) 34%, rgb(3 33 26 / 0) 60%),
+      linear-gradient(var(--winkel-start), rgb(3 33 26 / 0.6) 0%, rgb(3 33 26 / 0) 55%);
+    pointer-events: none;
+  }
+  .bewegt .sp-text2 {
+    position: absolute;
+    inset-block-end: clamp(2.5rem, 1rem + 5vh, 5rem);
+    inset-inline-start: var(--rand);
+    max-inline-size: 34rem;
+  }
+</style>

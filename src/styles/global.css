@@ -63,7 +63,8 @@ em, i { font-style: normal; }
   overflow: hidden; clip-path: inset(50%); white-space: nowrap;
 }
 
-/* Abschnitte: dunkel (Waldgrün mit Nebel) und hell (Elfenbein mit Papier) */
+/* Abschnitte: dunkel (Waldgrün mit Nebel als CSS-Verlauf) und hell (Elfenbein mit Papier).
+   Nebel ohne Bilddatei: ein Hintergrundbild auf dem Seitenkopf wurde sonst zum größten Element (LCP) und verzögerte es. */
 .abschnitt {
   position: relative;
   padding-block: var(--abschnitt-abstand);
@@ -82,10 +83,9 @@ em, i { font-style: normal; }
   background:
     radial-gradient(55% 60% at 92% 0%, rgb(255 239 220 / 0.07), transparent 70%),
     radial-gradient(45% 55% at 0% 100%, rgb(255 239 220 / 0.045), transparent 70%),
-    url('/bilder/textur-nebel-gruen-980.webp') center / cover no-repeat;
-  opacity: 0.55;
-  filter: blur(10px);
-  mix-blend-mode: screen;
+    radial-gradient(70% 40% at 30% 18%, rgb(255 239 220 / 0.05), transparent 70%),
+    radial-gradient(60% 45% at 80% 75%, rgb(255 239 220 / 0.04), transparent 70%);
+  opacity: 0.9;
 }
 .hell {
   background-color: var(--farbe-elfenbein);
@@ -156,9 +156,9 @@ em, i { font-style: normal; }
 .hell .knopf-linie:hover { background: var(--farbe-gruen); color: var(--farbe-elfenbein); border-color: var(--farbe-gruen); }
 .knopf-reihe { display: flex; flex-wrap: wrap; gap: var(--abstand-4); }
 
-/* Verlaufsrichtung zum Zeilenende (statt physischer Richtungswörter) */
-[dir='rtl'] { --winkel-ende: 270deg; --winkel-start: 90deg; }
-[dir='ltr'] { --winkel-ende: 90deg; --winkel-start: 270deg; }
+/* Verlaufsrichtung zum Zeilenende (statt physischer Richtungswörter); --richtung: +1 in LTR, −1 in RTL */
+[dir='rtl'] { --winkel-ende: 270deg; --winkel-start: 90deg; --richtung: -1; }
+[dir='ltr'] { --winkel-ende: 90deg; --winkel-start: 270deg; --richtung: 1; }
 
 /* Pfeile und Chevrons in RTL spiegeln */
 [dir='rtl'] .spiegeln { transform: scaleX(-1); }
@@ -171,6 +171,14 @@ em, i { font-style: normal; }
   background: var(--farbe-gruen-tief);
 }
 .bildrahmen img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.bildrahmen .bild { block-size: 100%; }
+
+/* Bild mit weichgezeichnetem Platzhalter; blendet nach dem Laden ein (Klasse geladen setzt app.ts) */
+.bild { display: block; background-size: cover; background-position: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .bild-weich img { opacity: 0; transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .js .bild-weich img.geladen { opacity: 1; }
+}
 
 /* Aufzählung mit Raute */
 .rautenliste { list-style: none; display: grid; gap: var(--abstand-3); }
@@ -181,11 +189,71 @@ em, i { font-style: normal; }
 @media (prefers-reduced-motion: no-preference) {
   .js .einblenden {
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity var(--dauer) var(--kurve), transform var(--dauer) var(--kurve);
+    transform: translateY(24px);
+    transition: opacity var(--dauer-lang) var(--kurve-ein), transform var(--dauer-lang) var(--kurve-ein);
   }
   .js .einblenden.sichtbar { opacity: 1; transform: none; }
 }
 
 /* Offene Lightbox: Seite dahinter nicht scrollen */
 html.lightbox-offen { overflow: hidden; }
+
+/* Abschnittswechsel: der folgende Abschnitt schiebt sich mit runder Oberkante über den vorigen,
+   so gibt es zwischen dunkel und hell nie eine harte Kante. */
+main > .abschnitt + .abschnitt,
+main > .abschnitt + .szene,
+main > .szene + .abschnitt,
+main > .szene + .szene,
+main > .hero + section,
+.fuss {
+  border-start-start-radius: var(--radius-abschnitt);
+  border-start-end-radius: var(--radius-abschnitt);
+  margin-block-start: calc(-1 * var(--radius-abschnitt));
+  box-shadow: 0 -18px 40px -24px rgb(3 33 26 / 0.45);
+}
+.abschnitt::before { border-radius: inherit; }
+/* Der Footer muss positioniert sein, sonst malt der (positionierte) letzte Abschnitt über seine runden Ecken */
+.fuss { position: relative; isolation: isolate; }
+
+/* Mikro-Interaktionen: Pfeile bewegen sich in Leserichtung (in RTL gespiegelt), Knöpfe geben nach */
+.knopf { transition: background-color var(--dauer-kurz), color var(--dauer-kurz), border-color var(--dauer-kurz), transform var(--dauer-kurz) var(--kurve-ein); }
+.knopf:active { transform: scale(0.98); }
+.knopf .pfeil, .textlink .pfeil { transition: translate var(--dauer-mittel) var(--kurve-ein); }
+@media (hover: hover) {
+  .knopf:hover .pfeil, .textlink:hover .pfeil { translate: calc(var(--richtung) * 0.3rem) 0; }
+}
+
+/* Wörter für Bewegung (nie Buchstaben: arabische Verbindungen bleiben erhalten) */
+.wort { display: inline-block; }
+
+/* Hero-Einstieg rein in CSS (wartet nicht auf JavaScript, ohne JavaScript genauso):
+   Bild setzt sich (1.08 → 1, 1.6 s), Kicker, Claim Wort für Wort (ganze Wörter, nie Buchstaben), Slogan, Knöpfe.
+   --i = Reihenfolge der Blöcke, --w = Index des Wortes. Bei reduzierter Bewegung: alles sofort da. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-hero-intro] { animation: hero-ein var(--dauer-lang) var(--kurve-ein) both; animation-delay: calc(150ms + var(--i, 0) * 120ms); }
+  [data-hero-woerter] .wort { animation: hero-ein var(--dauer-lang) var(--kurve-ein) both; animation-delay: calc(40ms + var(--w, 0) * 40ms); }
+  [data-hero-bild] img { animation: hero-setzen 1.6s var(--kurve-ein) both; }
+}
+@keyframes hero-ein { from { opacity: 0; transform: translateY(24px); } }
+@keyframes hero-setzen { from { transform: scale(1.08); } }
+
+/* Lenis (weiches Scrollen, nur Desktop ohne reduzierte Bewegung) */
+html.lenis-an, html.lenis-an body { block-size: auto; }
+.lenis-an.lenis-smooth { scroll-behavior: auto !important; }
+.lenis-an.lenis-stopped { overflow: clip; }
+.lenis-an.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* Seitenwechsel (Astro View Transitions): weiche Überblendung */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 450ms; animation-timing-function: var(--kurve-weich); }
+::view-transition-group(*) { animation-duration: 650ms; animation-timing-function: var(--kurve-ein); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
+
+/* Reduzierte Bewegung: keine Übergänge außer kurzen Farbwechseln */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}

@@ -1,6 +1,7 @@
 ---
 // Großansicht für Galerien. Auslöser sind Elemente mit data-lightbox-index (Reihenfolge = ids).
-// Tastatur: Pfeile blättern (in RTL gespiegelt), Esc schließt, Tab bleibt im Dialog.
+// Tastatur: Pfeile blättern (in RTL gespiegelt), +/− zoomen, Esc schließt, Tab bleibt im Dialog.
+// Touch: wischen blättert, zwei Finger zoomen; gezoomt lässt sich das Bild verschieben. Verhalten: src/scripts/module/lightbox.ts
 import Icon from './Icon.astro';
 import manifest from '../data/bilder-manifest.json';
 import { t, type Sprache } from '../i18n/utils';
@@ -8,12 +9,14 @@ import { t, type Sprache } from '../i18n/utils';
 interface Props { lang: Sprache; ids: string[]; alts: Record<string, string>; auszug?: boolean }
 const { lang, ids, alts, auszug = false } = Astro.props;
 const tx = t(lang);
-const m = manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string }[] }>;
+const lb = tx.projekte.lightbox;
+const m = manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string; avif: string }[] }>;
 const bilder = ids.map((id) => {
   const e = m[id];
   return {
     src: e.varianten[e.varianten.length - 1].src,
     srcset: e.varianten.map((v) => `${v.src} ${v.breite}w`).join(', '),
+    avif: e.varianten.map((v) => `${v.avif} ${v.breite}w`).join(', '),
     breite: e.breite,
     hoehe: e.hoehe,
     alt: alts[id],
@@ -21,29 +24,37 @@ const bilder = ids.map((id) => {
 });
 const erstes = bilder[0];
 ---
-<dialog class="lightbox" data-lightbox aria-label={tx.projekte.lightbox.dialog} data-zaehler={tx.projekte.lightbox.zaehler}>
+<dialog class="lightbox" data-lightbox aria-label={lb.dialog} data-zaehler={lb.zaehler}>
   <div class="lb-innen">
     <div class="lb-leiste">
       <p class="lb-zaehler" data-lb-zaehler aria-live="polite"></p>
-      <button type="button" class="lb-knopf" data-lb-schliessen aria-label={tx.projekte.lightbox.schliessen}><Icon name="schliessen" /></button>
+      <div class="lb-werkzeuge">
+        <button type="button" class="lb-knopf" data-lb-minus aria-label={lb.minus}><Icon name="minus" /></button>
+        <button type="button" class="lb-knopf" data-lb-plus aria-label={lb.plus}><Icon name="plus" /></button>
+        <button type="button" class="lb-knopf" data-lb-schliessen aria-label={lb.schliessen}><Icon name="schliessen" /></button>
+      </div>
     </div>
     <figure class="lb-figur">
-      <img data-lb-bild style={`--max: ${erstes.breite}px`} src={erstes.src} srcset={erstes.srcset} sizes="92vw" width={erstes.breite} height={erstes.hoehe} alt={erstes.alt} />
-      <figcaption data-lb-text>{auszug && <span class="lb-auszug">{tx.projekte.auszug}</span>}<span data-lb-alt>{erstes.alt}</span></figcaption>
+      <div class="lb-buehne" data-lb-buehne>
+        <picture>
+          <source type="image/avif" data-lb-avif srcset={erstes.avif} sizes="96vw" />
+          <img data-lb-bild src={erstes.src} srcset={erstes.srcset} sizes="96vw" width={erstes.breite} height={erstes.hoehe} alt={erstes.alt} draggable="false" />
+        </picture>
+      </div>
+      <figcaption data-lb-text>
+        {auszug && <span class="lb-auszug">{tx.projekte.auszug}</span>}<span data-lb-alt>{erstes.alt}</span>
+        <span class="lb-hinweis">{lb.zoomHinweis}</span>
+      </figcaption>
     </figure>
     {bilder.length > 1 && (
       <div class="lb-nav">
-        <button type="button" class="lb-knopf" data-lb-zurueck aria-label={tx.projekte.lightbox.zurueck}><Icon name="chevron" klasse="zurueck-icon" /></button>
-        <button type="button" class="lb-knopf" data-lb-weiter aria-label={tx.projekte.lightbox.weiter}><Icon name="chevron" klasse="weiter-icon" /></button>
+        <button type="button" class="lb-knopf" data-lb-zurueck aria-label={lb.zurueck}><Icon name="chevron" klasse="zurueck-icon" /></button>
+        <button type="button" class="lb-knopf" data-lb-weiter aria-label={lb.weiter}><Icon name="chevron" klasse="weiter-icon" /></button>
       </div>
     )}
   </div>
   <script type="application/json" data-lb-daten set:html={JSON.stringify(bilder)} />
 </dialog>
-
-<script>
-  import '../scripts/lightbox.ts';
-</script>
 
 <style>
   .lightbox {
@@ -55,12 +66,23 @@ const erstes = bilder[0];
   }
   .lightbox::backdrop { background: rgb(3 33 26 / 0.85); }
   .lb-innen { display: grid; grid-template-rows: auto 1fr auto; block-size: 100%; padding: var(--abstand-4) var(--rand); gap: var(--abstand-3); }
-  .lb-leiste { display: flex; justify-content: space-between; align-items: center; }
+  .lb-leiste { display: flex; justify-content: space-between; align-items: center; gap: var(--abstand-4); }
+  .lb-werkzeuge { display: flex; gap: var(--abstand-2); }
   .lb-zaehler { font-size: var(--text-klein); }
-  .lb-figur { margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--abstand-3); min-block-size: 0; justify-items: center; }
-  .lb-figur img { inline-size: auto; block-size: auto; max-inline-size: min(100%, var(--max, 100%)); max-block-size: 100%; min-block-size: 0; object-fit: contain; align-self: center; }
-  .lb-figur figcaption { text-align: center; font-size: var(--text-klein); max-inline-size: 48rem; margin-inline: auto; }
-  .lb-auszug { color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-titel); margin-inline-end: 0.6em; padding-inline-end: 0.6em; border-inline-end: 1px solid currentColor; }
+  .lb-figur { margin: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: var(--abstand-3); min-block-size: 0; }
+  .lb-buehne { position: relative; display: grid; place-items: center; min-block-size: 0; overflow: hidden; touch-action: none; cursor: grab; user-select: none; }
+  .lb-buehne picture { display: contents; }
+  .lb-buehne img {
+    inline-size: auto; block-size: auto;
+    max-inline-size: 100%; max-block-size: 100%;
+    object-fit: contain;
+    transform-origin: center;
+    will-change: transform;
+  }
+  :global(.gezoomt) .lb-buehne { cursor: move; }
+  .lb-figur figcaption { text-align: center; font-size: var(--text-klein); max-inline-size: 48rem; margin-inline: auto; display: grid; gap: var(--abstand-1); }
+  .lb-hinweis { opacity: 0.8; font-size: var(--text-klein); }
+  .lb-auszug { color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-titel); }
   .lb-nav { display: flex; justify-content: center; gap: var(--abstand-5); }
   .lb-knopf {
     display: grid; place-items: center;
@@ -69,6 +91,7 @@ const erstes = bilder[0];
     border: 1px solid var(--linie-auf-dunkel);
     background: transparent;
     cursor: pointer;
+    transition: background-color var(--dauer-kurz), color var(--dauer-kurz);
   }
   .lb-knopf:hover { background: var(--farbe-elfenbein); color: var(--farbe-gruen); }
   .lb-knopf :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }

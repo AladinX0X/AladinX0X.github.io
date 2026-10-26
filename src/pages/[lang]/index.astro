@@ -1,14 +1,19 @@
 ---
+// Startseite. Abfolge dunkel/hell im Wechsel; drei gepinnte Szenen (Studio-Satz, Hauptprojekt, Arbeitsweise).
+// Bewegungskonzept: BERICHT.md, Umsetzung: src/scripts/module/bewegung.ts.
 import Basis from '../../layouts/Basis.astro';
 import Hero from '../../components/Hero.astro';
 import Abschnittskopf from '../../components/Abschnittskopf.astro';
 import Kennzahlen from '../../components/Kennzahlen.astro';
 import LeistungenListe from '../../components/LeistungenListe.astro';
-import Ablauf from '../../components/Ablauf.astro';
+import Disziplinen from '../../components/Disziplinen.astro';
+import SzeneProjekt from '../../components/SzeneProjekt.astro';
+import SzeneAblauf from '../../components/SzeneAblauf.astro';
 import Projektkarte from '../../components/Projektkarte.astro';
 import PortfolioKnopf from '../../components/PortfolioKnopf.astro';
-import Bild from '../../components/Bild.astro';
 import Raute from '../../components/Raute.astro';
+import Woerter from '../../components/Woerter.astro';
+import Icon from '../../components/Icon.astro';
 import Kontaktaufruf from '../../components/Kontaktaufruf.astro';
 import site from '../../data/site.json';
 import { projektNach } from '../../data/daten';
@@ -17,54 +22,53 @@ import { t, pfad, sprachPfade, type Sprache } from '../../i18n/utils';
 export const getStaticPaths = sprachPfade;
 const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
-const auswahl = site.ausgewaehlteProjekte.map(projektNach).filter((p) => p !== undefined);
+// Das Hauptprojekt erscheint nicht zusätzlich als Karte (eindeutige transition:name)
+const auswahl = site.ausgewaehlteProjekte.filter((s) => s !== site.hauptProjekt).map(projektNach).filter((p) => p !== undefined);
 ---
-<Basis lang={lang} titel={tx.meta.seiten.start.titel} beschreibung={tx.meta.seiten.start.beschreibung} seite="start" ohneSuffix>
+<Basis lang={lang} titel={tx.meta.seiten.start.titel} beschreibung={tx.meta.seiten.start.beschreibung} seite="start" ohneSuffix kopfUeberHero={site.heroVollbild} vorladen={{ id: site.heroBild, sizes: '100vw' }}>
   <Hero lang={lang} />
 
-  <section class="abschnitt hell" aria-labelledby="studio-titel">
-    <div class="huelle studio">
-      <div>
-        <Abschnittskopf titel={tx.start.studioTitel} nummer={1} id="studio-titel" />
-        <p class="einleitung lesetext einblenden">{tx.start.studioText}</p>
-        <p class="mehr einblenden"><a class="textlink" href={pfad(lang, 'about')}>{tx.start.studioLink}</a></p>
-      </div>
-      <div class="bildrahmen studio-bild einblenden">
-        <Bild id="allgemein-studio-innenraum-sepia" alt={tx.alt['allgemein-studio-innenraum-sepia']} sizes="(min-width: 62rem) 290px, 60vw" />
-      </div>
+  <section class="abschnitt hell szene-satz" data-szene="satz" aria-labelledby="studio-titel">
+    <div class="huelle satz-innen">
+      <Abschnittskopf titel={tx.start.studioTitel} nummer={1} id="studio-titel" />
+      <p class="satz" data-satz><Woerter text={tx.start.studioText} /></p>
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'about')}>{tx.start.studioLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
     </div>
   </section>
 
-  <section class="abschnitt dunkel" aria-labelledby="zahlen-titel">
+  <section class="abschnitt dunkel" aria-labelledby="disziplinen-titel">
     <div class="huelle">
-      <Abschnittskopf titel={tx.start.zahlenTitel} nummer={2} id="zahlen-titel" />
+      <Abschnittskopf titel={tx.start.disziplinenTitel} nummer={2} id="disziplinen-titel" unterzeile={tx.start.disziplinenIntro} />
+      <Disziplinen lang={lang} />
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="zahlen-titel">
+    <div class="huelle">
+      <Abschnittskopf titel={tx.start.zahlenTitel} nummer={3} id="zahlen-titel" />
       <Kennzahlen lang={lang} />
     </div>
   </section>
 
+  <SzeneProjekt lang={lang} slug={site.hauptProjekt} nummer={4} />
+
   <section class="abschnitt hell" aria-labelledby="leistungen-titel">
     <div class="huelle">
-      <Abschnittskopf titel={tx.start.leistungenTitel} nummer={3} id="leistungen-titel" unterzeile={tx.start.leistungenIntro} />
+      <Abschnittskopf titel={tx.start.leistungenTitel} nummer={5} id="leistungen-titel" unterzeile={tx.start.leistungenIntro} />
       <LeistungenListe lang={lang} />
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'services')}>{tx.start.leistungenLink}</a></p>
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'services')}>{tx.start.leistungenLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
     </div>
   </section>
 
-  <section class="abschnitt dunkel" aria-labelledby="arbeitsweise-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.start.arbeitsweiseTitel} nummer={4} id="arbeitsweise-titel" unterzeile={tx.start.arbeitsweiseIntro} />
-      <Ablauf lang={lang} variante="kurz" />
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'approach')}>{tx.start.arbeitsweiseLink}</a></p>
-    </div>
-  </section>
+  <SzeneAblauf lang={lang} nummer={6} />
 
   <section class="abschnitt hell" aria-labelledby="projekte-titel">
     <div class="huelle">
-      <Abschnittskopf titel={tx.start.projekteTitel} nummer={5} id="projekte-titel" />
+      <Abschnittskopf titel={tx.start.projekteTitel} nummer={7} id="projekte-titel" />
       <div class="projekt-raster">
         {auswahl.map((p) => <Projektkarte lang={lang} projekt={p} />)}
       </div>
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}</a></p>
+      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
     </div>
   </section>
 
@@ -82,14 +86,23 @@ const auswahl = site.ausgewaehlteProjekte.map(projektNach).filter((p) => p !== u
     </div>
   </section>
 
-  <Kontaktaufruf lang={lang} nummer={6} />
+  <Kontaktaufruf lang={lang} nummer={8} />
 </Basis>
 
 <style>
-  .studio { display: grid; gap: var(--abstand-7); align-items: center; }
-  @media (min-width: 62rem) { .studio { grid-template-columns: 1fr auto; } }
-  .studio-bild { inline-size: min(100%, 290px); justify-self: center; aspect-ratio: 290 / 440; }
+  .szene-satz { min-block-size: 80svh; display: grid; align-content: center; }
+  .satz-innen { display: grid; gap: var(--abstand-6); }
+  .satz {
+    font-size: clamp(1.75rem, 1rem + 2.6vw, 3.25rem);
+    font-weight: var(--gewicht-titel);
+    line-height: 1.55;
+    max-inline-size: 30ch;
+    text-wrap: balance;
+  }
+  :global(:lang(en)) .satz { line-height: 1.3; max-inline-size: 26ch; }
   .mehr { margin-block-start: var(--abstand-6); }
+  .satz-innen .mehr { margin-block-start: 0; }
+  .mehr :global(.pfeil) { display: inline-block; inline-size: 1.1em; block-size: 1.1em; vertical-align: -0.2em; margin-inline-start: 0.35em; }
   .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
   .zwei { display: grid; gap: var(--abstand-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
   .gross-satz { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); margin-block-end: var(--abstand-5); }

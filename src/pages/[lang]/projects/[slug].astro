@@ -62,8 +62,8 @@ const leistungName = leistung ? tx.leistungen.eintraege[leistung.slug as keyof t
           </div>
         )}
       </div>
-      <button type="button" class="bildrahmen kopf-bild bild-knopf" data-lightbox-index="0" aria-label={`${p.lightbox.vergroessern}: ${pt.alt[projekt.titelbild]}`} style={`aspect-ratio: ${titel.breite} / ${titel.hoehe}`}>
-        <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 48vw, 92vw" laden="eager" prioritaet />
+      <button type="button" class="bildrahmen kopf-bild bild-knopf" transition:name={`projekt-bild-${projekt.slug}`} data-lightbox-index="0" aria-label={`${p.lightbox.vergroessern}: ${pt.alt[projekt.titelbild]}`} style={`aspect-ratio: ${titel.breite} / ${titel.hoehe}`}>
+        <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 48vw, 92vw" laden="eager" />
       </button>
     </div>
   </section>

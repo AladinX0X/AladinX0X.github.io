@@ -6,7 +6,7 @@ if (!existsSync('dist/index.html')) {
   console.error('dist/ fehlt. Zuerst npm run build ausführen.');
   process.exit(1);
 }
-const tests = ['tests/statisch.mjs', 'tests/links.mjs', 'tests/browser.mjs'];
+const tests = ['tests/statisch.mjs', 'tests/links.mjs', 'tests/browser.mjs', 'tests/bewegung.mjs', 'tests/hero-kontrast.mjs'];
 let alleOk = true;
 for (const t of tests) {
   const r = spawnSync(process.execPath, [t], { stdio: 'inherit' });

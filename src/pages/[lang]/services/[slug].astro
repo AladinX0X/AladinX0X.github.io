@@ -25,7 +25,7 @@ const alleAlt = tx.alt as Record<string, string>;
 // Werkplanung: Aspekte sind eine Abfolge (Design Intent → Development → Documentation → Detail)
 const alsAbfolge = leistung.slug === 'shop-drawings';
 ---
-<Basis lang={lang} titel={e.name} beschreibung={e.kurz} seite="leistungen">
+<Basis lang={lang} titel={e.name} beschreibung={e.kurz} seite="leistungen" vorladen={{ id: leistung.bild, sizes: '(min-width: 62rem) 40vw, 92vw' }}>
   <Seitenkopf
     titel={e.name}
     unterzeile={e.kurz}

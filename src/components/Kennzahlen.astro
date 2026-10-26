@@ -33,7 +33,7 @@ const eintraege = [
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
-    border-block-start: 1px solid var(--linie-auf-dunkel);
+    border-block-start: 1px solid color-mix(in srgb, currentColor 28%, transparent);
   }
   .kennzahl {
     display: grid;
@@ -41,9 +41,9 @@ const eintraege = [
     align-content: start;
     gap: var(--abstand-3);
     padding: var(--abstand-6) var(--abstand-5);
-    border-block-end: 1px solid var(--linie-auf-dunkel);
+    border-block-end: 1px solid color-mix(in srgb, currentColor 28%, transparent);
   }
-  .kennzahl + .kennzahl { border-inline-start: 1px solid var(--linie-auf-dunkel); }
+  .kennzahl + .kennzahl { border-inline-start: 1px solid color-mix(in srgb, currentColor 28%, transparent); }
   dt { grid-area: label; display: flex; flex-wrap: wrap; align-items: center; gap: var(--abstand-2) var(--abstand-3); font-size: var(--text-klein); }
   .zusatz { flex-basis: 100%; padding-inline-start: calc(0.7em + var(--abstand-3)); opacity: 0.85; }
   dd { grid-area: zahl; margin: 0; }
