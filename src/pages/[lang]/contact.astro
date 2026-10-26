@@ -1,33 +1,34 @@
 ---
 // Kontakt: nur direkter Kontakt (kein Formular). Große Knöpfe für WhatsApp, Anruf und E-Mail,
 // Social-Links, Kontaktdaten, Adresse und die Karte als Bild (Klick öffnet Google Maps im neuen Tab).
+// Designsprache der Startseite: Hero (geteilt) mit den Kontaktknöpfen; Scroll-Moment: Karte mit leichter Parallaxe.
 import Basis from '../../layouts/Basis.astro';
-import Seitenkopf from '../../components/Seitenkopf.astro';
+import Hero from '../../components/sections/Hero.astro';
 import Abschnittskopf from '../../components/Abschnittskopf.astro';
 import Icon from '../../components/Icon.astro';
 import Bild from '../../components/Bild.astro';
 import SocialLinks from '../../components/SocialLinks.astro';
 import kontakt from '../../data/kontakt.json';
+import { altText } from '../../data/daten';
 import { t, sprachPfade, type Sprache } from '../../i18n/utils';
 
 export const getStaticPaths = sprachPfade;
 const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
 const k = tx.kontakt;
+const heroBild = 'brand-identity-papier';
 const daten = [
   { icon: 'telefon', titel: k.telefon, wert: kontakt.telefonAnzeige, href: kontakt.telefonLink, extern: false },
   { icon: 'email', titel: k.email, wert: kontakt.email, href: `mailto:${kontakt.email}`, extern: false },
   { icon: 'instagram', titel: k.instagram, wert: kontakt.instagramName, href: kontakt.instagram, extern: true },
 ];
 ---
-<Basis lang={lang} titel={tx.meta.seiten.kontakt.titel} beschreibung={tx.meta.seiten.kontakt.beschreibung} seite="kontakt">
-  <Seitenkopf titel={k.titel} unterzeile={k.unterzeile}>
-    <div class="knopf-reihe gross-knoepfe">
+<Basis lang={lang} titel={tx.meta.seiten.kontakt.titel} beschreibung={tx.meta.seiten.kontakt.beschreibung} seite="kontakt" kopfUeberHero vorladen={{ id: heroBild, sizes: '(min-width: 62rem) 50vw, 100vw' }}>
+  <Hero bild={heroBild} bildAlt={altText(heroBild, lang)} variante="geteilt" kicker={tx.marke.unterzeile} titel={k.titel} unterzeile={k.unterzeile}>
       <a class="knopf knopf-voll" href={kontakt.whatsapp} target="_blank" rel="noopener" aria-label={`${k.buttonWhatsapp} (${k.neuesFenster})`}><Icon name="whatsapp" />{k.buttonWhatsapp}</a>
       <a class="knopf knopf-linie" href={kontakt.telefonLink}><Icon name="telefon" />{k.buttonAnruf}</a>
       <a class="knopf knopf-linie" href={`mailto:${kontakt.email}`}><Icon name="email" />{k.buttonEmail}</a>
-    </div>
-  </Seitenkopf>
+  </Hero>
 
   <section class="abschnitt hell" aria-labelledby="daten-titel">
     <div class="huelle zwei">
@@ -58,7 +59,7 @@ const daten = [
       </div>
       <div class="spalte">
         <Abschnittskopf titel={k.karteTitel} nummer={2} id="karte-ueberschrift" />
-        <a class="karte bildrahmen einblenden" href={kontakt.googleMaps} target="_blank" rel="noopener" aria-label={`${k.karteOeffnen} (${k.neuesFenster})`}>
+        <a class="karte bildrahmen einblenden" data-parallax href={kontakt.googleMaps} target="_blank" rel="noopener" aria-label={`${k.karteOeffnen} (${k.neuesFenster})`}>
           <Bild id="kontakt-karte" alt={k.karteAlt} sizes="(min-width: 62rem) 46vw, 92vw" />
           <span class="karte-marke" aria-hidden="true"><Icon name="ort" />{k.karteLink}</span>
         </a>
@@ -71,9 +72,8 @@ const daten = [
 </Basis>
 
 <style>
-  .gross-knoepfe { margin-block-start: var(--abstand-4); }
-  .gross-knoepfe .knopf { min-block-size: 3.75rem; font-size: var(--text); padding-inline: var(--abstand-7); }
-  .gross-knoepfe .knopf :global(.icon) { inline-size: 1.5rem; block-size: 1.5rem; }
+  :global([data-hero]) .knopf { min-block-size: 3.75rem; font-size: var(--text); padding-inline: var(--abstand-7); }
+  :global([data-hero]) .knopf :global(.icon) { inline-size: 1.5rem; block-size: 1.5rem; }
   .zwei { display: grid; gap: var(--abstand-8); grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); align-items: start; }
   .daten { list-style: none; display: grid; gap: var(--abstand-5); }
   .daten li { display: flex; gap: var(--abstand-4); align-items: center; }

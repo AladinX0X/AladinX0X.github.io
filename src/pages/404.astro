@@ -1,45 +1,40 @@
 ---
-// 404-Seite in beiden Sprachen: Arabisch oben (Standard), Englisch darunter (sobald en.json da ist).
+// 404-Seite in beiden Sprachen (Designsprache der Startseite): Hero mit Bild, "404" als Kicker, Titel, Knöpfe;
+// darunter die weiteren Sprachen als heller Abschnitt.
 import Basis from '../layouts/Basis.astro';
+import Hero from '../components/sections/Hero.astro';
 import Raute from '../components/Raute.astro';
+import { altText } from '../data/daten';
 import { t, pfad, sprachen, standardSprache, richtung } from '../i18n/utils';
 
 const tx = t(standardSprache);
 const weitere = sprachen.filter((s) => s !== standardSprache);
+const heroBild = 'mosque-square-nacht-eingang';
 ---
-<Basis lang={standardSprache} titel={tx.meta.seiten.fehler404.titel} beschreibung={tx.meta.seiten.fehler404.beschreibung} seite="" ohneAlternativen>
-  <section class="abschnitt dunkel fehler" aria-labelledby="fehler-titel">
-    <div class="huelle">
-      <p class="code" aria-hidden="true">404</p>
-      <h1 id="fehler-titel"><Raute />{tx.fehler404.titel}</h1>
-      <p class="einleitung">{tx.fehler404.text}</p>
-      <div class="knopf-reihe">
-        <a class="knopf knopf-voll" href={pfad(standardSprache)}>{tx.fehler404.start}</a>
-        <a class="knopf knopf-linie" href={pfad(standardSprache, 'projects')}>{tx.fehler404.projekte}</a>
-      </div>
-      {weitere.map((s) => {
-        const w = t(s);
-        return (
-          <div class="andere" lang={s} dir={richtung(s)}>
-            <p class="andere-titel">{w.fehler404.titel}</p>
-            <p>{w.fehler404.text}</p>
-            <div class="knopf-reihe">
-              <a class="knopf knopf-linie" href={pfad(s)}>{w.fehler404.start}</a>
-              <a class="knopf knopf-linie" href={pfad(s, 'projects')}>{w.fehler404.projekte}</a>
-            </div>
+<Basis lang={standardSprache} titel={tx.meta.seiten.fehler404.titel} beschreibung={tx.meta.seiten.fehler404.beschreibung} seite="" ohneAlternativen kopfUeberHero vorladen={{ id: heroBild, sizes: '100vw' }}>
+  <Hero bild={heroBild} bildAlt={altText(heroBild, standardSprache)} kicker="404" titel={tx.fehler404.titel} unterzeile={tx.fehler404.text} hoehe="gross">
+    <a class="knopf knopf-voll" href={pfad(standardSprache)}>{tx.fehler404.start}</a>
+    <a class="knopf knopf-linie" href={pfad(standardSprache, 'projects')}>{tx.fehler404.projekte}</a>
+  </Hero>
+  {weitere.map((s) => {
+    const w = t(s);
+    return (
+      <section class="abschnitt hell andere" lang={s} dir={richtung(s)} aria-labelledby={`fehler-${s}`}>
+        <div class="huelle">
+          <h2 id={`fehler-${s}`} class="andere-titel"><Raute />{w.fehler404.titel}</h2>
+          <p class="einleitung">{w.fehler404.text}</p>
+          <div class="knopf-reihe">
+            <a class="knopf knopf-voll" href={pfad(s)}>{w.fehler404.start}</a>
+            <a class="knopf knopf-linie" href={pfad(s, 'projects')}>{w.fehler404.projekte}</a>
           </div>
-        );
-      })}
-    </div>
-  </section>
+        </div>
+      </section>
+    );
+  })}
 </Basis>
 
 <style>
-  .fehler { min-block-size: 70vh; display: grid; align-items: center; }
-  .code { font-size: clamp(5rem, 3rem + 10vw, 10rem); font-weight: var(--gewicht-stark); line-height: 1; color: var(--farbe-terrakotta); }
-  h1 { display: flex; gap: var(--abstand-4); align-items: baseline; margin-block: var(--abstand-5) var(--abstand-4); color: var(--farbe-elfenbein); }
-  h1 :global(.raute) { inline-size: 0.45em; }
+  .andere-titel { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); color: var(--farbe-terrakotta-dunkel); margin-block-end: var(--abstand-4); }
+  .andere-titel :global(.raute) { inline-size: 0.5em; }
   .knopf-reihe { margin-block-start: var(--abstand-6); }
-  .andere { margin-block-start: var(--abstand-8); padding-block-start: var(--abstand-6); border-block-start: 1px solid var(--linie-auf-dunkel); }
-  .andere-titel { font-size: var(--h3); font-weight: var(--gewicht-titel); margin-block-end: var(--abstand-2); }
 </style>

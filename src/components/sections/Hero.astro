@@ -1,0 +1,174 @@
+---
+// Gemeinsamer Hero für ALLE Seiten (Designsprache der Startseite, siehe DESIGN-SYSTEM.md).
+// vollbild: Bild randlos unter dem Kopf, Text am Zeilenanfang über einem Verlauf (an der hellsten Stelle hinter dem
+//   Text gemessen: tests/hero-kontrast.mjs). geteilt: für Bilder, die für Vollbild zu klein sind – Bild randlos auf der
+//   Hälfte am Zeilenende, Text auf Grün; mobil Bild oben.
+// Einstieg per CSS (global.css: Bild setzt sich 1.08 → 1, Wörter und Zeilen nacheinander), damit das größte Element
+// nicht auf JavaScript wartet. Scroll-Bewegung: src/scripts/motion/hero.ts.
+import Bild from '../Bild.astro';
+import Raute from '../Raute.astro';
+import Woerter from '../Woerter.astro';
+import manifest from '../../data/bilder-manifest.json';
+
+interface Props {
+  bild: string;
+  bildAlt: string;
+  titel: string;
+  kicker?: string;
+  slogan?: string;
+  unterzeile?: string;
+  variante?: 'vollbild' | 'geteilt' | 'auto';
+  hoehe?: 'voll' | 'gross';
+  titelArt?: 'claim' | 'titel';
+  hinweisZiel?: string;
+  hinweisText?: string;
+  transitionName?: string;
+  bildLink?: { href: string; text: string };
+  sizes?: string;
+}
+const {
+  bild, bildAlt, titel, kicker, slogan, unterzeile, variante = 'auto', hoehe = 'voll', titelArt = 'titel',
+  hinweisZiel, hinweisText, transitionName, bildLink, sizes,
+} = Astro.props;
+const eintrag = (manifest as Record<string, { breite: number; hoehe: number }>)[bild];
+// Vollbild nur, wenn das Bild bei 1440 × 900 mit 1.5-facher Reserve deckt (Breite >= 2400 px, Querformat)
+const vollbild = variante === 'vollbild' || (variante === 'auto' && eintrag && eintrag.breite >= 2400 && eintrag.breite >= eintrag.hoehe);
+const hatKnoepfe = Astro.slots.has('default');
+---
+<section class:list={['hero', 'dunkel', vollbild ? 'hero-vollbild' : 'hero-geteilt', `hoehe-${hoehe}`]} aria-labelledby="hero-titel" data-hero>
+  <figure class="hero-bild" style={eintrag ? `--max: ${Math.round(eintrag.breite / 1.5)}px; --r: ${(eintrag.breite / eintrag.hoehe).toFixed(3)}` : undefined}>
+    <div class="bildrahmen" data-hero-bild data-ueber-bild transition:name={transitionName}>
+      <Bild id={bild} alt={bildAlt} laden="eager" prioritaet sizes={sizes ?? (vollbild ? '100vw' : '(min-width: 62rem) 50vw, 100vw')} />
+    </div>
+    {bildLink && <figcaption class="unsichtbar"><a href={bildLink.href}>{bildLink.text}</a></figcaption>}
+  </figure>
+  {vollbild && <div class="hero-verlauf" aria-hidden="true"></div>}
+  <div class="hero-schleier" data-hero-schleier aria-hidden="true"></div>
+  <div class="huelle hero-raster" data-hero-text>
+    <div class="hero-text" data-ueber-bild={vollbild ? '' : undefined}>
+      {kicker && <p class="hero-kicker" data-hero-intro style="--i: 0"><Raute /><span>{kicker}</span></p>}
+      <h1 id="hero-titel" class:list={['hero-claim', { 'hero-titel': titelArt === 'titel' }]} data-hero-woerter><Woerter text={titel} /></h1>
+      {slogan && <p class="hero-slogan" data-hero-intro style="--i: 6">{slogan}</p>}
+      {unterzeile && <p class="hero-unterzeile" data-hero-intro style="--i: 5">{unterzeile}</p>}
+      {hatKnoepfe && <div class="knopf-reihe" data-hero-intro style="--i: 7"><slot /></div>}
+    </div>
+  </div>
+  {hinweisZiel && hinweisText && (
+    <a class="scroll-hinweis" href={hinweisZiel} data-hero-hinweis>
+      <span data-hero-intro style="--i: 8">{hinweisText}</span>
+      <span class="hinweis-linie" aria-hidden="true" data-hero-intro style="--i: 8"><span></span></span>
+    </a>
+  )}
+</section>
+
+<style>
+  .hero { position: relative; isolation: isolate; }
+  .hero-raster { position: relative; display: grid; gap: var(--abstand-7); align-items: center; }
+  .hero-text { display: grid; gap: var(--abstand-4); justify-items: start; max-inline-size: 42rem; }
+  .hero-claim { font-size: clamp(2rem, 1.2rem + 2.6vw, 3.25rem); font-weight: var(--gewicht-titel); line-height: var(--zeile-titel); }
+  .hero-titel { font-size: clamp(2.5rem, 1.4rem + 4vw, 5rem); font-weight: var(--gewicht-stark); }
+  .hero-slogan { font-size: var(--text-gross); color: var(--farbe-terrakotta-hell); }
+  .hero-unterzeile { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem); max-inline-size: 36rem; }
+  .knopf-reihe { margin-block-start: var(--abstand-4); }
+  .hero-bild { margin: 0; }
+  .hero-schleier { position: absolute; inset: 0; z-index: -1; background: var(--farbe-gruen-tief); opacity: 0; pointer-events: none; }
+  .hero::before { display: none; }
+
+  /* Vollbild: Bild randlos unter dem Kopf, Text am Zeilenanfang */
+  .hero-vollbild {
+    min-block-size: 100svh;
+    margin-block-start: calc(-1 * var(--kopf-hoehe));
+    padding-block: calc(var(--kopf-hoehe) + 2rem) calc(var(--radius-abschnitt) + 3rem);
+    display: grid;
+    align-items: end;
+    overflow: clip;
+    background: var(--farbe-gruen-tief);
+  }
+  .hero-vollbild.hoehe-gross { min-block-size: 88svh; }
+  .hero-vollbild .hero-bild { position: absolute; inset: 0; z-index: -3; }
+  .hero-vollbild .hero-bild .bildrahmen { position: absolute; inset: -4% 0 0; border: 0; border-radius: 0; background: var(--farbe-gruen-tief); }
+  .hero-vollbild .hero-bild :global(img) { transform-origin: 50% 60%; }
+  /* Verlauf hinter dem Text: zum Zeilenanfang und nach unten dunkel, oben für den Kopf leicht abgedunkelt. */
+  .hero-verlauf {
+    position: absolute; inset: 0; z-index: -2; pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgb(3 33 26 / 0.6) 0%, rgb(3 33 26 / 0) 20%),
+      linear-gradient(to top, rgb(3 33 26 / 0.92) 0%, rgb(3 33 26 / 0.72) 22%, rgb(3 33 26 / 0.35) 40%, rgb(3 33 26 / 0) 58%),
+      linear-gradient(var(--winkel-start), rgb(3 33 26 / 0.9) 0%, rgb(3 33 26 / 0.7) 36%, rgb(3 33 26 / 0) 68%);
+  }
+  /* Schmal: der Text liegt über fast der ganzen Bildbreite, also kräftiger von unten abdunkeln */
+  @media (max-width: 47.99rem) {
+    .hero-verlauf {
+      background:
+        linear-gradient(to bottom, rgb(3 33 26 / 0.7) 0%, rgb(3 33 26 / 0) 16%),
+        linear-gradient(to top, rgb(3 33 26 / 0.96) 0%, rgb(3 33 26 / 0.9) 55%, rgb(3 33 26 / 0.55) 78%, rgb(3 33 26 / 0) 100%);
+    }
+  }
+  .hero-vollbild .hero-raster { inline-size: 100%; padding-inline: var(--rand); }
+
+  /* Geteilt: Bild randlos auf der Hälfte am Zeilenende (groß) bzw. oben (mobil), Text auf Grün */
+  .hero-geteilt {
+    display: grid;
+    margin-block-start: calc(-1 * var(--kopf-hoehe));
+    padding-block-end: var(--radius-abschnitt);
+    background: var(--farbe-gruen);
+    overflow: clip;
+  }
+  .hero-geteilt .hero-bild { position: relative; }
+  /* oben abdunkeln: der transparente Kopf liegt teils über dem Bild */
+  .hero-geteilt .hero-bild::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom, rgb(3 33 26 / 0.75) 0%, rgb(3 33 26 / 0) 24%);
+  }
+  .hero-geteilt .hero-bild .bildrahmen { block-size: 100%; border: 0; border-radius: 0; }
+  .hero-geteilt .hero-raster { padding-block: var(--abstand-7) var(--abstand-7); }
+  @media (max-width: 61.99rem) {
+    .hero-geteilt .hero-bild .bildrahmen { aspect-ratio: 4 / 3; max-block-size: 62svh; inline-size: min(100%, var(--max)); margin-inline: auto; }
+  }
+  @media (min-width: 62rem) {
+    .hero-geteilt {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      min-block-size: 92svh;
+      padding-block-end: 0;
+    }
+    /* Bild höchstens 1/1.5 seiner echten Breite breit (Auflösungsregel), sonst die ganze Spalte */
+    .hero-geteilt .hero-bild { grid-column: 2; grid-row: 1; align-self: center; justify-self: center; inline-size: min(100%, var(--max)); aspect-ratio: var(--r); max-block-size: 92svh; }
+    .hero-geteilt .hero-raster {
+      grid-column: 1; grid-row: 1;
+      align-self: end;
+      padding-block: calc(var(--kopf-hoehe) + 3rem) calc(var(--radius-abschnitt) + 3rem);
+      padding-inline: var(--rand) var(--abstand-7);
+      max-inline-size: calc(var(--inhalt-max) / 2 + var(--rand));
+      justify-self: end;
+      inline-size: 100%;
+    }
+  }
+
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: var(--abstand-3);
+    padding: var(--abstand-1) var(--abstand-4);
+    border: 1px solid var(--linie-auf-dunkel);
+    border-radius: var(--radius-knopf);
+    background: rgb(3 33 26 / 0.6);
+    font-size: var(--text-klein); font-weight: var(--gewicht-mittel); color: var(--farbe-elfenbein);
+  }
+  .hero-kicker :global(.raute) { inline-size: 0.7em; }
+  :global(:lang(en)) .hero-kicker { text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .scroll-hinweis {
+    position: absolute;
+    inset-block-end: calc(var(--radius-abschnitt) + var(--abstand-4));
+    inset-inline-end: var(--rand);
+    display: grid; justify-items: center; gap: var(--abstand-2);
+    font-size: var(--text-klein);
+    text-decoration: none;
+  }
+  .hinweis-linie { position: relative; display: block; inline-size: 1px; block-size: 2.75rem; background: var(--linie-auf-dunkel); overflow: hidden; }
+  .hinweis-linie span { position: absolute; inset: 0; background: var(--farbe-terrakotta-hell); transform: translateY(-100%); }
+  @media (prefers-reduced-motion: no-preference) {
+    .hinweis-linie span { animation: hinweis 2.4s var(--kurve-weich) infinite; }
+  }
+  @keyframes hinweis { 0% { transform: translateY(-100%); } 55% { transform: translateY(0); } 100% { transform: translateY(100%); } }
+  @media (max-width: 40rem) { .scroll-hinweis { display: none; } }
+  .hero-geteilt .scroll-hinweis { display: none; }
+</style>

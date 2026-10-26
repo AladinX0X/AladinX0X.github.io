@@ -1,11 +1,11 @@
 {
-  "_hinweis": "Die 6 Leistungen. Texte stehen in src/i18n/<sprache>.json unter leistungen.eintraege.<slug>. projekte = verlinkte Projekt-Slugs (keine erfinden).",
+  "_hinweis": "Die Leistungen. Texte stehen in src/i18n/<sprache>.json unter leistungen.eintraege.<slug>. bild = Bild-ID (alt-Text aus dem Projekt, zu dem das Bild gehört). projekte = verlinkte Projekt-Slugs (keine erfinden). Anzahl wird überall berechnet.",
   "leistungen": [
-    { "slug": "exterior-architecture", "icon": "fassade", "bild": "allgemein-fassade-exterior-gruen", "projekte": ["villa-homs", "villa-uae", "mosque-square"] },
+    { "slug": "exterior-architecture", "icon": "fassade", "bild": "villa-homs-nacht-perspektive", "projekte": ["villa-homs", "villa-uae", "mosque-square"] },
     { "slug": "interior-design", "icon": "innenraum", "bild": "villa-interior-uae-treppe-garten", "projekte": ["villa-interior-uae", "master-bedroom-uae"] },
-    { "slug": "shop-drawings", "icon": "plan", "bild": "shop-drawings-boden", "projekte": ["apartment-shop-drawings"] },
-    { "slug": "architectural-graphic-design", "icon": "raute", "bild": "brand-identity-konstruktion", "projekte": ["ayloul-brand-identity"] },
+    { "slug": "shop-drawings", "icon": "plan", "bild": "shop-drawings-moebel", "projekte": ["apartment-shop-drawings"] },
+    { "slug": "architectural-graphic-design", "icon": "raute", "bild": "brand-identity-foil", "projekte": ["ayloul-brand-identity"] },
     { "slug": "3d-visualization", "icon": "wuerfel", "bild": "villa-interior-uae-essbereich", "projekte": ["villa-homs", "villa-uae", "mosque-square", "villa-interior-uae", "master-bedroom-uae"] },
-    { "slug": "construction-supervision", "icon": "helm", "bild": "allgemein-leistungen-essplatz-sepia", "projekte": [] }
+    { "slug": "construction-supervision", "icon": "helm", "bild": "brand-identity-helm", "projekte": [] }
   ]
 }

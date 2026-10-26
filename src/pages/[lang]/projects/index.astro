@@ -1,53 +1,47 @@
 ---
+// Projekte – Übersicht (Designsprache der Startseite): Hero → Filter + Projektkarten der Startseite (FLIP-Neuanordnung,
+// src/scripts/module/filter.ts) → Portfolio-Aussage → Kontakt.
 import Basis from '../../../layouts/Basis.astro';
-import Seitenkopf from '../../../components/Seitenkopf.astro';
+import Hero from '../../../components/sections/Hero.astro';
+import Abschnitt from '../../../components/sections/Abschnitt.astro';
+import Statement from '../../../components/sections/Statement.astro';
 import Projektkarte from '../../../components/Projektkarte.astro';
 import PortfolioKnopf from '../../../components/PortfolioKnopf.astro';
 import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
-import { projekte, bereiche } from '../../../data/daten';
+import { projekte, bereiche, altText } from '../../../data/daten';
 import { t, fuelle, sprachPfade, type Sprache } from '../../../i18n/utils';
 
-// Filter-Verhalten (aria-pressed, aria-live, FLIP-Neuanordnung): src/scripts/module/filter.ts
 export const getStaticPaths = sprachPfade;
 const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
 const p = tx.projekte;
 const vorhanden = bereiche.filter((b) => projekte.some((x) => x.bereich === b));
 const filter = [{ id: 'alle', name: p.filter.alle }, ...vorhanden.map((b) => ({ id: b, name: p.filter[b] }))];
+const heroBild = 'mosque-square-tag-platz';
 ---
-<Basis lang={lang} titel={tx.meta.seiten.projekte.titel} beschreibung={tx.meta.seiten.projekte.beschreibung} seite="projekte" vorladen={{ id: projekte[0].titelbild, sizes: "(min-width: 62rem) 30vw, (min-width: 40rem) 45vw, 92vw" }}>
-  <Seitenkopf titel={p.titel} unterzeile={p.unterzeile}>
-    <p class="intro">{p.intro}</p>
-  </Seitenkopf>
+<Basis lang={lang} titel={tx.meta.seiten.projekte.titel} beschreibung={tx.meta.seiten.projekte.beschreibung} seite="projekte" kopfUeberHero vorladen={{ id: heroBild, sizes: '100vw' }}>
+  <Hero bild={heroBild} bildAlt={altText(heroBild, lang)} kicker={tx.marke.unterzeile} titel={p.titel} unterzeile={p.intro} hoehe="gross" hinweisZiel="#liste-titel" hinweisText={tx.start.scrollHinweis} />
 
-  <section class="abschnitt hell" aria-labelledby="liste-titel">
-    <div class="huelle">
-      <h2 id="liste-titel" class="unsichtbar">{p.titel}</h2>
-      <div class="filterleiste" role="group" aria-label={p.filterLabel} data-filterleiste>
-        {filter.map((f, i) => (
-          <button type="button" class="filter" data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.name}</button>
-        ))}
-      </div>
-      <p class="anzahl" aria-live="polite" data-filter-anzahl data-vorlage={p.anzahl}>{fuelle(p.anzahl, { n: projekte.length })}</p>
-      <div class="projekt-raster" data-projekt-liste>
-        {projekte.map((x, i) => <Projektkarte lang={lang} projekt={x} ebene="h3" laden={i === 0 ? 'eager' : 'lazy'} prioritaet={i === 0} />)}
-      </div>
+  <Abschnitt ton="hell" id="liste-titel" titel={p.unterzeile} nummer={1}>
+    <div class="filterleiste" role="group" aria-label={p.filterLabel} data-filterleiste>
+      {filter.map((f, i) => (
+        <button type="button" class="filter" data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.name}</button>
+      ))}
     </div>
-  </section>
+    <p class="anzahl" aria-live="polite" data-filter-anzahl data-vorlage={p.anzahl}>{fuelle(p.anzahl, { n: projekte.length })}</p>
+    <div class="projekt-raster" data-projekt-liste>
+      {projekte.map((x) => <Projektkarte lang={lang} projekt={x} ebene="h3" />)}
+    </div>
+  </Abschnitt>
 
-  <section class="abschnitt dunkel" aria-labelledby="portfolio-titel">
-    <div class="huelle portfolio">
-      <h2 id="portfolio-titel" class="portfolio-titel">{tx.portfolio.titel}</h2>
-      <p class="lesetext">{tx.portfolio.text}</p>
-      <PortfolioKnopf lang={lang} />
-    </div>
-  </section>
+  <Statement titel={tx.portfolio.titel} text={tx.portfolio.text} id="portfolio-titel">
+    <div class="knopf-platz"><PortfolioKnopf lang={lang} /></div>
+  </Statement>
 
   <Kontaktaufruf lang={lang} />
 </Basis>
 
 <style>
-  .intro { max-inline-size: var(--text-max); }
   :global(html:not(.js)) .filterleiste { display: none; }
   .filterleiste { display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
   .filter {
@@ -65,6 +59,5 @@ const filter = [{ id: 'alle', name: p.filter.alle }, ...vorhanden.map((b) => ({ 
   .filter[aria-pressed='true'] { background: var(--farbe-gruen); border-color: var(--farbe-gruen); color: var(--farbe-elfenbein); }
   .anzahl { margin-block: var(--abstand-5) var(--abstand-7); font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
   .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
-  .portfolio { display: grid; gap: var(--abstand-4); justify-items: start; }
-  .portfolio-titel { font-size: var(--h2); color: var(--farbe-terrakotta-hell); }
+  .knopf-platz { margin-block-start: var(--abstand-6); }
 </style>

@@ -1,0 +1,41 @@
+---
+// Filmische Galerie (gemeinsames Projekt-Template). Statisch und mobil: groß/klein im Wechsel, senkrecht.
+// Groß mit Bewegung (.bewegt, src/scripts/motion/galerie.ts): gepinnte waagerechte Reihe, die beim Scrollen in
+// Leserichtung durchläuft (RTL: nach links). Jedes Bild öffnet die Lightbox (FLIP-Zoom aus dem Vorschaubild).
+// Kein Bild wird größer als 1/1.5 seiner echten Breite angezeigt (--max).
+import Bild from '../Bild.astro';
+import manifest from '../../data/bilder-manifest.json';
+
+interface Props { ids: string[]; alts: Record<string, string>; vergroessern: string; startIndex?: number }
+const { ids, alts, vergroessern, startIndex = 1 } = Astro.props;
+const m = manifest as Record<string, { breite: number; hoehe: number }>;
+---
+<div class="galerie" data-muster="galerie" data-szene="galerie">
+  <ul class="g-reihe" data-g-reihe>
+    {ids.map((id, i) => (
+      <li class:list={['g-bild', i % 3 === 0 ? 'gross' : 'klein']} style={`--r: ${(m[id].breite / m[id].hoehe).toFixed(3)}; --max: ${Math.round(m[id].breite / 1.5)}px; --max-h: ${Math.round(m[id].hoehe / 1.5)}px`}>
+        <button type="button" class="bildrahmen bild-knopf" data-lightbox-index={i + startIndex} aria-label={`${vergroessern}: ${alts[id]}`}>
+          <Bild id={id} alt={alts[id]} sizes={i % 3 === 0 ? '(min-width: 62rem) 70vw, 92vw' : '(min-width: 62rem) 45vw, 92vw'} />
+        </button>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .g-reihe { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .g-bild { inline-size: 100%; max-inline-size: var(--max); justify-self: center; }
+  .g-bild.gross { grid-column: 1 / -1; }
+  .g-bild.klein:nth-child(3n) { margin-block-start: clamp(2rem, 1rem + 4vw, 6rem); }
+  @media (max-width: 47.99rem) { .g-reihe { grid-template-columns: 1fr; } .g-bild.klein:nth-child(3n) { margin-block-start: 0; } }
+  .bild-knopf { display: block; position: relative; padding: 0; inline-size: 100%; aspect-ratio: var(--r); cursor: zoom-in; }
+  .bild-knopf :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein); }
+  @media (hover: hover) { .bild-knopf:hover :global(img) { transform: scale(1.03); } }
+  @media (prefers-reduced-motion: reduce) { .bild-knopf:hover :global(img) { transform: none; } }
+
+  /* Gepinnte waagerechte Reihe (groß, mit Bewegung) */
+  .bewegt { block-size: 100svh; display: grid; align-items: center; overflow: hidden; }
+  .bewegt .g-reihe { display: flex; gap: var(--abstand-6); inline-size: max-content; padding-inline: var(--rand); }
+  .bewegt .g-bild { flex: none; block-size: min(70svh, var(--max-h)); inline-size: auto; max-inline-size: none; aspect-ratio: var(--r); margin: 0 !important; }
+  .bewegt .g-bild .bild-knopf { block-size: 100%; inline-size: auto; }
+</style>

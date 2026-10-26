@@ -1,0 +1,29 @@
+---
+// Eckdaten als elegante Reihe (nur vorhandene Angaben). Jede Angabe: Raute, Bezeichnung, Wert; Linie dazwischen.
+// Einblenden nacheinander (src/scripts/motion/eckdaten.ts; ohne JS / reduzierte Bewegung sofort sichtbar).
+import Raute from '../Raute.astro';
+
+interface Props { titel: string; eintraege: { k: string; v: string }[] }
+const { titel, eintraege } = Astro.props;
+---
+<div class="eckdaten-block">
+  <h2 class="unsichtbar">{titel}</h2>
+  <dl class="eckdaten" data-eckdaten>
+    {eintraege.map((e) => (
+      <div class="fakt" data-fakt>
+        <dt><Raute />{e.k}</dt>
+        <dd>{e.v}</dd>
+      </div>
+    ))}
+  </dl>
+</div>
+
+<style>
+  .eckdaten { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); border-block: 1px solid var(--linie-auf-hell); }
+  .fakt { padding: var(--abstand-5) var(--abstand-4); display: grid; gap: var(--abstand-2); align-content: start; }
+  .fakt + .fakt { border-inline-start: 1px solid var(--linie-auf-hell); }
+  dt { display: flex; align-items: center; gap: var(--abstand-2); font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+  dt :global(.raute) { inline-size: 0.55em; }
+  dd { margin: 0; font-size: var(--text-gross); font-weight: var(--gewicht-titel); }
+  @media (max-width: 40rem) { .fakt + .fakt { border-inline-start: 0; border-block-start: 1px solid var(--linie-auf-hell); } }
+</style>

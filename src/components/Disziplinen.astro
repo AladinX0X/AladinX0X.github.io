@@ -7,6 +7,7 @@ import Bild from './Bild.astro';
 import Icon from './Icon.astro';
 import Raute from './Raute.astro';
 import site from '../data/site.json';
+import { altText } from '../data/daten';
 import { t, pfad, type Sprache } from '../i18n/utils';
 
 interface Props { lang: Sprache }
@@ -25,7 +26,7 @@ const karten = site.disziplinen.map((d) => ({ ...d, ...texte[d.leistung] }));
   {karten.map((k, i) => (
     <li class="disziplin einblenden" style={`--verzoegerung: ${i * 120}ms`}>
       <div class="bildrahmen d-bild">
-        <Bild id={k.bild} alt={tx.alt[k.bild as keyof typeof tx.alt] ?? ''} sizes="(min-width: 62rem) 30vw, 92vw" />
+        <Bild id={k.bild} alt={altText(k.bild, lang)} sizes="(min-width: 62rem) 30vw, 92vw" />
       </div>
       <div class="d-text">
         <span class="icon-rund"><Icon name={k.icon} /></span>

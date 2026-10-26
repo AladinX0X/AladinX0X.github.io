@@ -1,16 +1,16 @@
 ---
-// Die 6 Leistungen als Raster mit Icons. Ganze Fläche ist ein Link zur Detailseite.
+// Die Leistungen (aus leistungen.json) als Raster mit Icons; ausser = eine Leistung weglassen. Ganze Fläche ist ein Link zur Detailseite.
 import Icon from './Icon.astro';
 import { leistungen } from '../data/daten';
 import { t, pfad, type Sprache } from '../i18n/utils';
 
-interface Props { lang: Sprache; ebene?: 'h2' | 'h3' }
-const { lang, ebene = 'h3' } = Astro.props;
+interface Props { lang: Sprache; ebene?: 'h2' | 'h3'; ausser?: string }
+const { lang, ebene = 'h3', ausser } = Astro.props;
 const tx = t(lang);
 const Tag = ebene;
 ---
 <ul class="leistungen">
-  {leistungen.map((l) => {
+  {leistungen.filter((l) => l.slug !== ausser).map((l) => {
     const e = tx.leistungen.eintraege[l.slug as keyof typeof tx.leistungen.eintraege];
     return (
       <li class="leistung einblenden">

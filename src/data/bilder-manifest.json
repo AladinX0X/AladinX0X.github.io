@@ -57,64 +57,6 @@
       }
     ]
   },
-  "mosque-square-tag-wandbild": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/mosque-square/9.jpg",
-    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAwCdASoYAA4APu1kqk2ppaQiMAgBMB2JZQAAQKRevUfy/XVCAAD+OwTHNxtfvbcKGtDAxlNSVesxldojnHUkRdpnsbXVTGXpMlynK/Z+E8nAbAAAAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/mosque-square-tag-wandbild-640.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-640.avif",
-        "kb": 36,
-        "kbAvif": 18
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/mosque-square-tag-wandbild-800.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-800.avif",
-        "kb": 53,
-        "kbAvif": 26
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/mosque-square-tag-wandbild-960.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-960.avif",
-        "kb": 72,
-        "kbAvif": 35
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/mosque-square-tag-wandbild-1440.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-1440.avif",
-        "kb": 145,
-        "kbAvif": 69
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/mosque-square-tag-wandbild-1920.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-1920.avif",
-        "kb": 233,
-        "kbAvif": 110
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/mosque-square-tag-wandbild-2560.webp",
-        "avif": "/bilder/mosque-square-tag-wandbild-2560.avif",
-        "kb": 375,
-        "kbAvif": 179
-      }
-    ]
-  },
   "mosque-square-luftbild-tag": {
     "breite": 2560,
     "hoehe": 1440,
@@ -170,122 +112,6 @@
         "avif": "/bilder/mosque-square-luftbild-tag-2560.avif",
         "kb": 507,
         "kbAvif": 245
-      }
-    ]
-  },
-  "mosque-square-luftbild-nacht": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/mosque-square/4 (2).jpg",
-    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAwCdASoYAA4APu1kqk4ppaQiMAgBMB2JZwAAetDH+AAA/u1nXi1wUK903BcASC17Ssc1F8NkHmRwAAA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/mosque-square-luftbild-nacht-640.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-640.avif",
-        "kb": 22,
-        "kbAvif": 13
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/mosque-square-luftbild-nacht-800.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-800.avif",
-        "kb": 34,
-        "kbAvif": 19
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/mosque-square-luftbild-nacht-960.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-960.avif",
-        "kb": 46,
-        "kbAvif": 26
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/mosque-square-luftbild-nacht-1440.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-1440.avif",
-        "kb": 95,
-        "kbAvif": 54
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/mosque-square-luftbild-nacht-1920.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-1920.avif",
-        "kb": 159,
-        "kbAvif": 90
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/mosque-square-luftbild-nacht-2560.webp",
-        "avif": "/bilder/mosque-square-luftbild-nacht-2560.avif",
-        "kb": 267,
-        "kbAvif": 152
-      }
-    ]
-  },
-  "mosque-square-tag-eingang": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/mosque-square/1 (2).jpg",
-    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoYAA4APu1qrU8ppiQiMAgBMB2JZwAAXFVY5f3O+gdhgADN1aNGr0OTYKNmqGl475ngj733IhJUJiwmph+AAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/mosque-square-tag-eingang-640.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-640.avif",
-        "kb": 32,
-        "kbAvif": 16
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/mosque-square-tag-eingang-800.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-800.avif",
-        "kb": 49,
-        "kbAvif": 24
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/mosque-square-tag-eingang-960.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-960.avif",
-        "kb": 69,
-        "kbAvif": 33
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/mosque-square-tag-eingang-1440.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-1440.avif",
-        "kb": 148,
-        "kbAvif": 69
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/mosque-square-tag-eingang-1920.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-1920.avif",
-        "kb": 248,
-        "kbAvif": 115
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/mosque-square-tag-eingang-2560.webp",
-        "avif": "/bilder/mosque-square-tag-eingang-2560.avif",
-        "kb": 430,
-        "kbAvif": 200
       }
     ]
   },
@@ -405,64 +231,6 @@
       }
     ]
   },
-  "mosque-square-nacht-platz": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/mosque-square/6 (2).jpg",
-    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZwDCgCHwzi1OCvFOtPNXAAD+dKRnFTS60DsbmK1+v71sdXqwldp3FGQbZAAA",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/mosque-square-nacht-platz-640.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-640.avif",
-        "kb": 27,
-        "kbAvif": 15
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/mosque-square-nacht-platz-800.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-800.avif",
-        "kb": 42,
-        "kbAvif": 23
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/mosque-square-nacht-platz-960.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-960.avif",
-        "kb": 58,
-        "kbAvif": 31
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/mosque-square-nacht-platz-1440.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-1440.avif",
-        "kb": 119,
-        "kbAvif": 63
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/mosque-square-nacht-platz-1920.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-1920.avif",
-        "kb": 188,
-        "kbAvif": 103
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/mosque-square-nacht-platz-2560.webp",
-        "avif": "/bilder/mosque-square-nacht-platz-2560.avif",
-        "kb": 307,
-        "kbAvif": 166
-      }
-    ]
-  },
   "villa-homs-nacht-front": {
     "breite": 1600,
     "hoehe": 2000,
@@ -510,106 +278,6 @@
         "avif": "/bilder/villa-homs-nacht-front-1600.avif",
         "kb": 207,
         "kbAvif": 125
-      }
-    ]
-  },
-  "villa-homs-tag-front": {
-    "breite": 1600,
-    "hoehe": 2000,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-homs/A.png",
-    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBQCdASoYAB4APu1sr1EppaQiqAqpMB2JYwC06BDN6Gv0u+7JR5kdFTz5hW4PleiAAPufaUehT0n+LVczuI6fMk9FD7CL+oKI+09VFrF5oHRU14PicH/XBpWnxYa9EgxBWBbTMoIFzwuysSuXYuk89R+LaAZ0xObEyK0ePOjDmsjYoi78gAAA",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 800,
-        "src": "/bilder/villa-homs-tag-front-640.webp",
-        "avif": "/bilder/villa-homs-tag-front-640.avif",
-        "kb": 84,
-        "kbAvif": 44
-      },
-      {
-        "breite": 800,
-        "hoehe": 1000,
-        "src": "/bilder/villa-homs-tag-front-800.webp",
-        "avif": "/bilder/villa-homs-tag-front-800.avif",
-        "kb": 124,
-        "kbAvif": 64
-      },
-      {
-        "breite": 960,
-        "hoehe": 1200,
-        "src": "/bilder/villa-homs-tag-front-960.webp",
-        "avif": "/bilder/villa-homs-tag-front-960.avif",
-        "kb": 169,
-        "kbAvif": 87
-      },
-      {
-        "breite": 1440,
-        "hoehe": 1800,
-        "src": "/bilder/villa-homs-tag-front-1440.webp",
-        "avif": "/bilder/villa-homs-tag-front-1440.avif",
-        "kb": 239,
-        "kbAvif": 168
-      },
-      {
-        "breite": 1600,
-        "hoehe": 2000,
-        "src": "/bilder/villa-homs-tag-front-1600.webp",
-        "avif": "/bilder/villa-homs-tag-front-1600.avif",
-        "kb": 406,
-        "kbAvif": 209
-      }
-    ]
-  },
-  "villa-homs-nacht-fassade": {
-    "breite": 1600,
-    "hoehe": 2000,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-homs/B-1.png",
-    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwBACdASoYAB4APuFcpk2opSOiMAwBEBwJYwCnFCHfT8GTq11dS292jYFq4SaAAP7K/AdwsoXFbHrIchhN8Ptf4smRAvfdtg/tVJ35sAPWFt59zn0/xmMDsKZyNCa0GGQQ7wlaPnBJm8ntQSEAAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 800,
-        "src": "/bilder/villa-homs-nacht-fassade-640.webp",
-        "avif": "/bilder/villa-homs-nacht-fassade-640.avif",
-        "kb": 37,
-        "kbAvif": 21
-      },
-      {
-        "breite": 800,
-        "hoehe": 1000,
-        "src": "/bilder/villa-homs-nacht-fassade-800.webp",
-        "avif": "/bilder/villa-homs-nacht-fassade-800.avif",
-        "kb": 54,
-        "kbAvif": 31
-      },
-      {
-        "breite": 960,
-        "hoehe": 1200,
-        "src": "/bilder/villa-homs-nacht-fassade-960.webp",
-        "avif": "/bilder/villa-homs-nacht-fassade-960.avif",
-        "kb": 71,
-        "kbAvif": 41
-      },
-      {
-        "breite": 1440,
-        "hoehe": 1800,
-        "src": "/bilder/villa-homs-nacht-fassade-1440.webp",
-        "avif": "/bilder/villa-homs-nacht-fassade-1440.avif",
-        "kb": 136,
-        "kbAvif": 78
-      },
-      {
-        "breite": 1600,
-        "hoehe": 2000,
-        "src": "/bilder/villa-homs-nacht-fassade-1600.webp",
-        "avif": "/bilder/villa-homs-nacht-fassade-1600.avif",
-        "kb": 165,
-        "kbAvif": 94
       }
     ]
   },
@@ -713,56 +381,6 @@
       }
     ]
   },
-  "villa-homs-nacht-eingang": {
-    "breite": 1600,
-    "hoehe": 2000,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-homs/D-1.png",
-    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBQCdASoYAB4APu1oqk8ppiOiMBgIATAdiWMApxQNzg/AVjmTn1c19/zDLjwlfOwAAP7bGkHHuiRuC0qDdKKQgAl+c3cj5qJSMn99yKpZuzWNAF4BHGuCkJLX9XIY9Mfnr6ycb+GC/WjhUn8SqHo1xGe7bs7xHdVAAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 800,
-        "src": "/bilder/villa-homs-nacht-eingang-640.webp",
-        "avif": "/bilder/villa-homs-nacht-eingang-640.avif",
-        "kb": 37,
-        "kbAvif": 21
-      },
-      {
-        "breite": 800,
-        "hoehe": 1000,
-        "src": "/bilder/villa-homs-nacht-eingang-800.webp",
-        "avif": "/bilder/villa-homs-nacht-eingang-800.avif",
-        "kb": 54,
-        "kbAvif": 30
-      },
-      {
-        "breite": 960,
-        "hoehe": 1200,
-        "src": "/bilder/villa-homs-nacht-eingang-960.webp",
-        "avif": "/bilder/villa-homs-nacht-eingang-960.avif",
-        "kb": 71,
-        "kbAvif": 40
-      },
-      {
-        "breite": 1440,
-        "hoehe": 1800,
-        "src": "/bilder/villa-homs-nacht-eingang-1440.webp",
-        "avif": "/bilder/villa-homs-nacht-eingang-1440.avif",
-        "kb": 136,
-        "kbAvif": 78
-      },
-      {
-        "breite": 1600,
-        "hoehe": 2000,
-        "src": "/bilder/villa-homs-nacht-eingang-1600.webp",
-        "avif": "/bilder/villa-homs-nacht-eingang-1600.avif",
-        "kb": 163,
-        "kbAvif": 93
-      }
-    ]
-  },
   "villa-homs-tag-balkon": {
     "breite": 1600,
     "hoehe": 2000,
@@ -810,56 +428,6 @@
         "avif": "/bilder/villa-homs-tag-balkon-1600.avif",
         "kb": 188,
         "kbAvif": 96
-      }
-    ]
-  },
-  "villa-homs-abend-balkon": {
-    "breite": 1600,
-    "hoehe": 2000,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-homs/E-1.png",
-    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBQCdASoYAB4APu1iqE8ppSOiMBgMATAdiUATplAANUCn9szwYFSyP51WdbFnnpYOAAD+cOpmn6Kaho+95aMZ4oVfQkS7nGmAeHZYGs1hAqWxFinTa5F1nYpOz1r5EQFBs3cE9IaAAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 800,
-        "src": "/bilder/villa-homs-abend-balkon-640.webp",
-        "avif": "/bilder/villa-homs-abend-balkon-640.avif",
-        "kb": 27,
-        "kbAvif": 17
-      },
-      {
-        "breite": 800,
-        "hoehe": 1000,
-        "src": "/bilder/villa-homs-abend-balkon-800.webp",
-        "avif": "/bilder/villa-homs-abend-balkon-800.avif",
-        "kb": 39,
-        "kbAvif": 24
-      },
-      {
-        "breite": 960,
-        "hoehe": 1200,
-        "src": "/bilder/villa-homs-abend-balkon-960.webp",
-        "avif": "/bilder/villa-homs-abend-balkon-960.avif",
-        "kb": 52,
-        "kbAvif": 32
-      },
-      {
-        "breite": 1440,
-        "hoehe": 1800,
-        "src": "/bilder/villa-homs-abend-balkon-1440.webp",
-        "avif": "/bilder/villa-homs-abend-balkon-1440.avif",
-        "kb": 100,
-        "kbAvif": 61
-      },
-      {
-        "breite": 1600,
-        "hoehe": 2000,
-        "src": "/bilder/villa-homs-abend-balkon-1600.webp",
-        "avif": "/bilder/villa-homs-abend-balkon-1600.avif",
-        "kb": 120,
-        "kbAvif": 73
       }
     ]
   },
@@ -921,64 +489,6 @@
       }
     ]
   },
-  "villa-uae-tag-perspektive": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-uae/SAVE_20260926_012512.jpg",
-    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwBACdASoYAA4APu1iqk2ppaQiMAgBMB2JYwCsMoACsOJsGswl/c7OT3AA4lnvv2CwrLUyHeja7jMyTEsLTfagsOCZ7T1beXGUdla03VcL0LVkSoAAAA==",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/villa-uae-tag-perspektive-640.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-640.avif",
-        "kb": 39,
-        "kbAvif": 20
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/villa-uae-tag-perspektive-800.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-800.avif",
-        "kb": 61,
-        "kbAvif": 31
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/villa-uae-tag-perspektive-960.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-960.avif",
-        "kb": 84,
-        "kbAvif": 43
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/villa-uae-tag-perspektive-1440.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-1440.avif",
-        "kb": 172,
-        "kbAvif": 89
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/villa-uae-tag-perspektive-1920.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-1920.avif",
-        "kb": 275,
-        "kbAvif": 142
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/villa-uae-tag-perspektive-2560.webp",
-        "avif": "/bilder/villa-uae-tag-perspektive-2560.avif",
-        "kb": 454,
-        "kbAvif": 239
-      }
-    ]
-  },
   "villa-uae-tag-front": {
     "breite": 2560,
     "hoehe": 1440,
@@ -1034,122 +544,6 @@
         "avif": "/bilder/villa-uae-tag-front-2560.avif",
         "kb": 459,
         "kbAvif": 236
-      }
-    ]
-  },
-  "villa-uae-nacht-front": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-uae/SAVE_20260926_012541.jpg",
-    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAwCdASoYAA4APu1orU2ppqSiMAgBMB2JYwCdAB6PO2+t94fsA4AA/ujsaLnjxuO16Rgumcv0N655DG/fEqD2EWdN3V1Zw8+kBgGgAAA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/villa-uae-nacht-front-640.webp",
-        "avif": "/bilder/villa-uae-nacht-front-640.avif",
-        "kb": 29,
-        "kbAvif": 16
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/villa-uae-nacht-front-800.webp",
-        "avif": "/bilder/villa-uae-nacht-front-800.avif",
-        "kb": 45,
-        "kbAvif": 25
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/villa-uae-nacht-front-960.webp",
-        "avif": "/bilder/villa-uae-nacht-front-960.avif",
-        "kb": 61,
-        "kbAvif": 34
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/villa-uae-nacht-front-1440.webp",
-        "avif": "/bilder/villa-uae-nacht-front-1440.avif",
-        "kb": 119,
-        "kbAvif": 66
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/villa-uae-nacht-front-1920.webp",
-        "avif": "/bilder/villa-uae-nacht-front-1920.avif",
-        "kb": 187,
-        "kbAvif": 104
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/villa-uae-nacht-front-2560.webp",
-        "avif": "/bilder/villa-uae-nacht-front-2560.avif",
-        "kb": 292,
-        "kbAvif": 166
-      }
-    ]
-  },
-  "villa-uae-boegen-tag": {
-    "breite": 2560,
-    "hoehe": 1440,
-    "herkunft": "original",
-    "art": "foto",
-    "quelle": "originale/villa-uae/SAVE_20260926_012526.jpg",
-    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoYAA4APu1oqk6ppiQiMAgBMB2JYwCdAB5fdGvA3Su+AAD9ilwqr6Imf1MWTABQtmNEQ4kMCyUv4Vu+tI94EiStzE0UvPHA4AA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 360,
-        "src": "/bilder/villa-uae-boegen-tag-640.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-640.avif",
-        "kb": 45,
-        "kbAvif": 23
-      },
-      {
-        "breite": 800,
-        "hoehe": 450,
-        "src": "/bilder/villa-uae-boegen-tag-800.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-800.avif",
-        "kb": 68,
-        "kbAvif": 36
-      },
-      {
-        "breite": 960,
-        "hoehe": 540,
-        "src": "/bilder/villa-uae-boegen-tag-960.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-960.avif",
-        "kb": 94,
-        "kbAvif": 49
-      },
-      {
-        "breite": 1440,
-        "hoehe": 810,
-        "src": "/bilder/villa-uae-boegen-tag-1440.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-1440.avif",
-        "kb": 182,
-        "kbAvif": 96
-      },
-      {
-        "breite": 1920,
-        "hoehe": 1080,
-        "src": "/bilder/villa-uae-boegen-tag-1920.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-1920.avif",
-        "kb": 280,
-        "kbAvif": 147
-      },
-      {
-        "breite": 2560,
-        "hoehe": 1440,
-        "src": "/bilder/villa-uae-boegen-tag-2560.webp",
-        "avif": "/bilder/villa-uae-boegen-tag-2560.avif",
-        "kb": 440,
-        "kbAvif": 229
       }
     ]
   },
@@ -2017,276 +1411,6 @@
       }
     ]
   },
-  "shop-drawings-kueche": {
-    "breite": 965,
-    "hoehe": 590,
-    "herkunft": "pdf",
-    "art": "plan",
-    "quelle": "extrahiert/shop-drawings-kueche.png",
-    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAwCdASoYAA8APu1iqU2ppaOiMAgBMB2JZwCw7DKT/+n3AwAA/u5tpSNSWQBsZncQhOhYRXmLAKpoAAA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 391,
-        "src": "/bilder/shop-drawings-kueche-640.webp",
-        "avif": "/bilder/shop-drawings-kueche-640.avif",
-        "kb": 61,
-        "kbAvif": 28
-      },
-      {
-        "breite": 800,
-        "hoehe": 489,
-        "src": "/bilder/shop-drawings-kueche-800.webp",
-        "avif": "/bilder/shop-drawings-kueche-800.avif",
-        "kb": 97,
-        "kbAvif": 44
-      },
-      {
-        "breite": 960,
-        "hoehe": 587,
-        "src": "/bilder/shop-drawings-kueche-960.webp",
-        "avif": "/bilder/shop-drawings-kueche-960.avif",
-        "kb": 138,
-        "kbAvif": 61
-      },
-      {
-        "breite": 965,
-        "hoehe": 590,
-        "src": "/bilder/shop-drawings-kueche-965.webp",
-        "avif": "/bilder/shop-drawings-kueche-965.avif",
-        "kb": 145,
-        "kbAvif": 64
-      }
-    ]
-  },
-  "shop-drawings-bad": {
-    "breite": 1060,
-    "hoehe": 630,
-    "herkunft": "pdf",
-    "art": "plan",
-    "quelle": "extrahiert/shop-drawings-bad.png",
-    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA4APu1kqk2ppaQiMAgBMB2JZ2DrU0AV4jSsjAD+7mmeJKACHCjwNDY5SU9nzzz1dbN16mxwM/YAAAA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 380,
-        "src": "/bilder/shop-drawings-bad-640.webp",
-        "avif": "/bilder/shop-drawings-bad-640.avif",
-        "kb": 54,
-        "kbAvif": 24
-      },
-      {
-        "breite": 800,
-        "hoehe": 475,
-        "src": "/bilder/shop-drawings-bad-800.webp",
-        "avif": "/bilder/shop-drawings-bad-800.avif",
-        "kb": 88,
-        "kbAvif": 37
-      },
-      {
-        "breite": 960,
-        "hoehe": 571,
-        "src": "/bilder/shop-drawings-bad-960.webp",
-        "avif": "/bilder/shop-drawings-bad-960.avif",
-        "kb": 124,
-        "kbAvif": 54
-      },
-      {
-        "breite": 1060,
-        "hoehe": 630,
-        "src": "/bilder/shop-drawings-bad-1060.webp",
-        "avif": "/bilder/shop-drawings-bad-1060.avif",
-        "kb": 158,
-        "kbAvif": 70
-      }
-    ]
-  },
-  "shop-drawings-boden": {
-    "breite": 730,
-    "hoehe": 300,
-    "herkunft": "pdf",
-    "art": "plan",
-    "quelle": "extrahiert/shop-drawings-boden.png",
-    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAwCdASoYAAoAPu1mqk2ppaQiMAgBMB2JZwC/OB6NhgX/WVEAAP7n1TM75BilbEWjR46rXIiMOWrCAAA=",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 263,
-        "src": "/bilder/shop-drawings-boden-640.webp",
-        "avif": "/bilder/shop-drawings-boden-640.avif",
-        "kb": 56,
-        "kbAvif": 22
-      },
-      {
-        "breite": 730,
-        "hoehe": 300,
-        "src": "/bilder/shop-drawings-boden-730.webp",
-        "avif": "/bilder/shop-drawings-boden-730.avif",
-        "kb": 74,
-        "kbAvif": 31
-      }
-    ]
-  },
-  "brand-identity-mockups": {
-    "breite": 420,
-    "hoehe": 468,
-    "herkunft": "pdf",
-    "art": "foto",
-    "quelle": "extrahiert/brand-identity-mockups.png",
-    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQBQCdASoYABsAPu1gqk2ppSQiN/VYATAdiWcAxkAQ1UGDKEqV5OIi2rR7hZXWxPHqSttpGAD+wyLc+kx+Q6ekBIAPsidhr1bMunrRla0vutubPWkMDFDef3ld497CqVOEV8bXKbUFgx67TVVjgAAA",
-    "varianten": [
-      {
-        "breite": 420,
-        "hoehe": 468,
-        "src": "/bilder/brand-identity-mockups-420.webp",
-        "avif": "/bilder/brand-identity-mockups-420.avif",
-        "kb": 25,
-        "kbAvif": 11
-      }
-    ]
-  },
-  "brand-identity-logo-varianten": {
-    "breite": 404,
-    "hoehe": 208,
-    "herkunft": "pdf",
-    "art": "foto",
-    "quelle": "extrahiert/brand-identity-logo-varianten.png",
-    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQBACdASoYAAwAPu1orU2ppqSiMAgBMB2JYwC1GoADVW8+jADyTT78sAD+5XACs8nPoy4j5ir5VgckrpVq9vZwotrT37mqV/Lr17XH3AfZTKbPJAU1MbKuwgkAAA==",
-    "varianten": [
-      {
-        "breite": 404,
-        "hoehe": 208,
-        "src": "/bilder/brand-identity-logo-varianten-404.webp",
-        "avif": "/bilder/brand-identity-logo-varianten-404.avif",
-        "kb": 6,
-        "kbAvif": 4
-      }
-    ]
-  },
-  "brand-identity-konstruktion": {
-    "breite": 425,
-    "hoehe": 305,
-    "herkunft": "pdf",
-    "art": "foto",
-    "quelle": "extrahiert/brand-identity-konstruktion.png",
-    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASoYABEAPulkqk2pJaQiMBgMASAdCWMAuwANwZMIQpDJ4LH8gyT/eSKiuAD+xyGCbMYnUrf0E52lijHsSny+zZWkqM4DBi3+FvtPsYQlQ7fuBWH0enZBXmdFSU4aVLJ3eg2CCJgUh8vW8ccF0X0OwRLPt4THL4M2bG1KG92o9AAAAA==",
-    "varianten": [
-      {
-        "breite": 425,
-        "hoehe": 305,
-        "src": "/bilder/brand-identity-konstruktion-425.webp",
-        "avif": "/bilder/brand-identity-konstruktion-425.avif",
-        "kb": 19,
-        "kbAvif": 9
-      }
-    ]
-  },
-  "brand-identity-visitenkarte": {
-    "breite": 344,
-    "hoehe": 470,
-    "herkunft": "pdf",
-    "art": "foto",
-    "quelle": "extrahiert/brand-identity-visitenkarte.png",
-    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYACEAPulgqE2pJaQiNVgIASAdCWdotgAjOfe0HEQSoQdF5o9QMkAA/u8y8GMwjUeWr45/uT8uK47eXy2s0/yJz2OI8KRCoLQcsiKPVbQkNudxzcpg3MCAAAA=",
-    "varianten": [
-      {
-        "breite": 344,
-        "hoehe": 470,
-        "src": "/bilder/brand-identity-visitenkarte-344.webp",
-        "avif": "/bilder/brand-identity-visitenkarte-344.avif",
-        "kb": 11,
-        "kbAvif": 8
-      }
-    ]
-  },
-  "brand-identity-social-posts": {
-    "breite": 930,
-    "hoehe": 538,
-    "herkunft": "pdf",
-    "art": "foto",
-    "quelle": "extrahiert/brand-identity-social-posts.png",
-    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAABwAgCdASoYAA4AA4BaJYwC7ADdhzWUWN+zmxoAAP71zu28xnmRNRaWI8+Q409p2i2RznGjvXgwbUto52Kr4sk++vKiAAAA",
-    "varianten": [
-      {
-        "breite": 640,
-        "hoehe": 370,
-        "src": "/bilder/brand-identity-social-posts-640.webp",
-        "avif": "/bilder/brand-identity-social-posts-640.avif",
-        "kb": 22,
-        "kbAvif": 14
-      },
-      {
-        "breite": 800,
-        "hoehe": 463,
-        "src": "/bilder/brand-identity-social-posts-800.webp",
-        "avif": "/bilder/brand-identity-social-posts-800.avif",
-        "kb": 30,
-        "kbAvif": 19
-      },
-      {
-        "breite": 930,
-        "hoehe": 538,
-        "src": "/bilder/brand-identity-social-posts-930.webp",
-        "avif": "/bilder/brand-identity-social-posts-930.avif",
-        "kb": 38,
-        "kbAvif": 24
-      }
-    ]
-  },
-  "allgemein-leistungen-essplatz-sepia": {
-    "breite": 490,
-    "hoehe": 827,
-    "herkunft": "pdf",
-    "art": "stimmung",
-    "quelle": "extrahiert/allgemein-leistungen-essplatz-sepia.png",
-    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQBQCdASoYACkAPt1eo02opaMiNVv8ARAbiWlg61seDnaVbAD2QfaSmTOzHz9g/wKBEMjAAAD+1VNxTY5Mne+3I37+9lZ2zI9/iVUm4wc1NhzPWRSMC50nUWEuQwQ4DPTrEXavl5L2MTH8TmmehFTaxmAAAA==",
-    "varianten": [
-      {
-        "breite": 490,
-        "hoehe": 827,
-        "src": "/bilder/allgemein-leistungen-essplatz-sepia-490.webp",
-        "avif": "/bilder/allgemein-leistungen-essplatz-sepia-490.avif",
-        "kb": 23,
-        "kbAvif": 15
-      }
-    ]
-  },
-  "allgemein-fassade-exterior-gruen": {
-    "breite": 485,
-    "hoehe": 667,
-    "herkunft": "pdf",
-    "art": "stimmung",
-    "quelle": "extrahiert/allgemein-fassade-exterior-gruen.png",
-    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBQCdASoYACEAPt1epU2opaOpNUgBIBuJZwDR+C0vwMMwc3mJMsFOkbyE1xBf+lAMXAAA/ru5wsICpz/kCw+DGSKbm5lgqM6df/2d66gEXHPZQvuwjSAFCcwlkOfLFXsACOT8Uf7Eidns78a6GZiyV081xJEExflmCYxfqIky/q/iOuQKfAAA",
-    "varianten": [
-      {
-        "breite": 485,
-        "hoehe": 667,
-        "src": "/bilder/allgemein-fassade-exterior-gruen-485.webp",
-        "avif": "/bilder/allgemein-fassade-exterior-gruen-485.avif",
-        "kb": 26,
-        "kbAvif": 14
-      }
-    ]
-  },
-  "allgemein-schlafzimmer-klassisch-sepia": {
-    "breite": 600,
-    "hoehe": 664,
-    "herkunft": "pdf",
-    "art": "stimmung",
-    "quelle": "extrahiert/allgemein-schlafzimmer-klassisch-sepia.png",
-    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQBACdASoYABsAPu1gqk2ppSQiMAgBMB2JaQDO7BgsfOg4/LWre/STr/SkyYAA/q+LxNMLWIA+faRcybw22shyji+deeju+zwmUGCHaUAQznqBZv5kBM6fXDkBXpMgAAA=",
-    "varianten": [
-      {
-        "breite": 600,
-        "hoehe": 664,
-        "src": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.webp",
-        "avif": "/bilder/allgemein-schlafzimmer-klassisch-sepia-600.avif",
-        "kb": 21,
-        "kbAvif": 13
-      }
-    ]
-  },
   "kontakt-karte": {
     "breite": 2560,
     "hoehe": 1569,
@@ -2342,6 +1466,1522 @@
         "avif": "/bilder/kontakt-karte-2560.avif",
         "kb": 135,
         "kbAvif": 98
+      }
+    ]
+  },
+  "shop-drawings-moebel": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-1.png",
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAgCdASoYABEAPu1ur1KppiQiqAgBMB2JaQAAPaOgAP7wlSzLiWXQKZNSes8YAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-moebel-640.webp",
+        "avif": "/bilder/shop-drawings-moebel-640.avif",
+        "kb": 25,
+        "kbAvif": 16
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-moebel-800.webp",
+        "avif": "/bilder/shop-drawings-moebel-800.avif",
+        "kb": 36,
+        "kbAvif": 23
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-moebel-960.webp",
+        "avif": "/bilder/shop-drawings-moebel-960.avif",
+        "kb": 50,
+        "kbAvif": 30
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-moebel-1440.webp",
+        "avif": "/bilder/shop-drawings-moebel-1440.avif",
+        "kb": 104,
+        "kbAvif": 56
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-moebel-1920.webp",
+        "avif": "/bilder/shop-drawings-moebel-1920.avif",
+        "kb": 172,
+        "kbAvif": 86
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-moebel-2560.webp",
+        "avif": "/bilder/shop-drawings-moebel-2560.avif",
+        "kb": 282,
+        "kbAvif": 142
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-moebel-3200.webp",
+        "avif": "/bilder/shop-drawings-moebel-3200.avif",
+        "kb": 410,
+        "kbAvif": 224
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-moebel-4096.webp",
+        "avif": "/bilder/shop-drawings-moebel-4096.avif",
+        "kb": 622,
+        "kbAvif": 335
+      }
+    ]
+  },
+  "shop-drawings-boden": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-2.png",
+    "lqip": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADwAgCdASoYABEAPu1sq1GppaOiqAqpMB2JaQAAOsg2AAD+8KfwrwAAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-boden-640.webp",
+        "avif": "/bilder/shop-drawings-boden-640.avif",
+        "kb": 16,
+        "kbAvif": 9
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-boden-800.webp",
+        "avif": "/bilder/shop-drawings-boden-800.avif",
+        "kb": 25,
+        "kbAvif": 14
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-boden-960.webp",
+        "avif": "/bilder/shop-drawings-boden-960.avif",
+        "kb": 35,
+        "kbAvif": 20
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-boden-1440.webp",
+        "avif": "/bilder/shop-drawings-boden-1440.avif",
+        "kb": 75,
+        "kbAvif": 44
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-boden-1920.webp",
+        "avif": "/bilder/shop-drawings-boden-1920.avif",
+        "kb": 129,
+        "kbAvif": 66
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-boden-2560.webp",
+        "avif": "/bilder/shop-drawings-boden-2560.avif",
+        "kb": 207,
+        "kbAvif": 101
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-boden-3200.webp",
+        "avif": "/bilder/shop-drawings-boden-3200.avif",
+        "kb": 299,
+        "kbAvif": 150
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-boden-4096.webp",
+        "avif": "/bilder/shop-drawings-boden-4096.avif",
+        "kb": 446,
+        "kbAvif": 234
+      }
+    ]
+  },
+  "shop-drawings-licht": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-3.png",
+    "lqip": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAADQAgCdASoYABEAPu1wsVKppiSjqAgBMB2JaQAAPaOgAP7wpW6VFwAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-licht-640.webp",
+        "avif": "/bilder/shop-drawings-licht-640.avif",
+        "kb": 18,
+        "kbAvif": 12
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-licht-800.webp",
+        "avif": "/bilder/shop-drawings-licht-800.avif",
+        "kb": 27,
+        "kbAvif": 17
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-licht-960.webp",
+        "avif": "/bilder/shop-drawings-licht-960.avif",
+        "kb": 38,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-licht-1440.webp",
+        "avif": "/bilder/shop-drawings-licht-1440.avif",
+        "kb": 86,
+        "kbAvif": 46
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-licht-1920.webp",
+        "avif": "/bilder/shop-drawings-licht-1920.avif",
+        "kb": 141,
+        "kbAvif": 73
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-licht-2560.webp",
+        "avif": "/bilder/shop-drawings-licht-2560.avif",
+        "kb": 241,
+        "kbAvif": 121
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-licht-3200.webp",
+        "avif": "/bilder/shop-drawings-licht-3200.avif",
+        "kb": 354,
+        "kbAvif": 185
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-licht-4096.webp",
+        "avif": "/bilder/shop-drawings-licht-4096.avif",
+        "kb": 534,
+        "kbAvif": 280
+      }
+    ]
+  },
+  "shop-drawings-elektro": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-4.png",
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABwAwCdASoYABEAPu1wsFIppiSiqAgBMB2JaQAAPPV6vZAZ4AAA/vCU8Iscgn6yQ1oRAAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-elektro-640.webp",
+        "avif": "/bilder/shop-drawings-elektro-640.avif",
+        "kb": 26,
+        "kbAvif": 17
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-elektro-800.webp",
+        "avif": "/bilder/shop-drawings-elektro-800.avif",
+        "kb": 40,
+        "kbAvif": 24
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-elektro-960.webp",
+        "avif": "/bilder/shop-drawings-elektro-960.avif",
+        "kb": 55,
+        "kbAvif": 33
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-elektro-1440.webp",
+        "avif": "/bilder/shop-drawings-elektro-1440.avif",
+        "kb": 119,
+        "kbAvif": 66
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-elektro-1920.webp",
+        "avif": "/bilder/shop-drawings-elektro-1920.avif",
+        "kb": 198,
+        "kbAvif": 99
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-elektro-2560.webp",
+        "avif": "/bilder/shop-drawings-elektro-2560.avif",
+        "kb": 325,
+        "kbAvif": 162
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-elektro-3200.webp",
+        "avif": "/bilder/shop-drawings-elektro-3200.avif",
+        "kb": 483,
+        "kbAvif": 248
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-elektro-4096.webp",
+        "avif": "/bilder/shop-drawings-elektro-4096.avif",
+        "kb": 714,
+        "kbAvif": 378
+      }
+    ]
+  },
+  "shop-drawings-oberflaechen": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-5.png",
+    "lqip": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAgCdASoYABEAPu1ur1IppiQjqAgBMB2JaQAAPaOgAP7wlPDegDCOaGOmAAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-oberflaechen-640.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-640.avif",
+        "kb": 17,
+        "kbAvif": 12
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-oberflaechen-800.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-800.avif",
+        "kb": 28,
+        "kbAvif": 17
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-oberflaechen-960.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-960.avif",
+        "kb": 38,
+        "kbAvif": 24
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-oberflaechen-1440.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-1440.avif",
+        "kb": 83,
+        "kbAvif": 45
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-oberflaechen-1920.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-1920.avif",
+        "kb": 141,
+        "kbAvif": 71
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-oberflaechen-2560.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-2560.avif",
+        "kb": 231,
+        "kbAvif": 121
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-oberflaechen-3200.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-3200.avif",
+        "kb": 352,
+        "kbAvif": 187
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-oberflaechen-4096.webp",
+        "avif": "/bilder/shop-drawings-oberflaechen-4096.avif",
+        "kb": 540,
+        "kbAvif": 283
+      }
+    ]
+  },
+  "shop-drawings-kueche-schluessel": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-6.png",
+    "lqip": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAAAwAwCdASoYABEAPu1ur1IppiQiqAgBMB2JaQAAPPTyszWAAP7wkpV0/XNyX4AA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-kueche-schluessel-640.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-640.avif",
+        "kb": 18,
+        "kbAvif": 11
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-kueche-schluessel-800.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-800.avif",
+        "kb": 27,
+        "kbAvif": 16
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-kueche-schluessel-960.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-960.avif",
+        "kb": 38,
+        "kbAvif": 24
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-kueche-schluessel-1440.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-1440.avif",
+        "kb": 87,
+        "kbAvif": 44
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-kueche-schluessel-1920.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-1920.avif",
+        "kb": 146,
+        "kbAvif": 72
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-kueche-schluessel-2560.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-2560.avif",
+        "kb": 250,
+        "kbAvif": 124
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-kueche-schluessel-3200.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-3200.avif",
+        "kb": 376,
+        "kbAvif": 194
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-kueche-schluessel-4096.webp",
+        "avif": "/bilder/shop-drawings-kueche-schluessel-4096.avif",
+        "kb": 582,
+        "kbAvif": 305
+      }
+    ]
+  },
+  "shop-drawings-kueche-ansichten": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-7.png",
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABwAwCdASoYABEAPu1qr1CppaQiqAqpMB2JaQAAOoc47jT1EAAA/vCqsozNsgAAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-kueche-ansichten-640.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-640.avif",
+        "kb": 16,
+        "kbAvif": 11
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-kueche-ansichten-800.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-800.avif",
+        "kb": 22,
+        "kbAvif": 14
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-kueche-ansichten-960.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-960.avif",
+        "kb": 29,
+        "kbAvif": 18
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-kueche-ansichten-1440.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-1440.avif",
+        "kb": 50,
+        "kbAvif": 29
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-kueche-ansichten-1920.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-1920.avif",
+        "kb": 72,
+        "kbAvif": 42
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-kueche-ansichten-2560.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-2560.avif",
+        "kb": 104,
+        "kbAvif": 60
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-kueche-ansichten-3200.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-3200.avif",
+        "kb": 138,
+        "kbAvif": 79
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-kueche-ansichten-4096.webp",
+        "avif": "/bilder/shop-drawings-kueche-ansichten-4096.avif",
+        "kb": 191,
+        "kbAvif": 111
+      }
+    ]
+  },
+  "shop-drawings-bad-schluessel": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-8.png",
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAgCdASoYABEAPu1ur1KppiQiqAgBMB2JaQAAPaOgAP7wl6LjJ4f0TKd1jYAAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-bad-schluessel-640.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-640.avif",
+        "kb": 18,
+        "kbAvif": 12
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-bad-schluessel-800.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-800.avif",
+        "kb": 27,
+        "kbAvif": 17
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-bad-schluessel-960.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-960.avif",
+        "kb": 39,
+        "kbAvif": 23
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-bad-schluessel-1440.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-1440.avif",
+        "kb": 88,
+        "kbAvif": 47
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-bad-schluessel-1920.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-1920.avif",
+        "kb": 149,
+        "kbAvif": 72
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-bad-schluessel-2560.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-2560.avif",
+        "kb": 253,
+        "kbAvif": 124
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-bad-schluessel-3200.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-3200.avif",
+        "kb": 385,
+        "kbAvif": 193
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-bad-schluessel-4096.webp",
+        "avif": "/bilder/shop-drawings-bad-schluessel-4096.avif",
+        "kb": 596,
+        "kbAvif": 309
+      }
+    ]
+  },
+  "shop-drawings-bad-ansichten": {
+    "breite": 4096,
+    "hoehe": 2894,
+    "herkunft": "original",
+    "art": "plan",
+    "quelle": "originale/apartment-shop-drawings/blatt-9.png",
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAAAQAwCdASoYABEAPu1ur1IppiQjqAgBMB2JaQAAPPR7WEAA/vCSkexg/EEkxWsAAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 452,
+        "src": "/bilder/shop-drawings-bad-ansichten-640.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-640.avif",
+        "kb": 17,
+        "kbAvif": 11
+      },
+      {
+        "breite": 800,
+        "hoehe": 565,
+        "src": "/bilder/shop-drawings-bad-ansichten-800.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-800.avif",
+        "kb": 23,
+        "kbAvif": 15
+      },
+      {
+        "breite": 960,
+        "hoehe": 678,
+        "src": "/bilder/shop-drawings-bad-ansichten-960.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-960.avif",
+        "kb": 31,
+        "kbAvif": 20
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/shop-drawings-bad-ansichten-1440.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-1440.avif",
+        "kb": 57,
+        "kbAvif": 33
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1357,
+        "src": "/bilder/shop-drawings-bad-ansichten-1920.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-1920.avif",
+        "kb": 84,
+        "kbAvif": 48
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1809,
+        "src": "/bilder/shop-drawings-bad-ansichten-2560.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-2560.avif",
+        "kb": 128,
+        "kbAvif": 70
+      },
+      {
+        "breite": 3200,
+        "hoehe": 2261,
+        "src": "/bilder/shop-drawings-bad-ansichten-3200.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-3200.avif",
+        "kb": 176,
+        "kbAvif": 96
+      },
+      {
+        "breite": 4096,
+        "hoehe": 2894,
+        "src": "/bilder/shop-drawings-bad-ansichten-4096.webp",
+        "avif": "/bilder/shop-drawings-bad-ansichten-4096.avif",
+        "kb": 247,
+        "kbAvif": 130
+      }
+    ]
+  },
+  "brand-identity-cover": {
+    "breite": 2560,
+    "hoehe": 2560,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/cover.png",
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoYABgAPu1mrU+ppSQiMBgIATAdiWcAACUpcEDltx23SkAAAP7vS8UIBKlYuJ/rBu2FXZIDkxN04THPniAQAVIO1gO7mPOIggAAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 640,
+        "src": "/bilder/brand-identity-cover-640.webp",
+        "avif": "/bilder/brand-identity-cover-640.avif",
+        "kb": 9,
+        "kbAvif": 6
+      },
+      {
+        "breite": 800,
+        "hoehe": 800,
+        "src": "/bilder/brand-identity-cover-800.webp",
+        "avif": "/bilder/brand-identity-cover-800.avif",
+        "kb": 12,
+        "kbAvif": 8
+      },
+      {
+        "breite": 960,
+        "hoehe": 960,
+        "src": "/bilder/brand-identity-cover-960.webp",
+        "avif": "/bilder/brand-identity-cover-960.avif",
+        "kb": 15,
+        "kbAvif": 10
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1440,
+        "src": "/bilder/brand-identity-cover-1440.webp",
+        "avif": "/bilder/brand-identity-cover-1440.avif",
+        "kb": 27,
+        "kbAvif": 20
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1920,
+        "src": "/bilder/brand-identity-cover-1920.webp",
+        "avif": "/bilder/brand-identity-cover-1920.avif",
+        "kb": 44,
+        "kbAvif": 37
+      },
+      {
+        "breite": 2560,
+        "hoehe": 2560,
+        "src": "/bilder/brand-identity-cover-2560.webp",
+        "avif": "/bilder/brand-identity-cover-2560.avif",
+        "kb": 73,
+        "kbAvif": 67
+      }
+    ]
+  },
+  "brand-identity-konzept": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 11.png",
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAwCdASoYABEAPu1ur1IppiQiqAgBMB2JZwDKtBhwqIAA/u/qSBj+pnQO9UHQum/zqIRj9vg5sAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-konzept-640.webp",
+        "avif": "/bilder/brand-identity-konzept-640.avif",
+        "kb": 6,
+        "kbAvif": 4
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-konzept-800.webp",
+        "avif": "/bilder/brand-identity-konzept-800.avif",
+        "kb": 8,
+        "kbAvif": 5
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-konzept-960.webp",
+        "avif": "/bilder/brand-identity-konzept-960.avif",
+        "kb": 10,
+        "kbAvif": 6
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-konzept-1440.webp",
+        "avif": "/bilder/brand-identity-konzept-1440.avif",
+        "kb": 18,
+        "kbAvif": 13
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-konzept-1920.webp",
+        "avif": "/bilder/brand-identity-konzept-1920.avif",
+        "kb": 30,
+        "kbAvif": 22
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-konzept-2560.webp",
+        "avif": "/bilder/brand-identity-konzept-2560.avif",
+        "kb": 53,
+        "kbAvif": 46
+      }
+    ]
+  },
+  "brand-identity-geometrie": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAwCdASoYABEAPu1qr1CppiQiqAqpMB2JZwDHMBEc4Mvj9BLZJWIAAP7qaDBqaBCz4o2R4gBa7fNlsXlmCwWY0UgAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-geometrie-640.webp",
+        "avif": "/bilder/brand-identity-geometrie-640.avif",
+        "kb": 30,
+        "kbAvif": 18
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-geometrie-800.webp",
+        "avif": "/bilder/brand-identity-geometrie-800.avif",
+        "kb": 48,
+        "kbAvif": 26
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-geometrie-960.webp",
+        "avif": "/bilder/brand-identity-geometrie-960.avif",
+        "kb": 72,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-geometrie-1440.webp",
+        "avif": "/bilder/brand-identity-geometrie-1440.avif",
+        "kb": 169,
+        "kbAvif": 73
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-geometrie-1920.webp",
+        "avif": "/bilder/brand-identity-geometrie-1920.avif",
+        "kb": 291,
+        "kbAvif": 130
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-geometrie-2560.webp",
+        "avif": "/bilder/brand-identity-geometrie-2560.avif",
+        "kb": 468,
+        "kbAvif": 227
+      }
+    ]
+  },
+  "brand-identity-raster": {
+    "breite": 333,
+    "hoehe": 307,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBQCdASoYABYAPu1qrU6ppiSiMAgBMB2JYgCsACHhc4hkJfYZrlVOK+3CFLlHAnN5khgA/uc1OXyhmthgS43FihXXU5MhbmLzRrMTfDBbeLhWw7/vgxQl0gZbnM4kCS7oDZjGIWWMwgKTZR9AUrvtv4zdEdfazf1CMf78AAA=",
+    "varianten": [
+      {
+        "breite": 333,
+        "hoehe": 307,
+        "src": "/bilder/brand-identity-raster-333.webp",
+        "avif": "/bilder/brand-identity-raster-333.avif",
+        "kb": 22,
+        "kbAvif": 11
+      }
+    ]
+  },
+  "brand-identity-aufbau": {
+    "breite": 1350,
+    "hoehe": 980,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoYABEAPu1qq08ppiOiMBgIATAdiWUAs4AQ66tK7kpHB5KhCAAA/uCmEd7uBo0Gx2+QIhODCM1F3MlbCojgEwH0MwulvVdXJd9l0KuatqupRU1PxA/O3N2be1U+lLmbkLojrEOiOsvihBYJBwcKLWoIv10AAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 465,
+        "src": "/bilder/brand-identity-aufbau-640.webp",
+        "avif": "/bilder/brand-identity-aufbau-640.avif",
+        "kb": 38,
+        "kbAvif": 19
+      },
+      {
+        "breite": 800,
+        "hoehe": 581,
+        "src": "/bilder/brand-identity-aufbau-800.webp",
+        "avif": "/bilder/brand-identity-aufbau-800.avif",
+        "kb": 56,
+        "kbAvif": 27
+      },
+      {
+        "breite": 960,
+        "hoehe": 697,
+        "src": "/bilder/brand-identity-aufbau-960.webp",
+        "avif": "/bilder/brand-identity-aufbau-960.avif",
+        "kb": 71,
+        "kbAvif": 38
+      },
+      {
+        "breite": 1350,
+        "hoehe": 980,
+        "src": "/bilder/brand-identity-aufbau-1350.webp",
+        "avif": "/bilder/brand-identity-aufbau-1350.avif",
+        "kb": 112,
+        "kbAvif": 57
+      }
+    ]
+  },
+  "brand-identity-typografie": {
+    "breite": 1070,
+    "hoehe": 500,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoYAAsAPu1iqU2ppaQiMAgBMB2JZQAAW9sHrsrczn4WAAD+7Ugbwcin2k8Zrvv0yWYAP8MOzYxjT/cZLSgAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 299,
+        "src": "/bilder/brand-identity-typografie-640.webp",
+        "avif": "/bilder/brand-identity-typografie-640.avif",
+        "kb": 27,
+        "kbAvif": 14
+      },
+      {
+        "breite": 800,
+        "hoehe": 374,
+        "src": "/bilder/brand-identity-typografie-800.webp",
+        "avif": "/bilder/brand-identity-typografie-800.avif",
+        "kb": 37,
+        "kbAvif": 19
+      },
+      {
+        "breite": 960,
+        "hoehe": 449,
+        "src": "/bilder/brand-identity-typografie-960.webp",
+        "avif": "/bilder/brand-identity-typografie-960.avif",
+        "kb": 46,
+        "kbAvif": 24
+      },
+      {
+        "breite": 1070,
+        "hoehe": 500,
+        "src": "/bilder/brand-identity-typografie-1070.webp",
+        "avif": "/bilder/brand-identity-typografie-1070.avif",
+        "kb": 52,
+        "kbAvif": 28
+      }
+    ]
+  },
+  "brand-identity-raute": {
+    "breite": 1035,
+    "hoehe": 597,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAwCdASoYAA4APu1iqU2ppaQiMAgBMB2JZQCdACHhci+OHXhfAAD+06s2slJ8IxHV2u6yZQTMs54i0ux38AAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 369,
+        "src": "/bilder/brand-identity-raute-640.webp",
+        "avif": "/bilder/brand-identity-raute-640.avif",
+        "kb": 39,
+        "kbAvif": 19
+      },
+      {
+        "breite": 800,
+        "hoehe": 461,
+        "src": "/bilder/brand-identity-raute-800.webp",
+        "avif": "/bilder/brand-identity-raute-800.avif",
+        "kb": 52,
+        "kbAvif": 27
+      },
+      {
+        "breite": 960,
+        "hoehe": 554,
+        "src": "/bilder/brand-identity-raute-960.webp",
+        "avif": "/bilder/brand-identity-raute-960.avif",
+        "kb": 66,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1035,
+        "hoehe": 597,
+        "src": "/bilder/brand-identity-raute-1035.webp",
+        "avif": "/bilder/brand-identity-raute-1035.avif",
+        "kb": 71,
+        "kbAvif": 38
+      }
+    ]
+  },
+  "brand-identity-farben": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 10.png",
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQBACdASoYABEAPuVgpk2pJaOiN/VYASAciWc4AAy6QQ77OXZWqEnr9CzQAP7ynss19nqmwag1kyBRZH3sYUfzmo6F2WQ/b4RcvwtaDYTfYNGZ1ND/8DwA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-farben-640.webp",
+        "avif": "/bilder/brand-identity-farben-640.avif",
+        "kb": 23,
+        "kbAvif": 15
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-farben-800.webp",
+        "avif": "/bilder/brand-identity-farben-800.avif",
+        "kb": 31,
+        "kbAvif": 20
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-farben-960.webp",
+        "avif": "/bilder/brand-identity-farben-960.avif",
+        "kb": 39,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-farben-1440.webp",
+        "avif": "/bilder/brand-identity-farben-1440.avif",
+        "kb": 62,
+        "kbAvif": 40
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-farben-1920.webp",
+        "avif": "/bilder/brand-identity-farben-1920.avif",
+        "kb": 93,
+        "kbAvif": 58
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-farben-2560.webp",
+        "avif": "/bilder/brand-identity-farben-2560.avif",
+        "kb": 137,
+        "kbAvif": 92
+      }
+    ]
+  },
+  "brand-identity-anwendungen": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 14.png",
+    "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwBACdASoYABEAPu1gp06ppSMiMBgMATAdiWcAvdAQ7SiPQxWIlWnKAXo+8GeIAP7qeRTuxdgj01j3VfcDlHb7qmgsulaues/rNqqlD0EEODF0EOY39MRDOHGoANt3/DKNmWNpQAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-anwendungen-640.webp",
+        "avif": "/bilder/brand-identity-anwendungen-640.avif",
+        "kb": 21,
+        "kbAvif": 13
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-anwendungen-800.webp",
+        "avif": "/bilder/brand-identity-anwendungen-800.avif",
+        "kb": 33,
+        "kbAvif": 19
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-anwendungen-960.webp",
+        "avif": "/bilder/brand-identity-anwendungen-960.avif",
+        "kb": 50,
+        "kbAvif": 26
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-anwendungen-1440.webp",
+        "avif": "/bilder/brand-identity-anwendungen-1440.avif",
+        "kb": 141,
+        "kbAvif": 65
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-anwendungen-1920.webp",
+        "avif": "/bilder/brand-identity-anwendungen-1920.avif",
+        "kb": 270,
+        "kbAvif": 120
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-anwendungen-2560.webp",
+        "avif": "/bilder/brand-identity-anwendungen-2560.avif",
+        "kb": 477,
+        "kbAvif": 225
+      }
+    ]
+  },
+  "brand-identity-helm": {
+    "breite": 2560,
+    "hoehe": 1920,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Hard_Hat_Mockup_1.png",
+    "lqip": "data:image/webp;base64,UklGRsoBAABXRUJQVlA4WAoAAAAQAAAAFwAAEQAAQUxQSPkAAAANuTJE9D80sF3bVp24u/z/H7oWf2kL/ME6weGu7Itzd1afSE5wPZWnJmICJqAjDr3THoj7YxeXtmyL7mBV9F6uTbvSDut2JFbzcuRWIvcYA/uIldx7FKvMXupWrEjMUU1sFx5fjsb4sodIsZyLG9a9TEMhH5YvKUlEWaoes98MRER+m39lMAdAUcmOjgAo2KB+WJPVRdCozOoiQCmwdbQo4AUQZPFrQK0VGGVWKK8pAhBlhkSv0ZFSwPskZm2AYnhBav++HB2REt/z3wIAKNXryrJz8uXoyF9mzCHKO0JuIaZAq79w1gvKE6KOKDMzhmeiSoJQXTTCUBEAVlA4IKoAAACQBACdASoYABIAPu1irFAppSQisBgIATAdiUG3OK1BVtxjYgyt25Nk0XtfJmAA/udBghkRQiam8Bvm7g5acMt52zQgBr4fd60TNQjpuNUcYBAUV2rlxIvgb9idQjhGf2+J+7qDC3IyK+hscrTSGHGhpkLQwAGZctc3u/H/KXmov77ADBT2doFV0IGPRNO2+tRX8C0OPKFPun+mH+cnWtI80UQKhvOZRGIAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 480,
+        "src": "/bilder/brand-identity-helm-640.webp",
+        "avif": "/bilder/brand-identity-helm-640.avif",
+        "kb": 22,
+        "kbAvif": 7
+      },
+      {
+        "breite": 800,
+        "hoehe": 600,
+        "src": "/bilder/brand-identity-helm-800.webp",
+        "avif": "/bilder/brand-identity-helm-800.avif",
+        "kb": 29,
+        "kbAvif": 9
+      },
+      {
+        "breite": 960,
+        "hoehe": 720,
+        "src": "/bilder/brand-identity-helm-960.webp",
+        "avif": "/bilder/brand-identity-helm-960.avif",
+        "kb": 42,
+        "kbAvif": 11
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1080,
+        "src": "/bilder/brand-identity-helm-1440.webp",
+        "avif": "/bilder/brand-identity-helm-1440.avif",
+        "kb": 90,
+        "kbAvif": 17
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1440,
+        "src": "/bilder/brand-identity-helm-1920.webp",
+        "avif": "/bilder/brand-identity-helm-1920.avif",
+        "kb": 176,
+        "kbAvif": 26
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1920,
+        "src": "/bilder/brand-identity-helm-2560.webp",
+        "avif": "/bilder/brand-identity-helm-2560.avif",
+        "kb": 317,
+        "kbAvif": 36
+      }
+    ]
+  },
+  "brand-identity-social": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 15.png",
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwBACdASoYABEAPulep02pJSOiN/VYASAdCWcAwNwPSFzZ7eLNhxfEvNlVwADhDsfTEcEHrmbjG0tgTr4OauIGxtSxJlHAdkHBgAAA",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-social-640.webp",
+        "avif": "/bilder/brand-identity-social-640.avif",
+        "kb": 22,
+        "kbAvif": 13
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-social-800.webp",
+        "avif": "/bilder/brand-identity-social-800.avif",
+        "kb": 32,
+        "kbAvif": 18
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-social-960.webp",
+        "avif": "/bilder/brand-identity-social-960.avif",
+        "kb": 47,
+        "kbAvif": 24
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-social-1440.webp",
+        "avif": "/bilder/brand-identity-social-1440.avif",
+        "kb": 101,
+        "kbAvif": 49
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-social-1920.webp",
+        "avif": "/bilder/brand-identity-social-1920.avif",
+        "kb": 169,
+        "kbAvif": 81
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-social-2560.webp",
+        "avif": "/bilder/brand-identity-social-2560.avif",
+        "kb": 262,
+        "kbAvif": 133
+      }
+    ]
+  },
+  "brand-identity-stories": {
+    "breite": 2560,
+    "hoehe": 1810,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Artboard 18.png",
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwBACdASoYABEAPu1mrFAppSQisBgIATAdiWcAwzQQ66oReE4oTkknWAAA/ud1wFnP4zVBRkQNNlp3SOCGLMZowuCI/qnxvSyV/KJxLrREeP3vdEA3mylWdZvhKRK3F8dAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 453,
+        "src": "/bilder/brand-identity-stories-640.webp",
+        "avif": "/bilder/brand-identity-stories-640.avif",
+        "kb": 20,
+        "kbAvif": 13
+      },
+      {
+        "breite": 800,
+        "hoehe": 566,
+        "src": "/bilder/brand-identity-stories-800.webp",
+        "avif": "/bilder/brand-identity-stories-800.avif",
+        "kb": 31,
+        "kbAvif": 18
+      },
+      {
+        "breite": 960,
+        "hoehe": 679,
+        "src": "/bilder/brand-identity-stories-960.webp",
+        "avif": "/bilder/brand-identity-stories-960.avif",
+        "kb": 47,
+        "kbAvif": 25
+      },
+      {
+        "breite": 1440,
+        "hoehe": 1018,
+        "src": "/bilder/brand-identity-stories-1440.webp",
+        "avif": "/bilder/brand-identity-stories-1440.avif",
+        "kb": 110,
+        "kbAvif": 58
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1358,
+        "src": "/bilder/brand-identity-stories-1920.webp",
+        "avif": "/bilder/brand-identity-stories-1920.avif",
+        "kb": 194,
+        "kbAvif": 94
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1810,
+        "src": "/bilder/brand-identity-stories-2560.webp",
+        "avif": "/bilder/brand-identity-stories-2560.avif",
+        "kb": 310,
+        "kbAvif": 164
+      }
+    ]
+  },
+  "brand-identity-story-studio": {
+    "breite": 1080,
+    "hoehe": 1920,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/abot us story.png",
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACwBgCdASoYACsAPu1aqE2ppKOiOrM4ATAdiWMAvgxE24Kb2ZHLiyd/sPoO5CX4Mk0bqOnebUtKh9n8edhQsAD++E5mblcMVL6KwCrJWxV31R1/jxispl096gKbPV7VsjD/hAnv/cUfT1WOoSeRJ+vmVS62/rTO1tR1c3uKoblKVx1jtj8gAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 1138,
+        "src": "/bilder/brand-identity-story-studio-640.webp",
+        "avif": "/bilder/brand-identity-story-studio-640.avif",
+        "kb": 36,
+        "kbAvif": 21
+      },
+      {
+        "breite": 800,
+        "hoehe": 1422,
+        "src": "/bilder/brand-identity-story-studio-800.webp",
+        "avif": "/bilder/brand-identity-story-studio-800.avif",
+        "kb": 50,
+        "kbAvif": 29
+      },
+      {
+        "breite": 960,
+        "hoehe": 1707,
+        "src": "/bilder/brand-identity-story-studio-960.webp",
+        "avif": "/bilder/brand-identity-story-studio-960.avif",
+        "kb": 65,
+        "kbAvif": 38
+      },
+      {
+        "breite": 1080,
+        "hoehe": 1920,
+        "src": "/bilder/brand-identity-story-studio-1080.webp",
+        "avif": "/bilder/brand-identity-story-studio-1080.avif",
+        "kb": 75,
+        "kbAvif": 45
+      }
+    ]
+  },
+  "brand-identity-story-leistungen": {
+    "breite": 1080,
+    "hoehe": 1920,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/services story.png",
+    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBgCdASoYACsAPtVYok2oJaMiOrmYAQAaiUAYdYutuHCkkO6pkhpu19a3OGlPzmu1Q2Doe0xqXDcVzKAA/vd4flO4/kfWZIZBoSV6z0Hpd85O56uB5rpB3MBlb588PLH5fX/ZtksTFX/nUkZJK+zd3Y5Tyn7cgoLVxProWwAAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 1138,
+        "src": "/bilder/brand-identity-story-leistungen-640.webp",
+        "avif": "/bilder/brand-identity-story-leistungen-640.avif",
+        "kb": 44,
+        "kbAvif": 26
+      },
+      {
+        "breite": 800,
+        "hoehe": 1422,
+        "src": "/bilder/brand-identity-story-leistungen-800.webp",
+        "avif": "/bilder/brand-identity-story-leistungen-800.avif",
+        "kb": 62,
+        "kbAvif": 37
+      },
+      {
+        "breite": 960,
+        "hoehe": 1707,
+        "src": "/bilder/brand-identity-story-leistungen-960.webp",
+        "avif": "/bilder/brand-identity-story-leistungen-960.avif",
+        "kb": 81,
+        "kbAvif": 47
+      },
+      {
+        "breite": 1080,
+        "hoehe": 1920,
+        "src": "/bilder/brand-identity-story-leistungen-1080.webp",
+        "avif": "/bilder/brand-identity-story-leistungen-1080.avif",
+        "kb": 97,
+        "kbAvif": 58
+      }
+    ]
+  },
+  "brand-identity-story-kontakt": {
+    "breite": 1080,
+    "hoehe": 1920,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/contact story.png",
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBgCdASoYACsAPtFcoE2oJaMiOrmYAQAaCUAYUAutuISfY3EcuNRZmZ+zNgHD8XZK7j+En6pu96nAAP72iIlF6iIdzIWyFxYaDGMqd3jWmHsIIpjmQLlJ37YecmsKfLdT/gps6Dy1cf9dqyWUqlhZzpxRoImrMIrSuXZMyhbJYIRYAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 1138,
+        "src": "/bilder/brand-identity-story-kontakt-640.webp",
+        "avif": "/bilder/brand-identity-story-kontakt-640.avif",
+        "kb": 29,
+        "kbAvif": 19
+      },
+      {
+        "breite": 800,
+        "hoehe": 1422,
+        "src": "/bilder/brand-identity-story-kontakt-800.webp",
+        "avif": "/bilder/brand-identity-story-kontakt-800.avif",
+        "kb": 38,
+        "kbAvif": 25
+      },
+      {
+        "breite": 960,
+        "hoehe": 1707,
+        "src": "/bilder/brand-identity-story-kontakt-960.webp",
+        "avif": "/bilder/brand-identity-story-kontakt-960.avif",
+        "kb": 50,
+        "kbAvif": 34
+      },
+      {
+        "breite": 1080,
+        "hoehe": 1920,
+        "src": "/bilder/brand-identity-story-kontakt-1080.webp",
+        "avif": "/bilder/brand-identity-story-kontakt-1080.avif",
+        "kb": 59,
+        "kbAvif": 40
+      }
+    ]
+  },
+  "brand-identity-foil": {
+    "breite": 2560,
+    "hoehe": 1707,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Foil Press Logo Mockup.png",
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoYABAAPu1oqk6ppiQiMAgBMB2JZwAAW1LK5yS5FMbrIAD+wyLc+kx+RqlyWeLpmrutqScyWlqMu24vJxQVTCQwAAA=",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 427,
+        "src": "/bilder/brand-identity-foil-640.webp",
+        "avif": "/bilder/brand-identity-foil-640.avif",
+        "kb": 50,
+        "kbAvif": 20
+      },
+      {
+        "breite": 800,
+        "hoehe": 533,
+        "src": "/bilder/brand-identity-foil-800.webp",
+        "avif": "/bilder/brand-identity-foil-800.avif",
+        "kb": 92,
+        "kbAvif": 37
+      },
+      {
+        "breite": 960,
+        "hoehe": 640,
+        "src": "/bilder/brand-identity-foil-960.webp",
+        "avif": "/bilder/brand-identity-foil-960.avif",
+        "kb": 145,
+        "kbAvif": 59
+      },
+      {
+        "breite": 1440,
+        "hoehe": 960,
+        "src": "/bilder/brand-identity-foil-1440.webp",
+        "avif": "/bilder/brand-identity-foil-1440.avif",
+        "kb": 244,
+        "kbAvif": 165
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1280,
+        "src": "/bilder/brand-identity-foil-1920.webp",
+        "avif": "/bilder/brand-identity-foil-1920.avif",
+        "kb": 700,
+        "kbAvif": 302
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1707,
+        "src": "/bilder/brand-identity-foil-2560.webp",
+        "avif": "/bilder/brand-identity-foil-2560.avif",
+        "kb": 1182,
+        "kbAvif": 521
+      }
+    ]
+  },
+  "brand-identity-papier": {
+    "breite": 2560,
+    "hoehe": 1707,
+    "herkunft": "original",
+    "art": "foto",
+    "quelle": "originale/ayloul-brand-identity/Black Paper Logo Mockup 1.png",
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAgCdASoYABAAPu1iqk2ppaQiMAgBMB2JZwDKADBsAAD+74PzcFTb2b2Xtn9hZH4QGcmWASGIECxs7AAAAA==",
+    "varianten": [
+      {
+        "breite": 640,
+        "hoehe": 427,
+        "src": "/bilder/brand-identity-papier-640.webp",
+        "avif": "/bilder/brand-identity-papier-640.avif",
+        "kb": 17,
+        "kbAvif": 9
+      },
+      {
+        "breite": 800,
+        "hoehe": 533,
+        "src": "/bilder/brand-identity-papier-800.webp",
+        "avif": "/bilder/brand-identity-papier-800.avif",
+        "kb": 30,
+        "kbAvif": 13
+      },
+      {
+        "breite": 960,
+        "hoehe": 640,
+        "src": "/bilder/brand-identity-papier-960.webp",
+        "avif": "/bilder/brand-identity-papier-960.avif",
+        "kb": 48,
+        "kbAvif": 20
+      },
+      {
+        "breite": 1440,
+        "hoehe": 960,
+        "src": "/bilder/brand-identity-papier-1440.webp",
+        "avif": "/bilder/brand-identity-papier-1440.avif",
+        "kb": 120,
+        "kbAvif": 54
+      },
+      {
+        "breite": 1920,
+        "hoehe": 1280,
+        "src": "/bilder/brand-identity-papier-1920.webp",
+        "avif": "/bilder/brand-identity-papier-1920.avif",
+        "kb": 197,
+        "kbAvif": 101
+      },
+      {
+        "breite": 2560,
+        "hoehe": 1707,
+        "src": "/bilder/brand-identity-papier-2560.webp",
+        "avif": "/bilder/brand-identity-papier-2560.avif",
+        "kb": 304,
+        "kbAvif": 179
       }
     ]
   }

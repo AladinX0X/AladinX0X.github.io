@@ -1,0 +1,120 @@
+---
+// Gemeinsame Szene "Stufen" (Arbeitsweise: "من الفكرة إلى التجربة"). Statisch (ohne JS, reduzierte Bewegung):
+// senkrechte Zeitleiste, alle Stufen sichtbar und "an", jedes Bild bei seiner Stufe.
+// Groß mit Maus (.bewegt, src/scripts/motion/stufen.ts): gepinnt; beim Scrollen leuchtet eine Stufe nach der anderen
+// auf (Raute terrakotta, Linie füllt sich bis dorthin, Nummer/Titel/Text blenden ein, Bild blendet über, frühere
+// Stufen bleiben gedämpft an), Fortschritt "03 / 06". Mobil: jede Stufe leuchtet beim Eintreten auf.
+import Abschnittskopf from '../Abschnittskopf.astro';
+import Bild from '../Bild.astro';
+import Raute from '../Raute.astro';
+import manifest from '../../data/bilder-manifest.json';
+import { fuelle } from '../../i18n/utils';
+
+interface Stufe { name: string; text: string; bild: string; alt: string }
+interface Props { titel: string; nummer?: number; unterzeile?: string; id: string; stufen: Stufe[]; fortschritt: string; ton?: 'dunkel' | 'hell' }
+const { titel, nummer, unterzeile, id, stufen, fortschritt, ton = 'dunkel' } = Astro.props;
+const nr = (i: number) => String(i + 1).padStart(2, '0');
+const gesamt = nr(stufen.length - 1);
+const m = manifest as Record<string, { breite: number }>;
+---
+<section class:list={['abschnitt', ton, 'szene-stufen']} data-szene="stufen" data-muster="stufen" aria-labelledby={id} style={`--n: ${stufen.length}`}>
+  <div class="huelle st-innen">
+    <Abschnittskopf titel={titel} nummer={nummer} id={id} unterzeile={unterzeile} />
+    <div class="st-buehne">
+      <div class="st-liste-huelle">
+      <span class="st-linie" aria-hidden="true"><span class="st-fuellung" data-stufen-fuellung></span></span>
+      <ol class="st-liste" data-stufen-liste>
+        {stufen.map((s, i) => (
+          <li class="st-stufe an" data-stufe>
+            <span class="st-knoten" aria-hidden="true"><Raute /></span>
+            <div class="st-text">
+              <span class="st-nr">{nr(i)}</span>
+              <h3 class="st-name">{s.name}</h3>
+              <p class="st-beschreibung">{s.text}</p>
+            </div>
+            <figure class="bildrahmen st-bild-inline" style={`--max: ${Math.round(m[s.bild].breite / 1.5)}px`}>
+              <Bild id={s.bild} alt={s.alt} sizes="(min-width: 62rem) 40vw, 88vw" />
+            </figure>
+          </li>
+        ))}
+      </ol>
+      </div>
+      <div class="st-bilder" aria-hidden="true">
+        <p class="st-zaehler"><bdi dir="ltr"><span data-stufen-zaehler>01</span> / {gesamt}</bdi></p>
+        <p class="unsichtbar" aria-live="polite" data-stufen-ansage data-vorlage={fortschritt}>{fuelle(fortschritt, { i: 1, n: stufen.length })}</p>
+        <div class="bildrahmen st-stapel">
+          {stufen.map((s, i) => (
+            <div class:list={['st-ebene', { sichtbar: i === 0 }]} data-stufen-bild>
+              <Bild id={s.bild} alt="" sizes="(min-width: 62rem) 46vw, 88vw" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .st-buehne { position: relative; }
+  .st-liste-huelle { position: relative; }
+  .st-liste { list-style: none; position: relative; display: grid; gap: var(--abstand-7); padding-inline-start: 2.5rem; }
+  .st-linie {
+    position: absolute;
+    inset-block: 0.8rem 0.8rem;
+    inset-inline-start: 0.6rem;
+    border-inline-start: 2px dashed var(--linie-auf-dunkel);
+  }
+  .hell .st-linie { border-inline-start-color: var(--linie-auf-hell); }
+  .st-fuellung {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: -2px;
+    inline-size: 2px;
+    background: var(--farbe-terrakotta);
+    transform-origin: top;
+  }
+  .st-stufe { position: relative; display: grid; gap: var(--abstand-4); }
+  .st-knoten {
+    position: absolute;
+    inset-inline-start: -2.5rem;
+    inset-block-start: 0.2rem;
+    inline-size: 1.3rem;
+    display: grid; place-items: center;
+    line-height: 0;
+    opacity: 0.35;
+    transition: opacity var(--dauer-mittel) var(--kurve-ein), transform var(--dauer-mittel) var(--kurve-ein);
+  }
+  .st-knoten :global(.raute) { inline-size: 1.1rem; }
+  .st-stufe.an .st-knoten { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 10px rgb(232 135 92 / 0.65)); }
+  .st-text { display: grid; gap: var(--abstand-2); }
+  .st-nr { font-size: var(--text-klein); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-hell); }
+  .hell .st-nr { color: var(--farbe-terrakotta-dunkel); }
+  .st-name { font-size: var(--h2); }
+  .st-beschreibung { max-inline-size: 30rem; }
+  .st-bild-inline { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: min(100%, var(--max)); }
+  .st-bilder { display: none; }
+
+  /* Gepinnte Fassung (groß, mit Bewegung): Liste am Zeilenanfang, Bildstapel am Zeilenende */
+  .bewegt { padding-block: var(--abstand-8); min-block-size: 100svh; display: grid; align-content: center; }
+  .bewegt .st-buehne { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--abstand-8); align-items: center; }
+  .bewegt .st-liste { gap: var(--abstand-4); }
+  .bewegt .st-bild-inline { display: none; }
+  .bewegt .st-name { font-size: var(--h3); }
+  .bewegt .st-beschreibung { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  .bewegt .st-bilder { display: grid; gap: var(--abstand-3); }
+  .bewegt .st-stufe { transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .bewegt .st-stufe:not(.an) { opacity: 0.22; }
+  .bewegt .st-stufe.an.vorbei { opacity: 0.55; }
+  .bewegt .st-stufe.an.vorbei .st-knoten { filter: none; transform: none; }
+  .bewegt .st-stufe:not(.an) .st-beschreibung { opacity: 0; }
+  .st-beschreibung { transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .st-zaehler { font-size: clamp(2rem, 1.4rem + 2vw, 3rem); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta-hell); line-height: 1; justify-self: end; font-variant-numeric: tabular-nums; }
+  .st-stapel { position: relative; aspect-ratio: 4 / 3; }
+  .st-ebene { position: absolute; inset: 0; opacity: 0; transition: opacity var(--dauer-lang) var(--kurve-ein); }
+  .st-ebene.sichtbar { opacity: 1; }
+  .st-ebene :global(.bild), .st-ebene :global(img) { block-size: 100%; }
+
+  /* Mobil mit Bewegung: senkrechte Zeitleiste, Stufen leuchten beim Eintreten auf */
+  .zeitleiste .st-stufe { transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .zeitleiste .st-stufe:not(.an) { opacity: 0.35; }
+</style>

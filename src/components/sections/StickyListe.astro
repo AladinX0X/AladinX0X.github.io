@@ -1,0 +1,72 @@
+---
+// Gemeinsamer Baustein "Sticky-Liste" (Leistungen): große Titel untereinander; groß mit Bewegung bleibt ein Bildrahmen
+// am Zeilenende stehen und blendet auf das Bild des Eintrags über, der gerade in der Lesezeile ist
+// (src/scripts/motion/stickyliste.ts). Statisch (ohne JS, reduzierte Bewegung, mobil): jedes Bild beim Eintrag.
+import Bild from '../Bild.astro';
+import Icon from '../Icon.astro';
+import manifest from '../../data/bilder-manifest.json';
+
+interface Eintrag { titel: string; text: string; href: string; mehr: string; bild: string; alt: string; icon: string }
+interface Props { eintraege: Eintrag[] }
+const { eintraege } = Astro.props;
+const m = manifest as Record<string, { breite: number }>;
+---
+<div class="sl" data-muster="stickyliste">
+  <ol class="sl-liste">
+    {eintraege.map((e, i) => (
+      <li class:list={['sl-eintrag', { aktiv: i === 0 }]} data-sl-eintrag>
+        <figure class="bildrahmen sl-bild-inline" style={`--max: ${Math.round(m[e.bild].breite / 1.5)}px`}>
+          <Bild id={e.bild} alt={e.alt} sizes="(min-width: 62rem) 40vw, 92vw" />
+        </figure>
+        <div class="sl-text">
+          <span class="sl-nr" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="sl-titel"><a href={e.href}>{e.titel}</a></h3>
+          <p class="sl-kurz">{e.text}</p>
+          <span class="sl-mehr" aria-hidden="true">{e.mehr}<Icon name="pfeil" klasse="spiegeln pfeil" /></span>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <div class="sl-buehne" aria-hidden="true">
+    <div class="bildrahmen sl-stapel">
+      {eintraege.map((e, i) => (
+        <div class:list={['sl-ebene', { sichtbar: i === 0 }]} data-sl-bild>
+          <Bild id={e.bild} alt="" sizes="(min-width: 62rem) 44vw, 92vw" />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .sl-liste { list-style: none; display: grid; gap: var(--abstand-8); }
+  .sl-eintrag { position: relative; display: grid; gap: var(--abstand-5); }
+  .sl-bild-inline { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: min(100%, var(--max)); }
+  .sl-text { display: grid; gap: var(--abstand-3); justify-items: start; }
+  .sl-nr { font-size: var(--text-klein); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-dunkel); }
+  .sl-titel { font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem); }
+  .sl-titel a { text-decoration: none; }
+  .sl-titel a::after { content: ''; position: absolute; inset: 0; }
+  .sl-kurz { max-inline-size: 32rem; }
+  .sl-mehr { display: inline-flex; align-items: center; gap: var(--abstand-2); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-dunkel); font-size: var(--text-klein); }
+  .sl-mehr :global(.icon) { inline-size: 1.1em; block-size: 1.1em; transition: translate var(--dauer-mittel) var(--kurve-ein); }
+  .sl-eintrag:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-dunkel); outline-offset: 6px; border-radius: 8px; }
+  .sl-eintrag a:focus-visible { outline: none; }
+  @media (hover: hover) {
+    .sl-eintrag:hover .sl-titel a { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
+    .sl-eintrag:hover .sl-mehr :global(.icon) { translate: calc(var(--richtung) * 0.3rem) 0; }
+  }
+  .sl-buehne { display: none; }
+
+  /* Groß mit Bewegung: Liste am Zeilenanfang, Bild bleibt am Zeilenende stehen */
+  .bewegt { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--abstand-8); align-items: start; }
+  .bewegt .sl-bild-inline { display: none; }
+  .bewegt .sl-liste { gap: 0; padding-block: 18svh 30svh; }
+  .bewegt .sl-eintrag { min-block-size: 46svh; align-content: center; transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .bewegt .sl-eintrag:not(.aktiv) { opacity: 0.38; }
+  .bewegt .sl-buehne { display: block; position: sticky; inset-block-start: calc(var(--kopf-hoehe) + 8svh); }
+  .sl-stapel { position: relative; aspect-ratio: 4 / 3.4; }
+  .sl-ebene { position: absolute; inset: 0; opacity: 0; transform: scale(1.04); transition: opacity var(--dauer-lang) var(--kurve-ein), transform var(--dauer-lang) var(--kurve-ein); }
+  .sl-ebene.sichtbar { opacity: 1; transform: none; }
+  .sl-ebene :global(.bild), .sl-ebene :global(img) { block-size: 100%; }
+</style>

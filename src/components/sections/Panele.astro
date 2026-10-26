@@ -1,0 +1,56 @@
+---
+// Gemeinsamer Baustein "Große Bildflächen": jede Disziplin (oder jedes Kapitel) als große Bildfläche mit Titel,
+// Text und Stichworten; Bild und Text wechseln die Seite. Scroll-Moment (groß): das Bild öffnet sich per clip-path
+// und setzt sich 1.08 → 1 (src/scripts/motion/panele.ts). Ohne JS / reduzierte Bewegung: statisch sichtbar.
+import Bild from '../Bild.astro';
+import Raute from '../Raute.astro';
+import Icon from '../Icon.astro';
+import manifest from '../../data/bilder-manifest.json';
+
+interface Panel { bild: string; alt: string; titel: string; text?: string; begriffe?: string[]; link?: { href: string; text: string } }
+interface Props { panele: Panel[]; ebene?: 'h2' | 'h3' }
+const { panele, ebene = 'h3' } = Astro.props;
+const Tag = ebene;
+const m = manifest as Record<string, { breite: number; hoehe: number }>;
+---
+<ol class="panele" data-muster="panele">
+  {panele.map((p, i) => (
+    <li class:list={['panel', { umgekehrt: i % 2 === 1 }]} data-panel>
+      <div class="bildrahmen panel-bild" data-panel-bild style={`--max: ${Math.round(m[p.bild].breite / 1.5)}px`}>
+        <Bild id={p.bild} alt={p.alt} sizes="(min-width: 62rem) 58vw, 92vw" />
+      </div>
+      <div class="panel-text einblenden">
+        <span class="nr" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <Tag class="titel"><Raute />{p.titel}</Tag>
+        {p.text && <p class="text">{p.text}</p>}
+        {p.begriffe && (
+          <ul class="begriffe" aria-label={p.titel}>
+            {p.begriffe.map((b) => <li><Raute />{b}</li>)}
+          </ul>
+        )}
+        {p.link && <a class="textlink mehr" href={p.link.href}>{p.link.text}<Icon name="pfeil" klasse="spiegeln pfeil" /></a>}
+      </div>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .panele { list-style: none; display: grid; gap: clamp(3rem, 2rem + 5vw, 7rem); }
+  .panel { display: grid; gap: var(--abstand-6); align-items: center; }
+  @media (min-width: 62rem) {
+    .panel { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: var(--abstand-8); }
+    .umgekehrt .panel-bild { order: 2; }
+  }
+  .panel-bild { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: var(--max); }
+  .panel-bild :global(img) { transform-origin: center; }
+  .panel-text { display: grid; gap: var(--abstand-4); justify-items: start; }
+  .nr { font-size: clamp(2.5rem, 1.5rem + 3vw, 4.5rem); font-weight: var(--gewicht-stark); line-height: 1; color: var(--farbe-terrakotta); }
+  .titel { display: flex; gap: var(--abstand-3); align-items: baseline; font-size: var(--h2); }
+  .titel :global(.raute) { inline-size: 0.45em; }
+  .text { max-inline-size: 34rem; }
+  .begriffe { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-2) var(--abstand-4); font-size: var(--text-klein); }
+  .begriffe li { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+  .begriffe :global(.raute) { inline-size: 0.55em; }
+  .mehr { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+  .mehr :global(.icon) { inline-size: 1.1em; block-size: 1.1em; }
+</style>

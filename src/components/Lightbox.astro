@@ -6,8 +6,8 @@ import Icon from './Icon.astro';
 import manifest from '../data/bilder-manifest.json';
 import { t, type Sprache } from '../i18n/utils';
 
-interface Props { lang: Sprache; ids: string[]; alts: Record<string, string>; auszug?: boolean }
-const { lang, ids, alts, auszug = false } = Astro.props;
+interface Props { lang: Sprache; ids: string[]; alts: Record<string, string> }
+const { lang, ids, alts } = Astro.props;
 const tx = t(lang);
 const lb = tx.projekte.lightbox;
 const m = manifest as Record<string, { breite: number; hoehe: number; varianten: { breite: number; src: string; avif: string }[] }>;
@@ -42,7 +42,7 @@ const erstes = bilder[0];
         </picture>
       </div>
       <figcaption data-lb-text>
-        {auszug && <span class="lb-auszug">{tx.projekte.auszug}</span>}<span data-lb-alt>{erstes.alt}</span>
+        <span data-lb-alt>{erstes.alt}</span>
         <span class="lb-hinweis">{lb.zoomHinweis}</span>
       </figcaption>
     </figure>
@@ -82,7 +82,6 @@ const erstes = bilder[0];
   :global(.gezoomt) .lb-buehne { cursor: move; }
   .lb-figur figcaption { text-align: center; font-size: var(--text-klein); max-inline-size: 48rem; margin-inline: auto; display: grid; gap: var(--abstand-1); }
   .lb-hinweis { opacity: 0.8; font-size: var(--text-klein); }
-  .lb-auszug { color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-titel); }
   .lb-nav { display: flex; justify-content: center; gap: var(--abstand-5); }
   .lb-knopf {
     display: grid; place-items: center;

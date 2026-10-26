@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Gemeinsame Projektdaten. Nur die Texte unter ar/en sind sprachabhängig. Kennzahlen (Anzahl Projekte, Länder) werden hieraus berechnet. Bereich: exterior | interior | shop-drawings | graphic. Land: sy | ae | null. Fehlende Angaben sind null und werden nicht angezeigt.",
+  "_hinweis": "Gemeinsame Projektdaten. Nur die Texte unter ar/en sind sprachabhängig. Kennzahlen, Filter, vorher/nachher werden hieraus berechnet. Bereich: exterior | interior | shop-drawings | graphic. Land: sy | ae | null. Fehlende Angaben sind null und werden nicht angezeigt. farben (+ farbnamen je Sprache): nur Innenprojekte (Materialproben, im Rendering gemessen) und Identität. hero: \"geteilt\" erzwingt den geteilten Hero. blaetter: Plannamen (Werkplanung).",
   "projekte": [
     {
       "slug": "villa-homs",
@@ -11,20 +11,11 @@
       "titelbild": "villa-homs-nacht-front",
       "galerie": [
         "villa-homs-nacht-front",
-        "villa-homs-tag-front",
-        "villa-homs-nacht-fassade",
         "villa-homs-nacht-perspektive",
         "villa-homs-tag-eingang",
-        "villa-homs-nacht-eingang",
-        "villa-homs-tag-balkon",
-        "villa-homs-abend-balkon"
+        "villa-homs-tag-balkon"
       ],
-      "farben": [
-        "#e2d7c3",
-        "#4d4e49",
-        "#8197ac",
-        "#93916b"
-      ],
+      "farben": [],
       "ar": {
         "titel": "فيلا سكنية في حمص",
         "kurz": "فيلا من طابقين تضم شقتين مستقلتين، بواجهة من الحجر الحلبي.",
@@ -45,13 +36,9 @@
         ],
         "alt": {
           "villa-homs-nacht-front": "الفيلا في حمص ليلاً بواجهتها الحجرية المضاءة ونافذتها العالية بين الأشجار",
-          "villa-homs-tag-front": "منظر نهاري للفيلا في حمص بواجهتها من الحجر الحلبي ونافذتها العالية والحديقة",
-          "villa-homs-nacht-fassade": "الواجهة الأمامية ليلاً مع إضاءة مخفية على الأعمدة وموقف السيارات المدمج",
           "villa-homs-nacht-perspektive": "منظور جانبي للفيلا ليلاً يظهر الشرفة العلوية والمدخل المضاء",
           "villa-homs-tag-eingang": "المدخل الرئيسي نهاراً، باب معدني داكن بين عمودين حجريين",
-          "villa-homs-nacht-eingang": "المدخل الرئيسي ليلاً مع إضاءة خطية في سقف موقف السيارات",
-          "villa-homs-tag-balkon": "الشرفة العلوية نهاراً بدرابزين معدني أسود وكرسي استرخاء",
-          "villa-homs-abend-balkon": "الشرفة العلوية عند الغروب في ضوء دافئ"
+          "villa-homs-tag-balkon": "الشرفة العلوية نهاراً بدرابزين معدني أسود وكرسي استرخاء"
         }
       },
       "en": {
@@ -74,13 +61,9 @@
         ],
         "alt": {
           "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit and the tall window framed by trees",
-          "villa-homs-tag-front": "Day view of the villa in Homs with its Aleppo stone façade, tall window and garden",
-          "villa-homs-nacht-fassade": "The front façade at night, with concealed lighting on the columns and the integrated carport",
           "villa-homs-nacht-perspektive": "Side perspective of the villa at night, showing the upper balcony and the lit entrance",
           "villa-homs-tag-eingang": "The main entrance by day, a dark metal door between two stone columns",
-          "villa-homs-nacht-eingang": "The main entrance at night, with linear lighting in the carport ceiling",
-          "villa-homs-tag-balkon": "The upper balcony by day, with a black metal railing and a lounge chair",
-          "villa-homs-abend-balkon": "The upper balcony at dusk in warm light"
+          "villa-homs-tag-balkon": "The upper balcony by day, with a black metal railing and a lounge chair"
         }
       }
     },
@@ -94,10 +77,7 @@
       "titelbild": "villa-uae-nacht-perspektive",
       "galerie": [
         "villa-uae-nacht-perspektive",
-        "villa-uae-tag-perspektive",
         "villa-uae-tag-front",
-        "villa-uae-nacht-front",
-        "villa-uae-boegen-tag",
         "villa-uae-boegen-nacht"
       ],
       "farben": [],
@@ -118,10 +98,7 @@
         ],
         "alt": {
           "villa-uae-nacht-perspektive": "منظور للفيلا في الإمارات ليلاً بعنصرها الزجاجي العالي وأعمدتها المضاءة",
-          "villa-uae-tag-perspektive": "منظور نهاري للفيلا بواجهة بيضاء وعنصر زجاجي عالٍ وشرفات من الحديد المشغول",
           "villa-uae-tag-front": "الواجهة الأمامية نهاراً بتناظر واضح وأعمدة بارتفاع طابقين",
-          "villa-uae-nacht-front": "الواجهة الأمامية ليلاً مع إضاءة دافئة على الأعمدة",
-          "villa-uae-boegen-tag": "واجهة بأقواس ونوافذ نصف دائرية وشرفة من الحديد المشغول، نهاراً",
           "villa-uae-boegen-nacht": "واجهة الأقواس ليلاً مع المدخل المقوّس المضاء"
         }
       },
@@ -142,10 +119,7 @@
         ],
         "alt": {
           "villa-uae-nacht-perspektive": "Perspective of the villa in the UAE at night, with its tall glazed element and lit columns",
-          "villa-uae-tag-perspektive": "Day perspective of the villa: a white façade, a tall glazed element and wrought-iron balconies",
           "villa-uae-tag-front": "The front façade by day, strictly symmetrical, with two-storey columns",
-          "villa-uae-nacht-front": "The front façade at night, with warm light on the columns",
-          "villa-uae-boegen-tag": "A façade with arches, half-round windows and a wrought-iron balcony, by day",
           "villa-uae-boegen-nacht": "The arched façade at night, with the lit arched entrance"
         }
       }
@@ -161,19 +135,10 @@
       "galerie": [
         "mosque-square-nacht-wandbild",
         "mosque-square-luftbild-tag",
-        "mosque-square-luftbild-nacht",
-        "mosque-square-tag-eingang",
         "mosque-square-nacht-eingang",
-        "mosque-square-tag-wandbild",
-        "mosque-square-tag-platz",
-        "mosque-square-nacht-platz"
+        "mosque-square-tag-platz"
       ],
-      "farben": [
-        "#afabaa",
-        "#2c2220",
-        "#cfc6c1",
-        "#525252"
-      ],
+      "farben": [],
       "ar": {
         "titel": "ساحة الجامع في معرة النعمان",
         "kurz": "ساحة عامة مستوحاة من الجامع الكبير، فيها قبة على ستة أعمدة وجدارية لأبي العلاء المعري.",
@@ -196,12 +161,8 @@
         "alt": {
           "mosque-square-nacht-wandbild": "ساحة الجامع في معرة النعمان ليلاً مع جدارية أبي العلاء المعري المضاءة بين النخيل",
           "mosque-square-luftbild-tag": "منظر علوي للساحة نهاراً يظهر بوابة المدخل والجناح ذا القبة",
-          "mosque-square-luftbild-nacht": "منظر علوي للساحة ليلاً مع إضاءة بوابة المدخل",
-          "mosque-square-tag-eingang": "بوابة المدخل بأعمدتها الحجرية نهاراً",
           "mosque-square-nacht-eingang": "بوابة المدخل ليلاً في ضوء دافئ",
-          "mosque-square-tag-wandbild": "الساحة نهاراً مع جدارية أبي العلاء المعري والنخيل وأعمدة الإنارة الشمسية",
-          "mosque-square-tag-platz": "الساحة نهاراً مع الجناح ذي القبة والنخيل والمقاعد",
-          "mosque-square-nacht-platz": "الساحة ليلاً مع الجناح ذي القبة وأعمدة الإنارة"
+          "mosque-square-tag-platz": "الساحة نهاراً مع الجناح ذي القبة والنخيل والمقاعد"
         }
       },
       "en": {
@@ -226,12 +187,8 @@
         "alt": {
           "mosque-square-nacht-wandbild": "The square in Maarrat al-Nu'man at night, with the lit mural of Abu al-'Ala al-Ma'arri between palms",
           "mosque-square-luftbild-tag": "Aerial view of the square by day, showing the entrance portal and the domed pavilion",
-          "mosque-square-luftbild-nacht": "Aerial view of the square at night, with the entrance portal lit",
-          "mosque-square-tag-eingang": "The entrance portal with its stone columns by day",
           "mosque-square-nacht-eingang": "The entrance portal at night in warm light",
-          "mosque-square-tag-wandbild": "The square by day with the al-Ma'arri mural, palms and solar street lights",
-          "mosque-square-tag-platz": "The square by day with the domed pavilion, palms and benches",
-          "mosque-square-nacht-platz": "The square at night with the domed pavilion and street lights"
+          "mosque-square-tag-platz": "The square by day with the domed pavilion, palms and benches"
         }
       }
     },
@@ -256,7 +213,13 @@
         "villa-interior-uae-gaeste-bad-wc",
         "villa-interior-uae-detail"
       ],
-      "farben": [],
+      "farben": [
+        "#b3a18b",
+        "#3e291c",
+        "#473c36",
+        "#b9945d",
+        "#786756"
+      ],
       "ar": {
         "titel": "التصميم الداخلي لفيلا في الإمارات",
         "kurz": "المدخل والدرج والمعيشة والطعام والمطبخ في تسلسل واحد متصل.",
@@ -288,7 +251,14 @@
           "villa-interior-uae-gaeste-bad": "حمام الضيوف بجدران من الرخام الرمادي ولوحة على الجدار",
           "villa-interior-uae-gaeste-bad-wc": "حمام الضيوف مع المغسلة والإضاءة المخفية",
           "villa-interior-uae-detail": "تفصيل: مزهريات زجاجية وفنجان قهوة على طاولة"
-        }
+        },
+        "farbnamen": [
+          "حجر طبيعي",
+          "خشب جوز داكن",
+          "حجر داكن معرّق",
+          "معدن دافئ",
+          "أقمشة وتنجيد"
+        ]
       },
       "en": {
         "titel": "Villa Interior, UAE",
@@ -321,7 +291,14 @@
           "villa-interior-uae-gaeste-bad": "The guest bathroom with grey marble walls and a painting",
           "villa-interior-uae-gaeste-bad-wc": "The guest bathroom with the washbasin and concealed lighting",
           "villa-interior-uae-detail": "Detail: glass vases and a coffee cup on a table"
-        }
+        },
+        "farbnamen": [
+          "Natural stone",
+          "Dark walnut wood",
+          "Dark veined stone",
+          "Warm metal",
+          "Textiles and upholstery"
+        ]
       }
     },
     {
@@ -338,7 +315,11 @@
         "master-bedroom-tv-wand",
         "master-bedroom-raum"
       ],
-      "farben": [],
+      "farben": [
+        "#957659",
+        "#a19890",
+        "#9d8c7f"
+      ],
       "ar": {
         "titel": "غرفة نوم رئيسية عصرية في الإمارات",
         "kurz": "ظهر سرير منحنٍ برفوف كتب مدمجة وإضاءة مخفية دافئة.",
@@ -362,7 +343,12 @@
           "master-bedroom-bett": "السرير بظهر منحنٍ ورفوف مدمجة وأريكة منحنية",
           "master-bedroom-tv-wand": "جدار التلفاز مع الفاصل الزجاجي والمعدني لغرفة الملابس",
           "master-bedroom-raum": "منظر عام لغرفة النوم مع ظهر السرير والرفوف المضاءة"
-        }
+        },
+        "farbnamen": [
+          "خشب دافئ",
+          "رخام بيج فاتح",
+          "ألواح جبسية"
+        ]
       },
       "en": {
         "titel": "Modern Master Bedroom, UAE",
@@ -387,7 +373,12 @@
           "master-bedroom-bett": "The bed with its curved headboard, built-in shelves and a curved sofa",
           "master-bedroom-tv-wand": "The TV wall with the glass-and-metal wardrobe partition",
           "master-bedroom-raum": "Overall view of the bedroom with the headboard and lit shelving"
-        }
+        },
+        "farbnamen": [
+          "Warm wood",
+          "Light beige marble",
+          "Gypsum board"
+        ]
       }
     },
     {
@@ -397,12 +388,17 @@
       "flaeche": null,
       "jahr": null,
       "pdfSeiten": "32-37",
-      "auszug": true,
-      "titelbild": "shop-drawings-kueche",
+      "titelbild": "shop-drawings-moebel",
       "galerie": [
-        "shop-drawings-kueche",
-        "shop-drawings-bad",
-        "shop-drawings-boden"
+        "shop-drawings-moebel",
+        "shop-drawings-boden",
+        "shop-drawings-licht",
+        "shop-drawings-elektro",
+        "shop-drawings-oberflaechen",
+        "shop-drawings-kueche-schluessel",
+        "shop-drawings-kueche-ansichten",
+        "shop-drawings-bad-schluessel",
+        "shop-drawings-bad-ansichten"
       ],
       "farben": [],
       "ar": {
@@ -426,10 +422,27 @@
           "بلاط بورسلان بيج فاتح مانع للانزلاق"
         ],
         "alt": {
-          "shop-drawings-kueche": "مقتطف: تفصيل المطبخ في المخطط وواجهتان للمطبخ مع ملاحظات المواد",
-          "shop-drawings-bad": "مقتطف: تفصيل الحمّام في المخطط وثلاث واجهات للحمّام مع ملاحظات المواد",
-          "shop-drawings-boden": "مقتطف: مخطط الأرضيات مع بلاط الرخام الرمادي وباركيه السنديان"
-        }
+          "shop-drawings-moebel": "مخطط توزيع الأثاث مع جدول رموز القطع",
+          "shop-drawings-boden": "مخطط الأرضيات: بلاط رخام رمادي وباركيه من خشب السنديان",
+          "shop-drawings-licht": "مخطط الإنارة مع مفتاح الرموز",
+          "shop-drawings-elektro": "مخطط المقابس والكهرباء مع مفتاح الرموز",
+          "shop-drawings-oberflaechen": "مخطط تشطيبات الجدران مع مفتاح المواد",
+          "shop-drawings-kueche-schluessel": "مخطط مفتاح المطبخ داخل الشقة",
+          "shop-drawings-kueche-ansichten": "واجهات المطبخ مع المواد والمقاسات",
+          "shop-drawings-bad-schluessel": "مخطط مفتاح الحمّام داخل الشقة",
+          "shop-drawings-bad-ansichten": "واجهات الحمّام مع المواد والمقاسات"
+        },
+        "blaetter": [
+          "مخطط توزيع الأثاث",
+          "مخطط الأرضيات",
+          "مخطط الإنارة",
+          "مخطط المقابس والكهرباء",
+          "مخطط تشطيبات الجدران",
+          "مفتاح المطبخ",
+          "واجهات المطبخ",
+          "مفتاح الحمّام",
+          "واجهات الحمّام"
+        ]
       },
       "en": {
         "titel": "Apartment Shop Drawings",
@@ -452,11 +465,29 @@
           "Light beige non-slip porcelain tiles"
         ],
         "alt": {
-          "shop-drawings-kueche": "Excerpt: kitchen detail in the plan and two kitchen elevations with material notes",
-          "shop-drawings-bad": "Excerpt: bathroom detail in the plan and three bathroom elevations with material notes",
-          "shop-drawings-boden": "Excerpt: flooring plan with grey marble tiles and oak parquet"
-        }
-      }
+          "shop-drawings-moebel": "Furniture layout with the furniture legend",
+          "shop-drawings-boden": "Flooring plan: grey marble tiles and oak parquet",
+          "shop-drawings-licht": "Lighting plan with the symbol legend",
+          "shop-drawings-elektro": "Small power plan with the symbol legend",
+          "shop-drawings-oberflaechen": "Wall finishes plan with the material legend",
+          "shop-drawings-kueche-schluessel": "Kitchen key plan within the apartment",
+          "shop-drawings-kueche-ansichten": "Kitchen elevations with materials and dimensions",
+          "shop-drawings-bad-schluessel": "Bathroom key plan within the apartment",
+          "shop-drawings-bad-ansichten": "Bathroom elevations with materials and dimensions"
+        },
+        "blaetter": [
+          "Furniture layout",
+          "Flooring plan",
+          "Lighting plan",
+          "Small power plan",
+          "Wall finishes plan",
+          "Kitchen key plan",
+          "Kitchen elevations",
+          "Bathroom key plan",
+          "Bathroom elevations"
+        ]
+      },
+      "hero": "geteilt"
     },
     {
       "slug": "ayloul-brand-identity",
@@ -465,13 +496,25 @@
       "flaeche": null,
       "jahr": null,
       "pdfSeiten": "39-43",
-      "titelbild": "brand-identity-mockups",
+      "titelbild": "brand-identity-cover",
       "galerie": [
-        "brand-identity-mockups",
-        "brand-identity-logo-varianten",
-        "brand-identity-konstruktion",
-        "brand-identity-visitenkarte",
-        "brand-identity-social-posts"
+        "brand-identity-cover",
+        "brand-identity-konzept",
+        "brand-identity-geometrie",
+        "brand-identity-raster",
+        "brand-identity-aufbau",
+        "brand-identity-farben",
+        "brand-identity-typografie",
+        "brand-identity-raute",
+        "brand-identity-anwendungen",
+        "brand-identity-helm",
+        "brand-identity-social",
+        "brand-identity-stories",
+        "brand-identity-story-studio",
+        "brand-identity-story-leistungen",
+        "brand-identity-story-kontakt",
+        "brand-identity-foil",
+        "brand-identity-papier"
       ],
       "farben": [
         "#052f24",
@@ -493,12 +536,59 @@
         ],
         "materialien": [],
         "alt": {
-          "brand-identity-mockups": "نماذج عرض لشعار أيلول: ورق بارز وبطاقة داكنة وخوذة موقع",
-          "brand-identity-logo-varianten": "أربعة أشكال للشعار على الأخضر الغامق والعاجي",
-          "brand-identity-konstruktion": "بناء رمز الشعار والحروف اللاتينية A وY وL وO وU",
-          "brand-identity-visitenkarte": "بطاقة أعمال أيلول، الوجه والظهر",
-          "brand-identity-social-posts": "ثلاثة منشورات عربية لوسائل التواصل بنظام تصميم أيلول"
-        }
+          "brand-identity-cover": "شعار أيلول بالعاجي والتيراكوتا على أخضر الغابة الداكن مع ضباب خفيف",
+          "brand-identity-konzept": "لوحة الغلاف: التصميم الجرافيكي، حين تتحول الأفكار إلى لغة بصرية",
+          "brand-identity-geometrie": "لوحة التكوين الهندسي: الشبكة وبناء الشعار والخط والعنصر البصري",
+          "brand-identity-raster": "أيقونة أيلول مبنية على شبكة مثلثية",
+          "brand-identity-aufbau": "بناء الأيقونة من الحروف Y وA وU وO وL",
+          "brand-identity-farben": "لوحة الهوية: الشعار بنسخه الأربع ولوحة الألوان الثلاثة",
+          "brand-identity-typografie": "الخط Fustat ضمن هوية أيلول",
+          "brand-identity-raute": "المعيّن: الحرف O عنصراً بصرياً متكرراً",
+          "brand-identity-anwendungen": "بطاقة العمل وعرض الشعار وتطبيقاته",
+          "brand-identity-helm": "خوذة موقع بشعار أيلول",
+          "brand-identity-social": "الهوية البصرية على وسائل التواصل الاجتماعي",
+          "brand-identity-stories": "ثلاث قصص لوسائل التواصل بنظام الهوية",
+          "brand-identity-story-studio": "قصة «من نحن» لوسائل التواصل",
+          "brand-identity-story-leistungen": "قصة «خدماتنا» لوسائل التواصل",
+          "brand-identity-story-kontakt": "قصة «تواصل معنا» لوسائل التواصل",
+          "brand-identity-foil": "شعار أيلول مطبوع بالضغط الحراري على ورق فاتح",
+          "brand-identity-papier": "شعار أيلول مطبوع على ورق أسود"
+        },
+        "farbnamen": [
+          "أخضر الغابة الداكن",
+          "تيراكوتا",
+          "أبيض عاجي"
+        ],
+        "kapitel": [
+          {
+            "titel": "حين تتحول الأفكار إلى لغة بصرية",
+            "text": "تقوم هوية أيلول على منظومة بصرية متكاملة تستلهم مبادئ التفكير المعماري لتقدّم شخصية بصرية واضحة ومميّزة. وقد صُمّم كل عنصر من عناصرها، بدءاً من الشعار والخطوط، وصولاً إلى الألوان والتكوين، ليعمل ضمن لغة موحّدة تعكس شخصية العلامة وتحافظ على اتساقها في مختلف التطبيقات."
+          },
+          {
+            "titel": "بناء الشعار على الشبكة",
+            "text": "طُوّر الشعار وفق بناء هندسي قائم على التناسب والتكرار والمحاذاة. واستُخدمت شبكة معيارية لضبط العلاقات بين مكوّناته، بما يضمن توازنه البصري واتساق تكوينه. وتتطور مكونات الشعار عبر مراحل متتابعة للوصول إلى تكوين متوازن وواضح."
+          },
+          {
+            "titel": "لوحة الألوان",
+            "text": "ترتكز لوحة الألوان على الأخضر المعماري العميق، مدعوماً بدرجات حيادية هادئة. ويمنح هذا التوازن الهوية عمقاً بصرياً وتبايناً مدروساً، مع الحفاظ على طابع راقٍ وهادئ يناسب الاستخدامات المطبوعة والرقمية."
+          },
+          {
+            "titel": "الخط",
+            "text": "اختير الخط Fustat بوصفه جزءاً أساسياً من الهوية، لينسجم مع الطابع الهندسي للشعار، ويدعم وضوحه من خلال البساطة والتنظيم والاتزان البصري."
+          },
+          {
+            "titel": "العنصر البصري المميّز",
+            "text": "يتجاوز حرف O وظيفته بوصفه حرفاً ضمن الاسم، ليصبح عنصراً بصرياً متكرراً في هوية أيلول. وتمنح هندسته الهوية إحساساً بالاستمرارية والتوازن، وتتيح توظيفه ضمن تطبيقات بصرية متعددة."
+          },
+          {
+            "titel": "التطبيقات",
+            "text": "تمتد الهوية البصرية إلى منظومة مرنة من التطبيقات، تحافظ على طابعها الموحّد عبر مختلف نقاط التواصل، في الوسائط المطبوعة والرقمية: بطاقة العمل، وخوذة الموقع، ووسائل التواصل الاجتماعي."
+          },
+          {
+            "titel": "الإنتاج",
+            "text": "الشعار على مواد طباعية مختلفة: طباعة بالضغط الحراري على ورق فاتح، وطباعة على ورق أسود."
+          }
+        ]
       },
       "en": {
         "titel": "AYLOUL Brand Identity",
@@ -515,13 +605,114 @@
         ],
         "materialien": [],
         "alt": {
-          "brand-identity-mockups": "Mockups of the AYLOUL logo: embossed paper, a dark card and a site helmet",
-          "brand-identity-logo-varianten": "Four logo variants on forest green and ivory",
-          "brand-identity-konstruktion": "Construction of the logo mark and the letters A, Y, L, O and U",
-          "brand-identity-visitenkarte": "AYLOUL business card, front and back",
-          "brand-identity-social-posts": "Three Arabic social media posts in the AYLOUL design system"
+          "brand-identity-cover": "The AYLOUL logo in ivory and terracotta on dark forest green with soft mist",
+          "brand-identity-konzept": "Cover board: graphic design, when ideas become a visual language",
+          "brand-identity-geometrie": "Geometry board: grid, logo construction, typeface and visual element",
+          "brand-identity-raster": "The AYLOUL icon built on a triangular grid",
+          "brand-identity-aufbau": "Building the icon from the letters Y, A, U, O and L",
+          "brand-identity-farben": "Identity board: the logo in four versions and the three-colour palette",
+          "brand-identity-typografie": "The Fustat typeface in the AYLOUL identity",
+          "brand-identity-raute": "The rhombus: the letter O as a recurring visual element",
+          "brand-identity-anwendungen": "Business card, logo display and applications",
+          "brand-identity-helm": "A site helmet with the AYLOUL logo",
+          "brand-identity-social": "The visual identity on social media",
+          "brand-identity-stories": "Three social media stories in the identity system",
+          "brand-identity-story-studio": "Social media story: about us",
+          "brand-identity-story-leistungen": "Social media story: our services",
+          "brand-identity-story-kontakt": "Social media story: contact us",
+          "brand-identity-foil": "The AYLOUL logo foil-pressed on light paper",
+          "brand-identity-papier": "The AYLOUL logo printed on black paper"
+        },
+        "farbnamen": [
+          "Dark Forest Green",
+          "Terracotta",
+          "Ivory White"
+        ],
+        "kapitel": [
+          {
+            "titel": "When ideas become a visual language",
+            "text": "The AYLOUL identity is an integrated visual system inspired by the principles of architectural thinking, giving the brand a clear and distinctive character. Every element, from the logo and typefaces to colours and composition, was designed to work within one unified language that reflects the brand and keeps it consistent across all applications."
+          },
+          {
+            "titel": "Building the logo on the grid",
+            "text": "The logo was developed through a geometric construction based on proportion, repetition and alignment. A modular grid controls the relationships between its parts, ensuring visual balance and a consistent composition. Its components evolve in successive steps towards a balanced, clear form."
+          },
+          {
+            "titel": "Colour palette",
+            "text": "The palette is anchored in a deep architectural green, supported by calm neutral tones. This balance gives the identity visual depth and considered contrast, while keeping a refined, calm character suited to print and digital use."
+          },
+          {
+            "titel": "Typography",
+            "text": "The Fustat typeface was chosen as an essential part of the identity: it matches the geometric character of the logo and supports its clarity through simplicity, order and visual balance."
+          },
+          {
+            "titel": "The signature element",
+            "text": "The letter O goes beyond its role as a letter in the name and becomes a recurring visual element of the AYLOUL identity. Its geometry gives the identity a sense of continuity and balance, and allows it to be used across many visual applications."
+          },
+          {
+            "titel": "Applications",
+            "text": "The identity extends into a flexible system of applications that keeps its unified character across every touchpoint, in print and digital media: the business card, the site helmet and social media."
+          },
+          {
+            "titel": "Production",
+            "text": "The logo on different print materials: foil pressing on light paper and print on black paper."
+          }
+        ]
+      },
+      "kapitel": [
+        {
+          "muster": "bild",
+          "bilder": [
+            "brand-identity-konzept",
+            "brand-identity-cover"
+          ]
+        },
+        {
+          "muster": "raster",
+          "bilder": [
+            "brand-identity-raster",
+            "brand-identity-aufbau",
+            "brand-identity-geometrie"
+          ]
+        },
+        {
+          "muster": "farben",
+          "bilder": [
+            "brand-identity-farben"
+          ]
+        },
+        {
+          "muster": "schrift",
+          "bilder": [
+            "brand-identity-typografie"
+          ]
+        },
+        {
+          "muster": "raute",
+          "bilder": [
+            "brand-identity-raute"
+          ]
+        },
+        {
+          "muster": "anwendungen",
+          "bilder": [
+            "brand-identity-anwendungen",
+            "brand-identity-helm",
+            "brand-identity-social",
+            "brand-identity-stories",
+            "brand-identity-story-studio",
+            "brand-identity-story-leistungen",
+            "brand-identity-story-kontakt"
+          ]
+        },
+        {
+          "muster": "bild",
+          "bilder": [
+            "brand-identity-foil",
+            "brand-identity-papier"
+          ]
         }
-      }
+      ]
     }
   ]
 }

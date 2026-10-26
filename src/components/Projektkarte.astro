@@ -16,7 +16,7 @@ const Tag = ebene;
     <Bild id={projekt.titelbild} alt={pt.alt[projekt.titelbild]} sizes="(min-width: 62rem) 30vw, (min-width: 40rem) 45vw, 92vw" laden={laden} prioritaet={prioritaet} />
     <span class="linie" aria-hidden="true"></span>
   </div>
-  <p class="bereich">{tx.projekte.filter[projekt.bereich]}{projekt.auszug && <span class="auszug">{tx.projekte.auszug}</span>}</p>
+  <p class="bereich">{tx.projekte.filter[projekt.bereich]}</p>
   <Tag class="titel"><a href={pfad(lang, `projects/${projekt.slug}`)}>{pt.titel}<span class="pfeil" aria-hidden="true">←</span></a></Tag>
   <p class="kurz">{pt.kurz}</p>
 </article>
@@ -58,5 +58,4 @@ const Tag = ebene;
     .karte:hover .karte-bild :global(img) { transform: none; }
     .linie, .pfeil { transition: none; }
   }
-  .auszug { margin-inline-start: 0.6em; padding-inline-start: 0.6em; border-inline-start: 1px solid currentColor; }
 </style>

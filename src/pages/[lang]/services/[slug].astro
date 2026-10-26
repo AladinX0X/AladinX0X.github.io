@@ -1,13 +1,18 @@
 ---
+// Leistungs-Detailseite (gemeinsames Template, Designsprache der Startseite):
+// Hero → Was die Leistung umfasst → Ablauf (Linien-Szene) → Verwandte Projekte (Karten der Startseite)
+// → Weitere Leistungen → Kontakt. Dunkel/hell wechseln sich automatisch ab.
 import Basis from '../../../layouts/Basis.astro';
-import Seitenkopf from '../../../components/Seitenkopf.astro';
-import Abschnittskopf from '../../../components/Abschnittskopf.astro';
+import Hero from '../../../components/sections/Hero.astro';
+import Abschnitt from '../../../components/sections/Abschnitt.astro';
+import LinienSzene from '../../../components/sections/LinienSzene.astro';
 import Projektkarte from '../../../components/Projektkarte.astro';
+import LeistungenListe from '../../../components/LeistungenListe.astro';
 import Raute from '../../../components/Raute.astro';
 import Icon from '../../../components/Icon.astro';
+import Woerter from '../../../components/Woerter.astro';
 import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
-import manifest from '../../../data/bilder-manifest.json';
-import { leistungen, projektNach, type Leistung } from '../../../data/daten';
+import { leistungen, projektNach, altText, type Leistung } from '../../../data/daten';
 import { t, pfad, sprachen, type Sprache } from '../../../i18n/utils';
 
 export function getStaticPaths() {
@@ -17,92 +22,74 @@ interface Props { leistung: Leistung }
 const { leistung } = Astro.props;
 const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
-const e = tx.leistungen.eintraege[leistung.slug as keyof typeof tx.leistungen.eintraege];
+const l = tx.leistungen;
+const e = l.eintraege[leistung.slug as keyof typeof l.eintraege];
 const verknuepft = leistung.projekte.map(projektNach).filter((p) => p !== undefined);
-const andere = leistungen.filter((x) => x.slug !== leistung.slug);
-const bild = (manifest as Record<string, { breite: number; hoehe: number }>)[leistung.bild];
-const alleAlt = tx.alt as Record<string, string>;
-// Werkplanung: Aspekte sind eine Abfolge (Design Intent → Development → Documentation → Detail)
+// Werkplanung hat einen eigenen Ablauf (Design Intent → Development → Documentation → Detail), sonst die Arbeitsweise
 const alsAbfolge = leistung.slug === 'shop-drawings';
+const ablauf = alsAbfolge ? e.aspekte : tx.arbeitsweise.schritte;
+// Abschnitte im Wechsel: Hero (dunkel) → hell → dunkel → …
+const toene = ['hell', 'dunkel'] as const;
+let n = 0;
+const naechsterTon = () => toene[n++ % 2];
+const tonUmfang = naechsterTon();
+const tonAblauf = naechsterTon();
+const tonProjekte = verknuepft.length > 0 ? naechsterTon() : null;
+const tonWeitere = naechsterTon();
+const tonKontakt = naechsterTon();
+let nr = 0;
 ---
-<Basis lang={lang} titel={e.name} beschreibung={e.kurz} seite="leistungen" vorladen={{ id: leistung.bild, sizes: '(min-width: 62rem) 40vw, 92vw' }}>
-  <Seitenkopf
-    titel={e.name}
-    unterzeile={e.kurz}
-    kicker={tx.leistungen.alle}
-    kickerHref={pfad(lang, 'services')}
-    bild={leistung.bild}
-    bildAlt={alleAlt[leistung.bild]}
-    bildFormat={`${bild.breite} / ${bild.hoehe}`}
-  />
+<Basis lang={lang} titel={e.name} beschreibung={e.kurz} seite="leistungen" kopfUeberHero vorladen={{ id: leistung.bild, sizes: '100vw' }}>
+  <Hero bild={leistung.bild} bildAlt={altText(leistung.bild, lang)} kicker={l.titel} titel={e.name} unterzeile={e.kurz} hoehe="gross" hinweisZiel="#umfang-titel" hinweisText={tx.start.scrollHinweis} />
 
-  <section class="abschnitt hell" aria-labelledby="aspekte-titel">
-    <div class="huelle">
-      <div class="lesetext text einblenden">
-        {e.text.map((absatz, i) => <p class={i === 0 ? 'einleitung' : ''}>{absatz}</p>)}
+  <Abschnitt ton={tonUmfang} id="umfang-titel" titel={l.umfangTitel} nummer={++nr}>
+    <div class="umfang">
+      <div class="lesetext">
+        {e.text.map((absatz, i) => (i === 0
+          ? <p class="einleitung" data-woerter-einblenden><Woerter text={absatz} /></p>
+          : <p>{absatz}</p>))}
       </div>
-      <Abschnittskopf titel={alsAbfolge ? tx.leistungen.schritteTitel : tx.leistungen.aspekteTitel} nummer={1} id="aspekte-titel" />
-      <ol class={`aspekte ${alsAbfolge ? 'abfolge' : ''}`}>
-        {e.aspekte.map((a, i) => (
-          <li class="aspekt einblenden">
-            <span class="aspekt-kopf">
-              <span class="aspekt-nr">{String(i + 1).padStart(2, '0')}</span>
-              {alsAbfolge && i < e.aspekte.length - 1 ? <span class="verbinder" aria-hidden="true"></span> : <Raute />}
-            </span>
-            <h3>{a.name}</h3>
-            <p>{a.text}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="abschnitt dunkel" aria-labelledby="projekte-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.leistungen.projekteTitel} nummer={2} id="projekte-titel" />
-      {verknuepft.length > 0 ? (
-        <div class="projekt-raster">
-          {verknuepft.map((p) => <Projektkarte lang={lang} projekt={p} />)}
-        </div>
-      ) : (
-        <p class="einleitung lesetext">{tx.leistungen.keineProjekte}</p>
+      {!alsAbfolge && (
+        <ul class="aspekte">
+          {e.aspekte.map((a) => (
+            <li class="aspekt einblenden">
+              <span class="icon-rund"><Icon name={leistung.icon} /></span>
+              <h3><Raute />{a.name}</h3>
+              <p>{a.text}</p>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
-  </section>
+  </Abschnitt>
 
-  <section class="abschnitt hell" aria-labelledby="weitere-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.leistungen.weitere} id="weitere-titel" />
-      <ul class="weitere">
-        {andere.map((x) => (
-          <li>
-            <a href={pfad(lang, `services/${x.slug}`)}>
-              <span class="icon-rund"><Icon name={x.icon} /></span>
-              <span>{tx.leistungen.eintraege[x.slug as keyof typeof tx.leistungen.eintraege].name}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+  <LinienSzene ton={tonAblauf} titel={alsAbfolge ? l.schritteTitel : l.ablaufTitel} nummer={++nr} id="ablauf-titel" schritte={ablauf} link={alsAbfolge ? undefined : { href: pfad(lang, 'approach'), text: tx.start.arbeitsweiseLink }} />
 
-  <Kontaktaufruf lang={lang} hell={false} />
+  {tonProjekte && (
+    <Abschnitt ton={tonProjekte} id="projekte-titel" titel={l.projekteTitel} nummer={++nr}>
+      <div class="projekt-raster">
+        {verknuepft.map((p) => <Projektkarte lang={lang} projekt={p} />)}
+      </div>
+    </Abschnitt>
+  )}
+
+  <Abschnitt ton={tonWeitere} id="weitere-titel" titel={l.weitere} nummer={++nr}>
+    <LeistungenListe lang={lang} ausser={leistung.slug} />
+  </Abschnitt>
+
+  <Kontaktaufruf lang={lang} hell={tonKontakt === 'hell'} />
 </Basis>
 
 <style>
-  .text { margin-block-end: var(--abstand-8); }
-  .aspekte { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
-  .aspekt { display: grid; gap: var(--abstand-3); align-content: start; }
-  .aspekt-kopf { display: flex; align-items: center; gap: var(--abstand-3); }
-  .aspekt-nr { font-size: var(--nummer); font-weight: var(--gewicht-stark); color: var(--farbe-terrakotta); line-height: 1; }
-  .aspekt-kopf :global(.raute) { inline-size: 0.7rem; }
-  .verbinder { flex: 1; border-block-start: 2px dashed var(--farbe-terrakotta); opacity: 0.8; }
-  .aspekt h3 { font-size: var(--h3); }
+  .umfang { display: grid; gap: var(--abstand-8); }
+  .aspekte { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+  .aspekt { display: grid; gap: var(--abstand-3); align-content: start; padding: var(--abstand-6); border: 1px solid var(--linie-auf-hell); border-radius: var(--radius-bild); }
+  :global(.dunkel) .aspekt { border-color: var(--linie-auf-dunkel); }
+  .aspekt h3 { display: flex; gap: var(--abstand-3); align-items: baseline; font-size: var(--h3); }
+  .aspekt h3 :global(.raute) { inline-size: 0.5em; }
   .aspekt p { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  .icon-rund { display: grid; place-items: center; inline-size: 3rem; block-size: 3rem; border-radius: 50%; border: 1px solid var(--farbe-terrakotta); color: var(--farbe-terrakotta-dunkel); }
+  :global(.dunkel) .icon-rund { color: var(--farbe-terrakotta-hell); }
+  .icon-rund :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
   .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
-  .weitere { list-style: none; display: grid; gap: var(--abstand-3) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
-  .weitere a { display: flex; align-items: center; gap: var(--abstand-4); padding-block: var(--abstand-3); text-decoration: none; font-weight: var(--gewicht-mittel); border-block-end: 1px solid var(--linie-auf-hell); }
-  .weitere a:hover span:last-child { text-decoration: underline; text-underline-offset: 0.25em; }
-  .icon-rund { display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; flex: none; border-radius: 50%; background: var(--farbe-terrakotta-dunkel); color: var(--farbe-weiss); }
-  .icon-rund :global(.icon) { inline-size: 1.25rem; block-size: 1.25rem; }
 </style>

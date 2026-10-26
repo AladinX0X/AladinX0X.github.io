@@ -1,22 +1,22 @@
 ---
-// Startseite. Abfolge dunkel/hell im Wechsel; drei gepinnte Szenen (Studio-Satz, Hauptprojekt, Arbeitsweise).
-// Bewegungskonzept: BERICHT.md, Umsetzung: src/scripts/module/bewegung.ts.
+// Startseite (freigegebene Referenz, siehe DESIGN-SYSTEM.md). Aufgebaut aus den gemeinsamen Bausteinen
+// src/components/sections/*; Bewegung: src/scripts/motion/*.
 import Basis from '../../layouts/Basis.astro';
-import Hero from '../../components/Hero.astro';
-import Abschnittskopf from '../../components/Abschnittskopf.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Abschnitt from '../../components/sections/Abschnitt.astro';
+import WortSzene from '../../components/sections/WortSzene.astro';
+import BildSzene from '../../components/sections/BildSzene.astro';
+import LinienSzene from '../../components/sections/LinienSzene.astro';
+import Statement from '../../components/sections/Statement.astro';
 import Kennzahlen from '../../components/Kennzahlen.astro';
 import LeistungenListe from '../../components/LeistungenListe.astro';
 import Disziplinen from '../../components/Disziplinen.astro';
-import SzeneProjekt from '../../components/SzeneProjekt.astro';
-import SzeneAblauf from '../../components/SzeneAblauf.astro';
 import Projektkarte from '../../components/Projektkarte.astro';
 import PortfolioKnopf from '../../components/PortfolioKnopf.astro';
-import Raute from '../../components/Raute.astro';
-import Woerter from '../../components/Woerter.astro';
 import Icon from '../../components/Icon.astro';
 import Kontaktaufruf from '../../components/Kontaktaufruf.astro';
 import site from '../../data/site.json';
-import { projektNach } from '../../data/daten';
+import { projektNach, projektText } from '../../data/daten';
 import { t, pfad, sprachPfade, type Sprache } from '../../i18n/utils';
 
 export const getStaticPaths = sprachPfade;
@@ -24,89 +24,81 @@ const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
 // Das Hauptprojekt erscheint nicht zusätzlich als Karte (eindeutige transition:name)
 const auswahl = site.ausgewaehlteProjekte.filter((s) => s !== site.hauptProjekt).map(projektNach).filter((p) => p !== undefined);
+const haupt = projektNach(site.hauptProjekt);
+if (!haupt) throw new Error(`hauptProjekt "${site.hauptProjekt}" fehlt in projekte.json`);
+const hauptText = projektText(haupt, lang);
+const heroProjekt = projektNach('mosque-square');
 ---
-<Basis lang={lang} titel={tx.meta.seiten.start.titel} beschreibung={tx.meta.seiten.start.beschreibung} seite="start" ohneSuffix kopfUeberHero={site.heroVollbild} vorladen={{ id: site.heroBild, sizes: '100vw' }}>
-  <Hero lang={lang} />
+<Basis lang={lang} titel={tx.meta.seiten.start.titel} beschreibung={tx.meta.seiten.start.beschreibung} seite="start" ohneSuffix kopfUeberHero vorladen={{ id: site.heroBild, sizes: '100vw' }}>
+  <Hero
+    bild={site.heroBild}
+    bildAlt={tx.alt.hero}
+    variante={site.heroVollbild ? 'vollbild' : 'geteilt'}
+    kicker={tx.marke.unterzeile}
+    titel={tx.marke.claim}
+    titelArt="claim"
+    slogan={tx.marke.slogan}
+    hinweisZiel="#studio-titel"
+    hinweisText={tx.start.scrollHinweis}
+    bildLink={heroProjekt ? { href: pfad(lang, `projects/${heroProjekt.slug}`), text: projektText(heroProjekt, lang).titel } : undefined}
+  >
+    <a class="knopf knopf-voll" href={pfad(lang, 'projects')}>{tx.start.heroProjekte}<Icon name="pfeil" klasse="spiegeln pfeil" /></a>
+    <a class="knopf knopf-linie" href={pfad(lang, 'contact')}>{tx.start.heroKontakt}</a>
+  </Hero>
 
-  <section class="abschnitt hell szene-satz" data-szene="satz" aria-labelledby="studio-titel">
-    <div class="huelle satz-innen">
-      <Abschnittskopf titel={tx.start.studioTitel} nummer={1} id="studio-titel" />
-      <p class="satz" data-satz><Woerter text={tx.start.studioText} /></p>
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'about')}>{tx.start.studioLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
+  <WortSzene titel={tx.start.studioTitel} nummer={1} id="studio-titel" text={tx.start.studioText} link={{ href: pfad(lang, 'about'), text: tx.start.studioLink }} />
+
+  <Abschnitt ton="dunkel" id="disziplinen-titel" titel={tx.start.disziplinenTitel} nummer={2} unterzeile={tx.start.disziplinenIntro}>
+    <Disziplinen lang={lang} />
+  </Abschnitt>
+
+  <Abschnitt ton="hell" id="zahlen-titel" titel={tx.start.zahlenTitel} nummer={3}>
+    <Kennzahlen lang={lang} />
+  </Abschnitt>
+
+  <BildSzene
+    kicker={tx.start.hauptprojektKicker}
+    nummer={4}
+    titel={hauptText.titel}
+    ort={hauptText.ort}
+    bild={haupt.titelbild}
+    bildAlt={hauptText.alt[haupt.titelbild]}
+    text={hauptText.kurz}
+    link={{ href: pfad(lang, `projects/${haupt.slug}`), text: tx.start.hauptprojektLink }}
+  />
+
+  <Abschnitt ton="hell" id="leistungen-titel" titel={tx.start.leistungenTitel} nummer={5} unterzeile={tx.start.leistungenIntro}>
+    <LeistungenListe lang={lang} />
+    <p class="mehr"><a class="textlink" href={pfad(lang, 'services')}>{tx.start.leistungenLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
+  </Abschnitt>
+
+  <LinienSzene
+    titel={tx.start.arbeitsweiseTitel}
+    nummer={6}
+    unterzeile={tx.start.arbeitsweiseIntro}
+    schritte={tx.arbeitsweise.schritte}
+    link={{ href: pfad(lang, 'approach'), text: tx.start.arbeitsweiseLink }}
+  />
+
+  <Abschnitt ton="hell" id="projekte-titel" titel={tx.start.projekteTitel} nummer={7}>
+    <div class="projekt-raster">
+      {auswahl.map((p) => <Projektkarte lang={lang} projekt={p} />)}
     </div>
-  </section>
+    <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
+  </Abschnitt>
 
-  <section class="abschnitt dunkel" aria-labelledby="disziplinen-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.start.disziplinenTitel} nummer={2} id="disziplinen-titel" unterzeile={tx.start.disziplinenIntro} />
-      <Disziplinen lang={lang} />
-    </div>
-  </section>
-
-  <section class="abschnitt hell" aria-labelledby="zahlen-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.start.zahlenTitel} nummer={3} id="zahlen-titel" />
-      <Kennzahlen lang={lang} />
-    </div>
-  </section>
-
-  <SzeneProjekt lang={lang} slug={site.hauptProjekt} nummer={4} />
-
-  <section class="abschnitt hell" aria-labelledby="leistungen-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.start.leistungenTitel} nummer={5} id="leistungen-titel" unterzeile={tx.start.leistungenIntro} />
-      <LeistungenListe lang={lang} />
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'services')}>{tx.start.leistungenLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
-    </div>
-  </section>
-
-  <SzeneAblauf lang={lang} nummer={6} />
-
-  <section class="abschnitt hell" aria-labelledby="projekte-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={tx.start.projekteTitel} nummer={7} id="projekte-titel" />
-      <div class="projekt-raster">
-        {auswahl.map((p) => <Projektkarte lang={lang} projekt={p} />)}
-      </div>
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
-    </div>
-  </section>
-
-  <section class="abschnitt dunkel" aria-labelledby="ingenieure-titel">
-    <div class="huelle zwei">
-      <div class="einblenden">
-        <h2 id="ingenieure-titel" class="gross-satz"><Raute />{tx.start.ingenieureTitel}</h2>
-        <p class="lesetext">{tx.start.ingenieureText}</p>
-      </div>
-      <div class="portfolio einblenden">
-        <h2 class="portfolio-titel">{tx.portfolio.titel}</h2>
-        <p>{tx.portfolio.text}</p>
-        <PortfolioKnopf lang={lang} />
-      </div>
-    </div>
-  </section>
+  <Statement titel={tx.start.ingenieureTitel} text={tx.start.ingenieureText} id="ingenieure-titel" kastenTitel={tx.portfolio.titel}>
+    <Fragment slot="kasten">
+      <p>{tx.portfolio.text}</p>
+      <PortfolioKnopf lang={lang} />
+    </Fragment>
+  </Statement>
 
   <Kontaktaufruf lang={lang} nummer={8} />
 </Basis>
 
 <style>
-  .szene-satz { min-block-size: 80svh; display: grid; align-content: center; }
-  .satz-innen { display: grid; gap: var(--abstand-6); }
-  .satz {
-    font-size: clamp(1.75rem, 1rem + 2.6vw, 3.25rem);
-    font-weight: var(--gewicht-titel);
-    line-height: 1.55;
-    max-inline-size: 30ch;
-    text-wrap: balance;
-  }
-  :global(:lang(en)) .satz { line-height: 1.3; max-inline-size: 26ch; }
   .mehr { margin-block-start: var(--abstand-6); }
-  .satz-innen .mehr { margin-block-start: 0; }
   .mehr :global(.pfeil) { display: inline-block; inline-size: 1.1em; block-size: 1.1em; vertical-align: -0.2em; margin-inline-start: 0.35em; }
   .projekt-raster { display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
-  .zwei { display: grid; gap: var(--abstand-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
-  .gross-satz { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); margin-block-end: var(--abstand-5); }
-  .gross-satz :global(.raute) { inline-size: 0.6em; }
-  .portfolio { padding: var(--abstand-6); border: 1px solid var(--linie-auf-dunkel); border-radius: var(--radius-bild); display: grid; gap: var(--abstand-4); justify-items: start; }
-  .portfolio-titel { font-size: var(--h3); color: var(--farbe-terrakotta-hell); }
 </style>

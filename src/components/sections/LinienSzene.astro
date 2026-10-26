@@ -1,0 +1,93 @@
+---
+// Gemeinsame gepinnte Szene "Linie": Schritte entlang einer gestrichelten Linie (Startseite: Arbeitsweise;
+// Studio: "Von der Zeichnung zur Erfahrung"; Werkplanung: Ablauf).
+// Ohne JavaScript, bei reduzierter Bewegung und mobil: Raster der Schritte, alles sichtbar.
+// Groß mit Maus (Klasse .bewegt, gesetzt von src/scripts/motion/linienszene.ts): die Raute wandert beim Scrollen
+// die Linie entlang (in RTL von rechts nach links), die Schritte leuchten nacheinander auf.
+import Abschnittskopf from '../Abschnittskopf.astro';
+import Raute from '../Raute.astro';
+
+interface Props {
+  titel: string; nummer?: number; unterzeile?: string; id?: string; name?: string;
+  schritte: { name: string; text?: string }[]; link?: { href: string; text: string }; ton?: 'dunkel' | 'hell';
+}
+const { titel, nummer, unterzeile, id = 'arbeitsweise-titel', name = 'ablauf', schritte, link, ton = 'dunkel' } = Astro.props;
+const nr = (i: number) => String(i + 1).padStart(2, '0');
+---
+<section class:list={['szene', 'szene-ablauf', ton]} data-szene={name} data-muster="linienszene" aria-labelledby={id} style={`--n: ${schritte.length}`}>
+  <div class="huelle sa-innen">
+    <Abschnittskopf titel={titel} nummer={nummer} id={id} unterzeile={unterzeile} />
+    <div class="sa-leiste" data-ablauf-leiste aria-hidden="true">
+      <span class="sa-linie"></span>
+      <span class="sa-fuellung" data-ablauf-fuellung></span>
+      <span class="sa-raute" data-ablauf-raute><Raute /></span>
+    </div>
+    <ol class="sa-schritte">
+      {schritte.map((s, i) => (
+        <li class="sa-schritt einblenden" data-ablauf-schritt>
+          <span class="knoten" aria-hidden="true"><Raute /></span>
+          <span class="nr">{nr(i)}</span>
+          <h3 class="name">{s.name}</h3>
+          {s.text && <p class="text">{s.text}</p>}
+        </li>
+      ))}
+    </ol>
+    {link && <p class="mehr"><a class="textlink" href={link.href}>{link.text}</a></p>}
+  </div>
+</section>
+
+<style>
+  .szene-ablauf { position: relative; isolation: isolate; padding-block: var(--abschnitt-abstand); }
+  .szene-ablauf.hell .nr { color: var(--farbe-terrakotta-dunkel); }
+  .szene-ablauf.hell .sa-linie { border-block-start-color: var(--linie-auf-hell); }
+  .sa-schritte {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: var(--abstand-7) var(--abstand-6);
+  }
+  .sa-schritt { position: relative; display: grid; gap: var(--abstand-2); align-content: start; padding-block-start: var(--abstand-6); }
+  .sa-schritt::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.55rem;
+    inset-inline: 1.4rem 0;
+    border-block-start: 2px dashed var(--farbe-terrakotta);
+    opacity: 0.7;
+  }
+  .knoten { position: absolute; inset-block-start: 0; inset-inline-start: 0; line-height: 0; }
+  .knoten :global(.raute) { inline-size: 0.75rem; }
+  .nr { font-size: var(--text-klein); color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-titel); }
+  .name { font-size: var(--h3); }
+  .text { font-size: var(--text-klein); line-height: var(--zeile-klein); max-inline-size: 22rem; }
+  .sa-leiste { display: none; }
+  .mehr { margin-block-start: var(--abstand-7); }
+
+  /* Bewegte Fassung: eine durchgehende Linie über sechs Spalten, die Raute wandert */
+  .bewegt { min-block-size: 100svh; display: grid; align-content: center; padding-block: var(--abstand-8); }
+  .bewegt .sa-leiste { display: block; position: relative; block-size: 1.5rem; margin-block: var(--abstand-6) 0; }
+  .sa-linie, .sa-fuellung {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline: calc(100% / (2 * var(--n)));
+    border-block-start: 2px dashed var(--linie-auf-dunkel);
+  }
+  .sa-fuellung { border-block-start: 2px solid var(--farbe-terrakotta); transform-origin: var(--ursprung-start); transform: scaleX(0); }
+  :global([dir='rtl']) .sa-fuellung { --ursprung-start: 100% 50%; }
+  :global([dir='ltr']) .sa-fuellung { --ursprung-start: 0% 50%; }
+  .sa-raute {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: calc(100% / (2 * var(--n)) - 0.7rem);
+    inline-size: 1.4rem;
+    margin-block-start: -1.15rem;
+    line-height: 0;
+    filter: drop-shadow(0 0 10px rgb(232 135 92 / 0.6));
+  }
+  .sa-raute :global(.raute) { inline-size: 1.4rem; }
+  /* Spalten ohne Abstand, damit die Spaltenmitten genau auf den Knoten der Linie liegen (n/12, 3n/12 ...) */
+  .bewegt .sa-schritte { grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 0; margin-block-start: var(--abstand-5); }
+  .bewegt .sa-schritt { padding-block-start: 0; padding-inline: var(--abstand-3); text-align: center; justify-items: center; }
+  .bewegt .sa-schritt::before, .bewegt .knoten { display: none; }
+  .bewegt .sa-schritt.einblenden { opacity: 1; transform: none; transition: none; }
+</style>

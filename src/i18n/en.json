@@ -12,11 +12,11 @@
       },
       "arbeitsweise": {
         "titel": "Approach",
-        "beschreibung": "Six steps from idea to experience: idea, geometry, form, space, material and experience."
+        "beschreibung": "From idea to experience: idea, geometry, form, space, material and experience."
       },
       "leistungen": {
         "titel": "Services",
-        "beschreibung": "Six services: exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization, construction and supervision."
+        "beschreibung": "Our services: exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization, construction and supervision."
       },
       "projekte": {
         "titel": "Projects",
@@ -55,12 +55,12 @@
   },
   "start": {
     "heroProjekte": "View projects",
-    "heroWhatsapp": "Chat on WhatsApp",
+    "heroKontakt": "Contact us",
     "studioTitel": "Studio",
     "studioText": "AYLOUL brings architecture and graphic design into one continuous design practice. We develop ideas through drawing, form, space, material and visual communication, allowing each discipline to inform and strengthen the other.",
     "studioLink": "About the studio",
     "disziplinenTitel": "Our disciplines",
-    "disziplinenIntro": "Three disciplines, one design language.",
+    "disziplinenIntro": "Different disciplines, one design language.",
     "dreiD": {
       "name": "3D Design",
       "text": "Photorealistic 3D visualisations of façades and interiors, by day and by night, that show a project clearly before it is built.",
@@ -183,7 +183,9 @@
         "name": "Experience",
         "text": "Bringing the elements together to create a coherent and considered experience."
       }
-    ]
+    ],
+    "fortschritt": "Stage {i} of {n}",
+    "stufenIntro": "Each stage lights up as you reach it."
   },
   "leistungen": {
     "titel": "Services",
@@ -340,7 +342,11 @@
           }
         ]
       }
-    }
+    },
+    "umfangTitel": "What the service includes",
+    "ablaufTitel": "Process",
+    "mehr": "Service details",
+    "listeTitel": "Our services"
   },
   "projekte": {
     "titel": "Projects",
@@ -373,8 +379,6 @@
     "naechstes": "Next project",
     "alle": "All projects",
     "projektAnsehen": "View project",
-    "auszug": "Excerpt",
-    "auszugHinweis": "The drawings shown here are excerpts from the drawing set. The complete set is included in the portfolio.",
     "lightbox": {
       "dialog": "Image viewer",
       "schliessen": "Close",
@@ -385,7 +389,21 @@
       "plus": "Zoom in",
       "minus": "Zoom out",
       "zoomHinweis": "To zoom: mouse wheel, pinch or double-click, then drag the image."
-    }
+    },
+    "plansatz": "Drawing set",
+    "plansatzIntro": "Construction sheets for the apartment. Select a sheet to enlarge it and read the details.",
+    "blatt": "Sheet",
+    "planname": "Drawing name",
+    "muster": "Material and colour samples",
+    "musterHinweis": "Colours sampled from the project renderings.",
+    "fallstudie": "Case study",
+    "kapitel": "Chapter",
+    "teaserTitel": "More projects",
+    "schriftprobe": {
+      "arabisch": "أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
+      "latein": "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789"
+    },
+    "farbeKopieren": "Colour code"
   },
   "kontakt": {
     "titel": "Contact",
@@ -432,17 +450,6 @@
     "projekte": "Go to the projects"
   },
   "alt": {
-    "hero": "The mosque square in Maarrat al-Nu'man at night with the illuminated mural of Abu al-'Ala al-Ma'arri",
-    "allgemein-leistungen-essplatz-sepia": "Dining corner with a patterned floor and metal pendant lights, in warm sepia tones",
-    "allgemein-fassade-exterior-gruen": "Multi-storey façade with arches and a tall window, in green tones",
-    "allgemein-schlafzimmer-klassisch-sepia": "Classic bedroom with panelled walls and pendant lights, in warm sepia tones",
-    "shop-drawings-boden": "Excerpt: floor finishes plan with grey marble tiles and oak parquet",
-    "brand-identity-konstruktion": "Construction of the AYLOUL mark and the Latin letters A, Y, L, O and U",
-    "villa-interior-uae-essbereich": "The dining area with lit shelving and a pendant light",
-    "villa-interior-uae-treppe-garten": "A dark marble staircase above a small indoor garden",
-    "villa-interior-uae-eingang": "The entrance with a wooden wall and a sculpture in a lit niche",
-    "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit",
-    "villa-interior-uae-wohnzimmer-treppe": "The living room with the dark marble staircase, a photorealistic 3D visualisation",
-    "mosque-square-nacht-platz": "The square in Maarrat al-Nu'man at night, with the domed pavilion and street lights"
+    "hero": "The mosque square in Maarrat al-Nu'man at night with the illuminated mural of Abu al-'Ala al-Ma'arri"
   }
 }

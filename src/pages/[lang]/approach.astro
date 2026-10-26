@@ -1,35 +1,30 @@
 ---
+// Arbeitsweise (Designsprache der Startseite): Hero → Einleitung mit Wort-Einblendung → gepinnte Stufen-Szene
+// "من الفكرة إلى التجربة / From idea to experience" (sechs Stufen leuchten nacheinander auf) → Kontakt.
 import Basis from '../../layouts/Basis.astro';
-import Seitenkopf from '../../components/Seitenkopf.astro';
-import Abschnittskopf from '../../components/Abschnittskopf.astro';
-import Ablauf from '../../components/Ablauf.astro';
+import Hero from '../../components/sections/Hero.astro';
+import WortSzene from '../../components/sections/WortSzene.astro';
+import StufenSzene from '../../components/sections/StufenSzene.astro';
 import Kontaktaufruf from '../../components/Kontaktaufruf.astro';
+import { altText } from '../../data/daten';
 import { t, pfad, sprachPfade, type Sprache } from '../../i18n/utils';
 
 export const getStaticPaths = sprachPfade;
 const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
 const a = tx.arbeitsweise;
+const heroBild = 'mosque-square-luftbild-tag';
+// Je Stufe ein passendes Bild aus den echten Projekten: Idee (Konzepttafel), Geometrie (Aufbau des Zeichens),
+// Form (Baukörper), Raum (Innenraum), Material (Detail), Erlebnis (öffentlicher Platz bei Nacht)
+const stufenBilder = ['brand-identity-konzept', 'brand-identity-aufbau', 'villa-uae-tag-front', 'villa-interior-uae-wohnzimmer-treppe', 'villa-interior-uae-detail', 'mosque-square-nacht-wandbild'];
+const stufen = a.schritte.map((s, i) => ({ name: s.name, text: s.text, bild: stufenBilder[i], alt: altText(stufenBilder[i], lang) }));
 ---
-<Basis lang={lang} titel={tx.meta.seiten.arbeitsweise.titel} beschreibung={tx.meta.seiten.arbeitsweise.beschreibung} seite="arbeitsweise">
-  <Seitenkopf titel={a.titel} unterzeile={a.unterzeile} bild="mosque-square-nacht-platz" bildAlt={tx.alt['mosque-square-nacht-platz']} bildFormat="16 / 10" />
+<Basis lang={lang} titel={tx.meta.seiten.arbeitsweise.titel} beschreibung={tx.meta.seiten.arbeitsweise.beschreibung} seite="arbeitsweise" kopfUeberHero vorladen={{ id: heroBild, sizes: '100vw' }}>
+  <Hero bild={heroBild} bildAlt={altText(heroBild, lang)} kicker={tx.marke.unterzeile} titel={a.titel} unterzeile={a.unterzeile} hoehe="gross" hinweisZiel="#intro-titel" hinweisText={tx.start.scrollHinweis} />
 
-  <section class="abschnitt hell" aria-labelledby="intro-titel">
-    <div class="huelle">
-      <Abschnittskopf titel={a.introTitel} nummer={1} id="intro-titel" />
-      <p class="einleitung lesetext einblenden">{a.intro}</p>
-      <div class="schritte">
-      <Abschnittskopf titel={a.schritteTitel} nummer={2} id="schritte-titel" />
-      <Ablauf lang={lang} variante="voll" />
-      <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}</a></p>
-      </div>
-    </div>
-  </section>
+  <WortSzene titel={a.introTitel} nummer={1} id="intro-titel" text={a.intro} link={{ href: pfad(lang, 'projects'), text: tx.start.projekteLink }} />
 
-  <Kontaktaufruf lang={lang} nummer={3} hell={false} />
+  <StufenSzene titel={a.schritteTitel} nummer={2} id="stufen-titel" unterzeile={a.stufenIntro} stufen={stufen} fortschritt={a.fortschritt} />
+
+  <Kontaktaufruf lang={lang} nummer={3} />
 </Basis>
-
-<style>
-  .schritte { margin-block-start: var(--abschnitt-abstand); }
-  .mehr { margin-block-start: var(--abstand-7); }
-</style>

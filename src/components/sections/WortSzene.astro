@@ -1,0 +1,35 @@
+---
+// Gemeinsame Szene "Wort-Einblendung": Abschnittskopf + ein großer Satz, dessen Wörter beim Scrollen von blass zu
+// voll werden (groß: gepinnt, sonst gescrubbt; Modul src/scripts/motion/wortszene.ts). Ohne JS, bei reduzierter
+// Bewegung: Satz voll sichtbar. Nur ganze Wörter (Woerter.astro), nie Buchstaben.
+import Abschnittskopf from '../Abschnittskopf.astro';
+import Icon from '../Icon.astro';
+import Woerter from '../Woerter.astro';
+
+interface Props {
+  titel: string; nummer?: number; text: string; id: string; name?: string;
+  link?: { href: string; text: string }; ton?: 'hell' | 'dunkel'; pin?: boolean;
+}
+const { titel, nummer, text, id, name = 'satz', link, ton = 'hell', pin = true } = Astro.props;
+---
+<section class:list={['abschnitt', ton, 'szene-satz']} data-szene={name} data-muster="wortszene" data-pin={pin ? '' : undefined} aria-labelledby={id}>
+  <div class="huelle satz-innen">
+    <Abschnittskopf titel={titel} nummer={nummer} id={id} />
+    <p class="satz" data-satz><Woerter text={text} /></p>
+    {link && <p class="mehr"><a class="textlink" href={link.href}>{link.text}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>}
+  </div>
+</section>
+
+<style>
+  .szene-satz { min-block-size: 80svh; display: grid; align-content: center; }
+  .satz-innen { display: grid; gap: var(--abstand-6); }
+  .satz {
+    font-size: clamp(1.75rem, 1rem + 2.6vw, 3.25rem);
+    font-weight: var(--gewicht-titel);
+    line-height: 1.55;
+    max-inline-size: 30ch;
+    text-wrap: balance;
+  }
+  :global(:lang(en)) .satz { line-height: 1.3; max-inline-size: 26ch; }
+  .mehr :global(.pfeil) { display: inline-block; inline-size: 1.1em; block-size: 1.1em; vertical-align: -0.2em; margin-inline-start: 0.35em; }
+</style>

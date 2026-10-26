@@ -1,0 +1,132 @@
+---
+// Fallstudie (Projekt "Markenidentität"): Kapitel aus projekte.json (kapitel + ar/en.kapitel), je ein Abschnitt im
+// Wechsel dunkel/hell. Muster je Kapitel: bild, raster (Raster zeichnet sich, dann baut sich das Logo Zeichen für
+// Zeichen auf), farben (Musterkarten), schrift (Fustat arabisch und lateinisch), raute, anwendungen.
+// Bewegung: src/scripts/motion/fallstudie.ts. Ohne JS / reduzierte Bewegung: alles statisch sichtbar.
+import Abschnittskopf from '../Abschnittskopf.astro';
+import Bild from '../Bild.astro';
+import Raute from '../Raute.astro';
+import Musterkarten from './Musterkarten.astro';
+import manifest from '../../data/bilder-manifest.json';
+
+interface Kapitel { muster: string; bilder: string[] }
+interface Props {
+  kapitel: Kapitel[]; texte: { titel: string; text: string }[]; alts: Record<string, string>;
+  farben: string[]; farbnamen: string[]; schriftprobe: { arabisch: string; latein: string };
+  vergroessern: string; startTon?: 'hell' | 'dunkel'; lightboxIds: string[];
+}
+const { kapitel, texte, alts, farben, farbnamen, schriftprobe, vergroessern, startTon = 'hell', lightboxIds } = Astro.props;
+const m = manifest as Record<string, { breite: number; hoehe: number }>;
+const max = (id: string) => `--max: ${Math.round(m[id].breite / 1.5)}px; --r: ${(m[id].breite / m[id].hoehe).toFixed(3)}`;
+const ton = (i: number) => ((i % 2 === 0) === (startTon === 'hell') ? 'hell' : 'dunkel');
+const lb = (id: string) => lightboxIds.indexOf(id);
+// Reihenfolge, in der sich das Logo aufbaut (Zellen der Tafel: Spalte, Zeile): Y, A, U, O, L, dann die Ikone
+const aufbau = [[0, 0], [1, 0], [0, 1], [1, 1], [2, 1], [2, 0]];
+---
+{kapitel.map((k, i) => (
+  <section class:list={['abschnitt', ton(i), 'kapitel', `kapitel-${k.muster}`]} aria-labelledby={`kapitel-${i + 1}`} data-szene={k.muster === 'raster' ? 'raster' : undefined} data-muster={k.muster === 'raster' ? 'raster' : undefined}>
+    <div class="huelle">
+      <Abschnittskopf titel={texte[i].titel} nummer={i + 1} id={`kapitel-${i + 1}`} />
+      <div class="k-raster">
+        <p class="k-text einleitung lesetext" data-woerter-einblenden>{texte[i].text}</p>
+
+        {k.muster === 'raster' && (
+          <div class="k-bau">
+            <figure class="bildrahmen k-gitter" style={max(k.bilder[0])} data-raster-gitter>
+              <Bild id={k.bilder[0]} alt={alts[k.bilder[0]]} sizes="222px" />
+            </figure>
+            <figure class="k-aufbau" style={max(k.bilder[1])} data-raster-aufbau>
+              <div class="k-basis"><Bild id={k.bilder[1]} alt={alts[k.bilder[1]]} sizes="(min-width: 62rem) 50vw, 92vw" /></div>
+              {aufbau.map(([s, z], n) => (
+                <div class="k-zelle" aria-hidden="true" data-raster-zelle style={`--s: ${s}; --z: ${z}; --n: ${n}`}>
+                  <Bild id={k.bilder[1]} alt="" sizes="(min-width: 62rem) 50vw, 92vw" />
+                </div>
+              ))}
+            </figure>
+          </div>
+        )}
+
+        {k.muster === 'farben' && (
+          <div class="k-farben">
+            <Musterkarten farben={farben} namen={farbnamen} titel={texte[i].titel} id={`kapitel-${i + 1}-farben`} />
+          </div>
+        )}
+
+        {k.muster === 'schrift' && (
+          <div class="k-schrift">
+            <p class="probe probe-gross" aria-hidden="true"><span lang="ar" dir="rtl">أيلول</span> <span lang="en" dir="ltr">AYLOUL</span></p>
+            <p class="probe probe-ar" lang="ar" dir="rtl">{schriftprobe.arabisch}</p>
+            <p class="probe probe-la" lang="en" dir="ltr">{schriftprobe.latein}</p>
+            <p class="gewichte" aria-hidden="true"><span style="font-weight: 300">Fustat</span><span style="font-weight: 500">Fustat</span><span style="font-weight: 700">Fustat</span><span style="font-weight: 800">Fustat</span></p>
+          </div>
+        )}
+
+        {k.muster === 'raute' && (
+          <div class="k-raute" aria-hidden="true"><Raute klasse="riesen-raute" /></div>
+        )}
+      </div>
+
+      {k.muster !== 'raster' && (
+        <ul class:list={['k-bilder', `anzahl-${k.bilder.length}`]}>
+          {k.bilder.map((id) => (
+            <li class:list={['k-bild', { hoch: m[id].hoehe > m[id].breite }]} style={max(id)}>
+              <button type="button" class="bildrahmen bild-knopf" data-lightbox-index={lb(id)} aria-label={`${vergroessern}: ${alts[id]}`}>
+                <Bild id={id} alt={alts[id]} sizes={m[id].hoehe > m[id].breite ? '(min-width: 62rem) 22vw, 45vw' : '(min-width: 62rem) 60vw, 92vw'} />
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      {k.muster === 'raster' && (
+        <ul class="k-bilder anzahl-1">
+          <li class="k-bild" style={max(k.bilder[2])}>
+            <button type="button" class="bildrahmen bild-knopf" data-lightbox-index={lb(k.bilder[2])} aria-label={`${vergroessern}: ${alts[k.bilder[2]]}`}>
+              <Bild id={k.bilder[2]} alt={alts[k.bilder[2]]} sizes="(min-width: 62rem) 70vw, 92vw" />
+            </button>
+          </li>
+        </ul>
+      )}
+    </div>
+  </section>
+))}
+
+<style>
+  .k-raster { display: grid; gap: var(--abstand-7); align-items: center; }
+  @media (min-width: 62rem) { .k-raster { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); } }
+  .kapitel-bild .k-raster, .kapitel-anwendungen .k-raster { grid-template-columns: 1fr; }
+  .k-text { max-inline-size: 36rem; }
+  .k-bilder { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-5); justify-content: center; align-items: flex-start; margin-block-start: var(--abstand-7); }
+  .k-bild { flex: 1 1 26rem; max-inline-size: min(100%, var(--max)); }
+  .k-bild.hoch { flex: 0 1 15rem; }
+  .anzahl-1 .k-bild { flex-basis: 100%; }
+  .bild-knopf { display: block; position: relative; padding: 0; inline-size: 100%; aspect-ratio: var(--r); cursor: zoom-in; }
+  .bild-knopf :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein); }
+  @media (hover: hover) { .bild-knopf:hover :global(img) { transform: scale(1.03); } }
+  @media (prefers-reduced-motion: reduce) { .bild-knopf:hover :global(img) { transform: none; } }
+
+  /* Kapitel Raster: Gitter + Aufbau */
+  .k-bau { display: grid; gap: var(--abstand-6); grid-template-columns: auto 1fr; align-items: center; }
+  @media (max-width: 47.99rem) { .k-bau { grid-template-columns: 1fr; justify-items: center; } }
+  .k-gitter { inline-size: min(222px, 40vw); aspect-ratio: var(--r); }
+  .k-aufbau { position: relative; margin: 0; inline-size: 100%; max-inline-size: var(--max); aspect-ratio: var(--r); border-radius: var(--radius-bild); overflow: hidden; border: var(--kontur); }
+  .k-basis, .k-zelle { position: absolute; inset: 0; }
+  .k-basis :global(.bild), .k-basis :global(img), .k-zelle :global(.bild), .k-zelle :global(img) { block-size: 100%; inline-size: 100%; object-fit: cover; }
+  /* Zellen der Tafel (3 Spalten, 2 Zeilen); physische Lage wie auf der Tafel (Bild wird nicht gespiegelt) */
+  .k-zelle { display: none; clip-path: inset(calc(var(--z) * 50%) calc((2 - var(--s)) * 33.333%) calc((1 - var(--z)) * 50%) calc(var(--s) * 33.333%)); }
+  :global(.bewegt) .k-zelle { display: block; }
+  :global(.bewegt) .k-basis { opacity: 0.12; }
+
+  /* Kapitel Schrift */
+  .k-schrift { display: grid; gap: var(--abstand-4); padding: var(--abstand-6); border: 1px solid currentColor; border-radius: var(--radius-bild); }
+  .probe { line-height: 1.6; overflow-wrap: anywhere; }
+  .probe-gross { font-size: clamp(2.5rem, 1.5rem + 4vw, 5rem); font-weight: var(--gewicht-stark); line-height: 1.2; }
+  .probe-ar { font-size: var(--text-gross); }
+  .probe-la { font-size: var(--text-gross); letter-spacing: 0.02em; }
+  .gewichte { display: flex; flex-wrap: wrap; gap: var(--abstand-5); font-size: var(--h3); }
+
+  /* Kapitel Raute */
+  .k-raute { display: grid; place-items: center; min-block-size: 16rem; }
+  .k-raute :global(.riesen-raute) { inline-size: clamp(6rem, 4rem + 8vw, 11rem); filter: drop-shadow(0 18px 30px rgb(193 84 40 / 0.35)); }
+
+  .hell :global(.muster-titel) { color: var(--farbe-terrakotta-dunkel); }
+</style>

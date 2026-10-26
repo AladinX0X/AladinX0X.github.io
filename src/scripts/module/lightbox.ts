@@ -48,6 +48,18 @@ export function lightbox(): Aufraeumen | null {
     y = y - dy * (neu / s - 1);
     s = neu;
     anwenden();
+    if (s > 1.3) volleAufloesung();
+  };
+  // Beim Zoomen die größte Variante laden (Pläne bis 4096 px), damit Beschriftungen scharf bleiben
+  let voll = false;
+  const volleAufloesung = () => {
+    if (voll) return;
+    voll = true;
+    const b = bilder[index];
+    const groesste = b.avif.split(',').pop()?.trim().split(' ')[0];
+    if (quelle && groesste) quelle.srcset = groesste;
+    img.srcset = '';
+    img.src = b.src;
   };
   const zuruecksetzen = () => { s = 1; x = 0; y = 0; img.style.transform = ''; dialog.classList.remove('gezoomt'); };
 
@@ -55,6 +67,7 @@ export function lightbox(): Aufraeumen | null {
     index = (i + bilder.length) % bilder.length;
     const b = bilder[index];
     zuruecksetzen();
+    voll = false;
     if (quelle) quelle.srcset = b.avif;
     img.src = b.src;
     img.srcset = b.srcset;
@@ -176,7 +189,16 @@ export function lightbox(): Aufraeumen | null {
       }
     }
     if (zeiger.size === 0) start = null;
+    // Doppeltipp: zwei kurze Tipps kurz hintereinander an fast derselben Stelle
+    if (e.pointerType === 'touch' && zeiger.size === 0) {
+      const jetzt = performance.now();
+      if (letzterTipp && jetzt - letzterTipp.zeit < 320 && Math.hypot(e.clientX - letzterTipp.x, e.clientY - letzterTipp.y) < 30) {
+        zoomen(s > 1 ? 1 : 2.5, e.clientX, e.clientY);
+        letzterTipp = null;
+      } else letzterTipp = { x: e.clientX, y: e.clientY, zeit: jetzt };
+    }
   };
+  let letzterTipp: { x: number; y: number; zeit: number } | null = null;
   weg.push(hoere(buehne, 'pointerup', ende), hoere(buehne, 'pointercancel', ende));
 
   weg.push(hoere(dialog, 'close', () => {

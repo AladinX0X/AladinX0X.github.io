@@ -1,0 +1,18 @@
+---
+// Gemeinsamer Abschnitt: dunkel oder hell (im Wechsel), Abschnittskopf mit Raute, Linie und Nummer, Inhalt im Slot.
+// Rundung der Oberkante und Überlappung regelt global.css (main > .abschnitt + .abschnitt).
+import Abschnittskopf from '../Abschnittskopf.astro';
+
+interface Props {
+  ton: 'dunkel' | 'hell'; id: string; titel?: string; nummer?: number; unterzeile?: string;
+  klasse?: string; szene?: string; muster?: string; versteckterTitel?: boolean;
+}
+const { ton, id, titel, nummer, unterzeile, klasse = '', szene, muster, versteckterTitel = false } = Astro.props;
+---
+<section class:list={['abschnitt', ton, klasse]} aria-labelledby={id} data-szene={szene} data-muster={muster}>
+  <div class="huelle">
+    {titel && !versteckterTitel && <Abschnittskopf titel={titel} nummer={nummer} id={id} unterzeile={unterzeile} />}
+    {titel && versteckterTitel && <h2 id={id} class="unsichtbar">{titel}</h2>}
+    <slot />
+  </div>
+</section>

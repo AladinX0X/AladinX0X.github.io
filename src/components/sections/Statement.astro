@@ -1,0 +1,33 @@
+---
+// Gemeinsamer Abschnitt "Hervorgehobene Aussage" (Startseite: "نعمل مع مهندسين ذوي خبرة"):
+// großer Satz mit Raute, Lesetext, daneben ein gerahmter Kasten (Slot "kasten", z. B. Portfolio-Download).
+import Raute from '../Raute.astro';
+
+interface Props { titel: string; text: string; id: string; ton?: 'dunkel' | 'hell'; kastenTitel?: string }
+const { titel, text, id, ton = 'dunkel', kastenTitel } = Astro.props;
+---
+<section class:list={['abschnitt', ton]} aria-labelledby={id}>
+  <div class="huelle zwei">
+    <div class="einblenden">
+      <h2 id={id} class="gross-satz"><Raute />{titel}</h2>
+      <p class="lesetext">{text}</p>
+      <slot />
+    </div>
+    {Astro.slots.has('kasten') && (
+      <div class="kasten einblenden">
+        {kastenTitel && <h2 class="kasten-titel">{kastenTitel}</h2>}
+        <slot name="kasten" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .zwei { display: grid; gap: var(--abstand-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+  .gross-satz { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); margin-block-end: var(--abstand-5); }
+  .gross-satz :global(.raute) { inline-size: 0.6em; }
+  .kasten { padding: var(--abstand-6); border: 1px solid var(--linie-auf-dunkel); border-radius: var(--radius-bild); display: grid; gap: var(--abstand-4); justify-items: start; }
+  .hell .kasten { border-color: var(--linie-auf-hell); }
+  .kasten-titel { font-size: var(--h3); color: var(--farbe-terrakotta-hell); }
+  .hell .kasten-titel { color: var(--farbe-terrakotta-dunkel); }
+</style>

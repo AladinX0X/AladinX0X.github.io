@@ -1,0 +1,62 @@
+---
+// Nächstes/vorheriges Projekt als große Bild-Teaser (Projekt-Template). Bild zoomt bei Hover/Fokus im Rahmen,
+// Richtungspfeile in Leserichtung (RTL gespiegelt).
+import Bild from '../Bild.astro';
+import Icon from '../Icon.astro';
+import manifest from '../../data/bilder-manifest.json';
+import { type Projekt, projektText } from '../../data/daten';
+import { pfad, type Sprache } from '../../i18n/utils';
+
+interface Props { lang: Sprache; vorher: Projekt; nachher: Projekt; vorherText: string; nachherText: string; titel: string; alleText: string; ton?: 'dunkel' | 'hell' }
+const { lang, vorher, nachher, vorherText, nachherText, titel, alleText, ton = 'dunkel' } = Astro.props;
+const m = manifest as Record<string, { breite: number }>;
+const teaser = [
+  { p: vorher, richtung: vorherText, rel: 'prev', icon: 'zurueck' },
+  { p: nachher, richtung: nachherText, rel: 'next', icon: 'vor' },
+];
+---
+<nav class:list={['abschnitt', ton, 'teaser']} aria-label={titel}>
+  <div class="huelle">
+    <ul class="t-raster">
+      {teaser.map((t) => {
+        const pt = projektText(t.p, lang);
+        return (
+          <li class="t-karte">
+            <div class="bildrahmen t-bild" style={`--max: ${Math.round(m[t.p.titelbild].breite / 1.5)}px`}>
+              <Bild id={t.p.titelbild} alt={pt.alt[t.p.titelbild]} sizes="(min-width: 48rem) 46vw, 92vw" />
+            </div>
+            <div class="t-text" data-ueber-bild data-text-auf-bild>
+              <span class="t-richtung">{t.icon === 'zurueck' && <Icon name="pfeil" klasse="t-pfeil t-zurueck" />}{t.richtung}{t.icon === 'vor' && <Icon name="pfeil" klasse="t-pfeil t-vor" />}</span>
+              <a class="t-titel" href={pfad(lang, `projects/${t.p.slug}`)} rel={t.rel}>{pt.titel}</a>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="t-alle"><a class="textlink" href={pfad(lang, 'projects')}>{alleText}</a></p>
+  </div>
+</nav>
+
+<style>
+  .t-raster { list-style: none; display: grid; gap: var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  .t-karte { position: relative; display: grid; }
+  .t-bild { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: var(--max); }
+  .t-bild :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein); }
+  .t-bild::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgb(3 33 26 / 0.92) 0%, rgb(3 33 26 / 0.4) 45%, rgb(3 33 26 / 0) 70%); pointer-events: none; }
+  .t-bild { position: relative; }
+  .t-text { position: absolute; inset-inline: var(--abstand-5); inset-block-end: var(--abstand-5); display: grid; gap: var(--abstand-2); }
+  .t-richtung { display: inline-flex; align-items: center; gap: var(--abstand-2); font-size: var(--text-klein); color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-mittel); }
+  .t-richtung :global(.icon) { inline-size: 1.1rem; block-size: 1.1rem; transition: translate var(--dauer-mittel) var(--kurve-ein); }
+  :global([dir='ltr']) .t-richtung :global(.t-zurueck) { transform: scaleX(-1); }
+  :global([dir='rtl']) .t-richtung :global(.t-vor) { transform: scaleX(-1); }
+  .t-titel { font-size: var(--h3); font-weight: var(--gewicht-titel); text-decoration: none; color: var(--farbe-elfenbein); }
+  .t-titel::after { content: ''; position: absolute; inset: 0; }
+  .t-karte:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-hell); outline-offset: 6px; border-radius: 16px; }
+  .t-karte a:focus-visible { outline: none; }
+  @media (hover: hover) {
+    .t-karte:hover .t-bild :global(img) { transform: scale(1.04); }
+    .t-karte:hover .t-titel { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .t-karte:hover .t-bild :global(img) { transform: none; } }
+  .t-alle { margin-block-start: var(--abstand-6); text-align: center; }
+</style>

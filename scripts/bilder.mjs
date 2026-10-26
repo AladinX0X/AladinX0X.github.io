@@ -76,15 +76,22 @@ async function verarbeiten(id, info) {
   let basis;
   if (info.ausschnitt) {
     const m0 = await sharp(q.datei).metadata();
-    const hoehe0 = Math.min(info.ausschnitt.height, m0.height - info.ausschnitt.top);
-    basis = sharp(await sharp(q.datei).rotate().extract({ left: 0, top: info.ausschnitt.top, width: m0.width, height: hoehe0 }).png().toBuffer());
+    // Ausschnitt: { left, top, width, height } in Pixeln des Originals (fehlende Werte = ganze Breite/Höhe)
+    const a = info.ausschnitt;
+    const left = a.left ?? 0, top = a.top ?? 0;
+    const width = Math.min(a.width ?? m0.width - left, m0.width - left);
+    const height = Math.min(a.height ?? m0.height - top, m0.height - top);
+    basis = sharp(await sharp(q.datei).rotate().extract({ left, top, width, height }).png().toBuffer());
   } else {
     basis = sharp(await sharp(q.datei).rotate().png({ compressionLevel: 0 }).toBuffer());
   }
   const meta = await basis.metadata();
   const breite = meta.width, hoehe = meta.height;
-  const ziele = BREITEN.filter((b) => b < breite);
-  if (breite <= 2560 && !ziele.includes(breite)) ziele.push(breite);
+  // Pläne bekommen größere Breiten, damit die Beschriftung beim Zoomen in der Lightbox lesbar bleibt
+  const breiten = info.art === 'plan' ? [...BREITEN, 3200, 4096] : BREITEN;
+  const maxBreite = breiten[breiten.length - 1];
+  const ziele = breiten.filter((b) => b < breite);
+  if (breite <= maxBreite && !ziele.includes(breite)) ziele.push(breite);
   const istHero = id === site.heroBild;
   const budgetBreite = istHero ? 1920 : 1440;
   const budget = istHero ? 400 * KB : 250 * KB;

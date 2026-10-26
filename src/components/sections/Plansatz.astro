@@ -1,0 +1,59 @@
+---
+// Werkplanung als Plansatz: Blattkarten wie Papier, je mit Schriftfeld (Blattnummer, Planname, Projekt).
+// Mit Bewegung stapeln sich die Blätter beim Scrollen (sticky) und die darunterliegenden treten leicht zurück
+// (src/scripts/motion/plansatz.ts); bei reduzierter Bewegung und ohne JS: normale Liste.
+// Klick öffnet die Lightbox mit tiefem Zoom (Pläne bis 4096 px breit).
+import Bild from '../Bild.astro';
+import Icon from '../Icon.astro';
+
+interface Props { ids: string[]; namen: string[]; alts: Record<string, string>; projekt: string; blatt: string; planname: string; vergroessern: string; startIndex?: number }
+const { ids, namen, alts, projekt, blatt, planname, vergroessern, startIndex = 1 } = Astro.props;
+const nr = (i: number) => String(i + 1).padStart(2, '0');
+const gesamt = nr(ids.length - 1);
+---
+<ol class="plansatz" data-muster="plansatz" data-szene="plansatz">
+  {ids.map((id, i) => (
+    <li class="blatt" data-blatt style={`--i: ${i}`}>
+      <button type="button" class="blatt-knopf" data-lightbox-index={i + startIndex} aria-label={`${vergroessern}: ${namen[i]}`}>
+        <span class="papier">
+          <Bild id={id} alt={alts[id]} sizes="(min-width: 76rem) 1100px, 94vw" />
+        </span>
+        <span class="schriftfeld">
+          <span class="feld nr"><span class="etikett">{blatt}</span><bdi dir="ltr">{nr(i)} / {gesamt}</bdi></span>
+          <span class="feld name"><span class="etikett">{planname}</span>{namen[i]}</span>
+          <span class="feld projekt"><span class="etikett">AYLOUL</span>{projekt}</span>
+          <span class="feld lupe" aria-hidden="true"><Icon name="plus" /></span>
+        </span>
+      </button>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .plansatz { list-style: none; display: grid; gap: var(--abstand-7); max-inline-size: 1100px; margin-inline: auto; }
+  .blatt-knopf {
+    display: grid; inline-size: 100%; padding: 0; text-align: start; cursor: zoom-in;
+    background: #fdfaf4; color: var(--farbe-gruen);
+    border: 1px solid var(--linie-auf-hell); border-radius: 6px;
+    box-shadow: 0 1px 0 rgb(5 47 36 / 0.08), 0 22px 40px -26px rgb(3 33 26 / 0.6);
+    overflow: hidden;
+    transition: transform var(--dauer-mittel) var(--kurve-ein), box-shadow var(--dauer-mittel) var(--kurve-ein);
+  }
+  .papier { display: block; padding: clamp(0.5rem, 0.2rem + 1vw, 1.25rem); background: #ffffff; }
+  .papier :global(img) { inline-size: 100%; block-size: auto; mix-blend-mode: multiply; }
+  .schriftfeld { display: grid; grid-template-columns: auto 1fr auto auto; border-block-start: 1px solid var(--linie-auf-hell); }
+  .feld { display: grid; gap: 0.1rem; padding: var(--abstand-2) var(--abstand-4); font-weight: var(--gewicht-titel); font-size: var(--text-klein); }
+  .feld + .feld { border-inline-start: 1px solid var(--linie-auf-hell); }
+  .etikett { font-size: 0.8em; font-weight: var(--gewicht-mittel); color: var(--farbe-terrakotta-dunkel); }
+  :global(:lang(en)) .etikett { text-transform: uppercase; letter-spacing: 0.06em; }
+  .lupe { place-items: center; color: var(--farbe-terrakotta-dunkel); }
+  .lupe :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
+  @media (max-width: 40rem) { .schriftfeld { grid-template-columns: 1fr auto; } .projekt { display: none; } }
+  @media (hover: hover) { .blatt-knopf:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgb(5 47 36 / 0.08), 0 30px 50px -26px rgb(3 33 26 / 0.7); } }
+
+  /* Gestapeltes Papier: jedes Blatt bleibt kurz stehen, das nächste schiebt sich darüber */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .blatt { position: sticky; inset-block-start: calc(var(--kopf-hoehe) + 1.5rem + var(--i) * 0.6rem); }
+  }
+  @media (prefers-reduced-motion: reduce) { .blatt-knopf, .blatt-knopf:hover { transition: none; transform: none; } }
+</style>

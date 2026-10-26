@@ -1,31 +1,17 @@
 {
-  "_hinweis": "Bild-ID = Name im Web. quelle = Pfad unter quelle/ (Original hat Vorrang). Ohne quelle: quelle/originale/<id>.(jpg|png|...) oder quelle/extrahiert/<id>.png (PDF-Auszug). art: foto | plan | stimmung | textur | karte. Nach Änderungen: npm run bilder",
+  "_hinweis": "Bild-ID = Name im Web. quelle = Pfad unter quelle/ (Original). ausschnitt = { left, top, width, height } in Pixeln des Originals. art: foto | plan | karte. Nach Änderungen: npm run bilder. Seit Runde 3 keine PDF-Auszüge mehr.",
   "bilder": {
     "mosque-square-nacht-wandbild": { "art": "foto", "quelle": "originale/mosque-square/10.jpg" },
-    "mosque-square-tag-wandbild": { "art": "foto", "quelle": "originale/mosque-square/9.jpg" },
     "mosque-square-luftbild-tag": { "art": "foto", "quelle": "originale/mosque-square/3 (2).jpg" },
-    "mosque-square-luftbild-nacht": { "art": "foto", "quelle": "originale/mosque-square/4 (2).jpg" },
-    "mosque-square-tag-eingang": { "art": "foto", "quelle": "originale/mosque-square/1 (2).jpg" },
     "mosque-square-nacht-eingang": { "art": "foto", "quelle": "originale/mosque-square/2 (3).jpg" },
     "mosque-square-tag-platz": { "art": "foto", "quelle": "originale/mosque-square/5 (3).jpg" },
-    "mosque-square-nacht-platz": { "art": "foto", "quelle": "originale/mosque-square/6 (2).jpg" },
-
     "villa-homs-nacht-front": { "art": "foto", "quelle": "originale/villa-homs/A-1.png" },
-    "villa-homs-tag-front": { "art": "foto", "quelle": "originale/villa-homs/A.png" },
-    "villa-homs-nacht-fassade": { "art": "foto", "quelle": "originale/villa-homs/B-1.png" },
     "villa-homs-nacht-perspektive": { "art": "foto", "quelle": "originale/villa-homs/C-1.png" },
     "villa-homs-tag-eingang": { "art": "foto", "quelle": "originale/villa-homs/D.png" },
-    "villa-homs-nacht-eingang": { "art": "foto", "quelle": "originale/villa-homs/D-1.png" },
     "villa-homs-tag-balkon": { "art": "foto", "quelle": "originale/villa-homs/E.png" },
-    "villa-homs-abend-balkon": { "art": "foto", "quelle": "originale/villa-homs/E-1.png" },
-
     "villa-uae-nacht-perspektive": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012534.jpg" },
-    "villa-uae-tag-perspektive": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012512.jpg" },
     "villa-uae-tag-front": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012519.jpg" },
-    "villa-uae-nacht-front": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012541.jpg" },
-    "villa-uae-boegen-tag": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012526.jpg" },
     "villa-uae-boegen-nacht": { "art": "foto", "quelle": "originale/villa-uae/SAVE_20260926_012504.jpg" },
-
     "villa-interior-uae-wohnzimmer-treppe": { "art": "foto", "quelle": "originale/villa-interior-uae/1.png" },
     "villa-interior-uae-wohnzimmer-tv": { "art": "foto", "quelle": "originale/villa-interior-uae/1-.png" },
     "villa-interior-uae-wohnzimmer-oben": { "art": "foto", "quelle": "originale/villa-interior-uae/living3.jpg" },
@@ -37,25 +23,79 @@
     "villa-interior-uae-gaeste-bad": { "art": "foto", "quelle": "originale/villa-interior-uae/1.jpg" },
     "villa-interior-uae-gaeste-bad-wc": { "art": "foto", "quelle": "originale/villa-interior-uae/2.jpg" },
     "villa-interior-uae-detail": { "art": "foto", "quelle": "originale/villa-interior-uae/0.png" },
-
     "master-bedroom-gesamt": { "art": "foto", "quelle": "originale/master-bedroom-uae/4.jpg" },
     "master-bedroom-bett": { "art": "foto", "quelle": "originale/master-bedroom-uae/SAVE_20260920_214157.jpg" },
     "master-bedroom-tv-wand": { "art": "foto", "quelle": "originale/master-bedroom-uae/SAVE_20260920_214202.jpg" },
     "master-bedroom-raum": { "art": "foto", "quelle": "originale/master-bedroom-uae/SAVE_20260920_214209.jpg" },
-
-    "shop-drawings-kueche": { "art": "plan" },
-    "shop-drawings-bad": { "art": "plan" },
-    "shop-drawings-boden": { "art": "plan" },
-    "brand-identity-mockups": { "art": "foto" },
-    "brand-identity-logo-varianten": { "art": "foto" },
-    "brand-identity-konstruktion": { "art": "foto" },
-    "brand-identity-visitenkarte": { "art": "foto" },
-    "brand-identity-social-posts": { "art": "foto" },
-
-    "allgemein-leistungen-essplatz-sepia": { "art": "stimmung" },
-    "allgemein-fassade-exterior-gruen": { "art": "stimmung" },
-    "allgemein-schlafzimmer-klassisch-sepia": { "art": "stimmung" },
-
-    "kontakt-karte": { "art": "karte", "quelle": "karte/karte-original.png", "ausschnitt": { "top": 330, "height": 2150 } }
+    "kontakt-karte": {
+      "art": "karte",
+      "quelle": "karte/karte-original.png",
+      "ausschnitt": {
+        "top": 330,
+        "height": 2150
+      }
+    },
+    "shop-drawings-moebel": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-1.png" },
+    "shop-drawings-boden": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-2.png" },
+    "shop-drawings-licht": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-3.png" },
+    "shop-drawings-elektro": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-4.png" },
+    "shop-drawings-oberflaechen": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-5.png" },
+    "shop-drawings-kueche-schluessel": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-6.png" },
+    "shop-drawings-kueche-ansichten": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-7.png" },
+    "shop-drawings-bad-schluessel": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-8.png" },
+    "shop-drawings-bad-ansichten": { "art": "plan", "quelle": "originale/apartment-shop-drawings/blatt-9.png" },
+    "brand-identity-cover": { "art": "foto", "quelle": "originale/ayloul-brand-identity/cover.png" },
+    "brand-identity-konzept": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 11.png" },
+    "brand-identity-geometrie": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 13.png" },
+    "brand-identity-raster": {
+      "art": "foto",
+      "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+      "ausschnitt": {
+        "left": 719,
+        "top": 789,
+        "width": 333,
+        "height": 307
+      }
+    },
+    "brand-identity-aufbau": {
+      "art": "foto",
+      "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+      "ausschnitt": {
+        "left": 1800,
+        "top": 1320,
+        "width": 1350,
+        "height": 980
+      }
+    },
+    "brand-identity-typografie": {
+      "art": "foto",
+      "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+      "ausschnitt": {
+        "left": 333,
+        "top": 1140,
+        "width": 1070,
+        "height": 500
+      }
+    },
+    "brand-identity-raute": {
+      "art": "foto",
+      "quelle": "originale/ayloul-brand-identity/Artboard 13.png",
+      "ausschnitt": {
+        "left": 368,
+        "top": 1683,
+        "width": 1035,
+        "height": 597
+      }
+    },
+    "brand-identity-farben": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 10.png" },
+    "brand-identity-anwendungen": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 14.png" },
+    "brand-identity-helm": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Hard_Hat_Mockup_1.png" },
+    "brand-identity-social": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 15.png" },
+    "brand-identity-stories": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Artboard 18.png" },
+    "brand-identity-story-studio": { "art": "foto", "quelle": "originale/ayloul-brand-identity/abot us story.png" },
+    "brand-identity-story-leistungen": { "art": "foto", "quelle": "originale/ayloul-brand-identity/services story.png" },
+    "brand-identity-story-kontakt": { "art": "foto", "quelle": "originale/ayloul-brand-identity/contact story.png" },
+    "brand-identity-foil": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Foil Press Logo Mockup.png" },
+    "brand-identity-papier": { "art": "foto", "quelle": "originale/ayloul-brand-identity/Black Paper Logo Mockup 1.png" }
   }
 }

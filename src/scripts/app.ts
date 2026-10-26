@@ -19,7 +19,7 @@ async function starten() {
   // GSAP, ScrollTrigger und Lenis nur laden, wenn Bewegung erlaubt ist (spart JavaScript bei reduzierter Bewegung)
   const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (ruhig) return;
-  const { bewegung } = await import('./module/bewegung');
+  const { bewegung } = await import('./motion/index');
   if (meine !== generation) return; // Seite wurde inzwischen gewechselt
   const weg = await bewegung();
   if (meine !== generation) { weg(); return; }

@@ -1,0 +1,39 @@
+---
+// Farbabschnitt (nur Innenprojekte und Identität): Farben als Musterkarten mit Namen und Farbcode.
+// Mit Bewegung fächern die Karten beim Scrollen aus einem Stapel auf (src/scripts/motion/muster.ts);
+// statisch (ohne JS, reduzierte Bewegung): nebeneinander. Beschriftung auf heller Karte (Kontrast), Code in <bdi>.
+interface Props { farben: string[]; namen: string[]; titel: string; hinweis?: string; id: string }
+const { farben, namen, titel, hinweis, id } = Astro.props;
+---
+<div class="muster" data-muster="muster">
+  <h3 id={id} class="muster-titel">{titel}</h3>
+  {hinweis && <p class="muster-hinweis">{hinweis}</p>}
+  <ul class="karten" data-muster-karten>
+    {farben.map((f, i) => (
+      <li class="karte" data-musterkarte style={`--i: ${i}; --n: ${farben.length}`}>
+        <span class="feld" style={`background-color: ${f}`}></span>
+        <span class="name">{namen[i]}</span>
+        <bdi dir="ltr" class="code">{f.toUpperCase()}</bdi>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .muster { display: grid; gap: var(--abstand-4); }
+  .muster-titel { font-size: var(--h3); color: var(--farbe-terrakotta-hell); }
+  .muster-hinweis { font-size: var(--text-klein); }
+  .karten { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr)); gap: var(--abstand-4); margin-block-start: var(--abstand-4); }
+  .karte {
+    display: grid; gap: var(--abstand-2); align-content: start;
+    padding: var(--abstand-3) var(--abstand-3) var(--abstand-4);
+    background: var(--farbe-elfenbein);
+    color: var(--farbe-gruen);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px -16px rgb(0 0 0 / 0.55);
+    transform-origin: 50% 100%;
+  }
+  .feld { display: block; aspect-ratio: 4 / 5; border-radius: 8px; border: 1px solid var(--linie-auf-hell); }
+  .name { font-weight: var(--gewicht-titel); font-size: var(--text-klein); line-height: 1.4; }
+  .code { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); font-weight: var(--gewicht-mittel); }
+</style>
