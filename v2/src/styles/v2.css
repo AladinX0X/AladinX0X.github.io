@@ -90,7 +90,7 @@ ul, ol, dl, dd { margin: 0; padding: 0; }
 .titel-bild { margin: 0; justify-self: center; display: grid; gap: var(--abstand-3); }
 .rahmen { border-radius: var(--radius-bild); overflow: hidden; border: 1px solid var(--terrakotta); background: var(--gruen); }
 .rahmen img { inline-size: 100%; block-size: 100%; object-fit: cover; }
-.titel-bild .rahmen { inline-size: min(332px, 70vw); }
+.titel-bild .rahmen { inline-size: min(100%, 40rem); aspect-ratio: 16 / 10; }
 .titel-bild figcaption { font-size: var(--text-klein); color: var(--farbe-terrakotta-dunkel); text-align: center; }
 .weiter {
   position: absolute; inset-block-end: var(--abstand-5); inset-inline-start: 50%; translate: -50% 0;
@@ -230,4 +230,19 @@ th[scope='row'] { font-weight: var(--gewicht-text); }
   .balken .wert { font-size: 44px; }
   .leistungen li { grid-template-columns: 1fr; }
   .icon-rund { grid-row: auto; }
+}
+
+/* Kontakt (Runde 2): Social-Links und Karte als Bild, ganze Karte öffnet Google Maps */
+.kontakt-rechts { display: grid; gap: var(--abstand-6); }
+.karte { display: block; aspect-ratio: 2560 / 1569; }
+.karte img { transition: transform var(--dauer-lang) var(--kurve-ein); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .karte:hover img { transform: scale(1.03); } }
+.bild { display: block; block-size: 100%; background-size: cover; background-position: center; }
+
+/* Einblenden beim Scrollen mit den Bewegungs-Tokens der ersten Fassung (nur ganze Blöcke, nie Buchstaben) */
+@media (prefers-reduced-motion: no-preference) {
+  .animiert .einblenden { opacity: 0; transform: translateY(24px); transition: opacity var(--dauer-lang) var(--kurve-ein), transform var(--dauer-lang) var(--kurve-ein); }
+  .animiert .einblenden.sichtbar { opacity: 1; transform: none; }
+  .animiert .bild-weich img { opacity: 0; transition: opacity var(--dauer-mittel) var(--kurve-ein); }
+  .animiert .bild-weich img.geladen { opacity: 1; }
 }

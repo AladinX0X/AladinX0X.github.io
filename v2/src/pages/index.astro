@@ -7,6 +7,7 @@ import Logo from '../../../src/components/Logo.astro';
 import Raute from '../../../src/components/Raute.astro';
 import Icon from '../../../src/components/Icon.astro';
 import Bild from '../../../src/components/Bild.astro';
+import SocialLinks from '../../../src/components/SocialLinks.astro';
 import projekteDatei from '../../../src/data/projekte.json';
 import leistungenDatei from '../../../src/data/leistungen.json';
 import kontakt from '../../../src/data/kontakt.json';
@@ -111,13 +112,13 @@ const gesamt = nr(folien.length);
       <!-- 1 Titel -->
       <section class="folie folie-titel" id="folie-titel" data-folie="titel" aria-labelledby="t-titel">
         <div class="huelle titel-raster">
-          <div class="titel-text">
+          <div class="titel-text einblenden">
             <Logo variante="komplett-dunkel" breite={260} alt={haupt.marke.name} />
             <h1 id="t-titel">{haupt.marke.claim}</h1>
             <p class="slogan">{haupt.marke.slogan}</p>
           </div>
-          <figure class="titel-bild">
-            <div class="rahmen"><Bild id={site.heroBild} alt={haupt.alt.hero} laden="eager" prioritaet sizes="(min-width: 60rem) 332px, 70vw" /></div>
+          <figure class="titel-bild einblenden">
+            <div class="rahmen"><Bild id={site.heroBild} alt={haupt.alt.hero} laden="eager" prioritaet sizes="(min-width: 60rem) 46vw, 92vw" /></div>
             <figcaption>{projekte.find((p) => p.galerie.includes(site.heroBild))?.ar.titel}</figcaption>
           </figure>
         </div>
@@ -127,7 +128,7 @@ const gesamt = nr(folien.length);
       <!-- 2 Kennzahlen -->
       <section class="folie folie-ton" id="folie-zahlen" data-folie="zahlen" aria-labelledby="t-zahlen">
         <div class="huelle">
-          <header class="folienkopf"><span class="foliennr">02</span><h2 id="t-zahlen">{tx.folien.zahlen}</h2></header>
+          <header class="folienkopf einblenden"><span class="foliennr">02</span><h2 id="t-zahlen">{tx.folien.zahlen}</h2></header>
           <dl class="zahlen">
             {zahlen.map((z) => (
               <div class={`zahl-kachel ${z.zaehlen === null ? 'jahr' : ''}`}>
@@ -145,7 +146,7 @@ const gesamt = nr(folien.length);
       <!-- 3 Balken -->
       <section class="folie" id="folie-bereiche" data-folie="bereiche" aria-labelledby="t-bereiche">
         <div class="huelle diagramm-raster">
-          <header class="folienkopf"><span class="foliennr">03</span><h2 id="t-bereiche">{tx.folien.bereiche}</h2><p class="unterzeile">{tx.bereicheText}</p></header>
+          <header class="folienkopf einblenden"><span class="foliennr">03</span><h2 id="t-bereiche">{tx.folien.bereiche}</h2><p class="unterzeile">{tx.bereicheText}</p></header>
           <figure class="diagramm balken-diagramm" data-diagramm>
             <svg viewBox={`0 0 ${B.breite} ${B.hoehe}`} role="img" aria-labelledby="balken-titel balken-text">
               <title id="balken-titel">{tx.folien.bereiche}</title>
@@ -176,7 +177,7 @@ const gesamt = nr(folien.length);
       <!-- 4 Ring -->
       <section class="folie folie-ton" id="folie-laender" data-folie="laender" aria-labelledby="t-laender">
         <div class="huelle diagramm-raster">
-          <header class="folienkopf"><span class="foliennr">04</span><h2 id="t-laender">{tx.folien.laender}</h2><p class="unterzeile">{tx.laenderText}</p></header>
+          <header class="folienkopf einblenden"><span class="foliennr">04</span><h2 id="t-laender">{tx.folien.laender}</h2><p class="unterzeile">{tx.laenderText}</p></header>
           <div class="ring-raster">
             <figure class="diagramm ring-diagramm" data-diagramm>
               <svg viewBox="0 0 240 240" role="img" aria-labelledby="ring-titel ring-text">
@@ -226,7 +227,7 @@ const gesamt = nr(folien.length);
       <!-- 5 Zeitstrahl -->
       <section class="folie" id="folie-ablauf" data-folie="ablauf" aria-labelledby="t-ablauf">
         <div class="huelle">
-          <header class="folienkopf"><span class="foliennr">05</span><h2 id="t-ablauf">{tx.folien.ablauf}</h2><p class="unterzeile">{haupt.arbeitsweise.unterzeile}</p></header>
+          <header class="folienkopf einblenden"><span class="foliennr">05</span><h2 id="t-ablauf">{tx.folien.ablauf}</h2><p class="unterzeile">{haupt.arbeitsweise.unterzeile}</p></header>
           <ol class="zeitstrahl" data-diagramm>
             {schritte.map((s, i) => (
               <li style={`--i: ${i}`}>
@@ -243,7 +244,7 @@ const gesamt = nr(folien.length);
       <!-- 6 Projekte -->
       <section class="folie folie-ton" id="folie-projekte" data-folie="projekte" aria-labelledby="t-projekte">
         <div class="huelle">
-          <header class="folienkopf"><span class="foliennr">06</span><h2 id="t-projekte">{tx.folien.projekte}</h2></header>
+          <header class="folienkopf einblenden"><span class="foliennr">06</span><h2 id="t-projekte">{tx.folien.projekte}</h2></header>
           <ul class="projekte">
             {auswahl.map((p) => (
               <li class="projekt">
@@ -260,7 +261,7 @@ const gesamt = nr(folien.length);
       <!-- 7 Leistungen -->
       <section class="folie" id="folie-leistungen" data-folie="leistungen" aria-labelledby="t-leistungen">
         <div class="huelle">
-          <header class="folienkopf"><span class="foliennr">07</span><h2 id="t-leistungen">{tx.folien.leistungen}</h2><p class="unterzeile">{haupt.leistungen.unterzeile}</p></header>
+          <header class="folienkopf einblenden"><span class="foliennr">07</span><h2 id="t-leistungen">{tx.folien.leistungen}</h2><p class="unterzeile">{haupt.leistungen.unterzeile}</p></header>
           <ul class="leistungen">
             {leistungen.map((l, i) => (
               <li>
@@ -278,20 +279,25 @@ const gesamt = nr(folien.length);
       <section class="folie folie-kontakt" id="folie-kontakt" data-folie="kontakt" aria-labelledby="t-kontakt">
         <div class="huelle kontakt-raster">
           <div>
-            <header class="folienkopf"><span class="foliennr">08</span><h2 id="t-kontakt">{haupt.start.kontaktTitel}</h2></header>
+            <header class="folienkopf einblenden"><span class="foliennr">08</span><h2 id="t-kontakt">{haupt.start.kontaktTitel}</h2></header>
             <p class="kontakt-text">{tx.kontaktText}</p>
             <div class="knoepfe">
-              <a class="knopf knopf-voll" href={kontakt.whatsapp} rel="noopener"><Icon name="whatsapp" />{haupt.kontakt.buttonWhatsapp}</a>
+              <a class="knopf knopf-voll" href={kontakt.whatsapp} target="_blank" rel="noopener" aria-label={`${haupt.kontakt.buttonWhatsapp} (${haupt.kontakt.neuesFenster})`}><Icon name="whatsapp" />{haupt.kontakt.buttonWhatsapp}</a>
               <a class="knopf knopf-linie" href={kontakt.telefonLink}><Icon name="telefon" />{haupt.kontakt.buttonAnruf}</a>
               <a class="knopf knopf-linie" href={`mailto:${kontakt.email}`}><Icon name="email" />{haupt.kontakt.buttonEmail}</a>
             </div>
           </div>
+          <div class="kontakt-rechts">
           <ul class="kontaktdaten">
             <li><Icon name="telefon" /><a href={kontakt.telefonLink}><bdi dir="ltr">{kontakt.telefonAnzeige}</bdi></a></li>
             <li><Icon name="email" /><a href={`mailto:${kontakt.email}`}><bdi dir="ltr">{kontakt.email}</bdi></a></li>
-            <li><Icon name="instagram" /><a href={kontakt.instagram} rel="noopener"><bdi dir="ltr">{kontakt.instagramName}</bdi></a></li>
             <li><Icon name="ort" /><span>{haupt.kontakt.adresseZeilen.join('، ')}</span></li>
           </ul>
+          <div class="social-zeile"><SocialLinks lang="ar" /></div>
+          <a class="karte rahmen" href={kontakt.googleMaps} target="_blank" rel="noopener" aria-label={`${haupt.kontakt.karteOeffnen} (${haupt.kontakt.neuesFenster})`}>
+            <Bild id="kontakt-karte" alt={haupt.kontakt.karteAlt} sizes="(min-width: 60rem) 36vw, 92vw" />
+          </a>
+          </div>
         </div>
         <p class="fuss huelle">{fuelle(haupt.footer.rechte, { jahr: site.gegruendet })}</p>
       </section>
@@ -348,7 +354,19 @@ const gesamt = nr(folien.length);
           }
         }, { threshold: 0.6 });
         document.querySelectorAll<HTMLElement>('[data-zaehlen]').forEach((el) => zahlenIo.observe(el));
+
+        // Blöcke blenden beim Scrollen ein (Bewegungs-Tokens wie in der ersten Fassung)
+        const einIo = new IntersectionObserver((eintraege) => {
+          for (const e of eintraege) if (e.isIntersecting) { e.target.classList.add('sichtbar'); einIo.unobserve(e.target); }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        document.querySelectorAll('.einblenden').forEach((el) => einIo.observe(el));
       }
+
+      // Bilder blenden über ihrem weichgezeichneten Platzhalter ein
+      document.querySelectorAll<HTMLImageElement>('.bild-weich img').forEach((img) => {
+        if (img.complete && img.naturalWidth > 0) img.classList.add('geladen');
+        else { const f = () => img.classList.add('geladen'); img.addEventListener('load', f, { once: true }); img.addEventListener('error', f, { once: true }); }
+      });
     </script>
   </body>
 </html>
