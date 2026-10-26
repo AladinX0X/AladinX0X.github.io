@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import Icon from './Icon.astro';
+import SocialLinks from './SocialLinks.astro';
 import Raute from './Raute.astro';
 import PortfolioKnopf from './PortfolioKnopf.astro';
 import kontakt from '../data/kontakt.json';
@@ -17,13 +17,6 @@ const seiten = [
   { href: pfad(lang, 'services'), text: tx.nav.leistungen },
   { href: pfad(lang, 'projects'), text: tx.nav.projekte },
   { href: pfad(lang, 'contact'), text: tx.nav.kontakt },
-];
-const social = [
-  { name: 'whatsapp', href: kontakt.whatsapp, label: 'WhatsApp' },
-  { name: 'instagram', href: kontakt.instagram, label: tx.kontakt.instagram },
-  { name: 'facebook', href: kontakt.facebook, label: tx.kontakt.facebook },
-  { name: 'telefon', href: kontakt.telefonLink, label: tx.kontakt.telefon },
-  { name: 'email', href: `mailto:${kontakt.email}`, label: tx.kontakt.email },
 ];
 ---
 <footer class="fuss dunkel">
@@ -48,11 +41,7 @@ const social = [
     </nav>
     <div>
       <h2 class="fuss-titel"><Raute />{tx.footer.socialTitel}</h2>
-      <ul class="social">
-        {social.map((s) => (
-          <li><a href={s.href} aria-label={s.label} rel={s.href.startsWith('http') ? 'noopener' : undefined}><Icon name={s.name} /></a></li>
-        ))}
-      </ul>
+      <SocialLinks lang={lang} />
       <div class="fuss-download"><PortfolioKnopf lang={lang} variante="linie" /></div>
     </div>
   </div>
@@ -72,16 +61,6 @@ const social = [
   .fuss-liste { list-style: none; display: grid; gap: var(--abstand-2); font-size: var(--text-klein); }
   .fuss-liste a { text-decoration: none; }
   .fuss-liste a:hover { color: var(--farbe-terrakotta-hell); text-decoration: underline; }
-  .social { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
-  .social a {
-    display: grid; place-items: center;
-    inline-size: 2.75rem; block-size: 2.75rem;
-    border-radius: 50%;
-    background: var(--farbe-terrakotta-dunkel);
-    color: var(--farbe-weiss);
-  }
-  .social a:hover { background: var(--farbe-elfenbein); color: var(--farbe-gruen); }
-  .social :global(.icon) { inline-size: 1.3rem; block-size: 1.3rem; }
   .fuss-download { margin-block-start: var(--abstand-5); }
   .fuss-unten {
     margin-block-start: var(--abstand-7);

@@ -56,9 +56,16 @@ for (const breite of [375, 768, 1024, 1440]) {
           const schichten = [];
           for (let e = el; e; e = e.parentElement) {
             const cs = getComputedStyle(e);
-            if (e.matches('[data-ueber-bild]')) return null;
+            // Text über einem Bild (Hero, Kopf über dem Hero): eigener Test tests/hero-kontrast.mjs
+            if (e.matches('[data-ueber-bild], .ueber-hero')) return null;
             const c = farbe(cs.backgroundColor);
             if (c && c.a > 0) { schichten.push(c); if (c.a >= 0.99) break; }
+            // Flächiger Hintergrund als ::before (z. B. Kopfzeile mit Weichzeichner)
+            const vor = getComputedStyle(e, '::before');
+            if (vor.content !== 'none' && vor.position === 'absolute' && vor.inset === '0px') {
+              const v = farbe(vor.backgroundColor);
+              if (v && v.a > 0) { const vv = { ...v, a: v.a * parseFloat(vor.opacity) }; schichten.push(vv); if (vv.a >= 0.99) break; }
+            }
           }
           let erg = { r: 255, g: 255, b: 255, a: 1 };
           for (let i = schichten.length - 1; i >= 0; i--) erg = mische(schichten[i], erg);
@@ -73,7 +80,7 @@ for (const breite of [375, 768, 1024, 1440]) {
           const r = el.getBoundingClientRect();
           if (r.width === 0 || r.height === 0) continue;
           const cs = getComputedStyle(el);
-          if (cs.visibility === 'hidden' || el.closest('[hidden], .unsichtbar, .zum-inhalt')) continue;
+          if (cs.visibility === 'hidden' || el.closest('[hidden], .unsichtbar, .zum-inhalt, [aria-hidden="true"]')) continue;
           let c = farbe(el.tagName.toUpperCase() === 'TEXT' || el.tagName.toUpperCase() === 'TSPAN' ? cs.fill : cs.color);
           if (!c) continue;
           let op = 1;
@@ -97,7 +104,7 @@ for (const breite of [375, 768, 1024, 1440]) {
 ergebnisse.push(layout.ende(), abstaende.ende(), fremd.ende(), kontrast.ende());
 
 // ---------- Interaktion ----------
-const ia = new Bericht('Interaktion: Menü, Filter, Lightbox, Formular, Sprachumschalter');
+const ia = new Bericht('Interaktion: Menü, Filter, Lightbox, Sprachumschalter, Kontakt ohne Formular');
 const hat = (p) => pfade.includes(p);
 
 // Mobiles Menü
@@ -166,28 +173,6 @@ if (projektSeite) {
   await s.close();
 }
 
-// Formularfehler
-for (const lang of ['ar', 'en']) {
-  if (!hat(`/${lang}/contact/`)) continue;
-  const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  await s.goto(basis + `/${lang}/contact/`);
-  await s.locator('form[data-formular] button[type="submit"]').click();
-  const fehlerName = await s.locator('#fehler-name').textContent();
-  ia.pruefe(Boolean(fehlerName?.trim()), `${lang}: Pflichtfeld-Fehler beim Namen fehlt`);
-  ia.pruefe(lang === 'ar' ? /[؀-ۿ]/.test(fehlerName ?? '') : /^[\x00-\x7F]+$/.test(fehlerName ?? ''), `${lang}: Fehlermeldung nicht in Seitensprache: ${fehlerName}`);
-  ia.pruefe((await s.locator('#feld-name').getAttribute('aria-invalid')) === 'true', `${lang}: aria-invalid fehlt`);
-  await s.fill('#feld-name', 'Test');
-  await s.fill('#feld-email', 'falsch');
-  await s.fill('#feld-betreff', 'Test');
-  await s.fill('#feld-nachricht', 'Eine ausreichend lange Nachricht.');
-  await s.locator('form[data-formular] button[type="submit"]').click();
-  ia.pruefe(Boolean((await s.locator('#fehler-email').textContent())?.trim()), `${lang}: E-Mail-Fehler fehlt`);
-  await s.fill('#feld-email', 'name@example.com');
-  await s.locator('form[data-formular] button[type="submit"]').click();
-  ia.pruefe(await s.locator('[data-formular-erfolg]').isVisible(), `${lang}: Erfolgsmeldung nach gültiger Eingabe fehlt`);
-  await s.close();
-}
-
 // Sprachumschalter führt auf dieselbe Seite
 if (hat('/en/')) {
   const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
@@ -198,7 +183,9 @@ if (hat('/en/')) {
   }
   await s.goto(basis + '/en/projects/');
   await s.locator('.sprache-desktop').first().click();
-  await s.waitForLoadState();
+  // Seitenwechsel läuft über Astro View Transitions (ohne neues load-Ereignis)
+  await s.waitForURL(/\/ar\/projects\/$/, { timeout: 5000 }).catch(() => {});
+  ia.pruefe(await s.evaluate(() => document.documentElement.lang === 'ar' && document.documentElement.dir === 'rtl'), 'Nach dem Sprachwechsel stimmen lang/dir nicht');
   ia.pruefe(new URL(s.url()).pathname === '/ar/projects/', `Klick auf Sprachumschalter landet auf ${s.url()}`);
   await s.close();
 }

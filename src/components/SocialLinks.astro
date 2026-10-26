@@ -1,0 +1,55 @@
+---
+// Social-Links in fester Reihenfolge: WhatsApp, Instagram, Facebook, LinkedIn, Telefon, E-Mail.
+// Externe Links öffnen in einem neuen Tab (target="_blank" rel="noopener"), aria-label in der Seitensprache.
+import Icon from './Icon.astro';
+import kontakt from '../data/kontakt.json';
+import { t, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache; groesse?: 'normal' | 'gross'; mitText?: boolean }
+const { lang, groesse = 'normal', mitText = false } = Astro.props;
+const k = t(lang).kontakt;
+const links = [
+  { name: 'whatsapp', href: kontakt.whatsapp, label: k.whatsapp, extern: true },
+  { name: 'instagram', href: kontakt.instagram, label: k.instagram, extern: true },
+  { name: 'facebook', href: kontakt.facebook, label: k.facebook, extern: true },
+  { name: 'linkedin', href: kontakt.linkedin, label: k.linkedin, extern: true },
+  { name: 'telefon', href: kontakt.telefonLink, label: k.telefon, extern: false },
+  { name: 'email', href: `mailto:${kontakt.email}`, label: k.email, extern: false },
+];
+---
+<ul class:list={['social', `social-${groesse}`, { 'mit-text': mitText }]}>
+  {links.map((s) => (
+    <li>
+      <a
+        href={s.href}
+        aria-label={s.extern ? `${s.label} (${k.neuesFenster})` : s.label}
+        target={s.extern ? '_blank' : undefined}
+        rel={s.extern ? 'noopener' : undefined}
+      >
+        <span class="kreis"><Icon name={s.name} /></span>
+        {mitText && <span class="text" aria-hidden="true">{s.label}</span>}
+      </a>
+    </li>
+  ))}
+</ul>
+<style>
+  .social { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-3); }
+  .social a { display: inline-flex; align-items: center; gap: var(--abstand-3); text-decoration: none; font-weight: var(--gewicht-mittel); }
+  .kreis {
+    display: grid; place-items: center;
+    inline-size: 2.75rem; block-size: 2.75rem;
+    border-radius: 50%;
+    background: var(--farbe-terrakotta-dunkel);
+    color: var(--farbe-weiss);
+    transition: background-color var(--dauer-kurz), color var(--dauer-kurz), transform var(--dauer-kurz) var(--kurve-ein);
+  }
+  .social :global(.icon) { inline-size: 1.3rem; block-size: 1.3rem; }
+  .social-gross .kreis { inline-size: 3.25rem; block-size: 3.25rem; }
+  .social-gross :global(.icon) { inline-size: 1.5rem; block-size: 1.5rem; }
+  .mit-text { gap: var(--abstand-4) var(--abstand-6); }
+  @media (hover: hover) {
+    .social a:hover .kreis { background: var(--farbe-elfenbein); color: var(--farbe-gruen); transform: translateY(-2px); }
+    :global(.hell) .social a:hover .kreis { background: var(--farbe-gruen); color: var(--farbe-elfenbein); }
+  }
+  @media (prefers-reduced-motion: reduce) { .social a:hover .kreis { transform: none; } }
+</style>

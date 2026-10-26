@@ -1,75 +1,109 @@
 # AYLOUL Website (أيلول)
 
-Zweisprachige Website (Arabisch von rechts nach links als Standard, Englisch) für AYLOUL, Architektur und Grafikdesign, Homs. Statisch gebaut mit Astro, läuft vollständig lokal ohne Internet, ohne Domain und ohne Hosting.
+Bilingual website for AYLOUL, an architecture and graphic design studio in Homs, Syria. Arabic (right-to-left) is the default language, English the second one. The site is static (Astro), works completely offline and loads nothing from other servers: fonts, images, scripts and the portfolio PDF are all part of the project.
 
-## Schnellstart auf dem Mac
+## Requirements
 
-1. Einmalig Node.js installieren (aktuelle LTS-Version, mindestens 22.22): https://nodejs.org/
-2. Im Finder `Vorschau-starten.command` doppelklicken.
-   - Beim ersten Mal installiert die Datei die Pakete (Internet nötig, 1–3 Minuten).
-   - Sie baut die Website und öffnet http://127.0.0.1:4321/ar/ im Browser.
-   - Fenster offen lassen, solange die Vorschau laufen soll.
-   - Meldet macOS „kann nicht geöffnet werden, da sie von einem nicht verifizierten Entwickler stammt“: Rechtsklick auf die Datei → **Öffnen** → im Dialog noch einmal **Öffnen**. Das ist nur beim ersten Mal nötig.
+- **Node.js 22.22 or newer** (LTS installer from https://nodejs.org/)
+- **git**
+- Optional, only for maintenance tasks: [Homebrew](https://brew.sh/) packages `poppler` (PDF tools) and `ghostscript` (portfolio PDF compression): `brew install poppler ghostscript`
+- For the automated tests and screenshots, once: `npx playwright install chromium`
 
-Im Terminal geht es auch so:
+## Quick start on a Mac
 
+1. Double-click `Vorschau-starten.command` in Finder.
+   - The first run installs the packages (internet needed, 1–3 minutes).
+   - It builds the site and opens http://127.0.0.1:4321/ar/ in the browser.
+   - Keep the Terminal window open while you use the preview; closing it stops the preview.
+   - If macOS says the file is from an unidentified developer: right-click the file → **Open** → **Open**. This is only needed once.
+2. `Vorschau-v2-starten.command` does the same for the presentation page in `v2/` (port 4322).
+
+The same in Terminal:
+
+```bash
+npm install
+npm run build
+npm run preview
 ```
-npm install        # einmalig
-npm run build      # Website bauen (Ordner dist/)
-npm run preview    # Vorschau unter http://127.0.0.1:4321/ar/
-```
 
-## Vorführung ohne Internet
+## Commands
 
-- Einmal mit Internet `npm install` ausführen (oder die Startdatei einmal doppelklicken). Danach braucht nichts mehr das Internet: Schrift, Bilder, Karte und Portfolio-PDF liegen im Projekt.
-- Vor der Vorführung `Vorschau-starten.command` doppelklicken, Browser im Vollbild (ctrl+cmd+F).
-- Ablauf-Vorschlag: Startseite → Projekte (Filter zeigen) → Moscheeplatz (Galerie, Großansicht mit Pfeiltasten) → Leistungen → Kontakt (Karte, Formular) → oben rechts Sprache wechseln.
-- Hinweis: Links zu WhatsApp, Instagram und Google Maps brauchen Internet. Das Kontaktformular sendet noch nichts (siehe unten).
-
-## Befehle
-
-| Befehl | Zweck |
+| Command | Purpose |
 |---|---|
-| `npm run build` | Website nach `dist/` bauen |
-| `npm run preview` | Gebaute Website lokal zeigen (Port 4321) |
-| `npm run dev` | Entwicklungsmodus mit automatischem Neuladen |
-| `npm test` | Alle Prüfungen (nach `npm run build`) |
-| `npm run pruefen` | Bauen und prüfen in einem Schritt |
-| `npm run screenshots` | Screenshots aller Seiten (375 und 1440 px) nach `screenshots/` |
-| `npm run bilder` | Bilder für das Web aufbereiten (Originale aus `quelle/originale/` haben Vorrang) |
-| `npm run portfolio` | Portfolio-PDF für den Download verkleinern (braucht ghostscript: `brew install ghostscript`) |
-| `node scripts/inhalte-todo.mjs` | INHALTE-TODO.md neu erzeugen |
+| `npm run dev` | Development server with live reload (http://127.0.0.1:4321/ar/) |
+| `npm run build` | Build the site into `dist/` |
+| `npm run preview` | Serve the built site locally (port 4321) |
+| `npm test` | All checks (run after `npm run build`) |
+| `npm run pruefen` | Build and test in one step |
+| `npm run screenshots [filter]` | Full-page screenshots at 375 and 1440 px into `screenshots/` |
+| `node tests/szenen.mjs` | Screenshots of the animated homepage scenes at 0 %, 50 %, 100 % |
+| `npm run bilder` | Optimise all images (see below) |
+| `npm run bilder:extrahieren` | Re-extract images and logo from the portfolio PDF |
+| `npm run portfolio` | Compress the portfolio PDF for download (needs ghostscript) |
+| `node scripts/inhalte-todo.mjs` | Regenerate `INHALTE-TODO.md` (list of texts to review) |
 
-Für `npm test` und `npm run screenshots` auf dem Mac einmalig: `npx playwright install chromium`.
+The tests cover: identical i18n keys, RTL-safe CSS, Western digits only, page titles/descriptions, hreflang, file names, links, layout from 375 to 1440 px, colour contrast (including text on the hero image), no requests to other hosts, keyboard use of menu, filter and lightbox, the contact page, reduced motion, no-JavaScript rendering and page transitions.
 
-## Wo steht was?
+## Folder structure
 
-- Texte: `src/i18n/ar.json` und `src/i18n/en.json` (immer beide mit denselben Schlüsseln pflegen)
-- Projekte: `src/data/projekte.json` (gemeinsame Daten, Texte je Sprache); Kennzahlen werden daraus berechnet
-- Leistungen: `src/data/leistungen.json` · Kontakt: `src/data/kontakt.json` · Einstellungen: `src/data/site.json`
-- Bilder: Originale nach `quelle/originale/`, Logo nach `quelle/logo/` (je eine LIESMICH.txt erklärt die Benennung), dann `npm run bilder`
-- Offene Inhalte: `INHALTE-TODO.md` · Bilderliste: `BILDER.md` · Regeln für die Weiterarbeit: `CLAUDE.md`
+```
+src/
+  i18n/ar.json, en.json     all interface texts (same keys in both files)
+  data/projekte.json        projects (shared data, texts per language, alt texts per image)
+  data/leistungen.json      the six services
+  data/kontakt.json         phone, email, social links, Google Maps link
+  data/site.json            settings: hero image, full-bleed hero, featured project, homepage disciplines
+  data/bilder.json          image register: web name → source file
+  data/bilder-manifest.json generated by npm run bilder (do not edit)
+  components/               Astro components (Logo, Bild, Header, Footer, Hero, scenes ...)
+  pages/[lang]/             pages, generated for /ar/ and /en/
+  scripts/app.ts            page scripts (menu, header, lightbox, filter, counters)
+  scripts/module/bewegung.ts  motion: GSAP, ScrollTrigger, Lenis
+  styles/tokens.css         colours, type, spacing and motion tokens
+  styles/global.css         base styles
+public/bilder/              optimised images (generated)
+quelle/                     sources: portfolio PDF, originals (not in git), logo
+tests/                      automated checks (Node + Playwright)
+v2/                         second design direction: one-page presentation (own Astro project)
+```
 
-## Seiten
+## Editing texts
 
-`/ar/` und `/en/` jeweils mit: Startseite, `about/`, `approach/`, `services/` (+ 6 Leistungen), `projects/` (+ 7 Projekte), `contact/`. Dazu `/404.html` (zweisprachig) und `/` (leitet auf `/ar/` weiter).
+- All interface texts live in `src/i18n/ar.json` and `src/i18n/en.json`. Always change both files and keep the keys identical (a test checks this).
+- Project texts (title, short text, description, materials, alt texts) are in `src/data/projekte.json` under `ar` and `en`.
+- Contact data and social links: `src/data/kontakt.json`.
+- Numbers on the homepage (projects, services, countries) are calculated from the data files, never typed by hand.
+- Arabic rules: Western digits only, no tatweel, no italics; phone numbers and emails are wrapped in `<bdi dir="ltr">`.
 
-## Später online gehen
+## Replacing or adding images
 
-Die Website ist so gebaut, dass sie ohne Umbau online gehen kann. Bewusst noch NICHT eingerichtet, weil es eine Domain braucht:
+1. Put the original files into `quelle/originale/<project-slug>/` (JPG, PNG, TIFF or WebP; HEIC first convert with `sips -s format jpeg file.heic --out file.jpg`).
+2. Register each image in `src/data/bilder.json`: `"web-name": { "art": "foto", "quelle": "originale/<project-slug>/<file>" }`. Web names use lowercase letters, digits and hyphens only.
+3. Use the web name in `src/data/projekte.json` (`titelbild`, `galerie`) and add an alt text in both languages.
+4. Run `npm run bilder`. It creates AVIF and WebP files at 640/960/1440/1920/2560 px (never upscaled), keeps the hero under 400 KB at 1920 px and gallery images under 250 KB at 1440 px, adds a tiny blurred placeholder and removes all EXIF/GPS metadata.
+5. Run `npm run build` (or double-click `Vorschau-starten.command`).
 
-1. **Domain und Hosting mit HTTPS** wählen, z. B. ein Anbieter für statische Seiten. Hochgeladen wird nur der Inhalt von `dist/`. Der Server muss für unbekannte Adressen `404.html` ausliefern.
-2. **Domain eintragen**: in `astro.config.mjs` `site: 'https://www.beispiel.de'` ergänzen (und den Test in `tests/statisch.mjs`, der `site` verbietet, entfernen).
-3. **Sitemap**: Paket `@astrojs/sitemap` installieren und in `astro.config.mjs` aktivieren (mit i18n-Angaben für ar/en).
-4. **robots.txt** in `public/` anlegen, mit Verweis auf die Sitemap.
-5. **canonical-Links** im Kopf (`src/layouts/Basis.astro`) mit der vollen Adresse jeder Seite; hreflang auf absolute Adressen umstellen.
-6. **Open Graph** (Titel, Beschreibung, Vorschaubild mit absoluter Adresse) für Vorschauen in WhatsApp und sozialen Netzwerken.
-7. **JSON-LD** (schema.org `LocalBusiness` bzw. `ArchitecturalFirm` mit Adresse, Telefon, Öffnungszeiten) im Kopf der Startseite.
-8. **Formularversand**: in `src/scripts/formular.ts` die Funktion `versenden()` (mit TODO markiert) an einen Versanddienst anschließen, mit Spamschutz.
-9. **Rechtliches** je nach Zielmarkt: Impressum, Datenschutzerklärung; Cookie-Hinweis nur, falls später Analyse-Werkzeuge dazukommen.
-10. **Google Search Console** einrichten und **Google Unternehmensprofil** anlegen bzw. mit der Website verknüpfen.
-11. Weiterleitung von `/` auf `/ar/` dann besser serverseitig (301) statt per meta refresh.
+The logo comes from `quelle/logo-original/` (the six original PNG files) and is used only through `src/components/Logo.astro`.
 
-## Technik
+## Publishing
 
-Astro 7 (statisch), eine Schrift (Fustat, lokal über @fontsource), eigene Bildpipeline mit sharp (WebP 375/768/1440/1920 px, nie hochskaliert), keine externen Skripte, keine CDNs. Tests mit Playwright in `tests/`.
+Every push to the `main` branch of the GitHub repository builds the site and publishes `dist/` with GitHub Pages (`.github/workflows/veroeffentlichen.yml`). Internal notes (PROMPT.md, BERICHT.md, CLAUDE.md, INHALTE-TODO.md, BILDER.md) are kept locally and are not pushed.
+
+### Going online with your own domain later
+
+The site already works on any domain without changes. Not set up yet, because it needs a domain:
+
+1. **Domain and HTTPS hosting** (GitHub Pages with a custom domain, or any static host). Only the contents of `dist/` are uploaded; unknown addresses must serve `404.html`.
+2. **Set the domain** in `astro.config.mjs`: `site: 'https://www.example.com'` (and remove the test in `tests/statisch.mjs` that forbids `site`).
+3. **Sitemap**: install `@astrojs/sitemap` and enable it in `astro.config.mjs` (with i18n settings for ar/en).
+4. **robots.txt** in `public/` pointing to the sitemap.
+5. **Canonical links** in `src/layouts/Basis.astro` with the full address of each page; switch hreflang to absolute URLs.
+6. **Open Graph** tags (title, description, preview image with absolute URL) for previews in WhatsApp and social networks.
+7. **JSON-LD** (schema.org `LocalBusiness` / `ArchitecturalFirm` with address and phone) on the homepage.
+8. **Legal pages** as required by the target market (imprint, privacy policy; a cookie notice only if analytics are added later).
+9. **Google Search Console** and a **Google Business Profile** linked to the site.
+10. Redirect `/` to `/ar/` on the server (301) instead of the meta refresh.
+
+## Technology
+
+Astro 7 (static output) with View Transitions, one font family (Fustat, self-hosted via @fontsource), GSAP + ScrollTrigger and Lenis for motion (loaded only when the visitor has not asked for reduced motion), an image pipeline with sharp, and Playwright tests. No CDNs, no external scripts, no embeds.

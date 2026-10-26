@@ -1,0 +1,68 @@
+---
+// Startseite, Abschnitt "تخصصاتنا / Our disciplines": drei Karten mit Bild, Icon, Name, Kurztext, Stichworten
+// und Link zur passenden Leistungsseite. Auswahl in site.json "disziplinen".
+// Seit Runde 2: "التصميم ثلاثي الأبعاد / 3D Design" statt Innenarchitektur (nur hier; Innenarchitektur bleibt
+// Leistung und Projektbereich, und auf der Seite "Studio" unverändert).
+import Bild from './Bild.astro';
+import Icon from './Icon.astro';
+import Raute from './Raute.astro';
+import site from '../data/site.json';
+import { t, pfad, type Sprache } from '../i18n/utils';
+
+interface Props { lang: Sprache }
+const { lang } = Astro.props;
+const tx = t(lang);
+const ueber = tx.ueber.disziplinen;
+type Eintrag = { name: string; text: string; begriffe: string[] };
+const texte: Record<string, Eintrag> = {
+  'exterior-architecture': { name: ueber[0].name, text: tx.leistungen.eintraege['exterior-architecture'].kurz, begriffe: ueber[0].begriffe },
+  '3d-visualization': tx.start.dreiD,
+  'architectural-graphic-design': { name: ueber[2].name, text: tx.leistungen.eintraege['architectural-graphic-design'].kurz, begriffe: ueber[2].begriffe },
+};
+const karten = site.disziplinen.map((d) => ({ ...d, ...texte[d.leistung] }));
+---
+<ul class="disziplinen">
+  {karten.map((k, i) => (
+    <li class="disziplin einblenden" style={`--verzoegerung: ${i * 120}ms`}>
+      <div class="bildrahmen d-bild">
+        <Bild id={k.bild} alt={tx.alt[k.bild as keyof typeof tx.alt] ?? ''} sizes="(min-width: 62rem) 30vw, 92vw" />
+      </div>
+      <div class="d-text">
+        <span class="icon-rund"><Icon name={k.icon} /></span>
+        <h3 class="name"><a href={pfad(lang, `services/${k.leistung}`)}>{k.name}</a></h3>
+        <p class="kurz">{k.text}</p>
+        <ul class="begriffe" aria-label={k.name}>
+          {k.begriffe.map((b) => <li><Raute />{b}</li>)}
+        </ul>
+        <span class="mehr" aria-hidden="true">{tx.start.disziplinLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></span>
+      </div>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .disziplinen { list-style: none; display: grid; gap: var(--abstand-7) var(--abstand-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+  .disziplin { position: relative; display: grid; gap: var(--abstand-5); align-content: start; transition-delay: var(--verzoegerung, 0ms); }
+  .d-bild { aspect-ratio: 4 / 5; }
+  .d-bild :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein); }
+  .d-text { display: grid; gap: var(--abstand-3); justify-items: start; }
+  .icon-rund { display: grid; place-items: center; inline-size: 3rem; block-size: 3rem; border-radius: 50%; border: 1px solid var(--farbe-terrakotta); color: var(--farbe-terrakotta-hell); }
+  .icon-rund :global(.icon) { inline-size: 1.4rem; block-size: 1.4rem; }
+  .name { font-size: var(--h3); }
+  .name a { text-decoration: none; }
+  .name a::after { content: ''; position: absolute; inset: 0; }
+  .kurz { font-size: var(--text-klein); line-height: var(--zeile-klein); }
+  .begriffe { list-style: none; display: flex; flex-wrap: wrap; gap: var(--abstand-2) var(--abstand-4); font-size: var(--text-klein); }
+  .begriffe li { display: inline-flex; align-items: center; gap: var(--abstand-2); }
+  .begriffe :global(.raute) { inline-size: 0.55em; }
+  .mehr { display: inline-flex; align-items: center; gap: var(--abstand-2); margin-block-start: var(--abstand-2); font-size: var(--text-klein); font-weight: var(--gewicht-titel); color: var(--farbe-terrakotta-hell); }
+  .mehr :global(.icon) { inline-size: 1.1rem; block-size: 1.1rem; }
+  .disziplin:has(a:focus-visible) { outline: 3px solid var(--farbe-terrakotta-hell); outline-offset: 8px; border-radius: 8px; }
+  .disziplin a:focus-visible { outline: none; }
+  @media (hover: hover) {
+    .disziplin:hover .d-bild :global(img) { transform: scale(1.04); }
+    .disziplin:hover .mehr :global(.pfeil) { translate: calc(var(--richtung) * 0.3rem) 0; }
+  }
+  .mehr :global(.pfeil) { transition: translate var(--dauer-mittel) var(--kurve-ein); }
+  @media (prefers-reduced-motion: reduce) { .disziplin:hover .d-bild :global(img) { transform: none; } }
+</style>

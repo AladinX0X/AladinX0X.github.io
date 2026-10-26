@@ -2,13 +2,34 @@
   "meta": {
     "titelSuffix": "AYLOUL Architecture & Design",
     "seiten": {
-      "start": { "titel": "AYLOUL | Architecture, Interiors and Graphic Design in Homs", "beschreibung": "AYLOUL is a design studio in Homs for exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization and construction supervision." },
-      "ueber": { "titel": "Studio", "beschreibung": "AYLOUL is a multidisciplinary design studio in Homs, bringing architecture, interiors and graphic design together in one design language." },
-      "arbeitsweise": { "titel": "Approach", "beschreibung": "Six steps from idea to experience: idea, geometry, form, space, material and experience." },
-      "leistungen": { "titel": "Services", "beschreibung": "Six services: exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization, construction and supervision." },
-      "projekte": { "titel": "Projects", "beschreibung": "AYLOUL projects in exterior architecture, interior design, shop drawings and graphic design, in Syria and the UAE." },
-      "kontakt": { "titel": "Contact", "beschreibung": "Contact AYLOUL via WhatsApp, phone or email. Address: Homs, near the Old Clock of Homs, Bazar Mall Building, 3rd floor." },
-      "fehler404": { "titel": "Page not found", "beschreibung": "The page you requested does not exist. The link may have changed; you can return to the home page or to the projects." }
+      "start": {
+        "titel": "AYLOUL | Architecture, Interiors and Graphic Design in Homs",
+        "beschreibung": "AYLOUL is a design studio in Homs for exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization and construction supervision."
+      },
+      "ueber": {
+        "titel": "Studio",
+        "beschreibung": "AYLOUL is a multidisciplinary design studio in Homs, bringing architecture, interiors and graphic design together in one design language."
+      },
+      "arbeitsweise": {
+        "titel": "Approach",
+        "beschreibung": "Six steps from idea to experience: idea, geometry, form, space, material and experience."
+      },
+      "leistungen": {
+        "titel": "Services",
+        "beschreibung": "Six services: exterior architecture, interior design, shop drawings, architectural graphic design, 3D visualization, construction and supervision."
+      },
+      "projekte": {
+        "titel": "Projects",
+        "beschreibung": "AYLOUL projects in exterior architecture, interior design, shop drawings and graphic design, in Syria and the UAE."
+      },
+      "kontakt": {
+        "titel": "Contact",
+        "beschreibung": "Contact AYLOUL via WhatsApp, phone or email. Address: Homs, near the Old Clock of Homs, Bazar Mall Building, 3rd floor."
+      },
+      "fehler404": {
+        "titel": "Page not found",
+        "beschreibung": "The page you requested does not exist. The link may have changed; you can return to the home page or to the projects."
+      }
     }
   },
   "marke": {
@@ -38,6 +59,22 @@
     "studioTitel": "Studio",
     "studioText": "AYLOUL brings architecture and graphic design into one continuous design practice. We develop ideas through drawing, form, space, material and visual communication, allowing each discipline to inform and strengthen the other.",
     "studioLink": "About the studio",
+    "disziplinenTitel": "Our disciplines",
+    "disziplinenIntro": "Three disciplines, one design language.",
+    "dreiD": {
+      "name": "3D Design",
+      "text": "Photorealistic 3D visualisations of façades and interiors, by day and by night, that show a project clearly before it is built.",
+      "begriffe": [
+        "Light",
+        "Material",
+        "Perspective",
+        "Atmosphere"
+      ]
+    },
+    "disziplinLink": "About this service",
+    "hauptprojektKicker": "Featured project",
+    "hauptprojektLink": "View project",
+    "scrollHinweis": "Scroll",
     "zahlenTitel": "AYLOUL in numbers",
     "zahlProjekte": "Projects",
     "zahlLeistungen": "Services",
@@ -73,13 +110,43 @@
       "This connection allows us to move between disciplines while maintaining a clear and coherent design language, from the smallest graphic detail to the larger architectural experience."
     ],
     "ketteTitel": "From drawing to experience",
-    "kette": ["Drawing", "Visual system", "Form", "Space", "Experience"],
+    "kette": [
+      "Drawing",
+      "Visual system",
+      "Form",
+      "Space",
+      "Experience"
+    ],
     "ketteSatz": "A drawing can establish a visual system. A visual system can shape form. Form can become space. And space can define an experience.",
     "disziplinenTitel": "Our disciplines",
     "disziplinen": [
-      { "name": "Architecture", "begriffe": ["Form", "Context", "Material", "Space"] },
-      { "name": "Interiors", "begriffe": ["Composition", "Light", "Materiality", "Atmosphere"] },
-      { "name": "Architectural graphic design", "begriffe": ["Identity", "Information", "Composition", "Communication"] }
+      {
+        "name": "Architecture",
+        "begriffe": [
+          "Form",
+          "Context",
+          "Material",
+          "Space"
+        ]
+      },
+      {
+        "name": "Interiors",
+        "begriffe": [
+          "Composition",
+          "Light",
+          "Materiality",
+          "Atmosphere"
+        ]
+      },
+      {
+        "name": "Architectural graphic design",
+        "begriffe": [
+          "Identity",
+          "Information",
+          "Composition",
+          "Communication"
+        ]
+      }
     ],
     "gruendungTitel": "Founded",
     "gruendungText": "AYLOUL was founded in Homs in September {jahr}.",
@@ -92,12 +159,30 @@
     "intro": "At AYLOUL, every project begins by understanding the idea behind the brief, then translating it into a clear spatial and visual language. We work through geometry, proportion, materiality, light, context and composition to develop spaces and forms that are coherent from concept to detail.",
     "schritteTitel": "From idea to experience",
     "schritte": [
-      { "name": "Idea", "text": "Defining the core idea and the intention behind the project." },
-      { "name": "Geometry", "text": "Establishing geometry, proportion and relationships that give the design structure." },
-      { "name": "Form", "text": "Translating the concept into form, massing, composition and spatial relationships." },
-      { "name": "Space", "text": "Shaping how the space is lived: its sequence, light, movement and the relationship between inside and outside." },
-      { "name": "Material", "text": "Using material, colour, texture and detail to establish character and atmosphere." },
-      { "name": "Experience", "text": "Bringing the elements together to create a coherent and considered experience." }
+      {
+        "name": "Idea",
+        "text": "Defining the core idea and the intention behind the project."
+      },
+      {
+        "name": "Geometry",
+        "text": "Establishing geometry, proportion and relationships that give the design structure."
+      },
+      {
+        "name": "Form",
+        "text": "Translating the concept into form, massing, composition and spatial relationships."
+      },
+      {
+        "name": "Space",
+        "text": "Shaping how the space is lived: its sequence, light, movement and the relationship between inside and outside."
+      },
+      {
+        "name": "Material",
+        "text": "Using material, colour, texture and detail to establish character and atmosphere."
+      },
+      {
+        "name": "Experience",
+        "text": "Bringing the elements together to create a coherent and considered experience."
+      }
     ]
   },
   "leistungen": {
@@ -114,12 +199,26 @@
       "exterior-architecture": {
         "name": "Exterior Architecture",
         "kurz": "Architectural design and façade development shaped by proportion, material, context and a clear visual identity.",
-        "text": ["Exterior design at AYLOUL considers the building as part of a larger spatial environment. We develop architectural form, façade composition, landscape, movement and outdoor spaces as connected elements, responding to context while maintaining a clear and coherent design language."],
+        "text": [
+          "Exterior design at AYLOUL considers the building as part of a larger spatial environment. We develop architectural form, façade composition, landscape, movement and outdoor spaces as connected elements, responding to context while maintaining a clear and coherent design language."
+        ],
         "aspekte": [
-          { "name": "Form", "text": "Massing, proportion and architectural character." },
-          { "name": "Façade", "text": "Composition, openings, rhythm and material expression." },
-          { "name": "Landscape", "text": "Planting, hardscape, circulation and outdoor experience." },
-          { "name": "Context", "text": "Site, orientation, surroundings and relationship to place." }
+          {
+            "name": "Form",
+            "text": "Massing, proportion and architectural character."
+          },
+          {
+            "name": "Façade",
+            "text": "Composition, openings, rhythm and material expression."
+          },
+          {
+            "name": "Landscape",
+            "text": "Planting, hardscape, circulation and outdoor experience."
+          },
+          {
+            "name": "Context",
+            "text": "Site, orientation, surroundings and relationship to place."
+          }
         ]
       },
       "interior-design": {
@@ -130,32 +229,72 @@
           "From the overall composition to the smallest detail, every element is considered as part of one spatial experience."
         ],
         "aspekte": [
-          { "name": "Composition", "text": "The layout, sequence and relationship of spaces." },
-          { "name": "Light", "text": "Daylight and integrated lighting." },
-          { "name": "Materiality", "text": "Materials, colours and textures." },
-          { "name": "Atmosphere", "text": "The character felt by the people who live in the space." }
+          {
+            "name": "Composition",
+            "text": "The layout, sequence and relationship of spaces."
+          },
+          {
+            "name": "Light",
+            "text": "Daylight and integrated lighting."
+          },
+          {
+            "name": "Materiality",
+            "text": "Materials, colours and textures."
+          },
+          {
+            "name": "Atmosphere",
+            "text": "The character felt by the people who live in the space."
+          }
         ]
       },
       "shop-drawings": {
         "name": "Shop Drawings",
         "kurz": "Precise architectural documentation translating design intent into coordinated, buildable details.",
-        "text": ["Technical documentation developed to translate architectural ideas into precise, coordinated and construction-ready drawings."],
+        "text": [
+          "Technical documentation developed to translate architectural ideas into precise, coordinated and construction-ready drawings."
+        ],
         "aspekte": [
-          { "name": "Design intent", "text": "Understanding the architectural concept, spatial requirements and design language." },
-          { "name": "Development", "text": "Translating the design into coordinated dimensions, materials, assemblies and details." },
-          { "name": "Documentation", "text": "Developing precise drawings that communicate the design clearly and consistently." },
-          { "name": "Detail", "text": "Resolving architectural elements through accurate construction information and technical detailing." }
+          {
+            "name": "Design intent",
+            "text": "Understanding the architectural concept, spatial requirements and design language."
+          },
+          {
+            "name": "Development",
+            "text": "Translating the design into coordinated dimensions, materials, assemblies and details."
+          },
+          {
+            "name": "Documentation",
+            "text": "Developing precise drawings that communicate the design clearly and consistently."
+          },
+          {
+            "name": "Detail",
+            "text": "Resolving architectural elements through accurate construction information and technical detailing."
+          }
         ]
       },
       "architectural-graphic-design": {
         "name": "Architectural Graphic Design",
         "kurz": "Visual systems developed to clarify, present and communicate architectural ideas through graphic composition and visual storytelling.",
-        "text": ["Visual identities and graphic systems that communicate ideas with clarity, character and consistency. Where ideas take visual form."],
+        "text": [
+          "Visual identities and graphic systems that communicate ideas with clarity, character and consistency. Where ideas take visual form."
+        ],
         "aspekte": [
-          { "name": "Identity", "text": "Logo, colour and typography as one system." },
-          { "name": "Information", "text": "Presenting architectural information clearly." },
-          { "name": "Composition", "text": "Arranging image, text and space." },
-          { "name": "Communication", "text": "Consistent print and digital applications." }
+          {
+            "name": "Identity",
+            "text": "Logo, colour and typography as one system."
+          },
+          {
+            "name": "Information",
+            "text": "Presenting architectural information clearly."
+          },
+          {
+            "name": "Composition",
+            "text": "Arranging image, text and space."
+          },
+          {
+            "name": "Communication",
+            "text": "Consistent print and digital applications."
+          }
         ]
       },
       "3d-visualization": {
@@ -166,19 +305,39 @@
           "The project images on this website are examples of this work."
         ],
         "aspekte": [
-          { "name": "Exterior views", "text": "Façades, massing and the surrounding site." },
-          { "name": "Interior views", "text": "Spaces, materials and furniture." },
-          { "name": "Day and night", "text": "Daylight and night-time lighting." }
+          {
+            "name": "Exterior views",
+            "text": "Façades, massing and the surrounding site."
+          },
+          {
+            "name": "Interior views",
+            "text": "Spaces, materials and furniture."
+          },
+          {
+            "name": "Day and night",
+            "text": "Daylight and night-time lighting."
+          }
         ]
       },
       "construction-supervision": {
         "name": "Construction & Project Supervision",
         "kurz": "Accompanying a project from design to construction, together with experienced engineers.",
-        "text": ["We accompany projects from planning to construction. Together with experienced engineers, we coordinate the execution of the design and follow the work on site, so that what is built stays true to what was designed."],
+        "text": [
+          "We accompany projects from planning to construction. Together with experienced engineers, we coordinate the execution of the design and follow the work on site, so that what is built stays true to what was designed."
+        ],
         "aspekte": [
-          { "name": "Coordination", "text": "Linking the design to the construction stages." },
-          { "name": "Site follow-up", "text": "Following the work on site." },
-          { "name": "Engineering expertise", "text": "Collaboration with experienced engineers." }
+          {
+            "name": "Coordination",
+            "text": "Linking the design to the construction stages."
+          },
+          {
+            "name": "Site follow-up",
+            "text": "Following the work on site."
+          },
+          {
+            "name": "Engineering expertise",
+            "text": "Collaboration with experienced engineers."
+          }
         ]
       }
     }
@@ -188,10 +347,23 @@
     "unterzeile": "One idea, many forms.",
     "intro": "Projects in exterior architecture, interior design, shop drawings and graphic design.",
     "filterLabel": "Filter by field",
-    "filter": { "alle": "All", "exterior": "Exterior", "interior": "Interior", "shop-drawings": "Shop drawings", "graphic": "Graphic" },
+    "filter": {
+      "alle": "All",
+      "exterior": "Exterior",
+      "interior": "Interior",
+      "shop-drawings": "Shop drawings",
+      "graphic": "Graphic"
+    },
     "anzahl": "Projects shown: {n}",
     "eckdatenTitel": "Project data",
-    "eckdaten": { "typ": "Type", "umfang": "Scope", "ort": "Location", "stil": "Style", "flaeche": "Area", "jahr": "Year" },
+    "eckdaten": {
+      "typ": "Type",
+      "umfang": "Scope",
+      "ort": "Location",
+      "stil": "Style",
+      "flaeche": "Area",
+      "jahr": "Year"
+    },
     "flaecheEinheit": "{n} m²",
     "beschreibung": "About the project",
     "materialien": "Materials",
@@ -209,7 +381,10 @@
       "zurueck": "Previous image",
       "weiter": "Next image",
       "zaehler": "Image {i} of {n}",
-      "vergroessern": "Enlarge image"
+      "vergroessern": "Enlarge image",
+      "plus": "Zoom in",
+      "minus": "Zoom out",
+      "zoomHinweis": "To zoom: mouse wheel, pinch or double-click, then drag the image."
     }
   },
   "kontakt": {
@@ -220,35 +395,30 @@
     "email": "Email",
     "instagram": "Instagram",
     "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
     "adresse": "Address",
-    "adresseZeilen": ["Homs, Syria", "Near the Old Clock of Homs", "Bazar Mall Building, 3rd floor"],
+    "adresseZeilen": [
+      "Homs, Syria",
+      "Near the Old Clock of Homs",
+      "Bazar Mall Building, 3rd floor"
+    ],
     "buttonWhatsapp": "WhatsApp",
     "buttonAnruf": "Call",
     "buttonEmail": "Email",
-    "formularTitel": "Send a message",
-    "formularHinweis": "Sending the form is not active yet. For a quick reply, please use WhatsApp, phone or email.",
-    "felder": { "name": "Name", "email": "Email", "telefon": "Phone (optional)", "betreff": "Subject", "nachricht": "Message" },
-    "absenden": "Send message",
-    "fehler": {
-      "pflicht": "This field is required.",
-      "email": "Please enter a valid email address, for example name@example.com.",
-      "telefon": "Please enter a valid phone number: digits, spaces and + only.",
-      "kurz": "Please write at least 10 characters.",
-      "zusammenfassung": "Please correct the marked fields."
-    },
-    "erfolg": "Your details are complete. Sending the form is not active yet, so please send your message via WhatsApp or email.",
     "karteTitel": "Location",
-    "karteBeschreibung": "A simplified sketch map of central Homs: the way from the Old Clock of Homs to the Bazar Mall Building. Not to scale.",
     "karteLink": "Open in Google Maps",
-    "karte": {
-      "uhr": "Old Clock of Homs",
-      "mall": "Bazar Mall Building",
-      "quwatli": "Shukri al-Quwatli St.",
-      "moschee": "Great al-Nuri Mosque",
-      "souq": "Covered souq"
-    }
+    "socialTitel": "Follow us",
+    "neuesFenster": "opens in a new tab",
+    "direktTitel": "Direct contact",
+    "direktText": "The fastest way to reach us: a WhatsApp message, a phone call or an email.",
+    "karteAlt": "Map of central Homs showing the way from the Old Clock of Homs to the Bazar Mall building",
+    "karteOeffnen": "Open the location in Google Maps"
   },
-  "laender": { "sy": "Syria", "ae": "UAE" },
+  "laender": {
+    "sy": "Syria",
+    "ae": "UAE"
+  },
   "footer": {
     "kontaktTitel": "Contact",
     "seitenTitel": "Pages",
@@ -263,14 +433,16 @@
   },
   "alt": {
     "hero": "The mosque square in Maarrat al-Nu'man at night with the illuminated mural of Abu al-'Ala al-Ma'arri",
-    "allgemein-studio-innenraum-sepia": "Interior entrance with a timber wall and a sculpture on a shelf, in warm sepia tones",
     "allgemein-leistungen-essplatz-sepia": "Dining corner with a patterned floor and metal pendant lights, in warm sepia tones",
     "allgemein-fassade-exterior-gruen": "Multi-storey façade with arches and a tall window, in green tones",
     "allgemein-schlafzimmer-klassisch-sepia": "Classic bedroom with panelled walls and pendant lights, in warm sepia tones",
-    "villa-interior-uae-treppe-gruen": "Dark marble staircase with an indoor garden and glowing spheres, in green tones",
     "shop-drawings-boden": "Excerpt: floor finishes plan with grey marble tiles and oak parquet",
     "brand-identity-konstruktion": "Construction of the AYLOUL mark and the Latin letters A, Y, L, O and U",
-    "villa-interior-uae-essbereich": "Dining area with walnut panelling, lit shelves and a sculptural chandelier",
-    "mosque-square-intro-nacht-gruen": "The mosque square at night under soft lighting, in green tones"
+    "villa-interior-uae-essbereich": "The dining area with lit shelving and a pendant light",
+    "villa-interior-uae-treppe-garten": "A dark marble staircase above a small indoor garden",
+    "villa-interior-uae-eingang": "The entrance with a wooden wall and a sculpture in a lit niche",
+    "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit",
+    "villa-interior-uae-wohnzimmer-treppe": "The living room with the dark marble staircase, a photorealistic 3D visualisation",
+    "mosque-square-nacht-platz": "The square in Maarrat al-Nu'man at night, with the domed pavilion and street lights"
   }
 }
