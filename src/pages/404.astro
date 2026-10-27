@@ -3,7 +3,8 @@
 // darunter die weiteren Sprachen als heller Abschnitt.
 import Basis from '../layouts/Basis.astro';
 import Hero from '../components/sections/Hero.astro';
-import Raute from '../components/Raute.astro';
+import Abschnittskopf from '../components/Abschnittskopf.astro';
+import Woerter from '../components/Woerter.astro';
 import { altText } from '../data/daten';
 import { t, pfad, sprachen, standardSprache, richtung } from '../i18n/utils';
 
@@ -21,8 +22,8 @@ const heroBild = 'mosque-square-nacht-eingang';
     return (
       <section class="abschnitt hell andere" lang={s} dir={richtung(s)} aria-labelledby={`fehler-${s}`}>
         <div class="huelle">
-          <h2 id={`fehler-${s}`} class="andere-titel"><Raute />{w.fehler404.titel}</h2>
-          <p class="einleitung">{w.fehler404.text}</p>
+          <Abschnittskopf titel={w.fehler404.titel} nummer={1} id={`fehler-${s}`} />
+          <p class="einleitung satz" data-woerter-einblenden><Woerter text={w.fehler404.text} /></p>
           <div class="knopf-reihe">
             <a class="knopf knopf-voll" href={pfad(s)}>{w.fehler404.start}</a>
             <a class="knopf knopf-linie" href={pfad(s, 'projects')}>{w.fehler404.projekte}</a>
@@ -34,7 +35,7 @@ const heroBild = 'mosque-square-nacht-eingang';
 </Basis>
 
 <style>
-  .andere-titel { display: flex; gap: var(--abstand-4); align-items: baseline; font-size: var(--h2); color: var(--farbe-terrakotta-dunkel); margin-block-end: var(--abstand-4); }
-  .andere-titel :global(.raute) { inline-size: 0.5em; }
+  .andere { min-block-size: 60svh; display: grid; align-content: center; }
+  .satz { font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem); font-weight: var(--gewicht-titel); max-inline-size: 28ch; }
   .knopf-reihe { margin-block-start: var(--abstand-6); }
 </style>

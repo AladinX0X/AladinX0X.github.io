@@ -3,20 +3,22 @@
 // Richtungspfeile in Leserichtung (RTL gespiegelt).
 import Bild from '../Bild.astro';
 import Icon from '../Icon.astro';
+import Abschnittskopf from '../Abschnittskopf.astro';
 import manifest from '../../data/bilder-manifest.json';
 import { type Projekt, projektText } from '../../data/daten';
 import { pfad, type Sprache } from '../../i18n/utils';
 
-interface Props { lang: Sprache; vorher: Projekt; nachher: Projekt; vorherText: string; nachherText: string; titel: string; alleText: string; ton?: 'dunkel' | 'hell' }
-const { lang, vorher, nachher, vorherText, nachherText, titel, alleText, ton = 'dunkel' } = Astro.props;
+interface Props { lang: Sprache; vorher: Projekt; nachher: Projekt; vorherText: string; nachherText: string; titel: string; alleText: string; ton?: 'dunkel' | 'hell'; nummer?: number }
+const { lang, vorher, nachher, vorherText, nachherText, titel, alleText, ton = 'dunkel', nummer } = Astro.props;
 const m = manifest as Record<string, { breite: number }>;
 const teaser = [
   { p: vorher, richtung: vorherText, rel: 'prev', icon: 'zurueck' },
   { p: nachher, richtung: nachherText, rel: 'next', icon: 'vor' },
 ];
 ---
-<nav class:list={['abschnitt', ton, 'teaser']} aria-label={titel}>
+<nav class:list={['abschnitt', ton, 'teaser']} aria-labelledby="teaser-titel">
   <div class="huelle">
+    <Abschnittskopf titel={titel} nummer={nummer} id="teaser-titel" />
     <ul class="t-raster">
       {teaser.map((t) => {
         const pt = projektText(t.p, lang);

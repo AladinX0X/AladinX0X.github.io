@@ -14,9 +14,9 @@ const lang = Astro.params.lang as Sprache;
 const tx = t(lang);
 const a = tx.arbeitsweise;
 const heroBild = 'mosque-square-luftbild-tag';
-// Je Stufe ein passendes Bild aus den echten Projekten: Idee (Konzepttafel), Geometrie (Aufbau des Zeichens),
+// Je Stufe ein passendes Bild aus den echten Projekten: Idee (erster Plan), Geometrie (Aufbau des Zeichens),
 // Form (Baukörper), Raum (Innenraum), Material (Detail), Erlebnis (öffentlicher Platz bei Nacht)
-const stufenBilder = ['brand-identity-konzept', 'brand-identity-aufbau', 'villa-uae-tag-front', 'villa-interior-uae-wohnzimmer-treppe', 'villa-interior-uae-detail', 'mosque-square-nacht-wandbild'];
+const stufenBilder = ['shop-drawings-moebel', 'brand-identity-aufbau', 'villa-uae-tag-front', 'villa-interior-uae-wohnzimmer-treppe', 'villa-interior-uae-detail', 'mosque-square-nacht-wandbild'];
 const stufen = a.schritte.map((s, i) => ({ name: s.name, text: s.text, bild: stufenBilder[i], alt: altText(stufenBilder[i], lang) }));
 ---
 <Basis lang={lang} titel={tx.meta.seiten.arbeitsweise.titel} beschreibung={tx.meta.seiten.arbeitsweise.beschreibung} seite="arbeitsweise" kopfUeberHero vorladen={{ id: heroBild, sizes: '100vw' }}>

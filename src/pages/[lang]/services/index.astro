@@ -28,7 +28,7 @@ const eintraege = leistungen.map((x) => {
     <StickyListe eintraege={eintraege} />
   </Abschnitt>
 
-  <Statement titel={tx.start.ingenieureTitel} text={tx.start.ingenieureText} id="ingenieure-titel">
+  <Statement titel={tx.start.ingenieureTitel} text={tx.start.ingenieureText} id="ingenieure-titel" woerter>
     <p class="mehr"><a class="textlink" href={pfad(lang, 'projects')}>{tx.start.projekteLink}<Icon name="pfeil" klasse="spiegeln pfeil" /></a></p>
   </Statement>
 

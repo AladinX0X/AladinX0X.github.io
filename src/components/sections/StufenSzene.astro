@@ -15,7 +15,7 @@ interface Props { titel: string; nummer?: number; unterzeile?: string; id: strin
 const { titel, nummer, unterzeile, id, stufen, fortschritt, ton = 'dunkel' } = Astro.props;
 const nr = (i: number) => String(i + 1).padStart(2, '0');
 const gesamt = nr(stufen.length - 1);
-const m = manifest as Record<string, { breite: number }>;
+const m = manifest as Record<string, { breite: number; hoehe: number }>;
 ---
 <section class:list={['abschnitt', ton, 'szene-stufen']} data-szene="stufen" data-muster="stufen" aria-labelledby={id} style={`--n: ${stufen.length}`}>
   <div class="huelle st-innen">
@@ -32,7 +32,7 @@ const m = manifest as Record<string, { breite: number }>;
               <h3 class="st-name">{s.name}</h3>
               <p class="st-beschreibung">{s.text}</p>
             </div>
-            <figure class="bildrahmen st-bild-inline" style={`--max: ${Math.round(m[s.bild].breite / 1.5)}px`}>
+            <figure class="bildrahmen st-bild-inline" style={`--max: ${Math.round(m[s.bild].breite / 1.5)}px; --r: ${(m[s.bild].breite / m[s.bild].hoehe).toFixed(3)}`}>
               <Bild id={s.bild} alt={s.alt} sizes="(min-width: 62rem) 40vw, 88vw" />
             </figure>
           </li>
@@ -91,15 +91,17 @@ const m = manifest as Record<string, { breite: number }>;
   .hell .st-nr { color: var(--farbe-terrakotta-dunkel); }
   .st-name { font-size: var(--h2); }
   .st-beschreibung { max-inline-size: 30rem; }
-  .st-bild-inline { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: min(100%, var(--max)); }
+  .st-bild-inline { aspect-ratio: var(--r); inline-size: 100%; max-inline-size: min(100%, var(--max)); }
   .st-bilder { display: none; }
 
   /* Gepinnte Fassung (groß, mit Bewegung): Liste am Zeilenanfang, Bildstapel am Zeilenende */
-  .bewegt { padding-block: var(--abstand-8); min-block-size: 100svh; display: grid; align-content: center; }
+  .bewegt { padding-block: var(--abstand-6); min-block-size: 100svh; display: grid; align-content: center; }
+  .bewegt :global(.abschnittskopf) { margin-block-end: var(--abstand-5); }
   .bewegt .st-buehne { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--abstand-8); align-items: center; }
-  .bewegt .st-liste { gap: var(--abstand-4); }
+  .bewegt .st-liste { gap: var(--abstand-2); }
+  .bewegt .st-text { gap: 0; }
   .bewegt .st-bild-inline { display: none; }
-  .bewegt .st-name { font-size: var(--h3); }
+  .bewegt .st-name { font-size: var(--text-gross); }
   .bewegt .st-beschreibung { font-size: var(--text-klein); line-height: var(--zeile-klein); }
   .bewegt .st-bilder { display: grid; gap: var(--abstand-3); }
   .bewegt .st-stufe { transition: opacity var(--dauer-mittel) var(--kurve-ein); }

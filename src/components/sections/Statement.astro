@@ -2,15 +2,16 @@
 // Gemeinsamer Abschnitt "Hervorgehobene Aussage" (Startseite: "نعمل مع مهندسين ذوي خبرة"):
 // großer Satz mit Raute, Lesetext, daneben ein gerahmter Kasten (Slot "kasten", z. B. Portfolio-Download).
 import Raute from '../Raute.astro';
+import Woerter from '../Woerter.astro';
 
-interface Props { titel: string; text: string; id: string; ton?: 'dunkel' | 'hell'; kastenTitel?: string }
-const { titel, text, id, ton = 'dunkel', kastenTitel } = Astro.props;
+interface Props { titel: string; text: string; id: string; ton?: 'dunkel' | 'hell'; kastenTitel?: string; woerter?: boolean }
+const { titel, text, id, ton = 'dunkel', kastenTitel, woerter = false } = Astro.props;
 ---
 <section class:list={['abschnitt', ton]} aria-labelledby={id}>
   <div class="huelle zwei">
-    <div class="einblenden">
+    <div class:list={{ einblenden: !woerter }}>
       <h2 id={id} class="gross-satz"><Raute />{titel}</h2>
-      <p class="lesetext">{text}</p>
+      {woerter ? <p class="lesetext einleitung" data-woerter-einblenden><Woerter text={text} /></p> : <p class="lesetext">{text}</p>}
       <slot />
     </div>
     {Astro.slots.has('kasten') && (

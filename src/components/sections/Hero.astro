@@ -30,12 +30,13 @@ const {
   bild, bildAlt, titel, kicker, slogan, unterzeile, variante = 'auto', hoehe = 'voll', titelArt = 'titel',
   hinweisZiel, hinweisText, transitionName, bildLink, sizes,
 } = Astro.props;
-const eintrag = (manifest as Record<string, { breite: number; hoehe: number }>)[bild];
+const eintrag = (manifest as Record<string, { breite: number; hoehe: number; art?: string }>)[bild];
+const istPlan = eintrag?.art === 'plan';
 // Vollbild nur, wenn das Bild bei 1440 × 900 mit 1.5-facher Reserve deckt (Breite >= 2400 px, Querformat)
-const vollbild = variante === 'vollbild' || (variante === 'auto' && eintrag && eintrag.breite >= 2400 && eintrag.breite >= eintrag.hoehe);
+const vollbild = variante === 'vollbild' || (variante === 'auto' && eintrag && !istPlan && eintrag.breite >= 2400 && eintrag.breite >= eintrag.hoehe);
 const hatKnoepfe = Astro.slots.has('default');
 ---
-<section class:list={['hero', 'dunkel', vollbild ? 'hero-vollbild' : 'hero-geteilt', `hoehe-${hoehe}`]} aria-labelledby="hero-titel" data-hero>
+<section class:list={['hero', 'dunkel', vollbild ? 'hero-vollbild' : 'hero-geteilt', `hoehe-${hoehe}`, { 'hero-plan': istPlan }]} aria-labelledby="hero-titel" data-hero>
   <figure class="hero-bild" style={eintrag ? `--max: ${Math.round(eintrag.breite / 1.5)}px; --r: ${(eintrag.breite / eintrag.hoehe).toFixed(3)}` : undefined}>
     <div class="bildrahmen" data-hero-bild data-ueber-bild transition:name={transitionName}>
       <Bild id={bild} alt={bildAlt} laden="eager" prioritaet sizes={sizes ?? (vollbild ? '100vw' : '(min-width: 62rem) 50vw, 100vw')} />
@@ -129,6 +130,10 @@ const hatKnoepfe = Astro.slots.has('default');
     background: linear-gradient(to bottom, rgb(3 33 26 / 0.75) 0%, rgb(3 33 26 / 0) 24%);
   }
   .hero-geteilt .hero-bild .bildrahmen { block-size: 100%; border: 0; border-radius: 0; }
+  /* Pläne: weißes Blatt ohne dunklen Verlauf, ganz sichtbar (contain) */
+  .hero-plan .hero-bild::after { display: none; }
+  .hero-plan .hero-bild .bildrahmen { background: #ffffff; }
+  .hero-plan .hero-bild :global(img) { object-fit: contain; }
   .hero-geteilt .hero-raster { padding-block: var(--abstand-7) var(--abstand-7); }
   @media (max-width: 61.99rem) {
     .hero-geteilt .hero-bild .bildrahmen { aspect-ratio: 4 / 3; max-block-size: 62svh; inline-size: min(100%, var(--max)); margin-inline: auto; }

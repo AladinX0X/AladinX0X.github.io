@@ -57,6 +57,8 @@ const teaserTon = istFallstudie && endetDunkel ? 'hell' : 'dunkel';
 const heroManifest = (manifest as Record<string, { breite: number; hoehe: number }>)[projekt.titelbild];
 const heroVollbild = projekt.hero !== 'geteilt' && heroManifest.breite >= 2400 && heroManifest.breite >= heroManifest.hoehe;
 let nr = 0;
+// Nummern der letzten Abschnitte: nach Beschreibung, Materialien, Fallstudien-Kapiteln bzw. Plansatz/Galerie
+const nrTeaser = 1 + (pt.materialien.length > 0 || zeigtFarben ? 1 : 0) + (istFallstudie ? projekt.kapitel!.length : (istPlansatz || galerie.length > 0 ? 1 : 0)) + 1;
 ---
 <Basis lang={lang} titel={pt.titel} beschreibung={`${pt.kurz} ${pt.beschreibung[0]}`.slice(0, 300)} seite="projekte" kopfUeberHero vorladen={{ id: projekt.titelbild, sizes: heroVollbild ? '100vw' : '(min-width: 62rem) 50vw, 100vw' }}>
   <Hero
@@ -125,10 +127,10 @@ let nr = 0;
     </Abschnitt>
   )}
 
-  <Teaser lang={lang} vorher={vorher} nachher={nachher} vorherText={p.vorheriges} nachherText={p.naechstes} titel={p.teaserTitel} alleText={p.alle} ton={teaserTon} />
+  <Teaser lang={lang} vorher={vorher} nachher={nachher} vorherText={p.vorheriges} nachherText={p.naechstes} titel={p.teaserTitel} alleText={p.alle} ton={teaserTon} nummer={nrTeaser} />
 
 
-  <Kontaktaufruf lang={lang} hell={teaserTon === 'dunkel'} />
+  <Kontaktaufruf lang={lang} hell={teaserTon === 'dunkel'} nummer={nrTeaser + 1} />
   <Lightbox lang={lang} ids={lbIds} alts={pt.alt} />
 </Basis>
 
