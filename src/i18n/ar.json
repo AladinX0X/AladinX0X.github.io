@@ -191,10 +191,8 @@
     "titel": "الخدمات",
     "unterzeile": "من الشكل المعماري إلى التواصل البصري.",
     "intro": "مجموعة مركّزة من الخدمات التصميمية في العمارة والتصميم الداخلي والتوثيق التقني والتصميم الجرافيكي المعماري.",
-    "aspekteTitel": "ما تشمله الخدمة",
     "schritteTitel": "من التصميم إلى التوثيق",
     "projekteTitel": "مشاريع مرتبطة",
-    "keineProjekte": "لا توجد مشاريع منشورة لهذه الخدمة بعد. تواصلوا معنا لمناقشة مشروعكم.",
     "alle": "كل الخدمات",
     "eintraege": {
       "exterior-architecture": {
@@ -373,12 +371,10 @@
     "flaecheEinheit": "{n} م²",
     "beschreibung": "عن المشروع",
     "materialien": "المواد",
-    "farben": "الألوان",
     "galerie": "المعرض",
     "vorheriges": "المشروع السابق",
     "naechstes": "المشروع التالي",
     "alle": "كل المشاريع",
-    "projektAnsehen": "عرض المشروع",
     "lightbox": {
       "dialog": "عرض الصور",
       "schliessen": "إغلاق",
@@ -402,8 +398,7 @@
     "schriftprobe": {
       "arabisch": "أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
       "latein": "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789"
-    },
-    "farbeKopieren": "رمز اللون"
+    }
   },
   "kontakt": {
     "titel": "تواصل معنا",
@@ -428,8 +423,6 @@
     "karteLink": "فتح في خرائط Google",
     "socialTitel": "تابعونا",
     "neuesFenster": "يفتح في نافذة جديدة",
-    "direktTitel": "تواصل مباشر",
-    "direktText": "أسرع طريقة للوصول إلينا: رسالة على واتساب، أو اتصال هاتفي، أو بريد إلكتروني.",
     "karteAlt": "خريطة وسط حمص تُظهر الطريق من ساعة حمص القديمة إلى مبنى بازار مول",
     "karteOeffnen": "فتح الموقع في خرائط Google"
   },

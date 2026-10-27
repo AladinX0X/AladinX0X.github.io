@@ -42,7 +42,7 @@ const hatKnoepfe = Astro.slots.has('default');
     </div>
     {bildLink && <figcaption class="unsichtbar"><a href={bildLink.href}>{bildLink.text}</a></figcaption>}
   </figure>
-  {vollbild && <div class="hero-verlauf" aria-hidden="true"></div>}
+  {vollbild && <div class:list={['hero-verlauf', { stark: titelArt === 'titel' }]} aria-hidden="true"></div>}
   <div class="hero-schleier" data-hero-schleier aria-hidden="true"></div>
   <div class="huelle hero-raster" data-hero-text>
     <div class="hero-text" data-ueber-bild={vollbild ? '' : undefined}>
@@ -96,6 +96,13 @@ const hatKnoepfe = Astro.slots.has('default');
       linear-gradient(to top, rgb(3 33 26 / 0.92) 0%, rgb(3 33 26 / 0.72) 22%, rgb(3 33 26 / 0.35) 40%, rgb(3 33 26 / 0) 58%),
       linear-gradient(var(--winkel-start), rgb(3 33 26 / 0.9) 0%, rgb(3 33 26 / 0.7) 36%, rgb(3 33 26 / 0) 68%);
   }
+  /* Unterseiten: kurze, große Titel über oft hellen Innenraumbildern – kräftigerer Verlauf, oben dunkler für den Kopf */
+  .hero-verlauf.stark {
+    background:
+      linear-gradient(to bottom, rgb(3 33 26 / 0.85) 0%, rgb(3 33 26 / 0) 24%),
+      linear-gradient(to top, rgb(3 33 26 / 0.95) 0%, rgb(3 33 26 / 0.88) 30%, rgb(3 33 26 / 0.62) 50%, rgb(3 33 26 / 0.15) 72%, rgb(3 33 26 / 0) 85%),
+      linear-gradient(var(--winkel-start), rgb(3 33 26 / 0.9) 0%, rgb(3 33 26 / 0.75) 40%, rgb(3 33 26 / 0) 72%);
+  }
   /* Schmal: der Text liegt über fast der ganzen Bildbreite, also kräftiger von unten abdunkeln */
   @media (max-width: 47.99rem) {
     .hero-verlauf {
@@ -110,6 +117,7 @@ const hatKnoepfe = Astro.slots.has('default');
   .hero-geteilt {
     display: grid;
     margin-block-start: calc(-1 * var(--kopf-hoehe));
+    padding-block-start: var(--kopf-hoehe);
     padding-block-end: var(--radius-abschnitt);
     background: var(--farbe-gruen);
     overflow: clip;

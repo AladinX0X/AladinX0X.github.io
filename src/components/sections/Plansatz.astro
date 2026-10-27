@@ -14,7 +14,7 @@ const gesamt = nr(ids.length - 1);
 <ol class="plansatz" data-muster="plansatz" data-szene="plansatz">
   {ids.map((id, i) => (
     <li class="blatt" data-blatt style={`--i: ${i}`}>
-      <button type="button" class="blatt-knopf" data-lightbox-index={i + startIndex} aria-label={`${vergroessern}: ${namen[i]}`}>
+      <button type="button" class="blatt-knopf" data-lightbox-index={i + startIndex}>
         <span class="papier">
           <Bild id={id} alt={alts[id]} sizes="(min-width: 76rem) 1100px, 94vw" />
         </span>

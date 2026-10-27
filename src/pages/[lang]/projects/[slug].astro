@@ -17,6 +17,7 @@ import Raute from '../../../components/Raute.astro';
 import Woerter from '../../../components/Woerter.astro';
 import Lightbox from '../../../components/Lightbox.astro';
 import Kontaktaufruf from '../../../components/Kontaktaufruf.astro';
+import manifest from '../../../data/bilder-manifest.json';
 import { projekte, leistungen, projektText, nachbarn, type Projekt } from '../../../data/daten';
 import { t, pfad, fuelle, sprachen, type Sprache } from '../../../i18n/utils';
 
@@ -52,9 +53,12 @@ const leistungName = leistung ? tx.leistungen.eintraege[leistung.slug as keyof t
 // Fallstudie: Kapitel wechseln dunkel/hell; Teaser und Kontakt setzen den Wechsel fort
 const endetDunkel = istFallstudie ? (((projekt.kapitel!.length - 1) % 2 === 0) === (pt.materialien.length === 0)) : false;
 const teaserTon = istFallstudie && endetDunkel ? 'hell' : 'dunkel';
+// gleiche Regel wie im Hero (Vollbild ab 2400 px Breite, Querformat), damit der Preload dieselbe Größe lädt
+const heroManifest = (manifest as Record<string, { breite: number; hoehe: number }>)[projekt.titelbild];
+const heroVollbild = projekt.hero !== 'geteilt' && heroManifest.breite >= 2400 && heroManifest.breite >= heroManifest.hoehe;
 let nr = 0;
 ---
-<Basis lang={lang} titel={pt.titel} beschreibung={`${pt.kurz} ${pt.beschreibung[0]}`.slice(0, 300)} seite="projekte" kopfUeberHero>
+<Basis lang={lang} titel={pt.titel} beschreibung={`${pt.kurz} ${pt.beschreibung[0]}`.slice(0, 300)} seite="projekte" kopfUeberHero vorladen={{ id: projekt.titelbild, sizes: heroVollbild ? '100vw' : '(min-width: 62rem) 50vw, 100vw' }}>
   <Hero
     bild={projekt.titelbild}
     bildAlt={pt.alt[projekt.titelbild]}
@@ -105,6 +109,7 @@ let nr = 0;
       vergroessern={p.lightbox.vergroessern}
       startTon={pt.materialien.length > 0 ? 'hell' : 'dunkel'}
       lightboxIds={lbIds}
+      startNummer={nr + 1}
     />
   )}
 

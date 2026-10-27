@@ -8,10 +8,10 @@
       "flaeche": 400,
       "jahr": 2026,
       "pdfSeiten": "12-14",
-      "titelbild": "villa-homs-nacht-front",
+      "titelbild": "villa-homs-nacht-perspektive",
       "galerie": [
-        "villa-homs-nacht-front",
         "villa-homs-nacht-perspektive",
+        "villa-homs-nacht-front",
         "villa-homs-tag-eingang",
         "villa-homs-tag-balkon"
       ],
@@ -35,8 +35,8 @@
           "حجر صناعي أسود"
         ],
         "alt": {
-          "villa-homs-nacht-front": "الفيلا في حمص ليلاً بواجهتها الحجرية المضاءة ونافذتها العالية بين الأشجار",
           "villa-homs-nacht-perspektive": "منظور جانبي للفيلا ليلاً يظهر الشرفة العلوية والمدخل المضاء",
+          "villa-homs-nacht-front": "الفيلا في حمص ليلاً بواجهتها الحجرية المضاءة ونافذتها العالية بين الأشجار",
           "villa-homs-tag-eingang": "المدخل الرئيسي نهاراً، باب معدني داكن بين عمودين حجريين",
           "villa-homs-tag-balkon": "الشرفة العلوية نهاراً بدرابزين معدني أسود وكرسي استرخاء"
         }
@@ -60,8 +60,8 @@
           "Black engineered stone"
         ],
         "alt": {
-          "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit and the tall window framed by trees",
           "villa-homs-nacht-perspektive": "Side perspective of the villa at night, showing the upper balcony and the lit entrance",
+          "villa-homs-nacht-front": "The villa in Homs at night, its stone façade lit and the tall window framed by trees",
           "villa-homs-tag-eingang": "The main entrance by day, a dark metal door between two stone columns",
           "villa-homs-tag-balkon": "The upper balcony by day, with a black metal railing and a lounge chair"
         }

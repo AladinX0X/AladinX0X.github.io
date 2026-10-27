@@ -20,7 +20,9 @@ for (const breite of [375, 1440]) {
       // Lazy-Bilder laden: einmal durch die Seite scrollen
       for (let y = 0; y < document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise((r) => setTimeout(r, 40)); }
       window.scrollTo(0, 0);
-      await Promise.all([...document.images].map((i) => i.complete ? null : new Promise((r) => { i.onload = i.onerror = r; })));
+      // nur sichtbare Bilder abwarten (versteckte lazy-Bilder laden nie), höchstens 5 s
+      const sichtbar = [...document.images].filter((i) => i.checkVisibility() && !i.complete);
+      await Promise.race([Promise.all(sichtbar.map((i) => new Promise((r) => { i.onload = i.onerror = r; }))), new Promise((r) => setTimeout(r, 5000))]);
     });
     const name = (p.replace(/^\/|\/$/g, '').replace(/\//g, '_') || 'start').replace('.html', '');
     await mkdir('screenshots', { recursive: true });

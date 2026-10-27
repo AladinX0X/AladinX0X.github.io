@@ -42,9 +42,12 @@ const teaser = [
   .t-karte { position: relative; display: grid; }
   .t-bild { aspect-ratio: 16 / 10; inline-size: 100%; max-inline-size: var(--max); }
   .t-bild :global(img) { transition: transform var(--dauer-lang) var(--kurve-ein); }
-  .t-bild::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgb(3 33 26 / 0.92) 0%, rgb(3 33 26 / 0.4) 45%, rgb(3 33 26 / 0) 70%); pointer-events: none; }
+  .t-bild::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgb(3 33 26 / 0.95) 0%, rgb(3 33 26 / 0.86) 38%, rgb(3 33 26 / 0.45) 68%, rgb(3 33 26 / 0.1) 100%); pointer-events: none; }
   .t-bild { position: relative; }
-  .t-text { position: absolute; inset-inline: var(--abstand-5); inset-block-end: var(--abstand-5); display: grid; gap: var(--abstand-2); }
+  .t-text { display: grid; gap: var(--abstand-2); padding-block-start: var(--abstand-4); }
+  /* Ab 48rem liegt der Text unten auf dem Bild (über einem Verlauf), schmal darunter */
+  @media (min-width: 48rem) { .t-text { position: absolute; inset-inline: var(--abstand-5); inset-block-end: var(--abstand-5); padding: 0; } }
+  @media (max-width: 47.99rem) { .t-bild::after { display: none; } .t-titel { color: inherit; } .hell .t-richtung { color: var(--farbe-terrakotta-dunkel); } .hell .t-titel { color: var(--farbe-gruen); } }
   .t-richtung { display: inline-flex; align-items: center; gap: var(--abstand-2); font-size: var(--text-klein); color: var(--farbe-terrakotta-hell); font-weight: var(--gewicht-mittel); }
   .t-richtung :global(.icon) { inline-size: 1.1rem; block-size: 1.1rem; transition: translate var(--dauer-mittel) var(--kurve-ein); }
   :global([dir='ltr']) .t-richtung :global(.t-zurueck) { transform: scaleX(-1); }

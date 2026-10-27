@@ -78,7 +78,8 @@ const SEITEN = ['/ar/', '/en/', '/ar/projects/', '/ar/projects/villa-uae/', '/en
     await s.waitForTimeout(1200);
     b.pruefe(await s.evaluate(() => document.querySelectorAll('dialog[data-lightbox]').length === 1), `@${breite}: Projektseite nach Wechsel ohne Lightbox`);
     // Lightbox funktioniert nach dem Seitenwechsel (Skripte neu initialisiert)
-    await s.locator('[data-lightbox-index="0"]').click();
+    await s.locator('[data-lightbox-index]').first().scrollIntoViewIfNeeded();
+    await s.locator('[data-lightbox-index]').first().click();
     b.pruefe(await s.locator('dialog[data-lightbox]').isVisible(), `@${breite}: Lightbox öffnet nach dem Seitenwechsel nicht`);
     await s.keyboard.press('Escape');
     for (let runde = 0; runde < 2; runde++) {

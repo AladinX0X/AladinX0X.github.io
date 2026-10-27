@@ -32,6 +32,7 @@ h3 { font-size: var(--h3); }
 p { margin: 0; text-wrap: pretty; }
 p + p { margin-block-start: var(--abstand-4); }
 ul, ol { margin: 0; padding: 0; }
+figure { margin: 0; }
 em, i { font-style: normal; }
 
 /* Großbuchstaben und Sperrung nur für Englisch */

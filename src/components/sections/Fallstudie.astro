@@ -13,9 +13,9 @@ interface Kapitel { muster: string; bilder: string[] }
 interface Props {
   kapitel: Kapitel[]; texte: { titel: string; text: string }[]; alts: Record<string, string>;
   farben: string[]; farbnamen: string[]; schriftprobe: { arabisch: string; latein: string };
-  vergroessern: string; startTon?: 'hell' | 'dunkel'; lightboxIds: string[];
+  vergroessern: string; startTon?: 'hell' | 'dunkel'; lightboxIds: string[]; startNummer?: number;
 }
-const { kapitel, texte, alts, farben, farbnamen, schriftprobe, vergroessern, startTon = 'hell', lightboxIds } = Astro.props;
+const { kapitel, texte, alts, farben, farbnamen, schriftprobe, vergroessern, startTon = 'hell', lightboxIds, startNummer = 1 } = Astro.props;
 const m = manifest as Record<string, { breite: number; hoehe: number }>;
 const max = (id: string) => `--max: ${Math.round(m[id].breite / 1.5)}px; --r: ${(m[id].breite / m[id].hoehe).toFixed(3)}`;
 const ton = (i: number) => ((i % 2 === 0) === (startTon === 'hell') ? 'hell' : 'dunkel');
@@ -26,7 +26,7 @@ const aufbau = [[0, 0], [1, 0], [0, 1], [1, 1], [2, 1], [2, 0]];
 {kapitel.map((k, i) => (
   <section class:list={['abschnitt', ton(i), 'kapitel', `kapitel-${k.muster}`]} aria-labelledby={`kapitel-${i + 1}`} data-szene={k.muster === 'raster' ? 'raster' : undefined} data-muster={k.muster === 'raster' ? 'raster' : undefined}>
     <div class="huelle">
-      <Abschnittskopf titel={texte[i].titel} nummer={i + 1} id={`kapitel-${i + 1}`} />
+      <Abschnittskopf titel={texte[i].titel} nummer={startNummer + i} id={`kapitel-${i + 1}`} />
       <div class="k-raster">
         <p class="k-text einleitung lesetext" data-woerter-einblenden>{texte[i].text}</p>
 

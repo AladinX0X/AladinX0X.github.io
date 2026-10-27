@@ -28,6 +28,11 @@ z('- [ ] **Google-Maps-Link** sucht nach "Bazar Mall, Homs, Syria" (src/data/kon
 z();
 z('## 2. Neu geschriebene Texte (nicht im Portfolio)');
 z();
+z('- [ ] **Neu in Runde 3 – Identität (Fallstudie):** Kapiteltexte `kapitel` in projekte.json (`ayloul-brand-identity`, ar/en). Die arabischen Texte stammen von den Präsentationstafeln im Ordner „غرافيك“ (ohne Tatweel übernommen, leicht gekürzt); die englischen sind meine Übersetzung. Kapitel 7 „الإنتاج / Production“ ist neu formuliert und beschreibt nur die zwei Druck-Mockups.');
+z('- [ ] **Neu in Runde 3 – Werkplanung:** Plannamen `blaetter` (projekte.json, ar/en), aus dem Inhalt der Blätter abgeleitet (die Schriftfelder der PDFs sind leer).');
+z('- [ ] **Neu in Runde 3 – Musterkarten der Innenprojekte:** Farben wurden in den Renderings an Stellen des jeweiligen Materials gemessen (Median der Pixel; warmes Metall: 10. Perzentil wegen Glanzlichtern); Namen = Materialien aus der Projektbeschreibung (`farbnamen`). Bitte prüfen, ob die Farben passen.');
+z('- [ ] **Neu in Runde 3 – Texte:** `start.heroKontakt` (تواصل معنا), `projekte.plansatz`, `plansatzIntro`, `blatt`, `planname`, `muster`, `musterHinweis`, `fallstudie`, `kapitel`, `teaserTitel`, `schriftprobe`, `arbeitsweise.fortschritt`, `arbeitsweise.stufenIntro`, `leistungen.umfangTitel`, `ablaufTitel`, `mehr`, `listeTitel`; geänderte Meta-Beschreibungen ohne Zahlwörter (`meta.seiten.arbeitsweise`, `meta.seiten.leistungen`, `start.disziplinenIntro`).');
+z('- [ ] **Neu in Runde 3 – alt-Texte** der Identitäts- und Planbilder (projekte.json).');
 z('- [ ] Leistung 5 "3D-Visualisierung": ar.json / en.json `leistungen.eintraege.3d-visualization` (kurz, text, aspekte).');
 z('- [ ] Leistung 6 "Ausführung und Bauüberwachung": ar.json / en.json `leistungen.eintraege.construction-supervision`.');
 z('- [ ] Schritt 04 "Raum" der Arbeitsweise (im Portfolio versehentlich mit dem Text von Schritt 01): `arbeitsweise.schritte[3].text`.');
@@ -65,7 +70,7 @@ for (const p of projekte) {
 }
 z('## 4. Bilder: Herkunft (Original oder PDF-Auszug)');
 z();
-z('Seit Runde 2 stammen alle Projektbilder von Villa Homs, Villa VAE, Moscheeplatz, Villa Innen VAE und Master-Schlafzimmer aus den Originalen. Noch aus dem PDF: Werkplanung (Pläne), Markenidentität und vier Stimmungsbilder. Originale dafür in `quelle/originale/<projekt>/` ablegen, in src/data/bilder.json eintragen, dann `npm run bilder`.');
+z('Seit Runde 3 stammen alle Bilder der Website aus Originalen (auch Werkplanung und Markenidentität). Neue Originale in `quelle/originale/<projekt>/` ablegen, in src/data/bilder.json eintragen, dann `npm run bilder`.');
 z();
 z('| Bild-ID | Art | Breite × Höhe | Herkunft |');
 z('|---|---|---|---|');
@@ -76,7 +81,7 @@ for (const id of Object.keys(bilder)) {
 z();
 z('- [x] Logo: seit Runde 2 aus den Originalen (Desktop-Ordner "logo", 5000 px PNG). Ein SVG wäre noch schärfer.');
 z('- [ ] Raute: als SVG nachgebaut (src/components/Raute.astro), später aus dem Original-Logo ersetzen.');
-z('- [ ] Pläne der Werkplanung: nur PDF-Auszüge (max. 1060 px). In der Großansicht kann man jetzt zoomen, für scharfe Details braucht es PDF- oder PNG-Exporte aus dem CAD.');
+z('- [x] Pläne der Werkplanung: seit Runde 3 aus den Vektor-PDFs (450 dpi, bis 4096 px in der Großansicht).');
 z('- [x] Hero als Vollbild mit dem Original-Nachtbild des Moscheeplatzes (2560 px).');
 z();
 

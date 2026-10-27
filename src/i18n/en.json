@@ -191,10 +191,8 @@
     "titel": "Services",
     "unterzeile": "From architectural form to visual communication.",
     "intro": "A focused range of design services developed across architecture, interiors, technical documentation and architectural graphic design.",
-    "aspekteTitel": "What the service includes",
     "schritteTitel": "From design to documentation",
     "projekteTitel": "Related projects",
-    "keineProjekte": "There are no published projects for this service yet. Contact us to discuss your project.",
     "alle": "All services",
     "weitere": "Other services",
     "eintraege": {
@@ -373,12 +371,10 @@
     "flaecheEinheit": "{n} m²",
     "beschreibung": "About the project",
     "materialien": "Materials",
-    "farben": "Colours",
     "galerie": "Gallery",
     "vorheriges": "Previous project",
     "naechstes": "Next project",
     "alle": "All projects",
-    "projektAnsehen": "View project",
     "lightbox": {
       "dialog": "Image viewer",
       "schliessen": "Close",
@@ -402,8 +398,7 @@
     "schriftprobe": {
       "arabisch": "أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي",
       "latein": "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz 0123456789"
-    },
-    "farbeKopieren": "Colour code"
+    }
   },
   "kontakt": {
     "titel": "Contact",
@@ -428,8 +423,6 @@
     "karteLink": "Open in Google Maps",
     "socialTitel": "Follow us",
     "neuesFenster": "opens in a new tab",
-    "direktTitel": "Direct contact",
-    "direktText": "The fastest way to reach us: a WhatsApp message, a phone call or an email.",
     "karteAlt": "Map of central Homs showing the way from the Old Clock of Homs to the Bazar Mall building",
     "karteOeffnen": "Open the location in Google Maps"
   },

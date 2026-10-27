@@ -17,7 +17,7 @@ const tx = t(lang);
 const p = tx.projekte;
 const vorhanden = bereiche.filter((b) => projekte.some((x) => x.bereich === b));
 const filter = [{ id: 'alle', name: p.filter.alle }, ...vorhanden.map((b) => ({ id: b, name: p.filter[b] }))];
-const heroBild = 'mosque-square-tag-platz';
+const heroBild = 'villa-uae-boegen-nacht';
 ---
 <Basis lang={lang} titel={tx.meta.seiten.projekte.titel} beschreibung={tx.meta.seiten.projekte.beschreibung} seite="projekte" kopfUeberHero vorladen={{ id: heroBild, sizes: '100vw' }}>
   <Hero bild={heroBild} bildAlt={altText(heroBild, lang)} kicker={tx.marke.unterzeile} titel={p.titel} unterzeile={p.intro} hoehe="gross" hinweisZiel="#liste-titel" hinweisText={tx.start.scrollHinweis} />

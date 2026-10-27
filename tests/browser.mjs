@@ -173,6 +173,55 @@ if (projektSeite) {
   await s.close();
 }
 
+// Kontakt: kein Formular, direkte Kontaktknöpfe im Hero, Social-Links in fester Reihenfolge, Karte öffnet Google Maps
+for (const lang of ['ar', 'en']) {
+  if (!hat(`/${lang}/contact/`)) continue;
+  const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await s.goto(basis + `/${lang}/contact/`);
+  ia.pruefe((await s.locator('form, input, textarea').count()) === 0, `${lang}: Kontaktseite enthält noch ein Formular`);
+  for (const href of ['https://wa.me/', 'tel:', 'mailto:']) {
+    ia.pruefe((await s.locator(`[data-hero] a.knopf[href^="${href}"]`).count()) === 1, `${lang}: Knopf ${href} fehlt im Hero`);
+  }
+  const reihenfolge = await s.locator('main .social a').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
+  const erwartet = ['wa.me', 'instagram.com', 'facebook.com/share/1cDyKV6KHj', 'linkedin.com/in/ayloul-design-455786444', 'tel:', 'mailto:'];
+  ia.pruefe(erwartet.every((e, i) => reihenfolge[i]?.includes(e)), `${lang}: Social-Reihenfolge falsch: ${reihenfolge.join(', ')}`);
+  for (const a of await s.locator('.social a[href^="http"], .karte').all()) {
+    ia.pruefe((await a.getAttribute('target')) === '_blank' && (await a.getAttribute('rel'))?.includes('noopener'), `${lang}: externer Link ohne target/rel: ${await a.getAttribute('href')}`);
+    const label = await a.getAttribute('aria-label');
+    ia.pruefe(Boolean(label) && (lang === 'ar' ? /[؀-ۿ]/.test(label) : /^[\x00-\x7F]+$/.test(label)), `${lang}: aria-label fehlt oder nicht in Seitensprache: ${label}`);
+  }
+  ia.pruefe((await s.locator('a.karte[href*="google.com/maps"] img').count()) === 1, `${lang}: Kartenbild ist kein Link zu Google Maps`);
+  ia.pruefe((await s.locator('iframe').count()) === 0, `${lang}: iframe auf der Kontaktseite`);
+  await s.close();
+}
+// Startseite: Hero-Knopf "تواصل معنا" ohne WhatsApp-Icon, führt zur Kontaktseite derselben Sprache
+for (const lang of ['ar', 'en']) {
+  const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await s.goto(basis + `/${lang}/`);
+  const knopf = s.locator('[data-hero] .knopf-linie');
+  ia.pruefe((await knopf.getAttribute('href')) === `/${lang}/contact/`, `${lang}: Hero-Knopf führt nicht zur Kontaktseite`);
+  ia.pruefe((await knopf.locator('svg').count()) === 0 && !(await s.locator('[data-hero] a[href*="wa.me"]').count()), `${lang}: Hero-Knopf hat noch ein WhatsApp-Icon/-Link`);
+  await s.close();
+}
+{
+  // Footer: Social-Links auf jeder Seite inkl. LinkedIn und Facebook
+  const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await s.goto(basis + '/en/about/');
+  const hrefs = await s.locator('.fuss .social a').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
+  ia.pruefe(hrefs.length === 6 && hrefs.some((h) => h.includes('linkedin.com')) && hrefs.some((h) => h.includes('facebook.com/share')), `Footer-Social-Links unvollständig: ${hrefs.join(', ')}`);
+  await s.close();
+}
+// Projektseiten: Farbabschnitt nur bei Innenprojekten
+for (const slug of ['villa-homs', 'villa-uae', 'mosque-square', 'apartment-shop-drawings', 'villa-interior-uae', 'master-bedroom-uae']) {
+  if (!hat(`/ar/projects/${slug}/`)) continue;
+  const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await s.goto(basis + `/ar/projects/${slug}/`);
+  const muster = await s.locator('[data-muster="muster"]').count();
+  const innen = slug.includes('interior') || slug.includes('bedroom');
+  ia.pruefe(innen ? muster === 1 : muster === 0, `${slug}: Farbabschnitt ${muster ? 'vorhanden' : 'fehlt'}`);
+  await s.close();
+}
+
 // Sprachumschalter führt auf dieselbe Seite
 if (hat('/en/')) {
   const s = await browser.newPage({ viewport: { width: 1280, height: 900 } });

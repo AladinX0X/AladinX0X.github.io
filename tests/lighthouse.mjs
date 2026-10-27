@@ -10,7 +10,7 @@ import { chromium } from 'playwright';
 import { starteServer } from './server.mjs';
 import { Bericht } from './hilfen.mjs';
 
-const SEITEN = ['/ar/', '/en/', '/ar/projects/', '/ar/projects/villa-uae/', '/ar/contact/', '/en/services/3d-visualization/'];
+const SEITEN = process.env.SEITEN ? process.env.SEITEN.split(',') : ['/ar/', '/en/', '/ar/about/', '/ar/approach/', '/ar/services/', '/ar/services/3d-visualization/', '/ar/projects/', '/ar/projects/villa-homs/', '/ar/projects/villa-interior-uae/', '/ar/projects/apartment-shop-drawings/', '/en/projects/ayloul-brand-identity/', '/ar/contact/', '/404.html'];
 const { server, basis } = await starteServer('dist', 4399);
 const chrome = await chromeLauncher.launch({ chromePath: process.env.CHROME_PATH || chromium.executablePath(), chromeFlags: ['--headless=new', '--no-sandbox'] });
 const b = new Bericht('Lighthouse mobil: Performance >= 90, Barrierefreiheit >= 95, LCP < 2.5 s, CLS < 0.05, JS <= 120 KB');
